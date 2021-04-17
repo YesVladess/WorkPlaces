@@ -14,18 +14,10 @@
 		5ADB26B5262B8F7100CFC392 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5ADB26B4262B8F7100CFC392 /* Assets.xcassets */; };
 		5ADB26B8262B8F7100CFC392 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ADB26B6262B8F7100CFC392 /* LaunchScreen.storyboard */; };
 		5ADB26C3262B8F7100CFC392 /* workplacesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADB26C2262B8F7100CFC392 /* workplacesTests.swift */; };
-		5ADB26CE262B8F7100CFC392 /* workplacesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADB26CD262B8F7100CFC392 /* workplacesUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		5ADB26BF262B8F7100CFC392 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5ADB26A0262B8F7000CFC392 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5ADB26A7262B8F7000CFC392;
-			remoteInfo = workplaces;
-		};
-		5ADB26CA262B8F7100CFC392 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5ADB26A0262B8F7000CFC392 /* Project object */;
 			proxyType = 1;
@@ -46,9 +38,6 @@
 		5ADB26BE262B8F7100CFC392 /* workplacesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = workplacesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ADB26C2262B8F7100CFC392 /* workplacesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = workplacesTests.swift; sourceTree = "<group>"; };
 		5ADB26C4262B8F7100CFC392 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5ADB26C9262B8F7100CFC392 /* workplacesUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = workplacesUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5ADB26CD262B8F7100CFC392 /* workplacesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = workplacesUITests.swift; sourceTree = "<group>"; };
-		5ADB26CF262B8F7100CFC392 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,13 +55,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5ADB26C6262B8F7100CFC392 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -81,7 +63,6 @@
 			children = (
 				5ADB26AA262B8F7000CFC392 /* workplaces */,
 				5ADB26C1262B8F7100CFC392 /* workplacesTests */,
-				5ADB26CC262B8F7100CFC392 /* workplacesUITests */,
 				5ADB26A9262B8F7000CFC392 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -91,7 +72,6 @@
 			children = (
 				5ADB26A8262B8F7000CFC392 /* workplaces.app */,
 				5ADB26BE262B8F7100CFC392 /* workplacesTests.xctest */,
-				5ADB26C9262B8F7100CFC392 /* workplacesUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -99,6 +79,7 @@
 		5ADB26AA262B8F7000CFC392 /* workplaces */ = {
 			isa = PBXGroup;
 			children = (
+				5ADB270F262B917600CFC392 /* Resources */,
 				5ADB26AB262B8F7000CFC392 /* AppDelegate.swift */,
 				5ADB26AD262B8F7000CFC392 /* SceneDelegate.swift */,
 				5ADB26AF262B8F7000CFC392 /* ViewController.swift */,
@@ -119,13 +100,11 @@
 			path = workplacesTests;
 			sourceTree = "<group>";
 		};
-		5ADB26CC262B8F7100CFC392 /* workplacesUITests */ = {
+		5ADB270F262B917600CFC392 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				5ADB26CD262B8F7100CFC392 /* workplacesUITests.swift */,
-				5ADB26CF262B8F7100CFC392 /* Info.plist */,
 			);
-			path = workplacesUITests;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -166,24 +145,6 @@
 			productReference = 5ADB26BE262B8F7100CFC392 /* workplacesTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		5ADB26C8262B8F7100CFC392 /* workplacesUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5ADB26D8262B8F7100CFC392 /* Build configuration list for PBXNativeTarget "workplacesUITests" */;
-			buildPhases = (
-				5ADB26C5262B8F7100CFC392 /* Sources */,
-				5ADB26C6262B8F7100CFC392 /* Frameworks */,
-				5ADB26C7262B8F7100CFC392 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				5ADB26CB262B8F7100CFC392 /* PBXTargetDependency */,
-			);
-			name = workplacesUITests;
-			productName = workplacesUITests;
-			productReference = 5ADB26C9262B8F7100CFC392 /* workplacesUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -197,10 +158,6 @@
 						CreatedOnToolsVersion = 12.4;
 					};
 					5ADB26BD262B8F7100CFC392 = {
-						CreatedOnToolsVersion = 12.4;
-						TestTargetID = 5ADB26A7262B8F7000CFC392;
-					};
-					5ADB26C8262B8F7100CFC392 = {
 						CreatedOnToolsVersion = 12.4;
 						TestTargetID = 5ADB26A7262B8F7000CFC392;
 					};
@@ -221,7 +178,6 @@
 			targets = (
 				5ADB26A7262B8F7000CFC392 /* workplaces */,
 				5ADB26BD262B8F7100CFC392 /* workplacesTests */,
-				5ADB26C8262B8F7100CFC392 /* workplacesUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -238,13 +194,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5ADB26BC262B8F7100CFC392 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5ADB26C7262B8F7100CFC392 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -272,14 +221,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5ADB26C5262B8F7100CFC392 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5ADB26CE262B8F7100CFC392 /* workplacesUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -287,11 +228,6 @@
 			isa = PBXTargetDependency;
 			target = 5ADB26A7262B8F7000CFC392 /* workplaces */;
 			targetProxy = 5ADB26BF262B8F7100CFC392 /* PBXContainerItemProxy */;
-		};
-		5ADB26CB262B8F7100CFC392 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5ADB26A7262B8F7000CFC392 /* workplaces */;
-			targetProxy = 5ADB26CA262B8F7100CFC392 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -446,7 +382,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.YesVladess.workplaces;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -465,7 +401,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.YesVladess.workplaces;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -513,46 +449,6 @@
 			};
 			name = Release;
 		};
-		5ADB26D9262B8F7100CFC392 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2S3C473DW6;
-				INFOPLIST_FILE = workplacesUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.YesVladess.workplacesUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = workplaces;
-			};
-			name = Debug;
-		};
-		5ADB26DA262B8F7100CFC392 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2S3C473DW6;
-				INFOPLIST_FILE = workplacesUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.YesVladess.workplacesUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = workplaces;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -579,15 +475,6 @@
 			buildConfigurations = (
 				5ADB26D6262B8F7100CFC392 /* Debug */,
 				5ADB26D7262B8F7100CFC392 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5ADB26D8262B8F7100CFC392 /* Build configuration list for PBXNativeTarget "workplacesUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5ADB26D9262B8F7100CFC392 /* Debug */,
-				5ADB26DA262B8F7100CFC392 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
