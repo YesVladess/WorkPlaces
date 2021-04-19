@@ -9,10 +9,11 @@
 /* Begin PBXBuildFile section */
 		5A96F2EB262E30B7006BD8C9 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A96F2EA262E30B7006BD8C9 /* String.swift */; };
 		5A96F2EF262E3207006BD8C9 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A96F2EE262E3207006BD8C9 /* UIColor.swift */; };
+		5A96F2F6262E392D006BD8C9 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A96F2F5262E392D006BD8C9 /* LoginViewController.xib */; };
+		5A96F305262E3EE4006BD8C9 /* UIViewController+Childs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A96F304262E3EE4006BD8C9 /* UIViewController+Childs.swift */; };
 		5ADB26AC262B8F7000CFC392 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADB26AB262B8F7000CFC392 /* AppDelegate.swift */; };
 		5ADB26AE262B8F7000CFC392 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADB26AD262B8F7000CFC392 /* SceneDelegate.swift */; };
 		5ADB26B0262B8F7000CFC392 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADB26AF262B8F7000CFC392 /* LoginViewController.swift */; };
-		5ADB26B3262B8F7000CFC392 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ADB26B1262B8F7000CFC392 /* Main.storyboard */; };
 		5ADB26B5262B8F7100CFC392 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5ADB26B4262B8F7100CFC392 /* Assets.xcassets */; };
 		5ADB26B8262B8F7100CFC392 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ADB26B6262B8F7100CFC392 /* LaunchScreen.storyboard */; };
 		5ADB26C3262B8F7100CFC392 /* workplacesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADB26C2262B8F7100CFC392 /* workplacesTests.swift */; };
@@ -41,11 +42,12 @@
 		55F0B2EF5DF5D1C38EA86DA2 /* Pods-workplacesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-workplacesTests.release.xcconfig"; path = "Target Support Files/Pods-workplacesTests/Pods-workplacesTests.release.xcconfig"; sourceTree = "<group>"; };
 		5A96F2EA262E30B7006BD8C9 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		5A96F2EE262E3207006BD8C9 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		5A96F2F5262E392D006BD8C9 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		5A96F304262E3EE4006BD8C9 /* UIViewController+Childs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Childs.swift"; sourceTree = "<group>"; };
 		5ADB26A8262B8F7000CFC392 /* workplaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = workplaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ADB26AB262B8F7000CFC392 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5ADB26AD262B8F7000CFC392 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5ADB26AF262B8F7000CFC392 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		5ADB26B2262B8F7000CFC392 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5ADB26B4262B8F7100CFC392 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5ADB26B7262B8F7100CFC392 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5ADB26B9262B8F7100CFC392 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -105,6 +107,14 @@
 				83C0A1A14EEEA9DE03007F93 /* Pods_workplacesTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5A96F2F4262E38DC006BD8C9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5A96F2F5262E392D006BD8C9 /* LoginViewController.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		5ADB269F262B8F7000CFC392 = {
@@ -252,6 +262,7 @@
 				5ADB27BE262DC56E00CFC392 /* UIFont+Fonts.swift */,
 				5A96F2EA262E30B7006BD8C9 /* String.swift */,
 				5A96F2EE262E3207006BD8C9 /* UIColor.swift */,
+				5A96F304262E3EE4006BD8C9 /* UIViewController+Childs.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -259,6 +270,7 @@
 		5ADB27C4262DCB3F00CFC392 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				5A96F2F4262E38DC006BD8C9 /* Views */,
 				5ADB27C8262DCC5B00CFC392 /* ViewController */,
 			);
 			path = Login;
@@ -274,7 +286,6 @@
 		5ADB27C8262DCC5B00CFC392 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				5ADB26B1262B8F7000CFC392 /* Main.storyboard */,
 				5ADB26AF262B8F7000CFC392 /* LoginViewController.swift */,
 			);
 			path = ViewController;
@@ -422,10 +433,10 @@
 			files = (
 				5ADB27A2262DBA1E00CFC392 /* Localizable.strings in Resources */,
 				5ADB2787262DB47400CFC392 /* IBMPlexSans-Regular.ttf in Resources */,
+				5A96F2F6262E392D006BD8C9 /* LoginViewController.xib in Resources */,
 				5ADB26B8262B8F7100CFC392 /* LaunchScreen.storyboard in Resources */,
 				5ADB26B5262B8F7100CFC392 /* Assets.xcassets in Resources */,
 				5ADB27DF262E1B2800CFC392 /* ZeroScreenViewController.xib in Resources */,
-				5ADB26B3262B8F7000CFC392 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,6 +525,7 @@
 				5A96F2EF262E3207006BD8C9 /* UIColor.swift in Sources */,
 				5ADB27BF262DC56E00CFC392 /* UIFont+Fonts.swift in Sources */,
 				5ADB27B1262DBC9200CFC392 /* String+Localizable.swift in Sources */,
+				5A96F305262E3EE4006BD8C9 /* UIViewController+Childs.swift in Sources */,
 				5A96F2EB262E30B7006BD8C9 /* String.swift in Sources */,
 				5ADB27E6262E1CC400CFC392 /* ZeroScreenViewModel.swift in Sources */,
 			);
@@ -538,14 +550,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		5ADB26B1262B8F7000CFC392 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5ADB26B2262B8F7000CFC392 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		5ADB26B6262B8F7100CFC392 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

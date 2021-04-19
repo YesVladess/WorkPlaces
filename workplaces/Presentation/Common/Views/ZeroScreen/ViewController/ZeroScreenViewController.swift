@@ -13,10 +13,10 @@ class ZeroScreenViewController: UIViewController {
     var viewModel: ZeroScreenViewModel?
 
     // MARK: - IBOutlet
-    @IBOutlet weak var errorImageView: UIImageView!
-    @IBOutlet weak var mainLabel: UILabel!
-    @IBOutlet weak var secondaryLabel: UILabel!
-    @IBOutlet weak var actionButton: UIButton!
+    @IBOutlet private weak var errorImageView: UIImageView!
+    @IBOutlet private weak var mainLabel: UILabel!
+    @IBOutlet private weak var secondaryLabel: UILabel!
+    @IBOutlet private weak var actionButton: UIButton!
 
     // MARK: - UIViewController(*)
     override func viewDidLoad() {
@@ -25,7 +25,7 @@ class ZeroScreenViewController: UIViewController {
     }
 
     // MARK: - IBAction
-    @IBAction func actionButtonTapped(_ sender: Any) {
+    @IBAction private func actionButtonTapped(_ sender: Any) {
     }
 
     // MARK: - Private Methods
