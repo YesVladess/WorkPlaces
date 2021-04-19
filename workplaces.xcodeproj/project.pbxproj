@@ -9,11 +9,15 @@
 /* Begin PBXBuildFile section */
 		5ADB26AC262B8F7000CFC392 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADB26AB262B8F7000CFC392 /* AppDelegate.swift */; };
 		5ADB26AE262B8F7000CFC392 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADB26AD262B8F7000CFC392 /* SceneDelegate.swift */; };
-		5ADB26B0262B8F7000CFC392 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADB26AF262B8F7000CFC392 /* ViewController.swift */; };
+		5ADB26B0262B8F7000CFC392 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADB26AF262B8F7000CFC392 /* LoginViewController.swift */; };
 		5ADB26B3262B8F7000CFC392 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ADB26B1262B8F7000CFC392 /* Main.storyboard */; };
 		5ADB26B5262B8F7100CFC392 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5ADB26B4262B8F7100CFC392 /* Assets.xcassets */; };
 		5ADB26B8262B8F7100CFC392 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ADB26B6262B8F7100CFC392 /* LaunchScreen.storyboard */; };
 		5ADB26C3262B8F7100CFC392 /* workplacesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADB26C2262B8F7100CFC392 /* workplacesTests.swift */; };
+		5ADB2787262DB47400CFC392 /* IBMPlexSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5ADB2786262DB47400CFC392 /* IBMPlexSans-Regular.ttf */; };
+		5ADB27A2262DBA1E00CFC392 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5ADB27A4262DBA1E00CFC392 /* Localizable.strings */; };
+		5ADB27B1262DBC9200CFC392 /* String+Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADB27B0262DBC9200CFC392 /* String+Localizable.swift */; };
+		5ADB27BF262DC56E00CFC392 /* UIFont+Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADB27BE262DC56E00CFC392 /* UIFont+Fonts.swift */; };
 		5F93A04906C00561CC3B8908 /* Pods_workplaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88943D66608E3E042E039761 /* Pods_workplaces.framework */; };
 		AD53B427D091666593AFACAA /* Pods_workplacesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83C0A1A14EEEA9DE03007F93 /* Pods_workplacesTests.framework */; };
 /* End PBXBuildFile section */
@@ -33,7 +37,7 @@
 		5ADB26A8262B8F7000CFC392 /* workplaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = workplaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ADB26AB262B8F7000CFC392 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5ADB26AD262B8F7000CFC392 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5ADB26AF262B8F7000CFC392 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5ADB26AF262B8F7000CFC392 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5ADB26B2262B8F7000CFC392 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5ADB26B4262B8F7100CFC392 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5ADB26B7262B8F7100CFC392 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -41,6 +45,11 @@
 		5ADB26BE262B8F7100CFC392 /* workplacesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = workplacesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ADB26C2262B8F7100CFC392 /* workplacesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = workplacesTests.swift; sourceTree = "<group>"; };
 		5ADB26C4262B8F7100CFC392 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5ADB2786262DB47400CFC392 /* IBMPlexSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Regular.ttf"; sourceTree = "<group>"; };
+		5ADB27A3262DBA1E00CFC392 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5ADB27A7262DBA2300CFC392 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		5ADB27B0262DBC9200CFC392 /* String+Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localizable.swift"; sourceTree = "<group>"; };
+		5ADB27BE262DC56E00CFC392 /* UIFont+Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Fonts.swift"; sourceTree = "<group>"; };
 		7DF47EAB439A1F78F5E96450 /* Pods-workplaces.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-workplaces.release.xcconfig"; path = "Target Support Files/Pods-workplaces/Pods-workplaces.release.xcconfig"; sourceTree = "<group>"; };
 		83C0A1A14EEEA9DE03007F93 /* Pods_workplacesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_workplacesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88943D66608E3E042E039761 /* Pods_workplaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_workplaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +107,7 @@
 				2023F7AE24C6299BCC640B2C /* Frameworks */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		5ADB26A9262B8F7000CFC392 /* Products */ = {
 			isa = PBXGroup;
@@ -111,14 +121,11 @@
 		5ADB26AA262B8F7000CFC392 /* workplaces */ = {
 			isa = PBXGroup;
 			children = (
+				5ADB2751262DA69A00CFC392 /* SupportingFiles */,
+				5ADB274F262DA67B00CFC392 /* Presentation */,
+				5ADB274E262DA67300CFC392 /* Models */,
+				5ADB274A262DA63100CFC392 /* Buisness Logic */,
 				5ADB270F262B917600CFC392 /* Resources */,
-				5ADB26AB262B8F7000CFC392 /* AppDelegate.swift */,
-				5ADB26AD262B8F7000CFC392 /* SceneDelegate.swift */,
-				5ADB26AF262B8F7000CFC392 /* ViewController.swift */,
-				5ADB26B1262B8F7000CFC392 /* Main.storyboard */,
-				5ADB26B4262B8F7100CFC392 /* Assets.xcassets */,
-				5ADB26B6262B8F7100CFC392 /* LaunchScreen.storyboard */,
-				5ADB26B9262B8F7100CFC392 /* Info.plist */,
 			);
 			path = workplaces;
 			sourceTree = "<group>";
@@ -135,8 +142,143 @@
 		5ADB270F262B917600CFC392 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				5ADB2749262DA61500CFC392 /* Localization */,
+				5ADB2748262DA60A00CFC392 /* Fonts */,
+				5ADB26B4262B8F7100CFC392 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		5ADB2748262DA60A00CFC392 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				5ADB2786262DB47400CFC392 /* IBMPlexSans-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		5ADB2749262DA61500CFC392 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				5ADB27A4262DBA1E00CFC392 /* Localizable.strings */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		5ADB274A262DA63100CFC392 /* Buisness Logic */ = {
+			isa = PBXGroup;
+			children = (
+				5ADB274D262DA65300CFC392 /* Services */,
+				5ADB274C262DA64D00CFC392 /* Helpers */,
+				5ADB274B262DA64500CFC392 /* Common */,
+			);
+			path = "Buisness Logic";
+			sourceTree = "<group>";
+		};
+		5ADB274B262DA64500CFC392 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		5ADB274C262DA64D00CFC392 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		5ADB274D262DA65300CFC392 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		5ADB274E262DA67300CFC392 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		5ADB274F262DA67B00CFC392 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				5ADB27D1262DD56800CFC392 /* Welcome */,
+				5ADB27D0262DD55500CFC392 /* SignIn */,
+				5ADB27C7262DCC2000CFC392 /* SignUp */,
+				5ADB27C4262DCB3F00CFC392 /* Login */,
+				5ADB2750262DA68800CFC392 /* Common */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		5ADB2750262DA68800CFC392 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				5ADB27AF262DBC7D00CFC392 /* Extensions */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		5ADB2751262DA69A00CFC392 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				5ADB26AD262B8F7000CFC392 /* SceneDelegate.swift */,
+				5ADB26AB262B8F7000CFC392 /* AppDelegate.swift */,
+				5ADB26B6262B8F7100CFC392 /* LaunchScreen.storyboard */,
+				5ADB26B9262B8F7100CFC392 /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		5ADB27AF262DBC7D00CFC392 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5ADB27B0262DBC9200CFC392 /* String+Localizable.swift */,
+				5ADB27BE262DC56E00CFC392 /* UIFont+Fonts.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		5ADB27C4262DCB3F00CFC392 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				5ADB27C8262DCC5B00CFC392 /* ViewController */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		5ADB27C7262DCC2000CFC392 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		5ADB27C8262DCC5B00CFC392 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5ADB26B1262B8F7000CFC392 /* Main.storyboard */,
+				5ADB26AF262B8F7000CFC392 /* LoginViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		5ADB27D0262DD55500CFC392 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		5ADB27D1262DD56800CFC392 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Welcome;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,6 +347,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = 5ADB269F262B8F7000CFC392;
 			productRefGroup = 5ADB26A9262B8F7000CFC392 /* Products */;
@@ -222,6 +365,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5ADB27A2262DBA1E00CFC392 /* Localizable.strings in Resources */,
+				5ADB2787262DB47400CFC392 /* IBMPlexSans-Regular.ttf in Resources */,
 				5ADB26B8262B8F7100CFC392 /* LaunchScreen.storyboard in Resources */,
 				5ADB26B5262B8F7100CFC392 /* Assets.xcassets in Resources */,
 				5ADB26B3262B8F7000CFC392 /* Main.storyboard in Resources */,
@@ -306,9 +451,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5ADB26B0262B8F7000CFC392 /* ViewController.swift in Sources */,
+				5ADB26B0262B8F7000CFC392 /* LoginViewController.swift in Sources */,
 				5ADB26AC262B8F7000CFC392 /* AppDelegate.swift in Sources */,
 				5ADB26AE262B8F7000CFC392 /* SceneDelegate.swift in Sources */,
+				5ADB27BF262DC56E00CFC392 /* UIFont+Fonts.swift in Sources */,
+				5ADB27B1262DBC9200CFC392 /* String+Localizable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,6 +494,15 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		5ADB27A4262DBA1E00CFC392 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5ADB27A3262DBA1E00CFC392 /* en */,
+				5ADB27A7262DBA2300CFC392 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -354,6 +510,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -415,6 +572,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -474,7 +632,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2S3C473DW6;
-				INFOPLIST_FILE = workplaces/Info.plist;
+				INFOPLIST_FILE = workplaces/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -494,7 +652,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 2S3C473DW6;
-				INFOPLIST_FILE = workplaces/Info.plist;
+				INFOPLIST_FILE = workplaces/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
