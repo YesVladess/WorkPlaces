@@ -51,8 +51,6 @@ private extension UIFont {
            return UIFont.monospacedSystemFont(ofSize: size, weight: weight)
         }
         return font.withSize(size)
-
     }
 
 }
-

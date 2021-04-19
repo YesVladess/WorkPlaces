@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5A96F2EB262E30B7006BD8C9 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A96F2EA262E30B7006BD8C9 /* String.swift */; };
+		5A96F2EF262E3207006BD8C9 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A96F2EE262E3207006BD8C9 /* UIColor.swift */; };
 		5ADB26AC262B8F7000CFC392 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADB26AB262B8F7000CFC392 /* AppDelegate.swift */; };
 		5ADB26AE262B8F7000CFC392 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADB26AD262B8F7000CFC392 /* SceneDelegate.swift */; };
 		5ADB26B0262B8F7000CFC392 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADB26AF262B8F7000CFC392 /* LoginViewController.swift */; };
@@ -18,6 +20,9 @@
 		5ADB27A2262DBA1E00CFC392 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5ADB27A4262DBA1E00CFC392 /* Localizable.strings */; };
 		5ADB27B1262DBC9200CFC392 /* String+Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADB27B0262DBC9200CFC392 /* String+Localizable.swift */; };
 		5ADB27BF262DC56E00CFC392 /* UIFont+Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADB27BE262DC56E00CFC392 /* UIFont+Fonts.swift */; };
+		5ADB27DE262E1B2800CFC392 /* ZeroScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADB27DC262E1B2800CFC392 /* ZeroScreenViewController.swift */; };
+		5ADB27DF262E1B2800CFC392 /* ZeroScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5ADB27DD262E1B2800CFC392 /* ZeroScreenViewController.xib */; };
+		5ADB27E6262E1CC400CFC392 /* ZeroScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADB27E5262E1CC400CFC392 /* ZeroScreenViewModel.swift */; };
 		5F93A04906C00561CC3B8908 /* Pods_workplaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88943D66608E3E042E039761 /* Pods_workplaces.framework */; };
 		AD53B427D091666593AFACAA /* Pods_workplacesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83C0A1A14EEEA9DE03007F93 /* Pods_workplacesTests.framework */; };
 /* End PBXBuildFile section */
@@ -34,6 +39,8 @@
 
 /* Begin PBXFileReference section */
 		55F0B2EF5DF5D1C38EA86DA2 /* Pods-workplacesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-workplacesTests.release.xcconfig"; path = "Target Support Files/Pods-workplacesTests/Pods-workplacesTests.release.xcconfig"; sourceTree = "<group>"; };
+		5A96F2EA262E30B7006BD8C9 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		5A96F2EE262E3207006BD8C9 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		5ADB26A8262B8F7000CFC392 /* workplaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = workplaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ADB26AB262B8F7000CFC392 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5ADB26AD262B8F7000CFC392 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,6 +57,9 @@
 		5ADB27A7262DBA2300CFC392 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		5ADB27B0262DBC9200CFC392 /* String+Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localizable.swift"; sourceTree = "<group>"; };
 		5ADB27BE262DC56E00CFC392 /* UIFont+Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Fonts.swift"; sourceTree = "<group>"; };
+		5ADB27DC262E1B2800CFC392 /* ZeroScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroScreenViewController.swift; sourceTree = "<group>"; };
+		5ADB27DD262E1B2800CFC392 /* ZeroScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZeroScreenViewController.xib; sourceTree = "<group>"; };
+		5ADB27E5262E1CC400CFC392 /* ZeroScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroScreenViewModel.swift; sourceTree = "<group>"; };
 		7DF47EAB439A1F78F5E96450 /* Pods-workplaces.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-workplaces.release.xcconfig"; path = "Target Support Files/Pods-workplaces/Pods-workplaces.release.xcconfig"; sourceTree = "<group>"; };
 		83C0A1A14EEEA9DE03007F93 /* Pods_workplacesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_workplacesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		88943D66608E3E042E039761 /* Pods_workplaces.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_workplaces.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -218,6 +228,7 @@
 		5ADB2750262DA68800CFC392 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				5ADB27D4262E194900CFC392 /* Views */,
 				5ADB27AF262DBC7D00CFC392 /* Extensions */,
 			);
 			path = Common;
@@ -239,6 +250,8 @@
 			children = (
 				5ADB27B0262DBC9200CFC392 /* String+Localizable.swift */,
 				5ADB27BE262DC56E00CFC392 /* UIFont+Fonts.swift */,
+				5A96F2EA262E30B7006BD8C9 /* String.swift */,
+				5A96F2EE262E3207006BD8C9 /* UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -279,6 +292,48 @@
 			children = (
 			);
 			path = Welcome;
+			sourceTree = "<group>";
+		};
+		5ADB27D4262E194900CFC392 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5ADB27D5262E19EF00CFC392 /* ZeroScreen */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5ADB27D5262E19EF00CFC392 /* ZeroScreen */ = {
+			isa = PBXGroup;
+			children = (
+				5ADB27E4262E1C9800CFC392 /* ViewModels */,
+				5ADB27E3262E1B4200CFC392 /* Views */,
+				5ADB27E2262E1B3100CFC392 /* ViewController */,
+			);
+			path = ZeroScreen;
+			sourceTree = "<group>";
+		};
+		5ADB27E2262E1B3100CFC392 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5ADB27DC262E1B2800CFC392 /* ZeroScreenViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		5ADB27E3262E1B4200CFC392 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5ADB27DD262E1B2800CFC392 /* ZeroScreenViewController.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5ADB27E4262E1C9800CFC392 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				5ADB27E5262E1CC400CFC392 /* ZeroScreenViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -369,6 +424,7 @@
 				5ADB2787262DB47400CFC392 /* IBMPlexSans-Regular.ttf in Resources */,
 				5ADB26B8262B8F7100CFC392 /* LaunchScreen.storyboard in Resources */,
 				5ADB26B5262B8F7100CFC392 /* Assets.xcassets in Resources */,
+				5ADB27DF262E1B2800CFC392 /* ZeroScreenViewController.xib in Resources */,
 				5ADB26B3262B8F7000CFC392 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -451,11 +507,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5ADB27DE262E1B2800CFC392 /* ZeroScreenViewController.swift in Sources */,
 				5ADB26B0262B8F7000CFC392 /* LoginViewController.swift in Sources */,
 				5ADB26AC262B8F7000CFC392 /* AppDelegate.swift in Sources */,
 				5ADB26AE262B8F7000CFC392 /* SceneDelegate.swift in Sources */,
+				5A96F2EF262E3207006BD8C9 /* UIColor.swift in Sources */,
 				5ADB27BF262DC56E00CFC392 /* UIFont+Fonts.swift in Sources */,
 				5ADB27B1262DBC9200CFC392 /* String+Localizable.swift in Sources */,
+				5A96F2EB262E30B7006BD8C9 /* String.swift in Sources */,
+				5ADB27E6262E1CC400CFC392 /* ZeroScreenViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
