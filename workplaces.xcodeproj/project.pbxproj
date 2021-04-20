@@ -20,6 +20,7 @@
 		5A28EBD9262ECCF900DF4CEB /* FeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A28EBD8262ECCF900DF4CEB /* FeedService.swift */; };
 		5A28EBDD262ECD3A00DF4CEB /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A28EBDC262ECD3A00DF4CEB /* ProfileService.swift */; };
 		5A28EBE1262ED06900DF4CEB /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A28EBE0262ED06900DF4CEB /* Profile.swift */; };
+		5A6CDAAD262EE68900B92A59 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6CDAAC262EE68900B92A59 /* Images.swift */; };
 		5A96F2EB262E30B7006BD8C9 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A96F2EA262E30B7006BD8C9 /* String.swift */; };
 		5A96F2EF262E3207006BD8C9 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A96F2EE262E3207006BD8C9 /* UIColor.swift */; };
 		5A96F2F6262E392D006BD8C9 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A96F2F5262E392D006BD8C9 /* LoginViewController.xib */; };
@@ -72,6 +73,7 @@
 		5A28EBD8262ECCF900DF4CEB /* FeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
 		5A28EBDC262ECD3A00DF4CEB /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
 		5A28EBE0262ED06900DF4CEB /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		5A6CDAAC262EE68900B92A59 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		5A96F2EA262E30B7006BD8C9 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		5A96F2EE262E3207006BD8C9 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		5A96F2F5262E392D006BD8C9 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -404,6 +406,7 @@
 				5A96F2EE262E3207006BD8C9 /* UIColor.swift */,
 				5A96F304262E3EE4006BD8C9 /* UIViewController+Childs.swift */,
 				5A96F31B262E4672006BD8C9 /* UIView+Loader.swift */,
+				5A6CDAAC262EE68900B92A59 /* Images.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -690,6 +693,7 @@
 				5A28EBD9262ECCF900DF4CEB /* FeedService.swift in Sources */,
 				5A28EBBB262EC9C200DF4CEB /* MyFeedViewController.swift in Sources */,
 				5A96F31C262E4672006BD8C9 /* UIView+Loader.swift in Sources */,
+				5A6CDAAD262EE68900B92A59 /* Images.swift in Sources */,
 				5A28EBCA262ECA9500DF4CEB /* NewPostViewController.swift in Sources */,
 				5ADB27E6262E1CC400CFC392 /* ZeroScreenViewModel.swift in Sources */,
 			);

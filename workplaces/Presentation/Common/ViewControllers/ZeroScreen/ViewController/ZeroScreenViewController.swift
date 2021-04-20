@@ -30,7 +30,7 @@ class ZeroScreenViewController: UIViewController {
 
     // MARK: - Private Methods
     func configureView() {
-        // TODO: Пока не понял, где настраивать модель, настрою тут:
+        // TODO: Пока не понял, где настраивать модель в слое бизнес логики, настрою тут:
         let viewModel = ZeroScreenViewModel(
             errorImageName: "Illustration_01",
             mainLabelTitle: "Ups".localized,

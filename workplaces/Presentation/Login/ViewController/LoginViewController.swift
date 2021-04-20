@@ -15,10 +15,12 @@ class LoginViewController: UIViewController {
         primaryButton.delegate = self
     }
 
+    @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var primaryButton: PrimaryButton!
 
     private func congifure() {
         primaryButton.setTitle("Sign in By Mail Or Login".localized)
+        imageView.image = Images.loginScreenImage
     }
 
 }
