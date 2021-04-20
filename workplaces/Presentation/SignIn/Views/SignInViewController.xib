@@ -32,10 +32,11 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wek-60-glX" customClass="PrimaryButton" customModule="workplaces" customModuleProvider="target">
-                    <rect key="frame" x="35.5" y="382" width="343" height="46"/>
+                    <rect key="frame" x="32" y="382" width="355" height="56"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="343" id="eqH-pa-RkR"/>
+                        <constraint firstAttribute="width" constant="355" id="eqH-pa-RkR"/>
+                        <constraint firstAttribute="height" constant="56" id="vhp-b0-I4Z"/>
                     </constraints>
                 </view>
             </subviews>
@@ -43,8 +44,7 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="wek-60-glX" firstAttribute="top" secondItem="Ucb-nw-eLj" secondAttribute="bottom" constant="150" id="1Y1-Lg-ob8"/>
-                <constraint firstItem="wek-60-glX" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="5yO-xw-bc7"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="wek-60-glX" secondAttribute="bottom" constant="434" id="Fcd-Xi-MH9"/>
+                <constraint firstItem="wek-60-glX" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" constant="2.5" id="5yO-xw-bc7"/>
                 <constraint firstItem="E69-fM-Ce3" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="oI8-ro-A1j"/>
                 <constraint firstItem="Ucb-nw-eLj" firstAttribute="top" secondItem="E69-fM-Ce3" secondAttribute="bottom" constant="50" id="peA-xB-Z8P"/>
                 <constraint firstItem="E69-fM-Ce3" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="70" id="ucs-Ed-qbb"/>

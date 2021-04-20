@@ -25,16 +25,21 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KCq-lu-Np1" customClass="PrimaryButton" customModule="workplaces" customModuleProvider="target">
-                    <rect key="frame" x="33" y="563" width="348" height="57"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KCq-lu-Np1" customClass="PrimaryButton" customModule="workplaces" customModuleProvider="target">
+                    <rect key="frame" x="35.5" y="563" width="343" height="56"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="56" id="IeP-VG-TE9"/>
+                        <constraint firstAttribute="width" constant="343" id="otM-QL-i8Q"/>
+                    </constraints>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="KCq-lu-Np1" secondAttribute="bottom" constant="243" id="EcR-Ey-g7A"/>
                 <constraint firstItem="hAy-6X-ekg" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Nrr-bO-hWs"/>
+                <constraint firstItem="KCq-lu-Np1" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Ynz-95-BNQ"/>
                 <constraint firstItem="hAy-6X-ekg" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="ti8-UF-nxa"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="133.92857142857142"/>
