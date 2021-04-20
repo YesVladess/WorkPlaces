@@ -10,12 +10,12 @@ import UIKit
 extension UIView {
 
     func showLoader() {
-        let loader = ActivityLoader(frame: frame)
+        let loader = ActivityLoaderView(frame: frame)
         self.addSubview(loader)
     }
 
     func removeLoader() {
-        if let loader = subviews.first(where: { $0 is ActivityLoader }) {
+        if let loader = subviews.first(where: { $0 is ActivityLoaderView }) {
             loader.removeFromSuperview()
         }
     }

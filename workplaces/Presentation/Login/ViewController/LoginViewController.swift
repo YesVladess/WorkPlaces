@@ -11,19 +11,13 @@ class LoginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let child = ZeroScreenViewController()
-        add(child)
+        congifure()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        view.showLoader()
-    }
+    @IBOutlet private weak var primaryButton: PrimaryButton!
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        sleep(2)
-        view.removeLoader()
+    private func congifure() {
+        primaryButton.setTitle("Sign in By Mail Or Login".localized)
     }
 
 }

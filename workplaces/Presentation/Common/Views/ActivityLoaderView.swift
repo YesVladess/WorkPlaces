@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ActivityLoader: UIView {
+class ActivityLoaderView: UIView {
 
     var blurEffectView: UIVisualEffectView?
 

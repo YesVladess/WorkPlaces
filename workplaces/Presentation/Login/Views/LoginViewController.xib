@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="workplaces" customModuleProvider="target">
             <connections>
+                <outlet property="primaryButton" destination="KCq-lu-Np1" id="KZ2-np-fTe"/>
                 <outlet property="view" destination="iN0-l3-epB" id="vH7-6H-cvI"/>
             </connections>
         </placeholder>
@@ -17,9 +18,26 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WORKPLACES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAy-6X-ekg">
+                    <rect key="frame" x="90.5" y="431.5" width="233.5" height="43"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KCq-lu-Np1" customClass="PrimaryButton" customModule="workplaces" customModuleProvider="target">
+                    <rect key="frame" x="33" y="563" width="348" height="57"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-            <point key="canvasLocation" x="139" y="134"/>
+            <constraints>
+                <constraint firstItem="hAy-6X-ekg" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Nrr-bO-hWs"/>
+                <constraint firstItem="hAy-6X-ekg" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="ti8-UF-nxa"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="133.92857142857142"/>
         </view>
     </objects>
     <resources>

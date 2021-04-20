@@ -11,8 +11,10 @@
 		5A96F2EF262E3207006BD8C9 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A96F2EE262E3207006BD8C9 /* UIColor.swift */; };
 		5A96F2F6262E392D006BD8C9 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A96F2F5262E392D006BD8C9 /* LoginViewController.xib */; };
 		5A96F305262E3EE4006BD8C9 /* UIViewController+Childs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A96F304262E3EE4006BD8C9 /* UIViewController+Childs.swift */; };
-		5A96F314262E4603006BD8C9 /* ActivityLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A96F313262E4603006BD8C9 /* ActivityLoader.swift */; };
+		5A96F314262E4603006BD8C9 /* ActivityLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A96F313262E4603006BD8C9 /* ActivityLoaderView.swift */; };
 		5A96F31C262E4672006BD8C9 /* UIView+Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A96F31B262E4672006BD8C9 /* UIView+Loader.swift */; };
+		5A96F324262E4BDE006BD8C9 /* PrimaryButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A96F323262E4BDE006BD8C9 /* PrimaryButton.xib */; };
+		5A96F32A262E4FB1006BD8C9 /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A96F329262E4FB1006BD8C9 /* PrimaryButton.swift */; };
 		5ADB26AC262B8F7000CFC392 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADB26AB262B8F7000CFC392 /* AppDelegate.swift */; };
 		5ADB26AE262B8F7000CFC392 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADB26AD262B8F7000CFC392 /* SceneDelegate.swift */; };
 		5ADB26B0262B8F7000CFC392 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADB26AF262B8F7000CFC392 /* LoginViewController.swift */; };
@@ -46,8 +48,10 @@
 		5A96F2EE262E3207006BD8C9 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		5A96F2F5262E392D006BD8C9 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		5A96F304262E3EE4006BD8C9 /* UIViewController+Childs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Childs.swift"; sourceTree = "<group>"; };
-		5A96F313262E4603006BD8C9 /* ActivityLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityLoader.swift; sourceTree = "<group>"; };
+		5A96F313262E4603006BD8C9 /* ActivityLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityLoaderView.swift; sourceTree = "<group>"; };
 		5A96F31B262E4672006BD8C9 /* UIView+Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Loader.swift"; sourceTree = "<group>"; };
+		5A96F323262E4BDE006BD8C9 /* PrimaryButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PrimaryButton.xib; sourceTree = "<group>"; };
+		5A96F329262E4FB1006BD8C9 /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		5ADB26A8262B8F7000CFC392 /* workplaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = workplaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ADB26AB262B8F7000CFC392 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5ADB26AD262B8F7000CFC392 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -124,7 +128,9 @@
 		5A96F312262E45DC006BD8C9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				5A96F313262E4603006BD8C9 /* ActivityLoader.swift */,
+				5A96F313262E4603006BD8C9 /* ActivityLoaderView.swift */,
+				5A96F323262E4BDE006BD8C9 /* PrimaryButton.xib */,
+				5A96F329262E4FB1006BD8C9 /* PrimaryButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -450,6 +456,7 @@
 				5A96F2F6262E392D006BD8C9 /* LoginViewController.xib in Resources */,
 				5ADB26B8262B8F7100CFC392 /* LaunchScreen.storyboard in Resources */,
 				5ADB26B5262B8F7100CFC392 /* Assets.xcassets in Resources */,
+				5A96F324262E4BDE006BD8C9 /* PrimaryButton.xib in Resources */,
 				5ADB27DF262E1B2800CFC392 /* ZeroScreenViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -534,9 +541,10 @@
 			files = (
 				5ADB27DE262E1B2800CFC392 /* ZeroScreenViewController.swift in Sources */,
 				5ADB26B0262B8F7000CFC392 /* LoginViewController.swift in Sources */,
-				5A96F314262E4603006BD8C9 /* ActivityLoader.swift in Sources */,
+				5A96F314262E4603006BD8C9 /* ActivityLoaderView.swift in Sources */,
 				5ADB26AC262B8F7000CFC392 /* AppDelegate.swift in Sources */,
 				5ADB26AE262B8F7000CFC392 /* SceneDelegate.swift in Sources */,
+				5A96F32A262E4FB1006BD8C9 /* PrimaryButton.swift in Sources */,
 				5A96F2EF262E3207006BD8C9 /* UIColor.swift in Sources */,
 				5ADB27BF262DC56E00CFC392 /* UIFont+Fonts.swift in Sources */,
 				5ADB27B1262DBC9200CFC392 /* String+Localizable.swift in Sources */,
