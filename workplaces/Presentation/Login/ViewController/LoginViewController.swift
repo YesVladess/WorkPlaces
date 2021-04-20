@@ -12,12 +12,22 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         congifure()
+        primaryButton.delegate = self
     }
 
     @IBOutlet private weak var primaryButton: PrimaryButton!
 
     private func congifure() {
         primaryButton.setTitle("Sign in By Mail Or Login".localized)
+    }
+
+}
+
+extension LoginViewController: PrimaryButtonViewDelegate {
+    
+    func primaryButtonTapped(_ button: PrimaryButton) {
+        let signInViewController = SignInViewController()
+        self.navigationController?.pushViewController(signInViewController, animated: true)
     }
 
 }
