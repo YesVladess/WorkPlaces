@@ -149,62 +149,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		5A28EBA7262EBF9C00DF4CEB /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				5A28EBA2262EBF9700DF4CEB /* WelcomeViewController.xib */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		5A28EBAA262EBFAF00DF4CEB /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				5A28EBA1262EBF9700DF4CEB /* WelcomeViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
 		5A28EBAD262EC90F00DF4CEB /* Feed */ = {
 			isa = PBXGroup;
 			children = (
-				5A28EBB7262EC93A00DF4CEB /* ViewController */,
-				5A28EBB6262EC92A00DF4CEB /* Views */,
-			);
-			path = Feed;
-			sourceTree = "<group>";
-		};
-		5A28EBB6262EC92A00DF4CEB /* Views */ = {
-			isa = PBXGroup;
-			children = (
+				5A28EBAE262EC91F00DF4CEB /* FeedViewController.swift */,
 				5A28EBAF262EC91F00DF4CEB /* FeedViewController.xib */,
 			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		5A28EBB7262EC93A00DF4CEB /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				5A28EBAE262EC91F00DF4CEB /* FeedViewController.swift */,
-			);
-			path = ViewController;
+			path = Feed;
 			sourceTree = "<group>";
 		};
 		5A28EBB8262EC96200DF4CEB /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				5A28EBB9262EC96C00DF4CEB /* ViewController */,
-			);
-			path = Profile;
-			sourceTree = "<group>";
-		};
-		5A28EBB9262EC96C00DF4CEB /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
 				5A28EBBA262EC9C200DF4CEB /* MyFeedViewController.swift */,
 				5A28EBC2262ECA3400DF4CEB /* FavoriteFeedViewController.swift */,
 			);
-			path = ViewController;
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		5A28EBC7262ECA7300DF4CEB /* NewPost */ = {
@@ -216,12 +176,32 @@
 			path = NewPost;
 			sourceTree = "<group>";
 		};
-		5A96F2F4262E38DC006BD8C9 /* Views */ = {
+		5A7905BD263485DF008863BB /* AuthStory */ = {
 			isa = PBXGroup;
 			children = (
-				5A96F2F5262E392D006BD8C9 /* LoginViewController.xib */,
+				5ADB27C4262DCB3F00CFC392 /* Login */,
+				5ADB27C7262DCC2000CFC392 /* SignUp */,
+				5ADB27D0262DD55500CFC392 /* SignIn */,
+				5ADB27D1262DD56800CFC392 /* Welcome */,
 			);
-			path = Views;
+			path = AuthStory;
+			sourceTree = "<group>";
+		};
+		5A7905BE2634860B008863BB /* FeedStory */ = {
+			isa = PBXGroup;
+			children = (
+				5A28EBC7262ECA7300DF4CEB /* NewPost */,
+				5A28EBAD262EC90F00DF4CEB /* Feed */,
+			);
+			path = FeedStory;
+			sourceTree = "<group>";
+		};
+		5A7905C12634865D008863BB /* ProfileStory */ = {
+			isa = PBXGroup;
+			children = (
+				5A28EBB8262EC96200DF4CEB /* Profile */,
+			);
+			path = ProfileStory;
 			sourceTree = "<group>";
 		};
 		5A96F312262E45DC006BD8C9 /* Views */ = {
@@ -232,22 +212,6 @@
 				5A96F329262E4FB1006BD8C9 /* PrimaryButton.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		5A96F333262EB775006BD8C9 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				5A96F32E262EB76B006BD8C9 /* SignInViewController.xib */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		5A96F334262EB781006BD8C9 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				5A96F32D262EB76B006BD8C9 /* SignInViewController.swift */,
-			);
-			path = ViewController;
 			sourceTree = "<group>";
 		};
 		5ADB269F262B8F7000CFC392 = {
@@ -322,24 +286,8 @@
 			isa = PBXGroup;
 			children = (
 				5ADB274D262DA65300CFC392 /* Services */,
-				5ADB274C262DA64D00CFC392 /* Helpers */,
-				5ADB274B262DA64500CFC392 /* Common */,
 			);
 			path = "Buisness Logic";
-			sourceTree = "<group>";
-		};
-		5ADB274B262DA64500CFC392 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
-		5ADB274C262DA64D00CFC392 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 		5ADB274D262DA65300CFC392 /* Services */ = {
@@ -364,13 +312,9 @@
 		5ADB274F262DA67B00CFC392 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				5A28EBC7262ECA7300DF4CEB /* NewPost */,
-				5A28EBB8262EC96200DF4CEB /* Profile */,
-				5A28EBAD262EC90F00DF4CEB /* Feed */,
-				5ADB27D1262DD56800CFC392 /* Welcome */,
-				5ADB27D0262DD55500CFC392 /* SignIn */,
-				5ADB27C7262DCC2000CFC392 /* SignUp */,
-				5ADB27C4262DCB3F00CFC392 /* Login */,
+				5A7905C12634865D008863BB /* ProfileStory */,
+				5A7905BE2634860B008863BB /* FeedStory */,
+				5A7905BD263485DF008863BB /* AuthStory */,
 				5ADB2750262DA68800CFC392 /* Common */,
 			);
 			path = Presentation;
@@ -414,8 +358,8 @@
 		5ADB27C4262DCB3F00CFC392 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				5A96F2F4262E38DC006BD8C9 /* Views */,
-				5ADB27C8262DCC5B00CFC392 /* ViewController */,
+				5A96F2F5262E392D006BD8C9 /* LoginViewController.xib */,
+				5ADB26AF262B8F7000CFC392 /* LoginViewController.swift */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -427,19 +371,11 @@
 			path = SignUp;
 			sourceTree = "<group>";
 		};
-		5ADB27C8262DCC5B00CFC392 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				5ADB26AF262B8F7000CFC392 /* LoginViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
 		5ADB27D0262DD55500CFC392 /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
-				5A96F334262EB781006BD8C9 /* ViewController */,
-				5A96F333262EB775006BD8C9 /* Views */,
+				5A96F32D262EB76B006BD8C9 /* SignInViewController.swift */,
+				5A96F32E262EB76B006BD8C9 /* SignInViewController.xib */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -447,8 +383,8 @@
 		5ADB27D1262DD56800CFC392 /* Welcome */ = {
 			isa = PBXGroup;
 			children = (
-				5A28EBAA262EBFAF00DF4CEB /* ViewController */,
-				5A28EBA7262EBF9C00DF4CEB /* Views */,
+				5A28EBA2262EBF9700DF4CEB /* WelcomeViewController.xib */,
+				5A28EBA1262EBF9700DF4CEB /* WelcomeViewController.swift */,
 			);
 			path = Welcome;
 			sourceTree = "<group>";
@@ -464,35 +400,11 @@
 		5ADB27D5262E19EF00CFC392 /* ZeroScreen */ = {
 			isa = PBXGroup;
 			children = (
-				5ADB27E4262E1C9800CFC392 /* ViewModels */,
-				5ADB27E3262E1B4200CFC392 /* Views */,
-				5ADB27E2262E1B3100CFC392 /* ViewController */,
-			);
-			path = ZeroScreen;
-			sourceTree = "<group>";
-		};
-		5ADB27E2262E1B3100CFC392 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
 				5ADB27DC262E1B2800CFC392 /* ZeroScreenViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		5ADB27E3262E1B4200CFC392 /* Views */ = {
-			isa = PBXGroup;
-			children = (
 				5ADB27DD262E1B2800CFC392 /* ZeroScreenViewController.xib */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		5ADB27E4262E1C9800CFC392 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
 				5ADB27E5262E1CC400CFC392 /* ZeroScreenViewModel.swift */,
 			);
-			path = ViewModels;
+			path = ZeroScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
