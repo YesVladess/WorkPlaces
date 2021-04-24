@@ -13,6 +13,13 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         congifure()
         primaryButton.delegate = self
+
+        let zeroScreenViewModel = ZeroScreenViewModel.getErrorModel(
+            secondaryLabelTitle: "Something went wrong".localized,
+            actionButtonLabelTitle: "Update".localized,
+            action: {})
+        let child = ZeroScreenViewController(withModel: zeroScreenViewModel)
+        add(child)
     }
 
     @IBOutlet private weak var imageView: UIImageView!
