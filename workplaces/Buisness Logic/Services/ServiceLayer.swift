@@ -7,13 +7,14 @@
 
 import Foundation
 
-class ServiceLayer {
-
-    static var shared: ServiceLayer = {
-        let instance = ServiceLayer()
-        // ... настройка объекта
-        return instance
-    }()
+final class ServiceLayer {
 
     private init() {}
+
+    static let shared = ServiceLayer()
+
+    lazy var authorizationService: AutorizationService = { AutorizationService() }()
+    lazy var feedService: FeedService = { FeedService() }()
+    lazy var profileService: ProfileService = { ProfileService() }()
+
 }
