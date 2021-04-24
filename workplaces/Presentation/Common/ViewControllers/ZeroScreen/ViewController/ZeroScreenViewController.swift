@@ -7,41 +7,51 @@
 
 import UIKit
 
-class ZeroScreenViewController: UIViewController {
+final class ZeroScreenViewController: UIViewController {
 
-    // MARK: - Public Properties
-    var viewModel: ZeroScreenViewModel?
+    // MARK: - Initializers
+
+    init(withModel model: ZeroScreenViewModel) {
+        self.viewModel = model
+        super.init(nibName: "ZeroScreenViewController", bundle: Bundle(for: type(of: self)))
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: - Private Properties
+
+    private var viewModel: ZeroScreenViewModel
 
     // MARK: - IBOutlet
+
     @IBOutlet private weak var errorImageView: UIImageView!
     @IBOutlet private weak var mainLabel: UILabel!
     @IBOutlet private weak var secondaryLabel: UILabel!
     @IBOutlet private weak var actionButton: UIButton!
 
-    // MARK: - UIViewController(*)
+    // MARK: - UIViewController
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureView()
+        configureView(withViewModel: self.viewModel)
     }
 
     // MARK: - IBAction
+
     @IBAction private func actionButtonTapped(_ sender: Any) {
     }
 
     // MARK: - Private Methods
-    func configureView() {
-        // TODO: Пока не понял, где настраивать модель в слое бизнес логики, настрою тут:
-        let viewModel = ZeroScreenViewModel(
-            errorImageName: "Illustration_01",
-            mainLabelTitle: "Ups".localized,
-            secondaryScreenTitle: "Something went wrong".localized,
-            actionButtonLabelTitle: "Update".localized)
-        self.viewModel = viewModel
+    
+    private func configureView(withViewModel viewModel: ZeroScreenViewModel) {
 
-        errorImageView.image = viewModel.errorImage
+        errorImageView.image = viewModel.image
         mainLabel.attributedText = viewModel.mainLabelTitle
-        secondaryLabel.attributedText = viewModel.secondaryScreenTitle
+        secondaryLabel.attributedText = viewModel.secondaryLabelTitle
         actionButton.setTitle(viewModel.actionButtonLabelTitle?.string, for: .normal)
+        // TODO: - Как Action повесить на кнопку?
     }
 
 }

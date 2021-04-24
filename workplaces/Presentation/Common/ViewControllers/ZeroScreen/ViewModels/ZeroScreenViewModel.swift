@@ -7,21 +7,40 @@
 
 import UIKit
 
-class ZeroScreenViewModel {
+struct ZeroScreenViewModel {
 
-    var errorImage: UIImage?
+    var image: UIImage?
     var mainLabelTitle: NSAttributedString?
-    var secondaryScreenTitle: NSAttributedString?
+    var secondaryLabelTitle: NSAttributedString?
     var actionButtonLabelTitle: NSAttributedString?
+    var action: () -> Void
 
-    init(errorImageName: String,
-         mainLabelTitle: String,
-         secondaryScreenTitle: String,
-         actionButtonLabelTitle: String) {
-        self.errorImage = UIImage(named: errorImageName)
-        self.mainLabelTitle = mainLabelTitle.addAttributes(font: .title, color: .black)
-        self.secondaryScreenTitle = secondaryScreenTitle.addAttributes(font: .bodyLarge, color: .middleGrey)
-        self.actionButtonLabelTitle = actionButtonLabelTitle.addAttributes(font: .bodyLarge, color: .orange)
+    static func getErrorModel(
+        secondaryLabelTitle: String,
+        actionButtonLabelTitle: String,
+        action: @escaping () -> Void
+    ) -> ZeroScreenViewModel {
+        ZeroScreenViewModel(
+            image: Images.errorImage,
+            mainLabelTitle: "Ups".localized.addAttributes(font: .title, color: .black),
+            secondaryLabelTitle: secondaryLabelTitle.addAttributes(font: .bodyLarge, color: .middleGrey),
+            actionButtonLabelTitle: actionButtonLabelTitle.addAttributes(font: .bodyLarge, color: .orange),
+            action: action
+        )
+    }
+
+    static func getEmptyModel(
+        secondaryLabelTitle: String,
+        actionButtonLabelTitle: String,
+        action: @escaping () -> Void
+    ) -> ZeroScreenViewModel {
+        ZeroScreenViewModel(
+            image: Images.emptyImage,
+            mainLabelTitle: "Emptyness".localized.addAttributes(font: .title, color: .black),
+            secondaryLabelTitle: secondaryLabelTitle.addAttributes(font: .bodyLarge, color: .middleGrey),
+            actionButtonLabelTitle: actionButtonLabelTitle.addAttributes(font: .bodyLarge, color: .orange),
+            action: action
+        )
     }
 
 }
