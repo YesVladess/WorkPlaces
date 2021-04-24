@@ -22,12 +22,14 @@ extension CanShowSpinner where Self: UIViewController {
         spinner.center = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
         view.addSubview(spinner)
         spinner.startAnimating()
+        view.isUserInteractionEnabled = false
     }
 
     func hideSpinner() {
         DispatchQueue.main.async {
             self.spinner.stopAnimating()
             self.spinner.removeFromSuperview()
+            self.view.isUserInteractionEnabled = true
         }
     }
 
