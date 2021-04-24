@@ -7,12 +7,22 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, CanShowSpinner {
+
+    var spinner: SpinnerView = SpinnerView(style: .large)
 
     override func viewDidLoad() {
         super.viewDidLoad()
         congifure()
         primaryButton.delegate = self
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        showSpinner()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.hideSpinner()
+        }
     }
 
     @IBOutlet private weak var imageView: UIImageView!

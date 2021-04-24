@@ -25,12 +25,12 @@
 		5A7905CB26348A09008863BB /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7905C926348A09008863BB /* PrimaryButton.swift */; };
 		5A7905DB2634BC0F008863BB /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7905DA2634BC0F008863BB /* CustomView.swift */; };
 		5A7905DF2634BC42008863BB /* XibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7905DE2634BC42008863BB /* XibLoadable.swift */; };
+		5A7905E82634BE07008863BB /* CanShowSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7905E72634BE07008863BB /* CanShowSpinner.swift */; };
 		5A96F2EB262E30B7006BD8C9 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A96F2EA262E30B7006BD8C9 /* String.swift */; };
 		5A96F2EF262E3207006BD8C9 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A96F2EE262E3207006BD8C9 /* UIColor.swift */; };
 		5A96F2F6262E392D006BD8C9 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A96F2F5262E392D006BD8C9 /* LoginViewController.xib */; };
 		5A96F305262E3EE4006BD8C9 /* UIViewController+Childs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A96F304262E3EE4006BD8C9 /* UIViewController+Childs.swift */; };
-		5A96F314262E4603006BD8C9 /* ActivityLoaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A96F313262E4603006BD8C9 /* ActivityLoaderView.swift */; };
-		5A96F31C262E4672006BD8C9 /* UIView+Loader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A96F31B262E4672006BD8C9 /* UIView+Loader.swift */; };
+		5A96F314262E4603006BD8C9 /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A96F313262E4603006BD8C9 /* SpinnerView.swift */; };
 		5A96F32F262EB76B006BD8C9 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A96F32D262EB76B006BD8C9 /* SignInViewController.swift */; };
 		5A96F330262EB76B006BD8C9 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A96F32E262EB76B006BD8C9 /* SignInViewController.xib */; };
 		5ADB26AC262B8F7000CFC392 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADB26AB262B8F7000CFC392 /* AppDelegate.swift */; };
@@ -80,12 +80,12 @@
 		5A7905C926348A09008863BB /* PrimaryButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		5A7905DA2634BC0F008863BB /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		5A7905DE2634BC42008863BB /* XibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibLoadable.swift; sourceTree = "<group>"; };
+		5A7905E72634BE07008863BB /* CanShowSpinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanShowSpinner.swift; sourceTree = "<group>"; };
 		5A96F2EA262E30B7006BD8C9 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		5A96F2EE262E3207006BD8C9 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		5A96F2F5262E392D006BD8C9 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		5A96F304262E3EE4006BD8C9 /* UIViewController+Childs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Childs.swift"; sourceTree = "<group>"; };
-		5A96F313262E4603006BD8C9 /* ActivityLoaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityLoaderView.swift; sourceTree = "<group>"; };
-		5A96F31B262E4672006BD8C9 /* UIView+Loader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Loader.swift"; sourceTree = "<group>"; };
+		5A96F313262E4603006BD8C9 /* SpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerView.swift; sourceTree = "<group>"; };
 		5A96F32D262EB76B006BD8C9 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		5A96F32E262EB76B006BD8C9 /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
 		5ADB26A8262B8F7000CFC392 /* workplaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = workplaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -217,11 +217,19 @@
 			path = PrimaryButton;
 			sourceTree = "<group>";
 		};
+		5A7905E22634BDBF008863BB /* Spinner */ = {
+			isa = PBXGroup;
+			children = (
+				5A96F313262E4603006BD8C9 /* SpinnerView.swift */,
+			);
+			path = Spinner;
+			sourceTree = "<group>";
+		};
 		5A96F312262E45DC006BD8C9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				5A7905E22634BDBF008863BB /* Spinner */,
 				5A7905C726348A09008863BB /* PrimaryButton */,
-				5A96F313262E4603006BD8C9 /* ActivityLoaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -356,12 +364,12 @@
 		5ADB27AF262DBC7D00CFC392 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				5A7905E72634BE07008863BB /* CanShowSpinner.swift */,
 				5ADB27B0262DBC9200CFC392 /* String+Localizable.swift */,
 				5ADB27BE262DC56E00CFC392 /* UIFont+Fonts.swift */,
 				5A96F2EA262E30B7006BD8C9 /* String.swift */,
 				5A96F2EE262E3207006BD8C9 /* UIColor.swift */,
 				5A96F304262E3EE4006BD8C9 /* UIViewController+Childs.swift */,
-				5A96F31B262E4672006BD8C9 /* UIView+Loader.swift */,
 				5A6CDAAC262EE68900B92A59 /* Images.swift */,
 				5A7905DA2634BC0F008863BB /* CustomView.swift */,
 				5A7905DE2634BC42008863BB /* XibLoadable.swift */,
@@ -601,10 +609,11 @@
 				5A28EBE1262ED06900DF4CEB /* Profile.swift in Sources */,
 				5ADB27DE262E1B2800CFC392 /* ZeroScreenViewController.swift in Sources */,
 				5ADB26B0262B8F7000CFC392 /* LoginViewController.swift in Sources */,
-				5A96F314262E4603006BD8C9 /* ActivityLoaderView.swift in Sources */,
+				5A96F314262E4603006BD8C9 /* SpinnerView.swift in Sources */,
 				5ADB26AC262B8F7000CFC392 /* AppDelegate.swift in Sources */,
 				5ADB26AE262B8F7000CFC392 /* SceneDelegate.swift in Sources */,
 				5A28EBC3262ECA3400DF4CEB /* FavoriteFeedViewController.swift in Sources */,
+				5A7905E82634BE07008863BB /* CanShowSpinner.swift in Sources */,
 				5A28EBB0262EC91F00DF4CEB /* FeedViewController.swift in Sources */,
 				5A28EBDD262ECD3A00DF4CEB /* ProfileService.swift in Sources */,
 				5A28EBA3262EBF9700DF4CEB /* WelcomeViewController.swift in Sources */,
@@ -620,7 +629,6 @@
 				5A7905DB2634BC0F008863BB /* CustomView.swift in Sources */,
 				5A28EBD9262ECCF900DF4CEB /* FeedService.swift in Sources */,
 				5A28EBBB262EC9C200DF4CEB /* MyFeedViewController.swift in Sources */,
-				5A96F31C262E4672006BD8C9 /* UIView+Loader.swift in Sources */,
 				5A6CDAAD262EE68900B92A59 /* Images.swift in Sources */,
 				5A28EBCA262ECA9500DF4CEB /* NewPostViewController.swift in Sources */,
 				5ADB27E6262E1CC400CFC392 /* ZeroScreenViewModel.swift in Sources */,
