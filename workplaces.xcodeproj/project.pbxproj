@@ -31,6 +31,7 @@
 		5A7906012634DA96008863BB /* ProfileServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7906002634DA96008863BB /* ProfileServiceProtocol.swift */; };
 		5A7906062634E011008863BB /* WorkspaceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7906052634E011008863BB /* WorkspaceError.swift */; };
 		5A79060A2634E755008863BB /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7906092634E755008863BB /* Credentials.swift */; };
+		5A8472422636F39000246C5E /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8472412636F39000246C5E /* Config.swift */; };
 		5A96F2EB262E30B7006BD8C9 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A96F2EA262E30B7006BD8C9 /* String.swift */; };
 		5A96F2EF262E3207006BD8C9 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A96F2EE262E3207006BD8C9 /* UIColor.swift */; };
 		5A96F2F6262E392D006BD8C9 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A96F2F5262E392D006BD8C9 /* LoginViewController.xib */; };
@@ -91,6 +92,7 @@
 		5A7906002634DA96008863BB /* ProfileServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceProtocol.swift; sourceTree = "<group>"; };
 		5A7906052634E011008863BB /* WorkspaceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceError.swift; sourceTree = "<group>"; };
 		5A7906092634E755008863BB /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+		5A8472412636F39000246C5E /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		5A96F2EA262E30B7006BD8C9 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		5A96F2EE262E3207006BD8C9 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		5A96F2F5262E392D006BD8C9 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -254,6 +256,14 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		5A84723F2636F37B00246C5E /* Client */ = {
+			isa = PBXGroup;
+			children = (
+				5A8472412636F39000246C5E /* Config.swift */,
+			);
+			path = Client;
+			sourceTree = "<group>";
+		};
 		5A96F312262E45DC006BD8C9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -287,6 +297,7 @@
 		5ADB26AA262B8F7000CFC392 /* workplaces */ = {
 			isa = PBXGroup;
 			children = (
+				5A84723F2636F37B00246C5E /* Client */,
 				5ADB2751262DA69A00CFC392 /* SupportingFiles */,
 				5ADB274F262DA67B00CFC392 /* Presentation */,
 				5ADB274E262DA67300CFC392 /* Models */,
@@ -698,6 +709,7 @@
 				5A28EBD5262ECCE500DF4CEB /* AuthorizationService.swift in Sources */,
 				5A28EBD1262ECC4B00DF4CEB /* ServiceLayer.swift in Sources */,
 				5A7905DB2634BC0F008863BB /* CustomView.swift in Sources */,
+				5A8472422636F39000246C5E /* Config.swift in Sources */,
 				5A79060A2634E755008863BB /* Credentials.swift in Sources */,
 				5A28EBD9262ECCF900DF4CEB /* FeedService.swift in Sources */,
 				5A28EBBB262EC9C200DF4CEB /* MyFeedViewController.swift in Sources */,

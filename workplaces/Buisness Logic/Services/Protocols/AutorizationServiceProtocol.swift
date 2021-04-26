@@ -6,7 +6,6 @@
 //
 
 import FBSDKLoginKit
-import Foundation
 import GoogleSignIn
 import VK_ios_sdk
 
@@ -27,7 +26,10 @@ protocol AutorizationServiceProtocol: class {
 
     func signInWithVK(completion: @escaping (Result<Void, WorkspaceError>) -> Void)
 
-    func signInWithGoogle(completion: @escaping (Result<Void, WorkspaceError>) -> Void)
+    func signInWithGoogle(
+        presentingViewController viewController: UIViewController,
+        completion: @escaping (Result<Void, WorkspaceError>)
+            -> Void)
 
     func logout()
 

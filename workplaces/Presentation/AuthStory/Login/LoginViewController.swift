@@ -63,6 +63,14 @@ class LoginViewController: UIViewController, CanShowSpinner {
     }
 
     @IBAction private func googleButtonTapped(_ sender: Any) {
+        authService.signInWithGoogle(presentingViewController: self, completion: { [weak self] result in
+            switch result {
+            case .success:
+                self?.navigateToWelcomeScreen()
+            case.failure(let error):
+                self?.showError(error.localizedDescription)
+            }
+        })
     }
 
     // MARK: - Private Methods
