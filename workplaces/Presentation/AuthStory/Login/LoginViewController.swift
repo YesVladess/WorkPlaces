@@ -23,7 +23,6 @@ class LoginViewController: UIViewController, CanShowSpinner {
         authService: AutorizationServiceProtocol = ServiceLayer.shared.authorizationService
     ) {
         self.authService = authService
-
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -43,6 +42,28 @@ class LoginViewController: UIViewController, CanShowSpinner {
 
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var primaryButton: PrimaryButton!
+    @IBOutlet private weak var fbButton: UIButton!
+    @IBOutlet private weak var vkButton: UIButton!
+    @IBOutlet private weak var googleButton: UIButton!
+
+    // MARK: - IBActions
+
+    @IBAction private func fbButtonTapped(_ sender: Any) {
+        authService.signInWithFacebook(completion: { [weak self] result in
+            switch result {
+            case .success:
+            self?.navigateToWelcomeScreen()
+            case.failure(let error):
+                print(error.localizedDescription)
+            }
+        })
+    }
+
+    @IBAction private func vkButtonTapped(_ sender: Any) {
+    }
+
+    @IBAction private func googleButtonTapped(_ sender: Any) {
+    }
 
     // MARK: - Private Methods
 
@@ -51,13 +72,24 @@ class LoginViewController: UIViewController, CanShowSpinner {
         imageView.image = Images.loginScreenImage
     }
 
+    // MARK: - Navigation
+    
+    private func navigateToWelcomeScreen() {
+        let welcomeViewController = WelcomeViewController()
+        navigationController?.pushViewController(welcomeViewController, animated: true)
+    }
+
+    private func navigateToSignInScreen() {
+        let signInViewController = SignInViewController()
+        navigationController?.pushViewController(signInViewController, animated: true)
+    }
+
 }
 
 extension LoginViewController: PrimaryButtonViewDelegate {
     
     func primaryButtonTapped(_ button: PrimaryButton) {
-        let signInViewController = SignInViewController()
-        self.navigationController?.pushViewController(signInViewController, animated: true)
+        navigateToSignInScreen()
     }
 
 }
