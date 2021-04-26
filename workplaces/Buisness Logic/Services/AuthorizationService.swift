@@ -7,15 +7,36 @@
 
 import Foundation
 
-protocol AutorizationServiceProtocol {
+class AutorizationService: AutorizationServiceProtocol {
 
-    func signInByEmail()
-    func signInByPassword()
-    func singUp()
-    func signOut()
-    
-}
+    func signIn(withCredentials: Credentials, completion: @escaping (Result<Void, WorkspaceError>) -> Void) {
 
-class AutorizationService {
-    
+    }
+
+    func singUp(
+        withCredentials: Credentials,
+        andUser: Profile,
+        completion: @escaping (Result<Void, WorkspaceError>)
+            -> Void) {
+
+    }
+
+    func signInWithFacebook(completion: @escaping (Result<Void, WorkspaceError>) -> Void) {
+
+    }
+
+    func signInWithVK(completion: @escaping (Result<Void, WorkspaceError>) -> Void) {
+
+    }
+
+    func signInWithGoogle(completion: @escaping (Result<Void, WorkspaceError>) -> Void) {
+
+    }
+
+    func logout() {
+
+    }
+
+    var isUserAuthorized: Bool { false }
+
 }

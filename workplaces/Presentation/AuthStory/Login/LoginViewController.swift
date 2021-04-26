@@ -9,7 +9,29 @@ import UIKit
 
 class LoginViewController: UIViewController, CanShowSpinner {
 
+    // MARK: - Public Properties
+
     var spinner: SpinnerView = SpinnerView(style: .large)
+
+    // MARK: - Private Properties
+
+    private let authService: AutorizationServiceProtocol
+
+    // MARK: - Initializers
+
+    init(
+        authService: AutorizationServiceProtocol = ServiceLayer.shared.authorizationService
+    ) {
+        self.authService = authService
+
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: - UIViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,16 +39,12 @@ class LoginViewController: UIViewController, CanShowSpinner {
         primaryButton.delegate = self
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        showSpinner()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.hideSpinner()
-        }
-    }
+    // MARK: - IBOutlet
 
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var primaryButton: PrimaryButton!
+
+    // MARK: - Private Methods
 
     private func congifure() {
         primaryButton.setTitle("Sign in By Mail Or Login".localized)

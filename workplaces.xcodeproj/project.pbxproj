@@ -26,6 +26,11 @@
 		5A7905DB2634BC0F008863BB /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7905DA2634BC0F008863BB /* CustomView.swift */; };
 		5A7905DF2634BC42008863BB /* XibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7905DE2634BC42008863BB /* XibLoadable.swift */; };
 		5A7905E82634BE07008863BB /* CanShowSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7905E72634BE07008863BB /* CanShowSpinner.swift */; };
+		5A7905F62634D9E2008863BB /* AutorizationServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7905F52634D9E2008863BB /* AutorizationServiceProtocol.swift */; };
+		5A7905FB2634DA06008863BB /* FeedServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7905FA2634DA06008863BB /* FeedServiceProtocol.swift */; };
+		5A7906012634DA96008863BB /* ProfileServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7906002634DA96008863BB /* ProfileServiceProtocol.swift */; };
+		5A7906062634E011008863BB /* WorkspaceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7906052634E011008863BB /* WorkspaceError.swift */; };
+		5A79060A2634E755008863BB /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7906092634E755008863BB /* Credentials.swift */; };
 		5A96F2EB262E30B7006BD8C9 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A96F2EA262E30B7006BD8C9 /* String.swift */; };
 		5A96F2EF262E3207006BD8C9 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A96F2EE262E3207006BD8C9 /* UIColor.swift */; };
 		5A96F2F6262E392D006BD8C9 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A96F2F5262E392D006BD8C9 /* LoginViewController.xib */; };
@@ -81,6 +86,11 @@
 		5A7905DA2634BC0F008863BB /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		5A7905DE2634BC42008863BB /* XibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibLoadable.swift; sourceTree = "<group>"; };
 		5A7905E72634BE07008863BB /* CanShowSpinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanShowSpinner.swift; sourceTree = "<group>"; };
+		5A7905F52634D9E2008863BB /* AutorizationServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutorizationServiceProtocol.swift; sourceTree = "<group>"; };
+		5A7905FA2634DA06008863BB /* FeedServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedServiceProtocol.swift; sourceTree = "<group>"; };
+		5A7906002634DA96008863BB /* ProfileServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceProtocol.swift; sourceTree = "<group>"; };
+		5A7906052634E011008863BB /* WorkspaceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceError.swift; sourceTree = "<group>"; };
+		5A7906092634E755008863BB /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
 		5A96F2EA262E30B7006BD8C9 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		5A96F2EE262E3207006BD8C9 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		5A96F2F5262E392D006BD8C9 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
@@ -225,6 +235,25 @@
 			path = Spinner;
 			sourceTree = "<group>";
 		};
+		5A7905F92634D9EB008863BB /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				5A7905F52634D9E2008863BB /* AutorizationServiceProtocol.swift */,
+				5A7905FA2634DA06008863BB /* FeedServiceProtocol.swift */,
+				5A7906002634DA96008863BB /* ProfileServiceProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		5A7906042634DFD4008863BB /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				5A28EBD0262ECC4B00DF4CEB /* ServiceLayer.swift */,
+				5A7906052634E011008863BB /* WorkspaceError.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		5A96F312262E45DC006BD8C9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -305,6 +334,7 @@
 		5ADB274A262DA63100CFC392 /* Buisness Logic */ = {
 			isa = PBXGroup;
 			children = (
+				5A7906042634DFD4008863BB /* Common */,
 				5ADB274D262DA65300CFC392 /* Services */,
 			);
 			path = "Buisness Logic";
@@ -313,7 +343,7 @@
 		5ADB274D262DA65300CFC392 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				5A28EBD0262ECC4B00DF4CEB /* ServiceLayer.swift */,
+				5A7905F92634D9EB008863BB /* Protocols */,
 				5A28EBD4262ECCE500DF4CEB /* AuthorizationService.swift */,
 				5A28EBD8262ECCF900DF4CEB /* FeedService.swift */,
 				5A28EBDC262ECD3A00DF4CEB /* ProfileService.swift */,
@@ -325,6 +355,7 @@
 			isa = PBXGroup;
 			children = (
 				5A28EBE0262ED06900DF4CEB /* Profile.swift */,
+				5A7906092634E755008863BB /* Credentials.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -441,6 +472,8 @@
 				5ADB26A5262B8F7000CFC392 /* Frameworks */,
 				5ADB26A6262B8F7000CFC392 /* Resources */,
 				5ADB2721262D6F1100CFC392 /* ShellScript */,
+				7F6D079EC51FC8DCEE381687 /* [CP] Embed Pods Frameworks */,
+				C03DAE48C8201AE6067E3B0B /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -598,6 +631,40 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		7F6D079EC51FC8DCEE381687 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-workplaces/Pods-workplaces-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-workplaces/Pods-workplaces-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-workplaces/Pods-workplaces-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C03DAE48C8201AE6067E3B0B /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-workplaces/Pods-workplaces-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-workplaces/Pods-workplaces-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-workplaces/Pods-workplaces-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -617,9 +684,13 @@
 				5A28EBB0262EC91F00DF4CEB /* FeedViewController.swift in Sources */,
 				5A28EBDD262ECD3A00DF4CEB /* ProfileService.swift in Sources */,
 				5A28EBA3262EBF9700DF4CEB /* WelcomeViewController.swift in Sources */,
+				5A7905F62634D9E2008863BB /* AutorizationServiceProtocol.swift in Sources */,
+				5A7906012634DA96008863BB /* ProfileServiceProtocol.swift in Sources */,
 				5A96F2EF262E3207006BD8C9 /* UIColor.swift in Sources */,
+				5A7905FB2634DA06008863BB /* FeedServiceProtocol.swift in Sources */,
 				5A7905DF2634BC42008863BB /* XibLoadable.swift in Sources */,
 				5A7905CB26348A09008863BB /* PrimaryButton.swift in Sources */,
+				5A7906062634E011008863BB /* WorkspaceError.swift in Sources */,
 				5ADB27BF262DC56E00CFC392 /* UIFont+Fonts.swift in Sources */,
 				5ADB27B1262DBC9200CFC392 /* String+Localizable.swift in Sources */,
 				5A96F305262E3EE4006BD8C9 /* UIViewController+Childs.swift in Sources */,
@@ -627,6 +698,7 @@
 				5A28EBD5262ECCE500DF4CEB /* AuthorizationService.swift in Sources */,
 				5A28EBD1262ECC4B00DF4CEB /* ServiceLayer.swift in Sources */,
 				5A7905DB2634BC0F008863BB /* CustomView.swift in Sources */,
+				5A79060A2634E755008863BB /* Credentials.swift in Sources */,
 				5A28EBD9262ECCF900DF4CEB /* FeedService.swift in Sources */,
 				5A28EBBB262EC9C200DF4CEB /* MyFeedViewController.swift in Sources */,
 				5A6CDAAD262EE68900B92A59 /* Images.swift in Sources */,
