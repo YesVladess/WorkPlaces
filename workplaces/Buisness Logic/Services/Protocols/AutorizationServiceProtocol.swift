@@ -13,14 +13,14 @@ protocol AutorizationServiceProtocol: class {
 
     func signIn(
         withCredentials: Credentials,
-        completion: @escaping (Result<Void, WorkspaceError>)
-            -> Void)
+        completion: @escaping (Result<Void, WorkspaceError>) -> Void
+    )
 
     func singUp(
         withCredentials: Credentials,
         andUser: Profile,
-        completion: @escaping (Result<Void, WorkspaceError>)
-            -> Void)
+        completion: @escaping (Result<Void, WorkspaceError>) -> Void
+    )
 
     func signInWithFacebook(completion: @escaping (Result<Void, WorkspaceError>) -> Void)
 
@@ -28,8 +28,8 @@ protocol AutorizationServiceProtocol: class {
 
     func signInWithGoogle(
         presentingViewController viewController: UIViewController,
-        completion: @escaping (Result<Void, WorkspaceError>)
-            -> Void)
+        completion: @escaping (Result<Void, WorkspaceError>) -> Void
+    )
 
     func logout()
 

@@ -46,12 +46,11 @@ final class ZeroScreenViewController: UIViewController {
     // MARK: - Private Methods
     
     private func configureView(withViewModel viewModel: ZeroScreenViewModel) {
-
         errorImageView.image = viewModel.image
         mainLabel.attributedText = viewModel.mainLabelTitle
         secondaryLabel.attributedText = viewModel.secondaryLabelTitle
         actionButton.setTitle(viewModel.actionButtonLabelTitle?.string, for: .normal)
-        // TODO: - Как Action повесить на кнопку?
+        // TODO: - Колбек повесить на кнопку
     }
 
 }

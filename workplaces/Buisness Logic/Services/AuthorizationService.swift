@@ -19,7 +19,10 @@ class AutorizationService: NSObject, AutorizationServiceProtocol {
 
     private var googleAuthHandler: ((Result<Void, WorkspaceError>) -> Void)?
 
-    func signIn(withCredentials: Credentials, completion: @escaping (Result<Void, WorkspaceError>) -> Void) {
+    func signIn(
+        withCredentials: Credentials,
+        completion: @escaping (Result<Void, WorkspaceError>) -> Void
+    ) {
         return completion(.success(()))
         // return completion(.failure(.credentialsError))
     }
@@ -27,8 +30,8 @@ class AutorizationService: NSObject, AutorizationServiceProtocol {
     func singUp(
         withCredentials: Credentials,
         andUser: Profile,
-        completion: @escaping (Result<Void, WorkspaceError>
-        ) -> Void) {
+        completion: @escaping (Result<Void, WorkspaceError>) -> Void
+    ) {
         return completion(.success(()))
         // return completion(.failure(.credentialsError))
     }
@@ -48,7 +51,10 @@ class AutorizationService: NSObject, AutorizationServiceProtocol {
         }
     }
 
-    func signInWithVK(vkUIDelegate: VKSdkUIDelegate, completion: @escaping (Result<Void, WorkspaceError>) -> Void) {
+    func signInWithVK(
+        vkUIDelegate: VKSdkUIDelegate,
+        completion: @escaping (Result<Void, WorkspaceError>) -> Void
+    ) {
         setupVKSignIn(vkUIDelegate: vkUIDelegate)
         let scope = ["email"]
         VKSdk.wakeUpSession(scope) { state, error in
@@ -64,8 +70,7 @@ class AutorizationService: NSObject, AutorizationServiceProtocol {
 
     func signInWithGoogle(
         presentingViewController viewController: UIViewController,
-        completion: @escaping (Result<Void, WorkspaceError>)
-            -> Void
+        completion: @escaping (Result<Void, WorkspaceError>) -> Void
     ) {
         setupGoogleSignIn(presentingViewController: viewController)
         googleAuthHandler = { result in
@@ -121,7 +126,8 @@ extension AutorizationService: GIDSignInDelegate {
     func sign(
         _ signIn: GIDSignIn!,
         didDisconnectWith user: GIDGoogleUser!,
-        withError error: Error!) {
+        withError error: Error!
+    ) {
         // Perform any operations when the user disconnects from app here.
     }
 }
