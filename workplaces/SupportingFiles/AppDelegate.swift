@@ -7,7 +7,7 @@
 
 import FBSDKCoreKit
 import GoogleSignIn
-import UIKit
+import VK_ios_sdk
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,9 +22,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
-    @available(iOS 9.0, *)
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey: Any]) -> Bool {
-      return GIDSignIn.sharedInstance().handle(url)
+        GIDSignIn.sharedInstance().handle(url)
+        return true
+    }
+
+    private func application(
+        application: UIApplication,
+        openURL url: NSURL,
+        sourceApplication: String?,
+        annotation: AnyObject
+    ) -> Bool {
+        // Use VK
+        VKSdk.processOpen(url as URL?, fromApplication: sourceApplication)
+        return true
+    }
+
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        VKSdk.processOpen(url, fromApplication: sourceApplication)
+        return true
     }
 
 }

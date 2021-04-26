@@ -24,7 +24,7 @@ protocol AutorizationServiceProtocol: class {
 
     func signInWithFacebook(completion: @escaping (Result<Void, WorkspaceError>) -> Void)
 
-    func signInWithVK(completion: @escaping (Result<Void, WorkspaceError>) -> Void)
+    func signInWithVK(vkUIDelegate: VKSdkUIDelegate, completion: @escaping (Result<Void, WorkspaceError>) -> Void)
 
     func signInWithGoogle(
         presentingViewController viewController: UIViewController,
@@ -34,5 +34,7 @@ protocol AutorizationServiceProtocol: class {
     func logout()
 
     var isUserAuthorized: Bool { get }
+
+    var vkUIDelegate: VKSdkUIDelegate? { get }
 
 }

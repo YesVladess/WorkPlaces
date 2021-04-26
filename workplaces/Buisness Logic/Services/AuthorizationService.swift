@@ -11,6 +11,10 @@ import VK_ios_sdk
 
 class AutorizationService: NSObject, AutorizationServiceProtocol {
 
+    var isUserAuthorized: Bool { false }
+
+    weak var vkUIDelegate: VKSdkUIDelegate?
+
     // MARK: - Private vars
 
     private var googleAuthHandler: ((Result<Void, WorkspaceError>) -> Void)?
@@ -44,8 +48,18 @@ class AutorizationService: NSObject, AutorizationServiceProtocol {
         }
     }
 
-    func signInWithVK(completion: @escaping (Result<Void, WorkspaceError>) -> Void) {
-
+    func signInWithVK(vkUIDelegate: VKSdkUIDelegate, completion: @escaping (Result<Void, WorkspaceError>) -> Void) {
+        setupVKSignIn(vkUIDelegate: vkUIDelegate)
+        let scope = ["email"]
+        VKSdk.wakeUpSession(scope) { state, error in
+            if state == .authorized {
+                completion(.success(()))
+            } else if let error = error {
+                completion(.failure(.serverError(error)))
+            } else {
+                VKSdk.authorize(scope)
+            }
+        }
     }
 
     func signInWithGoogle(
@@ -63,10 +77,6 @@ class AutorizationService: NSObject, AutorizationServiceProtocol {
 
     }
 
-    var isUserAuthorized: Bool { false }
-
-    weak var vkUIDelegate: VKSdkUIDelegate?
-
     // MARK: - Private methods
 
     private func setupGoogleSignIn(presentingViewController viewController: UIViewController) {
@@ -74,6 +84,13 @@ class AutorizationService: NSObject, AutorizationServiceProtocol {
         GIDSignIn.sharedInstance()?.clientID = Config.googleClientID
         GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance()?.signIn()
+    }
+
+    private func setupVKSignIn(vkUIDelegate: VKSdkUIDelegate) {
+        let sdk = VKSdk.initialize(withAppId: Config.vkAppID)
+        self.vkUIDelegate = vkUIDelegate
+        sdk?.uiDelegate = self.vkUIDelegate
+        sdk?.register(self)
     }
 
 }
@@ -86,13 +103,8 @@ extension AutorizationService: GIDSignInDelegate {
         withError error: Error!
     ) {
         if let error = error {
-            if (error as NSError).code == GIDSignInErrorCode.hasNoAuthInKeychain.rawValue {
-                print("The user has not signed in before or they have since signed out.")
-            } else {
-                let result: (Result<Void, WorkspaceError>) = .failure(.serverError(error))
-                googleAuthHandler?(result)
-            }
-            return
+            let result: (Result<Void, WorkspaceError>) = .failure(.serverError(error))
+            googleAuthHandler?(result)
         } else {
             let result: (Result<Void, WorkspaceError>) = .success(())
             googleAuthHandler?(result)
@@ -112,4 +124,20 @@ extension AutorizationService: GIDSignInDelegate {
         withError error: Error!) {
         // Perform any operations when the user disconnects from app here.
     }
+}
+
+extension AutorizationService: VKSdkDelegate {
+
+    func vkSdkAccessAuthorizationFinished(with result: VKAuthorizationResult!) {
+//        if let token = result.token {
+//        } else if let error = result.error {
+//        }
+    }
+
+    func vkSdkAuthorizationStateUpdated(with result: VKAuthorizationResult!) {
+    }
+
+    func vkSdkUserAuthorizationFailed() {
+    }
+
 }

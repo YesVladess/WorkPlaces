@@ -5,7 +5,7 @@
 //  Created by YesVladess on 18.04.2021.
 //
 
-import UIKit
+import VK_ios_sdk
 
 class LoginViewController: UIViewController, CanShowSpinner {
 
@@ -60,6 +60,14 @@ class LoginViewController: UIViewController, CanShowSpinner {
     }
 
     @IBAction private func vkButtonTapped(_ sender: Any) {
+        authService.signInWithVK(vkUIDelegate: self, completion: { [weak self] result in
+            switch result {
+            case .success:
+                self?.navigateToWelcomeScreen()
+            case.failure(let error):
+                self?.showError(error.localizedDescription)
+            }
+        })
     }
 
     @IBAction private func googleButtonTapped(_ sender: Any) {
@@ -98,6 +106,19 @@ extension LoginViewController: PrimaryButtonViewDelegate {
     
     func primaryButtonTapped(_ button: PrimaryButton) {
         navigateToSignInScreen()
+    }
+
+}
+
+extension LoginViewController: VKSdkUIDelegate {
+
+    func vkSdkShouldPresent(_ controller: UIViewController!) {
+        self.present(controller, animated: true)
+    }
+
+    func vkSdkNeedCaptchaEnter(_ captchaError: VKError!) {
+        let vcCaptchaViewController = VKCaptchaViewController.captchaControllerWithError(captchaError)
+        vcCaptchaViewController?.present(in: self)
     }
 
 }

@@ -13,4 +13,6 @@ struct Config {
 
     static let facebookAppID = "120916823329765"
 
+    static let vkAppID = "7838506"
+
 }
