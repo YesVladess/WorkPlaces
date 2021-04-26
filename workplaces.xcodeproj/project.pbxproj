@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -34,7 +34,7 @@
 		5A96F2EB262E30B7006BD8C9 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A96F2EA262E30B7006BD8C9 /* String.swift */; };
 		5A96F2EF262E3207006BD8C9 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A96F2EE262E3207006BD8C9 /* UIColor.swift */; };
 		5A96F2F6262E392D006BD8C9 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A96F2F5262E392D006BD8C9 /* LoginViewController.xib */; };
-		5A96F305262E3EE4006BD8C9 /* UIViewController+Childs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A96F304262E3EE4006BD8C9 /* UIViewController+Childs.swift */; };
+		5A96F305262E3EE4006BD8C9 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A96F304262E3EE4006BD8C9 /* UIViewController.swift */; };
 		5A96F314262E4603006BD8C9 /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A96F313262E4603006BD8C9 /* SpinnerView.swift */; };
 		5A96F32F262EB76B006BD8C9 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A96F32D262EB76B006BD8C9 /* SignInViewController.swift */; };
 		5A96F330262EB76B006BD8C9 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A96F32E262EB76B006BD8C9 /* SignInViewController.xib */; };
@@ -94,7 +94,7 @@
 		5A96F2EA262E30B7006BD8C9 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		5A96F2EE262E3207006BD8C9 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		5A96F2F5262E392D006BD8C9 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
-		5A96F304262E3EE4006BD8C9 /* UIViewController+Childs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Childs.swift"; sourceTree = "<group>"; };
+		5A96F304262E3EE4006BD8C9 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		5A96F313262E4603006BD8C9 /* SpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerView.swift; sourceTree = "<group>"; };
 		5A96F32D262EB76B006BD8C9 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		5A96F32E262EB76B006BD8C9 /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
@@ -400,7 +400,7 @@
 				5ADB27BE262DC56E00CFC392 /* UIFont+Fonts.swift */,
 				5A96F2EA262E30B7006BD8C9 /* String.swift */,
 				5A96F2EE262E3207006BD8C9 /* UIColor.swift */,
-				5A96F304262E3EE4006BD8C9 /* UIViewController+Childs.swift */,
+				5A96F304262E3EE4006BD8C9 /* UIViewController.swift */,
 				5A6CDAAC262EE68900B92A59 /* Images.swift */,
 				5A7905DA2634BC0F008863BB /* CustomView.swift */,
 				5A7905DE2634BC42008863BB /* XibLoadable.swift */,
@@ -693,7 +693,7 @@
 				5A7906062634E011008863BB /* WorkspaceError.swift in Sources */,
 				5ADB27BF262DC56E00CFC392 /* UIFont+Fonts.swift in Sources */,
 				5ADB27B1262DBC9200CFC392 /* String+Localizable.swift in Sources */,
-				5A96F305262E3EE4006BD8C9 /* UIViewController+Childs.swift in Sources */,
+				5A96F305262E3EE4006BD8C9 /* UIViewController.swift in Sources */,
 				5A96F2EB262E30B7006BD8C9 /* String.swift in Sources */,
 				5A28EBD5262ECCE500DF4CEB /* AuthorizationService.swift in Sources */,
 				5A28EBD1262ECC4B00DF4CEB /* ServiceLayer.swift in Sources */,

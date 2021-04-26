@@ -52,9 +52,9 @@ class LoginViewController: UIViewController, CanShowSpinner {
         authService.signInWithFacebook(completion: { [weak self] result in
             switch result {
             case .success:
-            self?.navigateToWelcomeScreen()
+                self?.navigateToWelcomeScreen()
             case.failure(let error):
-                print(error.localizedDescription)
+                self?.showError(error.localizedDescription)
             }
         })
     }
