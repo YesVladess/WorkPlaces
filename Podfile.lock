@@ -1,16 +1,61 @@
 PODS:
+  - AppAuth (1.4.0):
+    - AppAuth/Core (= 1.4.0)
+    - AppAuth/ExternalUserAgent (= 1.4.0)
+  - AppAuth/Core (1.4.0)
+  - AppAuth/ExternalUserAgent (1.4.0)
+  - FBSDKCoreKit (9.2.0):
+    - FBSDKCoreKit/Basics (= 9.2.0)
+    - FBSDKCoreKit/Core (= 9.2.0)
+  - FBSDKCoreKit/Basics (9.2.0)
+  - FBSDKCoreKit/Core (9.2.0):
+    - FBSDKCoreKit/Basics
+  - FBSDKLoginKit (9.2.0):
+    - FBSDKLoginKit/Login (= 9.2.0)
+  - FBSDKLoginKit/Login (9.2.0):
+    - FBSDKCoreKit (~> 9.2.0)
+  - GoogleSignIn (5.0.2):
+    - AppAuth (~> 1.2)
+    - GTMAppAuth (~> 1.0)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - GTMAppAuth (1.1.0):
+    - AppAuth/Core (~> 1.4)
+    - GTMSessionFetcher (~> 1.4)
+  - GTMSessionFetcher (1.4.0):
+    - GTMSessionFetcher/Full (= 1.4.0)
+  - GTMSessionFetcher/Core (1.4.0)
+  - GTMSessionFetcher/Full (1.4.0):
+    - GTMSessionFetcher/Core (= 1.4.0)
   - SwiftLint (0.43.1)
+  - VK-ios-sdk (1.6.2)
 
 DEPENDENCIES:
+  - FBSDKLoginKit
+  - GoogleSignIn
   - SwiftLint
+  - VK-ios-sdk
 
 SPEC REPOS:
   trunk:
+    - AppAuth
+    - FBSDKCoreKit
+    - FBSDKLoginKit
+    - GoogleSignIn
+    - GTMAppAuth
+    - GTMSessionFetcher
     - SwiftLint
+    - VK-ios-sdk
 
 SPEC CHECKSUMS:
+  AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
+  FBSDKCoreKit: dace5abafc2fd9272733e6d027bcf18102712117
+  FBSDKLoginKit: 43f377b451d391f5bc9dd774f51a391db1072029
+  GoogleSignIn: 7137d297ddc022a7e0aa4619c86d72c909fa7213
+  GTMAppAuth: 197a8dabfea5d665224aa00d17f164fc2248dab9
+  GTMSessionFetcher: 6f5c8abbab8a9bce4bb3f057e317728ec6182b10
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
+  VK-ios-sdk: 5bcf00a2014a7323f98db9328b603d4f96635caa
 
-PODFILE CHECKSUM: dad55492b0c8fd8662dbbff4d6e038b603f80f76
+PODFILE CHECKSUM: 4f915bc6f484dfcc09b9c08e24d9a7059e3b7a14
 
 COCOAPODS: 1.9.3

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="workplaces" customModuleProvider="target">
+            <connections>
+                <outlet property="fbButton" destination="Kgg-q9-zuh" id="acb-hK-pss"/>
+                <outlet property="googleButton" destination="FV9-ho-P0T" id="JYg-NY-5y2"/>
+                <outlet property="imageView" destination="EmQ-Rr-UbF" id="CMC-9E-gYj"/>
+                <outlet property="primaryButton" destination="RAG-fF-nhi" id="2VS-N6-w61"/>
+                <outlet property="view" destination="iN0-l3-epB" id="vH7-6H-cvI"/>
+                <outlet property="vkButton" destination="dhN-HF-swj" id="tfp-jT-o50"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WORKPLACES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAy-6X-ekg">
+                    <rect key="frame" x="90.5" y="431.5" width="233.5" height="43"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EmQ-Rr-UbF">
+                    <rect key="frame" x="107" y="191.5" width="200" height="200"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="NbR-Ai-GXs"/>
+                        <constraint firstAttribute="width" constant="200" id="w6b-fa-tku"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RAG-fF-nhi" customClass="PrimaryButton" customModule="workplaces" customModuleProvider="target">
+                    <rect key="frame" x="35.5" y="524.5" width="343" height="56"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="343" id="JYn-6e-BKD"/>
+                        <constraint firstAttribute="height" constant="56" id="iwR-S3-xpy"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kgg-q9-zuh">
+                    <rect key="frame" x="152" y="640.5" width="110" height="30"/>
+                    <color key="backgroundColor" name="middle_grey"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="110" id="Ufz-bQ-9ec"/>
+                    </constraints>
+                    <state key="normal" title="FB button"/>
+                    <connections>
+                        <action selector="fbButtonTapped:" destination="-1" eventType="touchUpInside" id="WYY-d8-wbH"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhN-HF-swj">
+                    <rect key="frame" x="152" y="678.5" width="110" height="30"/>
+                    <color key="backgroundColor" name="middle_grey"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="110" id="yN5-66-7yV"/>
+                    </constraints>
+                    <state key="normal" title="VK button"/>
+                    <connections>
+                        <action selector="vkButtonTapped:" destination="-1" eventType="touchUpInside" id="TrI-aI-grN"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FV9-ho-P0T">
+                    <rect key="frame" x="152" y="716.5" width="110" height="30"/>
+                    <color key="backgroundColor" name="middle_grey"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="110" id="Vt4-LM-iu2"/>
+                    </constraints>
+                    <state key="normal" title="Google button"/>
+                    <connections>
+                        <action selector="googleButtonTapped:" destination="-1" eventType="touchUpInside" id="oPQ-0v-iJ1"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="FV9-ho-P0T" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="2ZC-83-dsA"/>
+                <constraint firstItem="FV9-ho-P0T" firstAttribute="top" secondItem="dhN-HF-swj" secondAttribute="bottom" constant="8" symbolic="YES" id="4tm-Tb-OnV"/>
+                <constraint firstItem="dhN-HF-swj" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="5c9-We-aCZ"/>
+                <constraint firstItem="hAy-6X-ekg" firstAttribute="top" secondItem="EmQ-Rr-UbF" secondAttribute="bottom" constant="40" id="8Yc-1t-Y8t"/>
+                <constraint firstItem="RAG-fF-nhi" firstAttribute="top" secondItem="hAy-6X-ekg" secondAttribute="bottom" constant="50" id="9WV-dz-0Dr"/>
+                <constraint firstItem="Kgg-q9-zuh" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="GAM-Wb-9rS"/>
+                <constraint firstItem="dhN-HF-swj" firstAttribute="top" secondItem="Kgg-q9-zuh" secondAttribute="bottom" constant="8" symbolic="YES" id="Kjm-sr-QAv"/>
+                <constraint firstItem="hAy-6X-ekg" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Nrr-bO-hWs"/>
+                <constraint firstItem="EmQ-Rr-UbF" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Oxn-dT-lG2"/>
+                <constraint firstItem="RAG-fF-nhi" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="VN8-uh-tDh"/>
+                <constraint firstItem="Kgg-q9-zuh" firstAttribute="top" secondItem="RAG-fF-nhi" secondAttribute="bottom" constant="60" id="dPr-dF-X7l"/>
+                <constraint firstItem="hAy-6X-ekg" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="ti8-UF-nxa"/>
+            </constraints>
+            <point key="canvasLocation" x="137.68115942028987" y="133.92857142857142"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="middle_grey">
+            <color red="0.63499999046325684" green="0.67500001192092896" blue="0.75700002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -7,12 +7,11 @@
 
 import Foundation
 
-protocol ProfileServiceProtocol {
+class ProfileService: ProfileServiceProtocol {
     
-    func getProfileInfo() -> Profile
-    
-}
+    func getProfileInfo() -> Profile {
 
-class ProfileService {
+        return Profile(name: "", surname: "", age: 0, location: "", email: "")
+    }
 
 }
