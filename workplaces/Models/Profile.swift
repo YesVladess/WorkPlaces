@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Profile {
+struct Profile {
 
     var name: String
     var surname: String
@@ -15,11 +15,4 @@ class Profile {
     var location: String
     var email: String
 
-    init( _ name: String, _ surname: String, _ age: Int, _ location: String, _ email: String) {
-        self.name = name
-        self.surname = surname
-        self.age = age
-        self.location = location
-        self.email = email
-    }
 }

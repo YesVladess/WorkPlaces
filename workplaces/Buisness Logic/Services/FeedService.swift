@@ -7,15 +7,22 @@
 
 import Foundation
 
-protocol FeedServiceProtocol {
+class FeedService: FeedServiceProtocol {
 
-    func getFeed()
-    func getMyFeed()
-    func getFavoriteFeed()
-    func createNewPost()
-    
-}
+    func getFeed() {
 
-class FeedService {
+    }
+
+    func getMyFeed() {
+
+    }
+
+    func getFavoriteFeed() {
+
+    }
+
+    func createNewPost() {
+        
+    }
     
 }

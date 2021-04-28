@@ -7,6 +7,9 @@ target 'workplaces' do
 
   # Pods for workplaces
 	pod 'SwiftLint'
+	pod 'GoogleSignIn'
+	pod 'VK-ios-sdk'
+	pod 'FBSDKLoginKit'
 
   target 'workplacesTests' do
     inherit! :search_paths
