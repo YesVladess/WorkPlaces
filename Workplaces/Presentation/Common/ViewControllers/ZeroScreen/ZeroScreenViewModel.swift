@@ -10,9 +10,9 @@ import UIKit
 struct ZeroScreenViewModel {
 
     var image: UIImage?
-    var mainLabelTitle: NSAttributedString?
-    var secondaryLabelTitle: NSAttributedString?
-    var actionButtonLabelTitle: NSAttributedString?
+    var mainLabelTitle: String?
+    var secondaryLabelTitle: String?
+    var actionButtonLabelTitle: String?
     var action: () -> Void
 
     static func getErrorModel(
@@ -22,9 +22,9 @@ struct ZeroScreenViewModel {
     ) -> ZeroScreenViewModel {
         ZeroScreenViewModel(
             image: Images.errorImage,
-            mainLabelTitle: "Ups".localized.addAttributes(font: .title, color: .black),
-            secondaryLabelTitle: secondaryLabelTitle.addAttributes(font: .bodyLarge, color: .middleGrey),
-            actionButtonLabelTitle: actionButtonLabelTitle.addAttributes(font: .bodyLarge, color: .orange),
+            mainLabelTitle: "Ups".localized,
+            secondaryLabelTitle: secondaryLabelTitle,
+            actionButtonLabelTitle: actionButtonLabelTitle,
             action: action
         )
     }
@@ -36,9 +36,9 @@ struct ZeroScreenViewModel {
     ) -> ZeroScreenViewModel {
         ZeroScreenViewModel(
             image: Images.emptyImage,
-            mainLabelTitle: "Emptyness".localized.addAttributes(font: .title, color: .black),
-            secondaryLabelTitle: secondaryLabelTitle.addAttributes(font: .bodyLarge, color: .middleGrey),
-            actionButtonLabelTitle: actionButtonLabelTitle.addAttributes(font: .bodyLarge, color: .orange),
+            mainLabelTitle: "Emptyness".localized,
+            secondaryLabelTitle: secondaryLabelTitle,
+            actionButtonLabelTitle: actionButtonLabelTitle,
             action: action
         )
     }

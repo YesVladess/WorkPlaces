@@ -47,9 +47,11 @@ final class ZeroScreenViewController: UIViewController {
     
     private func configureView(withViewModel viewModel: ZeroScreenViewModel) {
         errorImageView.image = viewModel.image
-        mainLabel.attributedText = viewModel.mainLabelTitle
-        secondaryLabel.attributedText = viewModel.secondaryLabelTitle
-        actionButton.setTitle(viewModel.actionButtonLabelTitle?.string, for: .normal)
+        mainLabel.attributedText = viewModel.mainLabelTitle?.addAttributes(font: .title, color: .black)
+        secondaryLabel.attributedText =
+            viewModel.secondaryLabelTitle?.addAttributes(font: .bodyLarge, color: .middleGrey)
+        let actionButtonTitle = viewModel.actionButtonLabelTitle?.addAttributes(font: .bodyLarge, color: .orange)
+        actionButton.setAttributedTitle(actionButtonTitle, for: .normal)
         // TODO: - Колбек повесить на кнопку
     }
 
