@@ -25,8 +25,9 @@ class WelcomeViewController: UIViewController {
     // MARK: - Navigation
 
     private func navigateToFeedScreen() {
-        let feedViewController = FeedViewController()
-        navigationController?.pushViewController(feedViewController, animated: true)
+        let tabBarController = WorkplaceTabBarController()
+        navigationController?.isNavigationBarHidden = true
+        navigationController?.pushViewController(tabBarController, animated: true)
     }
 
 }

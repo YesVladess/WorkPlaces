@@ -12,8 +12,6 @@
 		5A28EBA4262EBF9700DF4CEB /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A28EBA2262EBF9700DF4CEB /* WelcomeViewController.xib */; };
 		5A28EBB0262EC91F00DF4CEB /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A28EBAE262EC91F00DF4CEB /* FeedViewController.swift */; };
 		5A28EBB1262EC91F00DF4CEB /* FeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A28EBAF262EC91F00DF4CEB /* FeedViewController.xib */; };
-		5A28EBBB262EC9C200DF4CEB /* MyFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A28EBBA262EC9C200DF4CEB /* MyFeedViewController.swift */; };
-		5A28EBC3262ECA3400DF4CEB /* FavoriteFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A28EBC2262ECA3400DF4CEB /* FavoriteFeedViewController.swift */; };
 		5A28EBCA262ECA9500DF4CEB /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A28EBC8262ECA9500DF4CEB /* NewPostViewController.swift */; };
 		5A28EBCB262ECA9500DF4CEB /* NewPostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A28EBC9262ECA9500DF4CEB /* NewPostViewController.xib */; };
 		5A28EBD1262ECC4B00DF4CEB /* ServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A28EBD0262ECC4B00DF4CEB /* ServiceLayer.swift */; };
@@ -71,6 +69,9 @@
 		5A7905FB2634DA06008863BB /* FeedServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7905FA2634DA06008863BB /* FeedServiceProtocol.swift */; };
 		5A7906012634DA96008863BB /* ProfileServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7906002634DA96008863BB /* ProfileServiceProtocol.swift */; };
 		5A7906062634E011008863BB /* WorkspaceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7906052634E011008863BB /* WorkspaceError.swift */; };
+		5A8127FA2642D1A4000F9678 /* WorkplaceTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8127F92642D1A4000F9678 /* WorkplaceTabBarController.swift */; };
+		5A81280F2642D566000F9678 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A81280D2642D566000F9678 /* ProfileViewController.swift */; };
+		5A8128102642D566000F9678 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A81280E2642D566000F9678 /* ProfileViewController.xib */; };
 		5A8472422636F39000246C5E /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8472412636F39000246C5E /* Config.swift */; };
 		5A96F2EB262E30B7006BD8C9 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A96F2EA262E30B7006BD8C9 /* String.swift */; };
 		5A96F2EF262E3207006BD8C9 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A96F2EE262E3207006BD8C9 /* UIColor.swift */; };
@@ -152,8 +153,6 @@
 		5A28EBA2262EBF9700DF4CEB /* WelcomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
 		5A28EBAE262EC91F00DF4CEB /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		5A28EBAF262EC91F00DF4CEB /* FeedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedViewController.xib; sourceTree = "<group>"; };
-		5A28EBBA262EC9C200DF4CEB /* MyFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFeedViewController.swift; sourceTree = "<group>"; };
-		5A28EBC2262ECA3400DF4CEB /* FavoriteFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteFeedViewController.swift; sourceTree = "<group>"; };
 		5A28EBC8262ECA9500DF4CEB /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 		5A28EBC9262ECA9500DF4CEB /* NewPostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewPostViewController.xib; sourceTree = "<group>"; };
 		5A28EBD0262ECC4B00DF4CEB /* ServiceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLayer.swift; sourceTree = "<group>"; };
@@ -212,6 +211,9 @@
 		5A7906002634DA96008863BB /* ProfileServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceProtocol.swift; sourceTree = "<group>"; };
 		5A7906052634E011008863BB /* WorkspaceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceError.swift; sourceTree = "<group>"; };
 		5A7906092634E755008863BB /* UserCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCredentials.swift; sourceTree = "<group>"; };
+		5A8127F92642D1A4000F9678 /* WorkplaceTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkplaceTabBarController.swift; sourceTree = "<group>"; };
+		5A81280D2642D566000F9678 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		5A81280E2642D566000F9678 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		5A8472412636F39000246C5E /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		5A96F2EA262E30B7006BD8C9 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		5A96F2EE262E3207006BD8C9 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
@@ -336,8 +338,8 @@
 		5A28EBB8262EC96200DF4CEB /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				5A28EBBA262EC9C200DF4CEB /* MyFeedViewController.swift */,
-				5A28EBC2262ECA3400DF4CEB /* FavoriteFeedViewController.swift */,
+				5A81280D2642D566000F9678 /* ProfileViewController.swift */,
+				5A81280E2642D566000F9678 /* ProfileViewController.xib */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -759,6 +761,7 @@
 			isa = PBXGroup;
 			children = (
 				5ADB27D5262E19EF00CFC392 /* ZeroScreen */,
+				5A8127F92642D1A4000F9678 /* WorkplaceTabBarController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -939,6 +942,7 @@
 				5A96F330262EB76B006BD8C9 /* SignInViewController.xib in Resources */,
 				5A28EBCB262ECA9500DF4CEB /* NewPostViewController.xib in Resources */,
 				5A7905CA26348A09008863BB /* PrimaryButton.xib in Resources */,
+				5A8128102642D566000F9678 /* ProfileViewController.xib in Resources */,
 				5ADB27A2262DBA1E00CFC392 /* Localizable.strings in Resources */,
 				5A28EBA4262EBF9700DF4CEB /* WelcomeViewController.xib in Resources */,
 				5ADB2787262DB47400CFC392 /* IBMPlexSans-Regular.ttf in Resources */,
@@ -1172,9 +1176,9 @@
 				5ADB27DE262E1B2800CFC392 /* ZeroScreenViewController.swift in Sources */,
 				5ADB26B0262B8F7000CFC392 /* LoginViewController.swift in Sources */,
 				5A96F314262E4603006BD8C9 /* SpinnerView.swift in Sources */,
+				5A81280F2642D566000F9678 /* ProfileViewController.swift in Sources */,
 				5ADB26AC262B8F7000CFC392 /* AppDelegate.swift in Sources */,
 				5ADB26AE262B8F7000CFC392 /* SceneDelegate.swift in Sources */,
-				5A28EBC3262ECA3400DF4CEB /* FavoriteFeedViewController.swift in Sources */,
 				5A7905E82634BE07008863BB /* CanShowSpinner.swift in Sources */,
 				5A28EBB0262EC91F00DF4CEB /* FeedViewController.swift in Sources */,
 				5A28EBDD262ECD3A00DF4CEB /* ProfileService.swift in Sources */,
@@ -1184,6 +1188,7 @@
 				5A96F2EF262E3207006BD8C9 /* UIColor.swift in Sources */,
 				5A7905FB2634DA06008863BB /* FeedServiceProtocol.swift in Sources */,
 				5A7905DF2634BC42008863BB /* XibLoadable.swift in Sources */,
+				5A8127FA2642D1A4000F9678 /* WorkplaceTabBarController.swift in Sources */,
 				5A7905CB26348A09008863BB /* PrimaryButton.swift in Sources */,
 				5A7906062634E011008863BB /* WorkspaceError.swift in Sources */,
 				5ADB27BF262DC56E00CFC392 /* UIFont+Fonts.swift in Sources */,
@@ -1198,7 +1203,6 @@
 				5A45123F2638AE6400D435CD /* ClientRequestInterceptor.swift in Sources */,
 				5A3541F82642810B004636A1 /* SignUpViewController.swift in Sources */,
 				5A28EBD9262ECCF900DF4CEB /* FeedService.swift in Sources */,
-				5A28EBBB262EC9C200DF4CEB /* MyFeedViewController.swift in Sources */,
 				5A6CDAAD262EE68900B92A59 /* Images.swift in Sources */,
 				5A28EBCA262ECA9500DF4CEB /* NewPostViewController.swift in Sources */,
 				5ADB27E6262E1CC400CFC392 /* ZeroScreenViewModel.swift in Sources */,
