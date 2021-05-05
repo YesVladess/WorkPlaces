@@ -27,12 +27,19 @@ public struct Post: Codable, Identifiable {
 
 public struct MakePost: Codable {
 
-    public let text: String
+    public init(text: String, imageUrl: URL, lon: Double, lat: Double) {
+        self.text = text
+        self.imageUrl = imageUrl
+        self.lon = lon
+        self.lat = lat
+    }
 
-    public let imageUrl: URL
+    let text: String
 
-    public let lon: Double
+    let imageUrl: URL
 
-    public let lat: Double
+    let lon: Double
+
+    let lat: Double
 
 }

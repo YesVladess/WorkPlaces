@@ -71,9 +71,6 @@ class AuthorizationIntegrationTests: XCTestCase {
                             switch result {
                             case .success:
                                 XCTFail("Did sign in with bad creds!")
-
-                                let token = self?.tokenStorage.get()
-                                XCTAssertNotNil(token)
                             case.failure(let error):
                                 exp.fulfill()
                                 let token = self?.tokenStorage.get()

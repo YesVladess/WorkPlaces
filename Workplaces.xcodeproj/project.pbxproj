@@ -26,8 +26,9 @@
 		5A35423A2642A599004636A1 /* AuthorizationServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3542392642A599004636A1 /* AuthorizationServiceStub.swift */; };
 		5A3542462642B11C004636A1 /* MockUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3542452642B11C004636A1 /* MockUserDefaults.swift */; };
 		5A35424E2642B491004636A1 /* AuthorizationIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A35424D2642B491004636A1 /* AuthorizationIntegrationTests.swift */; };
+		5A35427B2642BE7C004636A1 /* Asserts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A35427A2642BE7C004636A1 /* Asserts.swift */; };
 		5A45108D2638380000D435CD /* WorkplacesAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A4510842638380000D435CD /* WorkplacesAPI.framework */; };
-		5A4510942638380000D435CD /* WorkplacesAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4510932638380000D435CD /* WorkplacesAPITests.swift */; };
+		5A4510942638380000D435CD /* EndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4510932638380000D435CD /* EndpointTests.swift */; };
 		5A4510962638380000D435CD /* WorkplacesAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A4510862638380000D435CD /* WorkplacesAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5A4510992638380000D435CD /* WorkplacesAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A4510842638380000D435CD /* WorkplacesAPI.framework */; };
 		5A45109A2638380000D435CD /* WorkplacesAPI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5A4510842638380000D435CD /* WorkplacesAPI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -165,11 +166,12 @@
 		5A3542392642A599004636A1 /* AuthorizationServiceStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceStub.swift; sourceTree = "<group>"; };
 		5A3542452642B11C004636A1 /* MockUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserDefaults.swift; sourceTree = "<group>"; };
 		5A35424D2642B491004636A1 /* AuthorizationIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationIntegrationTests.swift; sourceTree = "<group>"; };
+		5A35427A2642BE7C004636A1 /* Asserts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asserts.swift; sourceTree = "<group>"; };
 		5A4510842638380000D435CD /* WorkplacesAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WorkplacesAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A4510862638380000D435CD /* WorkplacesAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WorkplacesAPI.h; sourceTree = "<group>"; };
 		5A4510872638380000D435CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A45108C2638380000D435CD /* WorkplacesAPITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorkplacesAPITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5A4510932638380000D435CD /* WorkplacesAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkplacesAPITests.swift; sourceTree = "<group>"; };
+		5A4510932638380000D435CD /* EndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointTests.swift; sourceTree = "<group>"; };
 		5A4510952638380000D435CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A4510B8263838CE00D435CD /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		5A4510BD26383C6A00D435CD /* Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codable.swift; sourceTree = "<group>"; };
@@ -365,6 +367,14 @@
 			path = Mocks;
 			sourceTree = "<group>";
 		};
+		5A3542792642BE6B004636A1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				5A35427A2642BE7C004636A1 /* Asserts.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		5A4510852638380000D435CD /* WorkplacesAPI */ = {
 			isa = PBXGroup;
 			children = (
@@ -380,7 +390,8 @@
 		5A4510922638380000D435CD /* WorkplacesAPITests */ = {
 			isa = PBXGroup;
 			children = (
-				5A4510932638380000D435CD /* WorkplacesAPITests.swift */,
+				5A3542792642BE6B004636A1 /* Helpers */,
+				5A4510932638380000D435CD /* EndpointTests.swift */,
 				5A4510952638380000D435CD /* Info.plist */,
 			);
 			path = WorkplacesAPITests;
@@ -1146,7 +1157,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A4510942638380000D435CD /* WorkplacesAPITests.swift in Sources */,
+				5A4510942638380000D435CD /* EndpointTests.swift in Sources */,
+				5A35427B2642BE7C004636A1 /* Asserts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
