@@ -14,7 +14,7 @@ target 'Workplaces' do
 
   target 'WorkplacesTests' do
     inherit! :search_paths
-    # Pods for testing
+    pod 'Apexy'
   end
 
   target 'WorkplacesAPI' do

@@ -13,17 +13,20 @@ class AuthorizationTests: XCTestCase {
 
     var tokenStorage: TokenStorage!
     var authService: AuthorizationServiceStub!
+    var mockUserDefaults: MockUserDefaults!
 
     override func setUpWithError() throws {
         try super.setUpWithError()
         tokenStorage = TokenStorage()
         authService = AuthorizationServiceStub()
+        mockUserDefaults = MockUserDefaults(suiteName: "testing")
     }
 
     override func tearDownWithError() throws {
         try super.tearDownWithError()
         tokenStorage = nil
         authService = nil
+        mockUserDefaults = nil
     }
 
     func testAuthSignInPositive() {
@@ -35,13 +38,13 @@ class AuthorizationTests: XCTestCase {
                             switch result {
                             case .success:
                                 print("Success")
-                            case.failure( _):
+                            case.failure:
                                 XCTFail("Authorization failed")
                             }
                            })
     }
 
-    func testAuthSignInError() {
+    func testAuthSignInWithError() {
         let email = "vls4@yandex.ru"
         let password = "Mypass12"
         authService.error = .unknowned
@@ -71,6 +74,11 @@ class AuthorizationTests: XCTestCase {
         XCTAssertNotNil(receviedToken?.refreshToken)
         XCTAssertEqual(token.accessToken, receviedToken?.accessToken, "Access Token doesn't match!")
         XCTAssertEqual(token.refreshToken, receviedToken?.refreshToken, "Refresh Token doesn't match!")
+    }
+
+    func testUserDefaults() {
+        mockUserDefaults = MockUserDefaults(suiteName: "testing")
+
     }
 
 }

@@ -24,6 +24,8 @@
 		5A3541F92642810B004636A1 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A3541F72642810B004636A1 /* SignUpViewController.xib */; };
 		5A3542222642A1C8004636A1 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3542212642A1C8004636A1 /* PostViewModel.swift */; };
 		5A35423A2642A599004636A1 /* AuthorizationServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3542392642A599004636A1 /* AuthorizationServiceStub.swift */; };
+		5A3542462642B11C004636A1 /* MockUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3542452642B11C004636A1 /* MockUserDefaults.swift */; };
+		5A35424E2642B491004636A1 /* AuthorizationIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A35424D2642B491004636A1 /* AuthorizationIntegrationTests.swift */; };
 		5A45108D2638380000D435CD /* WorkplacesAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A4510842638380000D435CD /* WorkplacesAPI.framework */; };
 		5A4510942638380000D435CD /* WorkplacesAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4510932638380000D435CD /* WorkplacesAPITests.swift */; };
 		5A4510962638380000D435CD /* WorkplacesAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A4510862638380000D435CD /* WorkplacesAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -161,6 +163,8 @@
 		5A3541F72642810B004636A1 /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		5A3542212642A1C8004636A1 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
 		5A3542392642A599004636A1 /* AuthorizationServiceStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceStub.swift; sourceTree = "<group>"; };
+		5A3542452642B11C004636A1 /* MockUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserDefaults.swift; sourceTree = "<group>"; };
+		5A35424D2642B491004636A1 /* AuthorizationIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationIntegrationTests.swift; sourceTree = "<group>"; };
 		5A4510842638380000D435CD /* WorkplacesAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WorkplacesAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A4510862638380000D435CD /* WorkplacesAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WorkplacesAPI.h; sourceTree = "<group>"; };
 		5A4510872638380000D435CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -351,6 +355,14 @@
 				5A3542392642A599004636A1 /* AuthorizationServiceStub.swift */,
 			);
 			path = Stubs;
+			sourceTree = "<group>";
+		};
+		5A3542442642B10C004636A1 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				5A3542452642B11C004636A1 /* MockUserDefaults.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		5A4510852638380000D435CD /* WorkplacesAPI */ = {
@@ -592,6 +604,8 @@
 		5ADB26C1262B8F7100CFC392 /* WorkplacesTests */ = {
 			isa = PBXGroup;
 			children = (
+				5A35424D2642B491004636A1 /* AuthorizationIntegrationTests.swift */,
+				5A3542442642B10C004636A1 /* Mocks */,
 				5A3542382642A58B004636A1 /* Stubs */,
 				5ADB26C2262B8F7100CFC392 /* AuthorizationTests.swift */,
 				5ADB26C4262B8F7100CFC392 /* Info.plist */,
@@ -832,6 +846,7 @@
 				5ADB26BA262B8F7100CFC392 /* Sources */,
 				5ADB26BB262B8F7100CFC392 /* Frameworks */,
 				5ADB26BC262B8F7100CFC392 /* Resources */,
+				57BF224DB2806C26E9AE6B96 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -955,6 +970,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		57BF224DB2806C26E9AE6B96 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WorkplacesTests/Pods-WorkplacesTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WorkplacesTests/Pods-WorkplacesTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WorkplacesTests/Pods-WorkplacesTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		5801AD88B1705648B0DB671A /* [CP] Check Pods Manifest.lock */ = {
@@ -1167,6 +1199,8 @@
 			files = (
 				5A35423A2642A599004636A1 /* AuthorizationServiceStub.swift in Sources */,
 				5ADB26C3262B8F7100CFC392 /* AuthorizationTests.swift in Sources */,
+				5A35424E2642B491004636A1 /* AuthorizationIntegrationTests.swift in Sources */,
+				5A3542462642B11C004636A1 /* MockUserDefaults.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
