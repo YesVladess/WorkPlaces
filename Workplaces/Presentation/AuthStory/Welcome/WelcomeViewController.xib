@@ -11,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WelcomeViewController" customModule="Workplaces" customModuleProvider="target">
             <connections>
-                <outlet property="navigateToFeedButton" destination="VC8-1C-fOp" id="WYX-mn-u6S"/>
+                <outlet property="navigateToFeedButton" destination="KRZ-EN-v90" id="mbb-M0-sD7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -27,30 +27,31 @@
                         <constraint firstAttribute="height" constant="200" id="LVv-ES-b0U"/>
                     </constraints>
                 </imageView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VC8-1C-fOp" customClass="PrimaryButton" customModule="Workplaces" customModuleProvider="target">
-                    <rect key="frame" x="32" y="724" width="350" height="58"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="58" id="Vo6-ut-VUf"/>
-                        <constraint firstAttribute="width" constant="350" id="tOE-vY-IrF"/>
-                    </constraints>
-                </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nice to meet you" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XGq-dV-TgU">
                     <rect key="frame" x="77.5" y="472" width="259" height="43"/>
                     <fontDescription key="fontDescription" type="system" pointSize="36"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KRZ-EN-v90" customClass="PrimaryButton" customModule="Workplaces" customModuleProvider="target">
+                    <rect key="frame" x="32" y="722" width="350" height="55"/>
+                    <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="350" id="Cyl-by-D4d"/>
+                        <constraint firstAttribute="height" constant="55" id="bhr-VI-f35"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="dkR-Ik-0qK" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="218" id="EWY-4j-q0K"/>
                 <constraint firstItem="XGq-dV-TgU" firstAttribute="top" secondItem="dkR-Ik-0qK" secondAttribute="bottom" constant="10" id="JGh-n7-RIE"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="VC8-1C-fOp" secondAttribute="bottom" constant="80" id="JXn-ww-zbz"/>
                 <constraint firstItem="XGq-dV-TgU" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Lan-ls-Jva"/>
-                <constraint firstItem="VC8-1C-fOp" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="QSt-33-hnq"/>
+                <constraint firstItem="KRZ-EN-v90" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="YgN-u8-5ZK"/>
                 <constraint firstItem="dkR-Ik-0qK" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Z3j-qP-MOx"/>
+                <constraint firstItem="KRZ-EN-v90" firstAttribute="top" secondItem="XGq-dV-TgU" secondAttribute="bottom" constant="207" id="sxc-bp-j2k"/>
             </constraints>
             <point key="canvasLocation" x="31.884057971014496" y="133.92857142857142"/>
         </view>
@@ -59,6 +60,9 @@
         <image name="Illustration_02" width="200" height="200"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

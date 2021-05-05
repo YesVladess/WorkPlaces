@@ -39,15 +39,16 @@
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RAG-fF-nhi" customClass="PrimaryButton" customModule="Workplaces" customModuleProvider="target">
-                    <rect key="frame" x="35.5" y="524.5" width="343" height="56"/>
+                    <rect key="frame" x="32" y="524.5" width="350" height="55"/>
+                    <color key="backgroundColor" systemColor="systemIndigoColor"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="343" id="JYn-6e-BKD"/>
-                        <constraint firstAttribute="height" constant="56" id="iwR-S3-xpy"/>
+                        <constraint firstAttribute="width" constant="350" id="JYn-6e-BKD"/>
+                        <constraint firstAttribute="height" constant="55" id="iwR-S3-xpy"/>
                     </constraints>
                     <state key="normal" title="PrimaryButton"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kgg-q9-zuh">
-                    <rect key="frame" x="152" y="640.5" width="110" height="30"/>
+                    <rect key="frame" x="152" y="639.5" width="110" height="30"/>
                     <color key="backgroundColor" name="middle_grey"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="110" id="Ufz-bQ-9ec"/>
@@ -58,7 +59,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhN-HF-swj">
-                    <rect key="frame" x="152" y="678.5" width="110" height="30"/>
+                    <rect key="frame" x="152" y="677.5" width="110" height="30"/>
                     <color key="backgroundColor" name="middle_grey"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="110" id="yN5-66-7yV"/>
@@ -69,7 +70,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FV9-ho-P0T">
-                    <rect key="frame" x="152" y="716.5" width="110" height="30"/>
+                    <rect key="frame" x="152" y="715.5" width="110" height="30"/>
                     <color key="backgroundColor" name="middle_grey"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="110" id="Vt4-LM-iu2"/>
@@ -80,7 +81,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sfj-Vh-SdW">
-                    <rect key="frame" x="157" y="770" width="100" height="30"/>
+                    <rect key="frame" x="157" y="769" width="100" height="30"/>
                     <color key="backgroundColor" name="middle_grey"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="100" id="MIs-gW-osA"/>
@@ -118,6 +119,9 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -2,17 +2,18 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignInViewController" customModule="workplaces" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignInViewController" customModule="Workplaces" customModuleProvider="target">
             <connections>
                 <outlet property="emailLoginTextField" destination="E69-fM-Ce3" id="fU3-gL-ROR"/>
                 <outlet property="passwordTextField" destination="Ucb-nw-eLj" id="oqi-d2-IJm"/>
-                <outlet property="primaryButton" destination="wek-60-glX" id="pGD-78-q5m"/>
+                <outlet property="primaryButton" destination="bqJ-hO-g7i" id="V6h-CX-rYu"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,29 +23,34 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email or Login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E69-fM-Ce3">
-                    <rect key="frame" x="147.5" y="114" width="119" height="34"/>
+                    <rect key="frame" x="47" y="114" width="320" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="320" id="mjs-0V-DEn"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ucb-nw-eLj">
-                    <rect key="frame" x="162" y="198" width="90.5" height="34"/>
+                    <rect key="frame" x="47" y="198" width="320" height="34"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wek-60-glX" customClass="PrimaryButton" customModule="workplaces" customModuleProvider="target">
-                    <rect key="frame" x="32" y="382" width="355" height="56"/>
-                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqJ-hO-g7i" customClass="PrimaryButton" customModule="Workplaces" customModuleProvider="target">
+                    <rect key="frame" x="32" y="382" width="350" height="55"/>
+                    <color key="backgroundColor" systemColor="systemIndigoColor"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="355" id="eqH-pa-RkR"/>
-                        <constraint firstAttribute="height" constant="56" id="vhp-b0-I4Z"/>
+                        <constraint firstAttribute="width" constant="350" id="Tqk-xz-8Oi"/>
+                        <constraint firstAttribute="height" constant="55" id="l87-BO-Tz4"/>
                     </constraints>
-                </view>
+                    <state key="normal" title="Login Button"/>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="wek-60-glX" firstAttribute="top" secondItem="Ucb-nw-eLj" secondAttribute="bottom" constant="150" id="1Y1-Lg-ob8"/>
-                <constraint firstItem="wek-60-glX" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" constant="2.5" id="5yO-xw-bc7"/>
+                <constraint firstItem="bqJ-hO-g7i" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="5zO-51-EHo"/>
+                <constraint firstItem="bqJ-hO-g7i" firstAttribute="top" secondItem="Ucb-nw-eLj" secondAttribute="bottom" constant="150" id="jNH-Hf-vqq"/>
+                <constraint firstItem="Ucb-nw-eLj" firstAttribute="leading" secondItem="E69-fM-Ce3" secondAttribute="leading" id="nBx-2F-es1"/>
                 <constraint firstItem="E69-fM-Ce3" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="oI8-ro-A1j"/>
                 <constraint firstItem="Ucb-nw-eLj" firstAttribute="top" secondItem="E69-fM-Ce3" secondAttribute="bottom" constant="50" id="peA-xB-Z8P"/>
                 <constraint firstItem="E69-fM-Ce3" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="70" id="ucs-Ed-qbb"/>
@@ -56,6 +62,9 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
