@@ -13,12 +13,14 @@ import WorkplacesAPI
 protocol AutorizationServiceProtocol: AnyObject {
 
     func signIn(
-        withCredentials: UserCredentials,
+        email: String,
+        password: String,
         completion: @escaping (Result<Void, WorkspaceError>) -> Void
     )
 
-    func singUp(
-        withCredentials: UserCredentials,
+    func signUp(
+        email: String,
+        password: String,
         completion: @escaping (Result<Void, WorkspaceError>) -> Void
     )
 

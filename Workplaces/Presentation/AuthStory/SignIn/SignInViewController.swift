@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import WorkplacesAPI
 
 class SignInViewController: UIViewController {
 
@@ -44,6 +43,7 @@ class SignInViewController: UIViewController {
 
     private func congifure() {
         primaryButton.setTitle("Sign in By Mail Or Login".localized)
+        title = "Вход по логину"
     }
 
     // MARK: - Navigation
@@ -58,8 +58,10 @@ class SignInViewController: UIViewController {
 extension SignInViewController: PrimaryButtonViewDelegate {
     
     func primaryButtonTapped(_ button: PrimaryButton) {
-        let userCreds = UserCredentials(email: "vladTest7@server.com", password: "Mypass12")
-        authService.signIn(withCredentials: userCreds,
+        guard let email = emailLoginTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
+              let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        else { return }
+        authService.signIn(email: email, password: password,
                            completion: { [weak self] result in
                             switch result {
                             case .success:
