@@ -1,0 +1,23 @@
+/* 
+  Localizable.strings
+  workplaces
+
+  Created by YesVladess on 19.04.2021.
+  
+*/
+
+"Workplaces" = "Workplaces";
+"Find your place" = "Find your place";
+"Ups" = "Ups";
+"Emptyness" = "Emptyness";
+"Something went wrong" = "Something went wrong";
+"Update" = "Update";
+"Sign in By Mail Or Login" = "Enter By Mail Or Login";
+"Go to feed" = "Go to feed";
+"Got that" = "Got that";
+
+// Errors
+"Check username and password" = "Check username and password";
+"Unknowned error" = "Unknowned error";
+"Please give permissions" = "Please give permissions";
+"Server error occured" = "Server error occured - %@";
