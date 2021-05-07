@@ -12,16 +12,21 @@
 		5A28EBA4262EBF9700DF4CEB /* WelcomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A28EBA2262EBF9700DF4CEB /* WelcomeViewController.xib */; };
 		5A28EBB0262EC91F00DF4CEB /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A28EBAE262EC91F00DF4CEB /* FeedViewController.swift */; };
 		5A28EBB1262EC91F00DF4CEB /* FeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A28EBAF262EC91F00DF4CEB /* FeedViewController.xib */; };
-		5A28EBBB262EC9C200DF4CEB /* MyFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A28EBBA262EC9C200DF4CEB /* MyFeedViewController.swift */; };
-		5A28EBC3262ECA3400DF4CEB /* FavoriteFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A28EBC2262ECA3400DF4CEB /* FavoriteFeedViewController.swift */; };
 		5A28EBCA262ECA9500DF4CEB /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A28EBC8262ECA9500DF4CEB /* NewPostViewController.swift */; };
 		5A28EBCB262ECA9500DF4CEB /* NewPostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A28EBC9262ECA9500DF4CEB /* NewPostViewController.xib */; };
 		5A28EBD1262ECC4B00DF4CEB /* ServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A28EBD0262ECC4B00DF4CEB /* ServiceLayer.swift */; };
 		5A28EBD5262ECCE500DF4CEB /* AuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A28EBD4262ECCE500DF4CEB /* AuthorizationService.swift */; };
 		5A28EBD9262ECCF900DF4CEB /* FeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A28EBD8262ECCF900DF4CEB /* FeedService.swift */; };
 		5A28EBDD262ECD3A00DF4CEB /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A28EBDC262ECD3A00DF4CEB /* ProfileService.swift */; };
+		5A3541F82642810B004636A1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3541F62642810B004636A1 /* SignUpViewController.swift */; };
+		5A3541F92642810B004636A1 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A3541F72642810B004636A1 /* SignUpViewController.xib */; };
+		5A3542222642A1C8004636A1 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3542212642A1C8004636A1 /* PostViewModel.swift */; };
+		5A35423A2642A599004636A1 /* AuthorizationServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3542392642A599004636A1 /* AuthorizationServiceStub.swift */; };
+		5A3542462642B11C004636A1 /* MockUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3542452642B11C004636A1 /* MockUserDefaults.swift */; };
+		5A35424E2642B491004636A1 /* AuthorizationIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A35424D2642B491004636A1 /* AuthorizationIntegrationTests.swift */; };
+		5A35427B2642BE7C004636A1 /* Asserts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A35427A2642BE7C004636A1 /* Asserts.swift */; };
 		5A45108D2638380000D435CD /* WorkplacesAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A4510842638380000D435CD /* WorkplacesAPI.framework */; };
-		5A4510942638380000D435CD /* WorkplacesAPITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4510932638380000D435CD /* WorkplacesAPITests.swift */; };
+		5A4510942638380000D435CD /* EndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4510932638380000D435CD /* EndpointTests.swift */; };
 		5A4510962638380000D435CD /* WorkplacesAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A4510862638380000D435CD /* WorkplacesAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5A4510992638380000D435CD /* WorkplacesAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A4510842638380000D435CD /* WorkplacesAPI.framework */; };
 		5A45109A2638380000D435CD /* WorkplacesAPI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5A4510842638380000D435CD /* WorkplacesAPI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -64,6 +69,9 @@
 		5A7905FB2634DA06008863BB /* FeedServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7905FA2634DA06008863BB /* FeedServiceProtocol.swift */; };
 		5A7906012634DA96008863BB /* ProfileServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7906002634DA96008863BB /* ProfileServiceProtocol.swift */; };
 		5A7906062634E011008863BB /* WorkspaceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7906052634E011008863BB /* WorkspaceError.swift */; };
+		5A8127FA2642D1A4000F9678 /* WorkplaceTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8127F92642D1A4000F9678 /* WorkplaceTabBarController.swift */; };
+		5A81280F2642D566000F9678 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A81280D2642D566000F9678 /* ProfileViewController.swift */; };
+		5A8128102642D566000F9678 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A81280E2642D566000F9678 /* ProfileViewController.xib */; };
 		5A8472422636F39000246C5E /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8472412636F39000246C5E /* Config.swift */; };
 		5A96F2EB262E30B7006BD8C9 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A96F2EA262E30B7006BD8C9 /* String.swift */; };
 		5A96F2EF262E3207006BD8C9 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A96F2EE262E3207006BD8C9 /* UIColor.swift */; };
@@ -77,7 +85,7 @@
 		5ADB26B0262B8F7000CFC392 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADB26AF262B8F7000CFC392 /* LoginViewController.swift */; };
 		5ADB26B5262B8F7100CFC392 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5ADB26B4262B8F7100CFC392 /* Assets.xcassets */; };
 		5ADB26B8262B8F7100CFC392 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5ADB26B6262B8F7100CFC392 /* LaunchScreen.storyboard */; };
-		5ADB26C3262B8F7100CFC392 /* WorkplacesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADB26C2262B8F7100CFC392 /* WorkplacesTests.swift */; };
+		5ADB26C3262B8F7100CFC392 /* AuthorizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADB26C2262B8F7100CFC392 /* AuthorizationTests.swift */; };
 		5ADB2787262DB47400CFC392 /* IBMPlexSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5ADB2786262DB47400CFC392 /* IBMPlexSans-Regular.ttf */; };
 		5ADB27A2262DBA1E00CFC392 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5ADB27A4262DBA1E00CFC392 /* Localizable.strings */; };
 		5ADB27B1262DBC9200CFC392 /* String+Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADB27B0262DBC9200CFC392 /* String+Localizable.swift */; };
@@ -85,6 +93,7 @@
 		5ADB27DE262E1B2800CFC392 /* ZeroScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADB27DC262E1B2800CFC392 /* ZeroScreenViewController.swift */; };
 		5ADB27DF262E1B2800CFC392 /* ZeroScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5ADB27DD262E1B2800CFC392 /* ZeroScreenViewController.xib */; };
 		5ADB27E6262E1CC400CFC392 /* ZeroScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADB27E5262E1CC400CFC392 /* ZeroScreenViewModel.swift */; };
+		6E7538B70E8EBE76A0D3CF94 /* Pods_WorkplacesAPITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81EDB7CC20F05646D53AE910 /* Pods_WorkplacesAPITests.framework */; };
 		8092D28A66232A8605117A18 /* Pods_WorkplacesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 640D4E5DF5AD73345BBDD8F4 /* Pods_WorkplacesTests.framework */; };
 		9686BBA9D93141D147831548 /* Pods_Workplaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E894405824020DC4DCC938F /* Pods_Workplaces.framework */; };
 /* End PBXBuildFile section */
@@ -144,19 +153,24 @@
 		5A28EBA2262EBF9700DF4CEB /* WelcomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WelcomeViewController.xib; sourceTree = "<group>"; };
 		5A28EBAE262EC91F00DF4CEB /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		5A28EBAF262EC91F00DF4CEB /* FeedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedViewController.xib; sourceTree = "<group>"; };
-		5A28EBBA262EC9C200DF4CEB /* MyFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFeedViewController.swift; sourceTree = "<group>"; };
-		5A28EBC2262ECA3400DF4CEB /* FavoriteFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteFeedViewController.swift; sourceTree = "<group>"; };
 		5A28EBC8262ECA9500DF4CEB /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 		5A28EBC9262ECA9500DF4CEB /* NewPostViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewPostViewController.xib; sourceTree = "<group>"; };
 		5A28EBD0262ECC4B00DF4CEB /* ServiceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLayer.swift; sourceTree = "<group>"; };
 		5A28EBD4262ECCE500DF4CEB /* AuthorizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationService.swift; sourceTree = "<group>"; };
 		5A28EBD8262ECCF900DF4CEB /* FeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
 		5A28EBDC262ECD3A00DF4CEB /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
+		5A3541F62642810B004636A1 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		5A3541F72642810B004636A1 /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
+		5A3542212642A1C8004636A1 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
+		5A3542392642A599004636A1 /* AuthorizationServiceStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceStub.swift; sourceTree = "<group>"; };
+		5A3542452642B11C004636A1 /* MockUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockUserDefaults.swift; sourceTree = "<group>"; };
+		5A35424D2642B491004636A1 /* AuthorizationIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationIntegrationTests.swift; sourceTree = "<group>"; };
+		5A35427A2642BE7C004636A1 /* Asserts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asserts.swift; sourceTree = "<group>"; };
 		5A4510842638380000D435CD /* WorkplacesAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WorkplacesAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A4510862638380000D435CD /* WorkplacesAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WorkplacesAPI.h; sourceTree = "<group>"; };
 		5A4510872638380000D435CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A45108C2638380000D435CD /* WorkplacesAPITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorkplacesAPITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5A4510932638380000D435CD /* WorkplacesAPITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkplacesAPITests.swift; sourceTree = "<group>"; };
+		5A4510932638380000D435CD /* EndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointTests.swift; sourceTree = "<group>"; };
 		5A4510952638380000D435CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A4510B8263838CE00D435CD /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		5A4510BD26383C6A00D435CD /* Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Codable.swift; sourceTree = "<group>"; };
@@ -197,6 +211,9 @@
 		5A7906002634DA96008863BB /* ProfileServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceProtocol.swift; sourceTree = "<group>"; };
 		5A7906052634E011008863BB /* WorkspaceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceError.swift; sourceTree = "<group>"; };
 		5A7906092634E755008863BB /* UserCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCredentials.swift; sourceTree = "<group>"; };
+		5A8127F92642D1A4000F9678 /* WorkplaceTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkplaceTabBarController.swift; sourceTree = "<group>"; };
+		5A81280D2642D566000F9678 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		5A81280E2642D566000F9678 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		5A8472412636F39000246C5E /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		5A96F2EA262E30B7006BD8C9 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		5A96F2EE262E3207006BD8C9 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
@@ -213,7 +230,7 @@
 		5ADB26B7262B8F7100CFC392 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5ADB26B9262B8F7100CFC392 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5ADB26BE262B8F7100CFC392 /* WorkplacesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WorkplacesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		5ADB26C2262B8F7100CFC392 /* WorkplacesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkplacesTests.swift; sourceTree = "<group>"; };
+		5ADB26C2262B8F7100CFC392 /* AuthorizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationTests.swift; sourceTree = "<group>"; };
 		5ADB26C4262B8F7100CFC392 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5ADB2786262DB47400CFC392 /* IBMPlexSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "IBMPlexSans-Regular.ttf"; sourceTree = "<group>"; };
 		5ADB27A3262DBA1E00CFC392 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -226,11 +243,14 @@
 		640D4E5DF5AD73345BBDD8F4 /* Pods_WorkplacesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WorkplacesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65AEEDA09AD47BA7B81A005A /* Pods-workplacesAPI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-workplacesAPI.debug.xcconfig"; path = "Target Support Files/Pods-workplacesAPI/Pods-workplacesAPI.debug.xcconfig"; sourceTree = "<group>"; };
 		7DF47EAB439A1F78F5E96450 /* Pods-workplaces.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-workplaces.release.xcconfig"; path = "Target Support Files/Pods-workplaces/Pods-workplaces.release.xcconfig"; sourceTree = "<group>"; };
+		81EDB7CC20F05646D53AE910 /* Pods_WorkplacesAPITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WorkplacesAPITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		84EF656CC7557C348870AB07 /* Pods-WorkplacesAPI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkplacesAPI.release.xcconfig"; path = "Target Support Files/Pods-WorkplacesAPI/Pods-WorkplacesAPI.release.xcconfig"; sourceTree = "<group>"; };
+		91E1A9077ED380BAE579F55A /* Pods-WorkplacesAPITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkplacesAPITests.debug.xcconfig"; path = "Target Support Files/Pods-WorkplacesAPITests/Pods-WorkplacesAPITests.debug.xcconfig"; sourceTree = "<group>"; };
 		AEE59B46CAABE73287E7CDE0 /* Pods-workplacesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-workplacesTests.debug.xcconfig"; path = "Target Support Files/Pods-workplacesTests/Pods-workplacesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AFC61F802C0878B56FB2AB00 /* Pods-WorkplacesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkplacesTests.release.xcconfig"; path = "Target Support Files/Pods-WorkplacesTests/Pods-WorkplacesTests.release.xcconfig"; sourceTree = "<group>"; };
 		C0709C3DCDA4B811FFDF7A53 /* Pods-workplaces.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-workplaces.debug.xcconfig"; path = "Target Support Files/Pods-workplaces/Pods-workplaces.debug.xcconfig"; sourceTree = "<group>"; };
 		D7C78A0E778611847D120DF1 /* Pods-WorkplacesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkplacesTests.debug.xcconfig"; path = "Target Support Files/Pods-WorkplacesTests/Pods-WorkplacesTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E1A8AB259C08FED84E6D24BA /* Pods-WorkplacesAPITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WorkplacesAPITests.release.xcconfig"; path = "Target Support Files/Pods-WorkplacesAPITests/Pods-WorkplacesAPITests.release.xcconfig"; sourceTree = "<group>"; };
 		F084CC45BEA719C61D7AC18A /* Pods-Workplaces.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Workplaces.debug.xcconfig"; path = "Target Support Files/Pods-Workplaces/Pods-Workplaces.debug.xcconfig"; sourceTree = "<group>"; };
 		F2A85510297113D400347CC6 /* Pods_WorkplacesAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WorkplacesAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -249,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A45108D2638380000D435CD /* WorkplacesAPI.framework in Frameworks */,
+				6E7538B70E8EBE76A0D3CF94 /* Pods_WorkplacesAPITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +308,8 @@
 				84EF656CC7557C348870AB07 /* Pods-WorkplacesAPI.release.xcconfig */,
 				D7C78A0E778611847D120DF1 /* Pods-WorkplacesTests.debug.xcconfig */,
 				AFC61F802C0878B56FB2AB00 /* Pods-WorkplacesTests.release.xcconfig */,
+				91E1A9077ED380BAE579F55A /* Pods-WorkplacesAPITests.debug.xcconfig */,
+				E1A8AB259C08FED84E6D24BA /* Pods-WorkplacesAPITests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -297,6 +320,7 @@
 				2E894405824020DC4DCC938F /* Pods_Workplaces.framework */,
 				F2A85510297113D400347CC6 /* Pods_WorkplacesAPI.framework */,
 				640D4E5DF5AD73345BBDD8F4 /* Pods_WorkplacesTests.framework */,
+				81EDB7CC20F05646D53AE910 /* Pods_WorkplacesAPITests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -306,6 +330,7 @@
 			children = (
 				5A28EBAE262EC91F00DF4CEB /* FeedViewController.swift */,
 				5A28EBAF262EC91F00DF4CEB /* FeedViewController.xib */,
+				5A3542212642A1C8004636A1 /* PostViewModel.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -313,8 +338,8 @@
 		5A28EBB8262EC96200DF4CEB /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				5A28EBBA262EC9C200DF4CEB /* MyFeedViewController.swift */,
-				5A28EBC2262ECA3400DF4CEB /* FavoriteFeedViewController.swift */,
+				5A81280D2642D566000F9678 /* ProfileViewController.swift */,
+				5A81280E2642D566000F9678 /* ProfileViewController.xib */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -326,6 +351,30 @@
 				5A28EBC9262ECA9500DF4CEB /* NewPostViewController.xib */,
 			);
 			path = NewPost;
+			sourceTree = "<group>";
+		};
+		5A3542382642A58B004636A1 /* Stubs */ = {
+			isa = PBXGroup;
+			children = (
+				5A3542392642A599004636A1 /* AuthorizationServiceStub.swift */,
+			);
+			path = Stubs;
+			sourceTree = "<group>";
+		};
+		5A3542442642B10C004636A1 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				5A3542452642B11C004636A1 /* MockUserDefaults.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		5A3542792642BE6B004636A1 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				5A35427A2642BE7C004636A1 /* Asserts.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		5A4510852638380000D435CD /* WorkplacesAPI */ = {
@@ -343,7 +392,8 @@
 		5A4510922638380000D435CD /* WorkplacesAPITests */ = {
 			isa = PBXGroup;
 			children = (
-				5A4510932638380000D435CD /* WorkplacesAPITests.swift */,
+				5A3542792642BE6B004636A1 /* Helpers */,
+				5A4510932638380000D435CD /* EndpointTests.swift */,
 				5A4510952638380000D435CD /* Info.plist */,
 			);
 			path = WorkplacesAPITests;
@@ -567,7 +617,10 @@
 		5ADB26C1262B8F7100CFC392 /* WorkplacesTests */ = {
 			isa = PBXGroup;
 			children = (
-				5ADB26C2262B8F7100CFC392 /* WorkplacesTests.swift */,
+				5A35424D2642B491004636A1 /* AuthorizationIntegrationTests.swift */,
+				5A3542442642B10C004636A1 /* Mocks */,
+				5A3542382642A58B004636A1 /* Stubs */,
+				5ADB26C2262B8F7100CFC392 /* AuthorizationTests.swift */,
 				5ADB26C4262B8F7100CFC392 /* Info.plist */,
 			);
 			path = WorkplacesTests;
@@ -680,6 +733,8 @@
 		5ADB27C7262DCC2000CFC392 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				5A3541F62642810B004636A1 /* SignUpViewController.swift */,
+				5A3541F72642810B004636A1 /* SignUpViewController.xib */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -706,6 +761,7 @@
 			isa = PBXGroup;
 			children = (
 				5ADB27D5262E19EF00CFC392 /* ZeroScreen */,
+				5A8127F92642D1A4000F9678 /* WorkplaceTabBarController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -757,6 +813,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5A4510A12638380000D435CD /* Build configuration list for PBXNativeTarget "WorkplacesAPITests" */;
 			buildPhases = (
+				5801AD88B1705648B0DB671A /* [CP] Check Pods Manifest.lock */,
 				5A4510882638380000D435CD /* Sources */,
 				5A4510892638380000D435CD /* Frameworks */,
 				5A45108A2638380000D435CD /* Resources */,
@@ -803,6 +860,7 @@
 				5ADB26BA262B8F7100CFC392 /* Sources */,
 				5ADB26BB262B8F7100CFC392 /* Frameworks */,
 				5ADB26BC262B8F7100CFC392 /* Resources */,
+				57BF224DB2806C26E9AE6B96 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -884,6 +942,7 @@
 				5A96F330262EB76B006BD8C9 /* SignInViewController.xib in Resources */,
 				5A28EBCB262ECA9500DF4CEB /* NewPostViewController.xib in Resources */,
 				5A7905CA26348A09008863BB /* PrimaryButton.xib in Resources */,
+				5A8128102642D566000F9678 /* ProfileViewController.xib in Resources */,
 				5ADB27A2262DBA1E00CFC392 /* Localizable.strings in Resources */,
 				5A28EBA4262EBF9700DF4CEB /* WelcomeViewController.xib in Resources */,
 				5ADB2787262DB47400CFC392 /* IBMPlexSans-Regular.ttf in Resources */,
@@ -891,6 +950,7 @@
 				5ADB26B8262B8F7100CFC392 /* LaunchScreen.storyboard in Resources */,
 				5A28EBB1262EC91F00DF4CEB /* FeedViewController.xib in Resources */,
 				5ADB26B5262B8F7100CFC392 /* Assets.xcassets in Resources */,
+				5A3541F92642810B004636A1 /* SignUpViewController.xib in Resources */,
 				5ADB27DF262E1B2800CFC392 /* ZeroScreenViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -921,6 +981,45 @@
 			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-WorkplacesTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		57BF224DB2806C26E9AE6B96 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WorkplacesTests/Pods-WorkplacesTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-WorkplacesTests/Pods-WorkplacesTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-WorkplacesTests/Pods-WorkplacesTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5801AD88B1705648B0DB671A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WorkplacesAPITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1062,7 +1161,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A4510942638380000D435CD /* WorkplacesAPITests.swift in Sources */,
+				5A4510942638380000D435CD /* EndpointTests.swift in Sources */,
+				5A35427B2642BE7C004636A1 /* Asserts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1076,9 +1176,9 @@
 				5ADB27DE262E1B2800CFC392 /* ZeroScreenViewController.swift in Sources */,
 				5ADB26B0262B8F7000CFC392 /* LoginViewController.swift in Sources */,
 				5A96F314262E4603006BD8C9 /* SpinnerView.swift in Sources */,
+				5A81280F2642D566000F9678 /* ProfileViewController.swift in Sources */,
 				5ADB26AC262B8F7000CFC392 /* AppDelegate.swift in Sources */,
 				5ADB26AE262B8F7000CFC392 /* SceneDelegate.swift in Sources */,
-				5A28EBC3262ECA3400DF4CEB /* FavoriteFeedViewController.swift in Sources */,
 				5A7905E82634BE07008863BB /* CanShowSpinner.swift in Sources */,
 				5A28EBB0262EC91F00DF4CEB /* FeedViewController.swift in Sources */,
 				5A28EBDD262ECD3A00DF4CEB /* ProfileService.swift in Sources */,
@@ -1088,19 +1188,21 @@
 				5A96F2EF262E3207006BD8C9 /* UIColor.swift in Sources */,
 				5A7905FB2634DA06008863BB /* FeedServiceProtocol.swift in Sources */,
 				5A7905DF2634BC42008863BB /* XibLoadable.swift in Sources */,
+				5A8127FA2642D1A4000F9678 /* WorkplaceTabBarController.swift in Sources */,
 				5A7905CB26348A09008863BB /* PrimaryButton.swift in Sources */,
 				5A7906062634E011008863BB /* WorkspaceError.swift in Sources */,
 				5ADB27BF262DC56E00CFC392 /* UIFont+Fonts.swift in Sources */,
 				5ADB27B1262DBC9200CFC392 /* String+Localizable.swift in Sources */,
 				5A96F305262E3EE4006BD8C9 /* UIViewController.swift in Sources */,
 				5A96F2EB262E30B7006BD8C9 /* String.swift in Sources */,
+				5A3542222642A1C8004636A1 /* PostViewModel.swift in Sources */,
 				5A28EBD5262ECCE500DF4CEB /* AuthorizationService.swift in Sources */,
 				5A28EBD1262ECC4B00DF4CEB /* ServiceLayer.swift in Sources */,
 				5A7905DB2634BC0F008863BB /* CustomView.swift in Sources */,
 				5A8472422636F39000246C5E /* Config.swift in Sources */,
 				5A45123F2638AE6400D435CD /* ClientRequestInterceptor.swift in Sources */,
+				5A3541F82642810B004636A1 /* SignUpViewController.swift in Sources */,
 				5A28EBD9262ECCF900DF4CEB /* FeedService.swift in Sources */,
-				5A28EBBB262EC9C200DF4CEB /* MyFeedViewController.swift in Sources */,
 				5A6CDAAD262EE68900B92A59 /* Images.swift in Sources */,
 				5A28EBCA262ECA9500DF4CEB /* NewPostViewController.swift in Sources */,
 				5ADB27E6262E1CC400CFC392 /* ZeroScreenViewModel.swift in Sources */,
@@ -1111,7 +1213,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5ADB26C3262B8F7100CFC392 /* WorkplacesTests.swift in Sources */,
+				5A35423A2642A599004636A1 /* AuthorizationServiceStub.swift in Sources */,
+				5ADB26C3262B8F7100CFC392 /* AuthorizationTests.swift in Sources */,
+				5A35424E2642B491004636A1 /* AuthorizationIntegrationTests.swift in Sources */,
+				5A3542462642B11C004636A1 /* MockUserDefaults.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1225,6 +1330,7 @@
 		};
 		5A45109E2638380000D435CD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91E1A9077ED380BAE579F55A /* Pods-WorkplacesAPITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1245,6 +1351,7 @@
 		};
 		5A45109F2638380000D435CD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1A8AB259C08FED84E6D24BA /* Pods-WorkplacesAPITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

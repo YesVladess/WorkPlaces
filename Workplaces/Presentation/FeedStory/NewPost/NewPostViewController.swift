@@ -11,6 +11,7 @@ class NewPostViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "Новый пост"
     }
 
 }

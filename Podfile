@@ -11,16 +11,21 @@ target 'Workplaces' do
 	pod 'GoogleSignIn'
 	pod 'VK-ios-sdk'
 	pod 'FBSDKLoginKit'
-  pod 'Apexy'
 
   target 'WorkplacesTests' do
     inherit! :search_paths
-    # Pods for testing
+    pod 'Apexy'
   end
 
   target 'WorkplacesAPI' do
     inherit! :search_paths
     pod 'Apexy'
+
+    target 'WorkplacesAPITests' do
+      inherit! :search_paths
+      # Pods for testing
+    end
+
   end
 
   post_install do |installer|

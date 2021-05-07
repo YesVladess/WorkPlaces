@@ -6,7 +6,6 @@
 //
 
 import VK_ios_sdk
-import WorkplacesAPI
 
 class LoginViewController: UIViewController, CanShowSpinner {
 
@@ -83,15 +82,7 @@ class LoginViewController: UIViewController, CanShowSpinner {
     }
 
     @IBAction private func singUpButtonTapped(_ sender: Any) {
-        let userCreds = UserCredentials(email: "vladTest7@server.com", password: "Mypass12")
-        authService.singUp(withCredentials: userCreds, completion: { [weak self] result in
-            switch result {
-            case .success:
-                self?.navigateToWelcomeScreen()
-            case.failure(let error):
-                self?.showError(error.localizedDescription)
-            }
-        })
+        navigateToSignUpScreen()
     }
 
     // MARK: - Private Methods
@@ -99,6 +90,7 @@ class LoginViewController: UIViewController, CanShowSpinner {
     private func congifure() {
         primaryButton.setTitle("Sign in By Mail Or Login".localized)
         imageView.image = Images.loginScreenImage
+        navigationController?.navigationBar.barStyle = .black
     }
 
     // MARK: - Navigation
@@ -111,6 +103,11 @@ class LoginViewController: UIViewController, CanShowSpinner {
     private func navigateToSignInScreen() {
         let signInViewController = SignInViewController()
         navigationController?.pushViewController(signInViewController, animated: true)
+    }
+
+    private func navigateToSignUpScreen() {
+        let signUpViewController = SignUpViewController()
+        navigationController?.pushViewController(signUpViewController, animated: true)
     }
 
 }

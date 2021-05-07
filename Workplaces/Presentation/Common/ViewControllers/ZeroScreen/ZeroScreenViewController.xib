@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -9,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZeroScreenViewController" customModule="workplaces" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ZeroScreenViewController" customModule="Workplaces" customModuleProvider="target">
             <connections>
                 <outlet property="actionButton" destination="Z6s-yF-KOa" id="l5D-kg-j2Z"/>
                 <outlet property="errorImageView" destination="k7T-3u-ecp" id="xU0-oX-jeY"/>
@@ -36,14 +37,18 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SecondaryLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x9M-bZ-Cos">
-                    <rect key="frame" x="148.5" y="476" width="117.5" height="19.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SecondaryLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x9M-bZ-Cos">
+                    <rect key="frame" x="82" y="476" width="250" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="250" id="GbY-Gz-2KC"/>
+                        <constraint firstAttribute="height" constant="60" id="ZiK-JC-oh4"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z6s-yF-KOa">
-                    <rect key="frame" x="162" y="519.5" width="90" height="30"/>
+                    <rect key="frame" x="162" y="566" width="90" height="30"/>
                     <color key="tintColor" name="orange"/>
                     <state key="normal" title="ActionButton"/>
                     <connections>
@@ -61,7 +66,7 @@
                 <constraint firstItem="Z6s-yF-KOa" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="IcP-k0-kDE"/>
                 <constraint firstItem="x9M-bZ-Cos" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="MHS-FV-0eD"/>
                 <constraint firstItem="x9M-bZ-Cos" firstAttribute="top" secondItem="6AN-sC-rzd" secondAttribute="bottom" constant="8" id="rkg-4H-Oeb"/>
-                <constraint firstItem="Z6s-yF-KOa" firstAttribute="top" secondItem="x9M-bZ-Cos" secondAttribute="bottom" constant="24" id="vLS-al-OWm"/>
+                <constraint firstItem="Z6s-yF-KOa" firstAttribute="top" secondItem="x9M-bZ-Cos" secondAttribute="bottom" constant="30" id="vLS-al-OWm"/>
             </constraints>
             <point key="canvasLocation" x="-43.478260869565219" y="133.92857142857142"/>
         </view>

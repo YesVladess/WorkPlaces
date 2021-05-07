@@ -37,10 +37,12 @@ final class AutorizationService: NSObject, AutorizationServiceProtocol {
     // MARK: - Public methods
 
     func signIn(
-        withCredentials: UserCredentials,
+        email: String,
+        password: String,
         completion: @escaping (Result<Void, WorkspaceError>) -> Void
     ) {
-        let endpoint = LoginEndpoint(userCredentials: withCredentials)
+        let credentials = UserCredentials(email: email, password: password)
+        let endpoint = LoginEndpoint(userCredentials: credentials)
         _ = apiClient.request(endpoint) { result in
             switch result {
             case .success(let token):
@@ -56,11 +58,13 @@ final class AutorizationService: NSObject, AutorizationServiceProtocol {
         }
     }
 
-    func singUp(
-        withCredentials: UserCredentials,
+    func signUp(
+        email: String,
+        password: String,
         completion: @escaping (Result<Void, WorkspaceError>) -> Void
     ) {
-        let endpoint = RegistrationEndpoint(userCredentials: withCredentials)
+        let credentials = UserCredentials(email: email, password: password)
+        let endpoint = RegistrationEndpoint(userCredentials: credentials)
         _ = apiClient.request(endpoint) { result in
             switch result {
             case .success(let token):
