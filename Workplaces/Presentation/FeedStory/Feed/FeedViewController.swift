@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import WorkplacesAPI
 
 class FeedViewController: UIViewController {
 
@@ -40,7 +39,7 @@ class FeedViewController: UIViewController {
             switch result {
             case .success(let result):
                 if result.isEmpty { self?.showEmptyFeed() } else {
-                    self?.showFeed(posts: result)
+                    //self?.showFeed(posts: result)
                 }
             case.failure(let error):
                 self?.showError(error.localizedDescription)
@@ -49,15 +48,18 @@ class FeedViewController: UIViewController {
     }
 
     private func showEmptyFeed() {
-        let zeroScreen = ZeroScreenViewController(withModel: .getEmptyModel(
-                                                    secondaryLabelTitle: "Вам нужны друзья, чтобы лента стала живой",
-                                                    actionButtonLabelTitle: "Найти друзей",
-                                                    action: {}))
+        let zeroScreen = ZeroScreenViewController(
+            withModel: .getEmptyModel(
+                secondaryLabelTitle: "Вам нужны друзья, чтобы лента стала живой",
+                actionButtonLabelTitle: "Найти друзей",
+                action: {}
+            )
+        )
         add(zeroScreen)
     }
 
-    private func showFeed(posts: [Post]) {
-
-    }
+    //    private func showFeed(posts: [Post]) {
+    //
+    //    }
 
 }

@@ -61,15 +61,17 @@ extension SignInViewController: PrimaryButtonViewDelegate {
         guard let email = emailLoginTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
               let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         else { return }
-        authService.signIn(email: email, password: password,
-                           completion: { [weak self] result in
-                            switch result {
-                            case .success:
-                                self?.navigateToWelcomeScreen()
-                            case.failure(let error):
-                                self?.showError(error.localizedDescription)
-                            }
-                           })
+        authService.signIn(
+            email: email,
+            password: password,
+            completion: { [weak self] result in
+                switch result {
+                case .success:
+                    self?.navigateToWelcomeScreen()
+                case.failure(let error):
+                    self?.showError(error.localizedDescription)
+                }
+            })
     }
 
 }

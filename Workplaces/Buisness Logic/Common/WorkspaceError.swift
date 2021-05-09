@@ -30,3 +30,19 @@ extension WorkspaceError: LocalizedError {
         }
     }
 }
+
+extension WorkspaceError: Equatable {
+
+    public static func == (lhs: WorkspaceError, rhs: WorkspaceError) -> Bool {
+        switch (lhs, rhs) {
+        case (.apiError, .apiError),
+             (.otherServerError, .otherServerError),
+             (.permissionsError, .permissionsError),
+             (.unknowned, .unknowned):
+            return true
+        case _:
+            return false
+        }
+    }
+
+}

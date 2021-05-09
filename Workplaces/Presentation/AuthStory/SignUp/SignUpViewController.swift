@@ -12,17 +12,11 @@ class SignUpViewController: UIViewController {
     // MARK: - IBOutlet
 
     @IBOutlet private weak var nicknameTextField: UITextField!
-
     @IBOutlet private weak var emailTextField: UITextField!
-
     @IBOutlet private weak var passwordTextField: UITextField!
-
     @IBOutlet private weak var nameTextField: UITextField!
-
     @IBOutlet private weak var surnameTextField: UITextField!
-
     @IBOutlet private weak var dataBirthTextField: UITextField!
-
     @IBOutlet private weak var signUpButton: PrimaryButton!
 
     // MARK: - Private Properties

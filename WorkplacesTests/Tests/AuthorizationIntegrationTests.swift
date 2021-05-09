@@ -15,7 +15,7 @@ class AuthorizationIntegrationTests: XCTestCase {
 
     let commonTimeout = 5.0
 
-    var authService: AutorizationServiceProtocol!
+    var authService: AutorizationService!
     var tokenStorage: TokenStorage!
     var apiClient: Client!
 
