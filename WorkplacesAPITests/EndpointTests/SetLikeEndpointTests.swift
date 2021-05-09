@@ -8,15 +8,15 @@
 @testable import WorkplacesAPI
 import XCTest
 
-class SetLikeEndpointTests: XCTestCase {
+class SetLikeEndpointTests: EndpointTests {
 
     func testSetLikeEndpoint() throws {
         let endpoint = SetLikeEndpoint(likeID: "someTestID")
         let urlRequest = try endpoint.makeRequest()
 
-        Asserts.assertPOST(urlRequest)
-        Asserts.assertNoBody(urlRequest)
-        Asserts.assertURL(urlRequest, "feed/someTestID/like")
+        assertPOST(urlRequest)
+        assertNoBody(urlRequest)
+        assertURL(urlRequest, "feed/someTestID/like")
     }
 
 }

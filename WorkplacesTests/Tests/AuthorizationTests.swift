@@ -60,7 +60,7 @@ class AuthorizationTests: XCTestCase {
                             case .success:
                                 XCTFail("Authorization didn't fail")
                             case.failure(let error):
-                                XCTAssertEqual(error, WorkspaceError.unknowned, "Wrong WorkspaceError type!")
+                                XCTAssertEqual(error, WorkplaceError.unknowned, "Wrong WorkspaceError type!")
                             }
                            })
     }

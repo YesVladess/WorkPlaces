@@ -65,6 +65,11 @@
                BlueprintName = "WorkplacesAPITests"
                ReferencedContainer = "container:Workplaces.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "EndpointTests">
+               </Test>
+            </SkippedTests>
          </TestableReference>
       </Testables>
    </TestAction>

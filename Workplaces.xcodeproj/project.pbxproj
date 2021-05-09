@@ -23,7 +23,7 @@
 		5A3542222642A1C8004636A1 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3542212642A1C8004636A1 /* PostViewModel.swift */; };
 		5A35423A2642A599004636A1 /* AuthorizationServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3542392642A599004636A1 /* AuthorizationServiceStub.swift */; };
 		5A35424E2642B491004636A1 /* AuthorizationIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A35424D2642B491004636A1 /* AuthorizationIntegrationTests.swift */; };
-		5A35427B2642BE7C004636A1 /* Asserts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A35427A2642BE7C004636A1 /* Asserts.swift */; };
+		5A35427B2642BE7C004636A1 /* EndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A35427A2642BE7C004636A1 /* EndpointTests.swift */; };
 		5A45108D2638380000D435CD /* WorkplacesAPI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5A4510842638380000D435CD /* WorkplacesAPI.framework */; };
 		5A4510942638380000D435CD /* AddPostEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4510932638380000D435CD /* AddPostEndpointTests.swift */; };
 		5A4510962638380000D435CD /* WorkplacesAPI.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A4510862638380000D435CD /* WorkplacesAPI.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -165,7 +165,7 @@
 		5A3542212642A1C8004636A1 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
 		5A3542392642A599004636A1 /* AuthorizationServiceStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceStub.swift; sourceTree = "<group>"; };
 		5A35424D2642B491004636A1 /* AuthorizationIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationIntegrationTests.swift; sourceTree = "<group>"; };
-		5A35427A2642BE7C004636A1 /* Asserts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asserts.swift; sourceTree = "<group>"; };
+		5A35427A2642BE7C004636A1 /* EndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointTests.swift; sourceTree = "<group>"; };
 		5A4510842638380000D435CD /* WorkplacesAPI.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = WorkplacesAPI.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A4510862638380000D435CD /* WorkplacesAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WorkplacesAPI.h; sourceTree = "<group>"; };
 		5A4510872638380000D435CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -370,14 +370,6 @@
 			path = Mocks;
 			sourceTree = "<group>";
 		};
-		5A3542792642BE6B004636A1 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				5A35427A2642BE7C004636A1 /* Asserts.swift */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
 		5A4510852638380000D435CD /* WorkplacesAPI */ = {
 			isa = PBXGroup;
 			children = (
@@ -394,7 +386,6 @@
 			isa = PBXGroup;
 			children = (
 				5A6A24682647FDF3002FB8BE /* EndpointTests */,
-				5A3542792642BE6B004636A1 /* Helpers */,
 				5A4510952638380000D435CD /* Info.plist */,
 			);
 			path = WorkplacesAPITests;
@@ -499,6 +490,7 @@
 		5A6A24682647FDF3002FB8BE /* EndpointTests */ = {
 			isa = PBXGroup;
 			children = (
+				5A6A249526482ED5002FB8BE /* Base */,
 				5A4510932638380000D435CD /* AddPostEndpointTests.swift */,
 				5A6A24692647FE15002FB8BE /* SetLikeEndpointTests.swift */,
 			);
@@ -513,6 +505,14 @@
 				5A6A248926480B16002FB8BE /* TokenStorageTests.swift */,
 			);
 			path = Tests;
+			sourceTree = "<group>";
+		};
+		5A6A249526482ED5002FB8BE /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				5A35427A2642BE7C004636A1 /* EndpointTests.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		5A7905BD263485DF008863BB /* AuthStory */ = {
@@ -1181,7 +1181,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A4510942638380000D435CD /* AddPostEndpointTests.swift in Sources */,
-				5A35427B2642BE7C004636A1 /* Asserts.swift in Sources */,
+				5A35427B2642BE7C004636A1 /* EndpointTests.swift in Sources */,
 				5A6A246A2647FE15002FB8BE /* SetLikeEndpointTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
