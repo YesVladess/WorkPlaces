@@ -42,11 +42,14 @@ final class AutorizationService: NSObject, AutorizationServiceProtocol {
         completion: @escaping (Result<Void, WorkplaceError>) -> Void
     ) {
         let credentials = UserCredentials(email: email, password: password)
-        let endpoint = LoginEndpoint(userCredentials: credentials)
-        _ = apiClient.request(endpoint) { result in
+
+        let endpoint = LoginEndpoint(
+            userCredentials: ModelMapper.convertUserCredentialsToApiModelFrom(model: credentials)
+        )
+        _ = apiClient.request(endpoint) { [weak self] result in
             switch result {
             case .success(let token):
-                self.tokenStorage.set(token: token)
+                self?.tokenStorage.set(token: ModelMapper.convertTokenToAppModelFrom(model: token))
                 completion(.success(()))
             case .failure(let error):
                 if let error = error as? APIError {
@@ -64,11 +67,13 @@ final class AutorizationService: NSObject, AutorizationServiceProtocol {
         completion: @escaping (Result<Void, WorkplaceError>) -> Void
     ) {
         let credentials = UserCredentials(email: email, password: password)
-        let endpoint = RegistrationEndpoint(userCredentials: credentials)
-        _ = apiClient.request(endpoint) { result in
+        let endpoint = RegistrationEndpoint(
+            userCredentials: ModelMapper.convertUserCredentialsToApiModelFrom(model: credentials)
+        )
+        _ = apiClient.request(endpoint) { [weak self] result in
             switch result {
             case .success(let token):
-                self.tokenStorage.set(token: token)
+                self?.tokenStorage.set(token: ModelMapper.convertTokenToAppModelFrom(model: token))
                 completion(.success(()))
             case .failure(let error):
                 if let error = error as? APIError {
@@ -82,7 +87,7 @@ final class AutorizationService: NSObject, AutorizationServiceProtocol {
 
     func logout() {
         guard let token = tokenStorage.get() else { return }
-        let endpoint = LogoutEndpoint(token: token)
+        let endpoint = LogoutEndpoint(token: ModelMapper.convertTokenToApiModelFrom(model: token))
         _ = apiClient.request(endpoint) { [weak self] result in
             switch result {
             case .success:
@@ -100,7 +105,7 @@ final class AutorizationService: NSObject, AutorizationServiceProtocol {
         _ = apiClient.request(endpoint) { [weak self] result in
             switch result {
             case .success(let token):
-                self?.tokenStorage.set(token: token)
+                self?.tokenStorage.set(token: ModelMapper.convertTokenToAppModelFrom(model: token))
             case .failure(let error):
                 if let error = error as? APIError {
                     completion(.failure(.apiError(error)))

@@ -34,7 +34,7 @@ final class TokenStorage: TokenStorageProtocol {
     func get() -> Token? {
         guard let refreshToken = storage.object(forKey: refreshTokenKeyString) as? String else { return nil }
         guard let accessToken = storage.object(forKey: accessTokenKeyString) as? String else { return nil }
-        return Token(refreshToken: refreshToken, accessToken: accessToken)
+        return Token(accessToken: accessToken, refreshToken: refreshToken)
     }
 
 }

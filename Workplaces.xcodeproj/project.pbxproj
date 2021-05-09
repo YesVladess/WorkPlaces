@@ -18,6 +18,11 @@
 		5A28EBD5262ECCE500DF4CEB /* AuthorizationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A28EBD4262ECCE500DF4CEB /* AuthorizationService.swift */; };
 		5A28EBD9262ECCF900DF4CEB /* FeedService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A28EBD8262ECCF900DF4CEB /* FeedService.swift */; };
 		5A28EBDD262ECD3A00DF4CEB /* ProfileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A28EBDC262ECD3A00DF4CEB /* ProfileService.swift */; };
+		5A2E5AC32648367F0071FB84 /* UserCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2E5AC22648367F0071FB84 /* UserCredentials.swift */; };
+		5A2E5ACB264836AF0071FB84 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2E5ACA264836AF0071FB84 /* UserProfile.swift */; };
+		5A2E5AD0264836C70071FB84 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2E5ACF264836C70071FB84 /* Post.swift */; };
+		5A2E5AD5264836D90071FB84 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2E5AD4264836D90071FB84 /* Token.swift */; };
+		5A2E5AEC264848440071FB84 /* ModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2E5AEB264848440071FB84 /* ModelMapper.swift */; };
 		5A3541F82642810B004636A1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3541F62642810B004636A1 /* SignUpViewController.swift */; };
 		5A3541F92642810B004636A1 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A3541F72642810B004636A1 /* SignUpViewController.xib */; };
 		5A3542222642A1C8004636A1 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3542212642A1C8004636A1 /* PostViewModel.swift */; };
@@ -160,6 +165,11 @@
 		5A28EBD4262ECCE500DF4CEB /* AuthorizationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationService.swift; sourceTree = "<group>"; };
 		5A28EBD8262ECCF900DF4CEB /* FeedService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedService.swift; sourceTree = "<group>"; };
 		5A28EBDC262ECD3A00DF4CEB /* ProfileService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileService.swift; sourceTree = "<group>"; };
+		5A2E5AC22648367F0071FB84 /* UserCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCredentials.swift; sourceTree = "<group>"; };
+		5A2E5ACA264836AF0071FB84 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		5A2E5ACF264836C70071FB84 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		5A2E5AD4264836D90071FB84 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		5A2E5AEB264848440071FB84 /* ModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelMapper.swift; sourceTree = "<group>"; };
 		5A3541F62642810B004636A1 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		5A3541F72642810B004636A1 /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		5A3542212642A1C8004636A1 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
@@ -355,6 +365,17 @@
 			path = NewPost;
 			sourceTree = "<group>";
 		};
+		5A2E5AC1264836630071FB84 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5A2E5AC22648367F0071FB84 /* UserCredentials.swift */,
+				5A2E5ACA264836AF0071FB84 /* UserProfile.swift */,
+				5A2E5ACF264836C70071FB84 /* Post.swift */,
+				5A2E5AD4264836D90071FB84 /* Token.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		5A3542382642A58B004636A1 /* Stubs */ = {
 			isa = PBXGroup;
 			children = (
@@ -439,6 +460,7 @@
 			children = (
 				5A45113B26383F9000D435CD /* ApiService.swift */,
 				5A451232263895BA00D435CD /* TokenStorage.swift */,
+				5A2E5AEB264848440071FB84 /* ModelMapper.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -674,6 +696,7 @@
 		5ADB274A262DA63100CFC392 /* Buisness Logic */ = {
 			isa = PBXGroup;
 			children = (
+				5A2E5AC1264836630071FB84 /* Model */,
 				5A7906042634DFD4008863BB /* Common */,
 				5ADB274D262DA65300CFC392 /* Services */,
 			);
@@ -1204,6 +1227,7 @@
 				5A28EBDD262ECD3A00DF4CEB /* ProfileService.swift in Sources */,
 				5A28EBA3262EBF9700DF4CEB /* WelcomeViewController.swift in Sources */,
 				5A7905F62634D9E2008863BB /* AutorizationServiceProtocol.swift in Sources */,
+				5A2E5ACB264836AF0071FB84 /* UserProfile.swift in Sources */,
 				5A7906012634DA96008863BB /* ProfileServiceProtocol.swift in Sources */,
 				5A96F2EF262E3207006BD8C9 /* UIColor.swift in Sources */,
 				5A7905FB2634DA06008863BB /* FeedServiceProtocol.swift in Sources */,
@@ -1219,11 +1243,15 @@
 				5A28EBD5262ECCE500DF4CEB /* AuthorizationService.swift in Sources */,
 				5A28EBD1262ECC4B00DF4CEB /* ServiceLayer.swift in Sources */,
 				5A7905DB2634BC0F008863BB /* CustomView.swift in Sources */,
+				5A2E5AD0264836C70071FB84 /* Post.swift in Sources */,
+				5A2E5AD5264836D90071FB84 /* Token.swift in Sources */,
 				5A8472422636F39000246C5E /* Config.swift in Sources */,
 				5A45123F2638AE6400D435CD /* ClientRequestInterceptor.swift in Sources */,
 				5A3541F82642810B004636A1 /* SignUpViewController.swift in Sources */,
 				5A28EBD9262ECCF900DF4CEB /* FeedService.swift in Sources */,
 				5A6CDAAD262EE68900B92A59 /* Images.swift in Sources */,
+				5A2E5AEC264848440071FB84 /* ModelMapper.swift in Sources */,
+				5A2E5AC32648367F0071FB84 /* UserCredentials.swift in Sources */,
 				5A28EBCA262ECA9500DF4CEB /* NewPostViewController.swift in Sources */,
 				5ADB27E6262E1CC400CFC392 /* ZeroScreenViewModel.swift in Sources */,
 			);

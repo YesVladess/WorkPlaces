@@ -10,18 +10,13 @@ import Foundation
 public struct Post: Codable, Identifiable {
 
     public let id: String
-
-    public let text: String
-
-    public let imageUrl: URL
-
-    public let lon: Double
-
-    public let lat: Double
-
+    public let text: String?
+    public let imageUrl: URL?
+    public let lon: Double?
+    public let lat: Double?
     public let author: UserProfile
-
     public let likes: Int
+    public let liked: Bool
 
 }
 
@@ -34,12 +29,9 @@ public struct MakePost: Codable {
         self.lat = lat
     }
 
-    let text: String
-
-    let imageUrl: URL
-
-    let lon: Double
-
-    let lat: Double
+    public let text: String
+    public let imageUrl: URL
+    public let lon: Double
+    public let lat: Double
 
 }
