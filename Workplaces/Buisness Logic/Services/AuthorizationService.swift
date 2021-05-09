@@ -52,8 +52,9 @@ final class AutorizationService: NSObject, AutorizationServiceProtocol {
                 self?.tokenStorage.set(token: ModelMapper.convertTokenToAppModelFrom(model: token))
                 completion(.success(()))
             case .failure(let error):
-                if let error = error as? APIError {
-                    completion(.failure(.apiError(error)))
+                let errorUnwrapped = error.unwrapAFError()
+                if let apiError = errorUnwrapped as? APIError {
+                    completion(.failure(.apiError(apiError)))
                 } else {
                     completion(.failure(.unknowned))
                 }
@@ -76,8 +77,9 @@ final class AutorizationService: NSObject, AutorizationServiceProtocol {
                 self?.tokenStorage.set(token: ModelMapper.convertTokenToAppModelFrom(model: token))
                 completion(.success(()))
             case .failure(let error):
-                if let error = error as? APIError {
-                    completion(.failure(.apiError(error)))
+                let errorUnwrapped = error.unwrapAFError()
+                if let apiError = errorUnwrapped as? APIError {
+                    completion(.failure(.apiError(apiError)))
                 } else {
                     completion(.failure(.unknowned))
                 }
@@ -107,8 +109,9 @@ final class AutorizationService: NSObject, AutorizationServiceProtocol {
             case .success(let token):
                 self?.tokenStorage.set(token: ModelMapper.convertTokenToAppModelFrom(model: token))
             case .failure(let error):
-                if let error = error as? APIError {
-                    completion(.failure(.apiError(error)))
+                let errorUnwrapped = error.unwrapAFError()
+                if let apiError = errorUnwrapped as? APIError {
+                    completion(.failure(.apiError(apiError)))
                 } else {
                     completion(.failure(.unknowned))
                 }
@@ -177,6 +180,8 @@ final class AutorizationService: NSObject, AutorizationServiceProtocol {
 
 }
 
+// MARK: - GIDSignInDelegate
+
 extension AutorizationService: GIDSignInDelegate {
 
     func sign(
@@ -208,6 +213,8 @@ extension AutorizationService: GIDSignInDelegate {
         // Perform any operations when the user disconnects from app here.
     }
 }
+
+// MARK: - VKSdkDelegate
 
 extension AutorizationService: VKSdkDelegate {
 

@@ -26,8 +26,9 @@ class ApiService {
         case .success(let resultData):
             completion(.success((resultData)))
         case .failure(let error):
-            if let error = error as? APIError {
-                completion(.failure(.apiError(error)))
+            let errorUnwrapped = error.unwrapAFError()
+            if let apiError = errorUnwrapped as? APIError {
+                completion(.failure(.apiError(apiError)))
             } else {
                 completion(.failure(.unknowned))
             }

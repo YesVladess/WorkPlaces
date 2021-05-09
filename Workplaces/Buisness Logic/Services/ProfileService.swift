@@ -20,8 +20,9 @@ final class ProfileService: ApiService, ProfileServiceProtocol {
                 let profile = ModelMapper.convertUserProfileToAppModelFrom(model: resultData)
                 completion(.success((profile)))
             case .failure(let error):
-                if let error = error as? APIError {
-                    completion(.failure(.apiError(error)))
+                let errorUnwrapped = error.unwrapAFError()
+                if let apiError = errorUnwrapped as? APIError {
+                    completion(.failure(.apiError(apiError)))
                 } else {
                     completion(.failure(.unknowned))
                 }
@@ -40,8 +41,9 @@ final class ProfileService: ApiService, ProfileServiceProtocol {
                 let profile = ModelMapper.convertUserProfileToAppModelFrom(model: resultData)
                 completion(.success((profile)))
             case .failure(let error):
-                if let error = error as? APIError {
-                    completion(.failure(.apiError(error)))
+                let errorUnwrapped = error.unwrapAFError()
+                if let apiError = errorUnwrapped as? APIError {
+                    completion(.failure(.apiError(apiError)))
                 } else {
                     completion(.failure(.unknowned))
                 }
@@ -57,8 +59,9 @@ final class ProfileService: ApiService, ProfileServiceProtocol {
                 let profiles = resultData.compactMap { ModelMapper.convertUserProfileToAppModelFrom(model: $0) }
                 completion(.success((profiles)))
             case .failure(let error):
-                if let error = error as? APIError {
-                    completion(.failure(.apiError(error)))
+                let errorUnwrapped = error.unwrapAFError()
+                if let apiError = errorUnwrapped as? APIError {
+                    completion(.failure(.apiError(apiError)))
                 } else {
                     completion(.failure(.unknowned))
                 }
@@ -88,8 +91,9 @@ final class ProfileService: ApiService, ProfileServiceProtocol {
                 let posts = resultData.compactMap { ModelMapper.convertPostToAppModelFrom(model: $0) }
                 completion(.success((posts)))
             case .failure(let error):
-                if let error = error as? APIError {
-                    completion(.failure(.apiError(error)))
+                let errorUnwrapped = error.unwrapAFError()
+                if let apiError = errorUnwrapped as? APIError {
+                    completion(.failure(.apiError(apiError)))
                 } else {
                     completion(.failure(.unknowned))
                 }
@@ -105,8 +109,9 @@ final class ProfileService: ApiService, ProfileServiceProtocol {
                 let post = ModelMapper.convertPostToAppModelFrom(model: resultData)
                 completion(.success((post)))
             case .failure(let error):
-                if let error = error as? APIError {
-                    completion(.failure(.apiError(error)))
+                let errorUnwrapped = error.unwrapAFError()
+                if let apiError = errorUnwrapped as? APIError {
+                    completion(.failure(.apiError(apiError)))
                 } else {
                     completion(.failure(.unknowned))
                 }

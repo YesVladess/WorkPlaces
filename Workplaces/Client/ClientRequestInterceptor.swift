@@ -52,7 +52,7 @@ final public class ClientRequestInterceptor: Alamofire.RequestInterceptor {
         dueTo error: Error,
         completion: @escaping (RetryResult) -> Void
     ) {
-        return completion(.doNotRetryWithError(error))
+        return completion(.doNotRetry)
     }
 
     // MARK: - Private

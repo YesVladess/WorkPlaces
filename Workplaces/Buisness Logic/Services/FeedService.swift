@@ -20,8 +20,9 @@ final class FeedService: ApiService, FeedServiceProtocol {
                 let posts = resultData.compactMap { ModelMapper.convertPostToAppModelFrom(model: $0) }
                 completion(.success((posts)))
             case .failure(let error):
-                if let error = error as? APIError {
-                    completion(.failure(.apiError(error)))
+                let errorUnwrapped = error.unwrapAFError()
+                if let apiError = errorUnwrapped as? APIError {
+                    completion(.failure(.apiError(apiError)))
                 } else {
                     completion(.failure(.unknowned))
                 }
@@ -37,8 +38,9 @@ final class FeedService: ApiService, FeedServiceProtocol {
                 let posts = resultData.compactMap { ModelMapper.convertPostToAppModelFrom(model: $0) }
                 completion(.success((posts)))
             case .failure(let error):
-                if let error = error as? APIError {
-                    completion(.failure(.apiError(error)))
+                let errorUnwrapped = error.unwrapAFError()
+                if let apiError = errorUnwrapped as? APIError {
+                    completion(.failure(.apiError(apiError)))
                 } else {
                     completion(.failure(.unknowned))
                 }
