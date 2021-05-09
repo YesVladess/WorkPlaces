@@ -7,7 +7,7 @@
 
 import VK_ios_sdk
 
-class LoginViewController: UIViewController, CanShowSpinner {
+final class LoginViewController: UIViewController, CanShowSpinner {
 
     // MARK: - Public Properties
 
