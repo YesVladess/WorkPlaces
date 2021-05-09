@@ -1,6 +1,6 @@
 //
 //  UserCredentials.swift
-//  workplaces
+//  WorkplacesAPI
 //
 //  Created by YesVladess on 25.04.2021.
 //
