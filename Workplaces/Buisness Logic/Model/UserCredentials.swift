@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct UserCredentials {
+struct UserCredentials {
 
     let email: String
     let password: String

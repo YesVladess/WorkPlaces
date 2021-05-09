@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Post: Identifiable {
+struct Post: Identifiable {
 
     public let id: String
     let text: String?
