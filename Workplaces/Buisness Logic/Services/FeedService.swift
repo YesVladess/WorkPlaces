@@ -10,28 +10,28 @@ import WorkplacesAPI
 
 final class FeedService: ApiService, FeedServiceProtocol {
 
-    func getFeed(completion: @escaping (Result<[Post], WorkspaceError>) -> Void) {
+    func getFeed(completion: @escaping (Result<[Post], WorkplaceError>) -> Void) {
         let endpoint = GetFeedEndpoint()
         _ = apiClient.request(endpoint) { [weak self] result in
             self?.commonResultHandler(result: result, completion: completion)
         }
     }
 
-    func getFavoriteFeed(completion: @escaping (Result<[Post], WorkspaceError>) -> Void) {
+    func getFavoriteFeed(completion: @escaping (Result<[Post], WorkplaceError>) -> Void) {
         let endpoint = GetFavoriteEndpoint()
         _ = apiClient.request(endpoint) { [weak self] result in
             self?.commonResultHandler(result: result, completion: completion)
         }
     }
 
-    func setLike(likeID: String, completion: @escaping (Result<Void, WorkspaceError>) -> Void) {
+    func setLike(likeID: String, completion: @escaping (Result<Void, WorkplaceError>) -> Void) {
         let endpoint = SetLikeEndpoint(likeID: likeID)
         _ = apiClient.request(endpoint) { [weak self] result in
             self?.commonResultHandler(result: result, completion: completion)
         }
     }
 
-    func deleteLike(likeID: String, completion: @escaping (Result<Void, WorkspaceError>) -> Void) {
+    func deleteLike(likeID: String, completion: @escaping (Result<Void, WorkplaceError>) -> Void) {
         let endpoint = DeleteLikeEndpoint(likeID: likeID)
         _ = apiClient.request(endpoint) { [weak self] result in
             self?.commonResultHandler(result: result, completion: completion)

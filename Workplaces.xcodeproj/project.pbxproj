@@ -69,7 +69,7 @@
 		5A7905F62634D9E2008863BB /* AutorizationServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7905F52634D9E2008863BB /* AutorizationServiceProtocol.swift */; };
 		5A7905FB2634DA06008863BB /* FeedServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7905FA2634DA06008863BB /* FeedServiceProtocol.swift */; };
 		5A7906012634DA96008863BB /* ProfileServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7906002634DA96008863BB /* ProfileServiceProtocol.swift */; };
-		5A7906062634E011008863BB /* WorkspaceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7906052634E011008863BB /* WorkspaceError.swift */; };
+		5A7906062634E011008863BB /* WorkplaceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7906052634E011008863BB /* WorkplaceError.swift */; };
 		5A8127FA2642D1A4000F9678 /* WorkplaceTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A8127F92642D1A4000F9678 /* WorkplaceTabBarController.swift */; };
 		5A81280F2642D566000F9678 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A81280D2642D566000F9678 /* ProfileViewController.swift */; };
 		5A8128102642D566000F9678 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A81280E2642D566000F9678 /* ProfileViewController.xib */; };
@@ -211,7 +211,7 @@
 		5A7905F52634D9E2008863BB /* AutorizationServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutorizationServiceProtocol.swift; sourceTree = "<group>"; };
 		5A7905FA2634DA06008863BB /* FeedServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedServiceProtocol.swift; sourceTree = "<group>"; };
 		5A7906002634DA96008863BB /* ProfileServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceProtocol.swift; sourceTree = "<group>"; };
-		5A7906052634E011008863BB /* WorkspaceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceError.swift; sourceTree = "<group>"; };
+		5A7906052634E011008863BB /* WorkplaceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkplaceError.swift; sourceTree = "<group>"; };
 		5A7906092634E755008863BB /* UserCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCredentials.swift; sourceTree = "<group>"; };
 		5A8127F92642D1A4000F9678 /* WorkplaceTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkplaceTabBarController.swift; sourceTree = "<group>"; };
 		5A81280D2642D566000F9678 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -574,7 +574,7 @@
 			isa = PBXGroup;
 			children = (
 				5A28EBD0262ECC4B00DF4CEB /* ServiceLayer.swift */,
-				5A7906052634E011008863BB /* WorkspaceError.swift */,
+				5A7906052634E011008863BB /* WorkplaceError.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1210,7 +1210,7 @@
 				5A7905DF2634BC42008863BB /* XibLoadable.swift in Sources */,
 				5A8127FA2642D1A4000F9678 /* WorkplaceTabBarController.swift in Sources */,
 				5A7905CB26348A09008863BB /* PrimaryButton.swift in Sources */,
-				5A7906062634E011008863BB /* WorkspaceError.swift in Sources */,
+				5A7906062634E011008863BB /* WorkplaceError.swift in Sources */,
 				5ADB27BF262DC56E00CFC392 /* UIFont+Fonts.swift in Sources */,
 				5ADB27B1262DBC9200CFC392 /* String+Localizable.swift in Sources */,
 				5A96F305262E3EE4006BD8C9 /* UIViewController.swift in Sources */,

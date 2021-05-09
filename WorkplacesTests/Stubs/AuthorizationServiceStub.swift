@@ -13,9 +13,9 @@ import Foundation
 class AuthorizationServiceStub: AutorizationServiceProtocol {
 
     var token: Token = Token(refreshToken: "TestRefreshToken", accessToken: "TestAccessToken")
-    var error: WorkspaceError?
+    var error: WorkplaceError?
 
-    func signIn(email: String, password: String, completion: @escaping (Result<Void, WorkspaceError>) -> Void) {
+    func signIn(email: String, password: String, completion: @escaping (Result<Void, WorkplaceError>) -> Void) {
         if error != nil {
             completion(.failure(.unknowned))
         } else {
@@ -23,21 +23,21 @@ class AuthorizationServiceStub: AutorizationServiceProtocol {
         }
     }
 
-    func signUp(email: String, password: String, completion: @escaping (Result<Void, WorkspaceError>) -> Void) {
+    func signUp(email: String, password: String, completion: @escaping (Result<Void, WorkplaceError>) -> Void) {
 
     }
 
-    func signInWithFacebook(completion: @escaping (Result<Void, WorkspaceError>) -> Void) {
+    func signInWithFacebook(completion: @escaping (Result<Void, WorkplaceError>) -> Void) {
 
     }
 
-    func signInWithVK(vkUIDelegate: VKSdkUIDelegate, completion: @escaping (Result<Void, WorkspaceError>) -> Void) {
+    func signInWithVK(vkUIDelegate: VKSdkUIDelegate, completion: @escaping (Result<Void, WorkplaceError>) -> Void) {
 
     }
 
     func signInWithGoogle(
         presentingViewController viewController: UIViewController,
-        completion: @escaping (Result<Void, WorkspaceError>) -> Void
+        completion: @escaping (Result<Void, WorkplaceError>) -> Void
     ) {
 
     }
@@ -46,7 +46,7 @@ class AuthorizationServiceStub: AutorizationServiceProtocol {
 
     }
 
-    func refreshToken(completion: @escaping (Result<Void, WorkspaceError>) -> Void) {
+    func refreshToken(completion: @escaping (Result<Void, WorkplaceError>) -> Void) {
         
     }
 

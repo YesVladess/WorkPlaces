@@ -20,7 +20,7 @@ class ApiService {
 
     func commonResultHandler<T>(
         result: (Result<T, Error>),
-        completion: @escaping ((Result<T, WorkspaceError>) -> Void)
+        completion: @escaping ((Result<T, WorkplaceError>) -> Void)
     ) {
         switch result {
         case .success(let resultData):

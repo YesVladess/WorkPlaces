@@ -8,14 +8,14 @@
 import Foundation
 import WorkplacesAPI
 
-public enum WorkspaceError: Error {
+public enum WorkplaceError: Error {
     case apiError(APIError)
-    case unknowned
-    case permissionsError
     case otherServerError(Error)
+    case permissionsError
+    case unknowned
 }
 
-extension WorkspaceError: LocalizedError {
+extension WorkplaceError: LocalizedError {
 
     var localizedDescription: String {
         switch self {
@@ -31,9 +31,9 @@ extension WorkspaceError: LocalizedError {
     }
 }
 
-extension WorkspaceError: Equatable {
+extension WorkplaceError: Equatable {
 
-    public static func == (lhs: WorkspaceError, rhs: WorkspaceError) -> Bool {
+    public static func == (lhs: WorkplaceError, rhs: WorkplaceError) -> Bool {
         switch (lhs, rhs) {
         case (.apiError, .apiError),
              (.otherServerError, .otherServerError),

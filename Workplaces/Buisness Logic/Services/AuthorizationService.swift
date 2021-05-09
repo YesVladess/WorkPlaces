@@ -23,7 +23,7 @@ final class AutorizationService: NSObject, AutorizationServiceProtocol {
 
     private let apiClient: Client
 
-    private var googleAuthHandler: ((Result<Void, WorkspaceError>) -> Void)?
+    private var googleAuthHandler: ((Result<Void, WorkplaceError>) -> Void)?
 
     private let tokenStorage: TokenStorageProtocol
 
@@ -39,7 +39,7 @@ final class AutorizationService: NSObject, AutorizationServiceProtocol {
     func signIn(
         email: String,
         password: String,
-        completion: @escaping (Result<Void, WorkspaceError>) -> Void
+        completion: @escaping (Result<Void, WorkplaceError>) -> Void
     ) {
         let credentials = UserCredentials(email: email, password: password)
         let endpoint = LoginEndpoint(userCredentials: credentials)
@@ -61,7 +61,7 @@ final class AutorizationService: NSObject, AutorizationServiceProtocol {
     func signUp(
         email: String,
         password: String,
-        completion: @escaping (Result<Void, WorkspaceError>) -> Void
+        completion: @escaping (Result<Void, WorkplaceError>) -> Void
     ) {
         let credentials = UserCredentials(email: email, password: password)
         let endpoint = RegistrationEndpoint(userCredentials: credentials)
@@ -93,7 +93,7 @@ final class AutorizationService: NSObject, AutorizationServiceProtocol {
         }
     }
 
-    func refreshToken(completion: @escaping (Result<Void, WorkspaceError>) -> Void) {
+    func refreshToken(completion: @escaping (Result<Void, WorkplaceError>) -> Void) {
         guard let token = tokenStorage.get() else { return }
         let refreshToken = RefreshToken(token: token.refreshToken)
         let endpoint = RefreshEndpoint(token: refreshToken)
@@ -112,7 +112,7 @@ final class AutorizationService: NSObject, AutorizationServiceProtocol {
         }
     }
 
-    func signInWithFacebook(completion: @escaping (Result<Void, WorkspaceError>) -> Void) {
+    func signInWithFacebook(completion: @escaping (Result<Void, WorkplaceError>) -> Void) {
         Settings.appID = Config.facebookAppID
         LoginManager().logIn(permissions: ["email"], from: nil) { result, error in
             if let error = error {
@@ -129,7 +129,7 @@ final class AutorizationService: NSObject, AutorizationServiceProtocol {
 
     func signInWithVK(
         vkUIDelegate: VKSdkUIDelegate,
-        completion: @escaping (Result<Void, WorkspaceError>) -> Void
+        completion: @escaping (Result<Void, WorkplaceError>) -> Void
     ) {
         setupVKSignIn(vkUIDelegate: vkUIDelegate)
         let scope = ["email"]
@@ -146,7 +146,7 @@ final class AutorizationService: NSObject, AutorizationServiceProtocol {
 
     func signInWithGoogle(
         presentingViewController viewController: UIViewController,
-        completion: @escaping (Result<Void, WorkspaceError>) -> Void
+        completion: @escaping (Result<Void, WorkplaceError>) -> Void
     ) {
         setupGoogleSignIn(presentingViewController: viewController)
         googleAuthHandler = { result in
@@ -180,10 +180,10 @@ extension AutorizationService: GIDSignInDelegate {
         withError error: Error!
     ) {
         if let error = error {
-            let result: (Result<Void, WorkspaceError>) = .failure(.otherServerError(error))
+            let result: (Result<Void, WorkplaceError>) = .failure(.otherServerError(error))
             googleAuthHandler?(result)
         } else {
-            let result: (Result<Void, WorkspaceError>) = .success(())
+            let result: (Result<Void, WorkplaceError>) = .success(())
             googleAuthHandler?(result)
         }
         // Perform any operations on signed in user here.
