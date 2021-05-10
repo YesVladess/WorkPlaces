@@ -17,3 +17,13 @@ struct UserProfile: Identifiable {
     let birthDay: Date
 
 }
+
+struct UserProfileWithoutID {
+
+    let firstName: String
+    let lastName: String
+    let nickname: String?
+    let avatarUrl: URL?
+    let birthDay: String
+
+}

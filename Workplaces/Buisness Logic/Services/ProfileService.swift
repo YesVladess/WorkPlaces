@@ -31,21 +31,12 @@ final class ProfileService: ApiService, ProfileServiceProtocol {
     }
 
     func changeMyProfile(
-        firstName: String,
-        lastName: String,
-        nickname: String?,
-        avatarUrl: URL?,
-        birthDay: String,
+        profile: UserProfileWithoutID,
         completion: @escaping (Result<UserProfile, WorkplaceError>) -> Void
     ) {
-        let profile = UserProfileWithoutID(
-            firstName: firstName,
-            lastName: lastName,
-            nickname: nickname,
-            avatarUrl: nil,
-            birthDay: birthDay
+        let endpoint = ChangeProfileEndpoint(
+            userProfileWithoutID: ModelMapper.convertUserProfileWithoutIDToApiModelFrom(model: profile)
         )
-        let endpoint = ChangeProfileEndpoint(userProfileWithoutID: profile)
         _ = apiClient.request(endpoint) { result in
             switch result {
             case .success(let resultData):

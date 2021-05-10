@@ -17,6 +17,18 @@ class ModelMapper {
         )
     }
 
+    static func convertUserProfileWithoutIDToApiModelFrom(
+        model: UserProfileWithoutID
+    ) -> WorkplacesAPI.UserProfileWithoutID {
+        return WorkplacesAPI.UserProfileWithoutID(
+            firstName: model.firstName,
+            lastName: model.lastName,
+            nickname: model.nickname,
+            avatarUrl: model.avatarUrl,
+            birthDay: model.birthDay
+        )
+    }
+
     static func convertTokenToAppModelFrom(model: WorkplacesAPI.Token) -> Token {
         return Token(accessToken: model.accessToken, refreshToken: model.refreshToken)
     }

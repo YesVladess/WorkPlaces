@@ -15,11 +15,7 @@ protocol ProfileServiceProtocol: AnyObject {
     )
 
     func changeMyProfile(
-        firstName: String,
-        lastName: String,
-        nickname: String?,
-        avatarUrl: URL?,
-        birthDay: String,
+        profile: UserProfileWithoutID,
         completion: @escaping (Result<UserProfile, WorkplaceError>) -> Void
     )
 

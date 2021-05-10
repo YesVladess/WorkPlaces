@@ -79,12 +79,15 @@ final class SignUpViewController: UIViewController {
         surname: String,
         birthDate: String
     ) {
-        profileService.changeMyProfile(
+        let profile = UserProfileWithoutID(
             firstName: name,
             lastName: surname,
             nickname: nickname,
             avatarUrl: nil,
-            birthDay: birthDate,
+            birthDay: birthDate
+        )
+        profileService.changeMyProfile(
+            profile: profile,
             completion: { [weak self] result in
                 switch result {
                 case .success:
