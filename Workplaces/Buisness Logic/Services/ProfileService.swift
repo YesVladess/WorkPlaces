@@ -31,9 +31,20 @@ final class ProfileService: ApiService, ProfileServiceProtocol {
     }
 
     func changeMyProfile(
-        profile: UserProfileWithoutID,
+        firstName: String,
+        lastName: String,
+        nickname: String?,
+        avatarUrl: URL?,
+        birthDay: String,
         completion: @escaping (Result<UserProfile, WorkplaceError>) -> Void
     ) {
+        let profile = UserProfileWithoutID(
+            firstName: firstName,
+            lastName: lastName,
+            nickname: nickname,
+            avatarUrl: nil,
+            birthDay: birthDay
+        )
         let endpoint = ChangeProfileEndpoint(userProfileWithoutID: profile)
         _ = apiClient.request(endpoint) { result in
             switch result {

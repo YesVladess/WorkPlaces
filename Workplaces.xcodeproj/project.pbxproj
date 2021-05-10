@@ -23,6 +23,7 @@
 		5A2E5AD0264836C70071FB84 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2E5ACF264836C70071FB84 /* Post.swift */; };
 		5A2E5AD5264836D90071FB84 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2E5AD4264836D90071FB84 /* Token.swift */; };
 		5A2E5AEC264848440071FB84 /* ModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2E5AEB264848440071FB84 /* ModelMapper.swift */; };
+		5A2E5AFC2648AC7D0071FB84 /* HTTPBody + multipart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2E5AFB2648AC7D0071FB84 /* HTTPBody + multipart.swift */; };
 		5A3541F82642810B004636A1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3541F62642810B004636A1 /* SignUpViewController.swift */; };
 		5A3541F92642810B004636A1 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A3541F72642810B004636A1 /* SignUpViewController.xib */; };
 		5A3542222642A1C8004636A1 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3542212642A1C8004636A1 /* PostViewModel.swift */; };
@@ -170,6 +171,7 @@
 		5A2E5ACF264836C70071FB84 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		5A2E5AD4264836D90071FB84 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		5A2E5AEB264848440071FB84 /* ModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelMapper.swift; sourceTree = "<group>"; };
+		5A2E5AFB2648AC7D0071FB84 /* HTTPBody + multipart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPBody + multipart.swift"; sourceTree = "<group>"; };
 		5A3541F62642810B004636A1 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		5A3541F72642810B004636A1 /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
 		5A3542212642A1C8004636A1 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
@@ -442,6 +444,7 @@
 				5A4510BD26383C6A00D435CD /* Codable.swift */,
 				5A4510C226383C8300D435CD /* HTTPError.swift */,
 				5A4510C726383CA900D435CD /* ResponseValidator.swift */,
+				5A2E5AFB2648AC7D0071FB84 /* HTTPBody + multipart.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1185,6 +1188,7 @@
 				5A45119A2638711B00D435CD /* LoginEndpoint.swift in Sources */,
 				5A4510BE26383C6A00D435CD /* Codable.swift in Sources */,
 				5A4510C326383C8300D435CD /* HTTPError.swift in Sources */,
+				5A2E5AFC2648AC7D0071FB84 /* HTTPBody + multipart.swift in Sources */,
 				5A4511A42638714200D435CD /* RefreshEndpoint.swift in Sources */,
 				5A4510B9263838CE00D435CD /* APIError.swift in Sources */,
 				5A4511B9263871DF00D435CD /* GetFavoriteEndpoint.swift in Sources */,

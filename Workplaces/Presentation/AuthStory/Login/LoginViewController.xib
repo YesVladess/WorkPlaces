@@ -40,7 +40,6 @@
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RAG-fF-nhi" customClass="PrimaryButton" customModule="Workplaces" customModuleProvider="target">
                     <rect key="frame" x="32" y="524.5" width="350" height="55"/>
-                    <color key="backgroundColor" systemColor="systemIndigoColor"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="350" id="JYn-6e-BKD"/>
                         <constraint firstAttribute="height" constant="55" id="iwR-S3-xpy"/>
@@ -48,7 +47,7 @@
                     <state key="normal" title="PrimaryButton"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kgg-q9-zuh">
-                    <rect key="frame" x="152" y="639.5" width="110" height="30"/>
+                    <rect key="frame" x="152" y="699.5" width="110" height="30"/>
                     <color key="backgroundColor" name="middle_grey"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="110" id="Ufz-bQ-9ec"/>
@@ -59,7 +58,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhN-HF-swj">
-                    <rect key="frame" x="152" y="677.5" width="110" height="30"/>
+                    <rect key="frame" x="152" y="737.5" width="110" height="30"/>
                     <color key="backgroundColor" name="middle_grey"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="110" id="yN5-66-7yV"/>
@@ -70,7 +69,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FV9-ho-P0T">
-                    <rect key="frame" x="152" y="715.5" width="110" height="30"/>
+                    <rect key="frame" x="152" y="775.5" width="110" height="30"/>
                     <color key="backgroundColor" name="middle_grey"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="110" id="Vt4-LM-iu2"/>
@@ -81,12 +80,13 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sfj-Vh-SdW">
-                    <rect key="frame" x="157" y="769" width="100" height="30"/>
-                    <color key="backgroundColor" name="middle_grey"/>
+                    <rect key="frame" x="32" y="609.5" width="350" height="40"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="100" id="MIs-gW-osA"/>
+                        <constraint firstAttribute="height" constant="40" id="y5q-Ze-ne3"/>
                     </constraints>
-                    <state key="normal" title="Регистрация"/>
+                    <state key="normal" title="Регистрация">
+                        <color key="titleColor" name="orange"/>
+                    </state>
                     <connections>
                         <action selector="singUpButtonTapped:" destination="-1" eventType="touchUpInside" id="haU-09-5Vd"/>
                     </connections>
@@ -98,6 +98,7 @@
                 <constraint firstItem="Sfj-Vh-SdW" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="1yp-8r-JMf"/>
                 <constraint firstItem="FV9-ho-P0T" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="2ZC-83-dsA"/>
                 <constraint firstItem="FV9-ho-P0T" firstAttribute="top" secondItem="dhN-HF-swj" secondAttribute="bottom" constant="8" symbolic="YES" id="4tm-Tb-OnV"/>
+                <constraint firstItem="Sfj-Vh-SdW" firstAttribute="leading" secondItem="RAG-fF-nhi" secondAttribute="leading" id="5ZM-pm-nZW"/>
                 <constraint firstItem="dhN-HF-swj" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="5c9-We-aCZ"/>
                 <constraint firstItem="hAy-6X-ekg" firstAttribute="top" secondItem="EmQ-Rr-UbF" secondAttribute="bottom" constant="40" id="8Yc-1t-Y8t"/>
                 <constraint firstItem="RAG-fF-nhi" firstAttribute="top" secondItem="hAy-6X-ekg" secondAttribute="bottom" constant="50" id="9WV-dz-0Dr"/>
@@ -106,8 +107,8 @@
                 <constraint firstItem="hAy-6X-ekg" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Nrr-bO-hWs"/>
                 <constraint firstItem="EmQ-Rr-UbF" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Oxn-dT-lG2"/>
                 <constraint firstItem="RAG-fF-nhi" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="VN8-uh-tDh"/>
-                <constraint firstItem="Kgg-q9-zuh" firstAttribute="top" secondItem="RAG-fF-nhi" secondAttribute="bottom" constant="60" id="dPr-dF-X7l"/>
-                <constraint firstItem="Sfj-Vh-SdW" firstAttribute="top" secondItem="FV9-ho-P0T" secondAttribute="bottom" constant="23.5" id="sBI-Cp-fya"/>
+                <constraint firstItem="Kgg-q9-zuh" firstAttribute="top" secondItem="Sfj-Vh-SdW" secondAttribute="bottom" constant="50" id="aH3-Y2-5jF"/>
+                <constraint firstItem="Sfj-Vh-SdW" firstAttribute="top" secondItem="RAG-fF-nhi" secondAttribute="bottom" constant="30" id="j6n-Go-KZo"/>
                 <constraint firstItem="hAy-6X-ekg" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="ti8-UF-nxa"/>
             </constraints>
             <point key="canvasLocation" x="137.68115942028987" y="133.92857142857142"/>
@@ -117,11 +118,11 @@
         <namedColor name="middle_grey">
             <color red="0.63499999046325684" green="0.67500001192092896" blue="0.75700002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <namedColor name="orange">
+            <color red="0.99599999189376831" green="0.2669999897480011" blue="0.027000000700354576" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

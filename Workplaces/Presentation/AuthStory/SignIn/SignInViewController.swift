@@ -39,6 +39,11 @@ final class SignInViewController: UIViewController {
     @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var primaryButton: PrimaryButton!
 
+    // MARK: - IBAction
+    @IBAction private func tapNavigateToSignUpButton(_ sender: Any) {
+        navigateToSignUpScreen()
+    }
+
     // MARK: - Private Methods
 
     private func congifure() {
@@ -51,6 +56,11 @@ final class SignInViewController: UIViewController {
     private func navigateToWelcomeScreen() {
         let welcomeViewController = WelcomeViewController()
         navigationController?.pushViewController(welcomeViewController, animated: true)
+    }
+
+    private func navigateToSignUpScreen() {
+        let signUpViewController = SignUpViewController()
+        navigationController?.pushViewController(signUpViewController, animated: true)
     }
 
 }

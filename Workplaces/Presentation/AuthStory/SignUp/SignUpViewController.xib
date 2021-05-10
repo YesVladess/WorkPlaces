@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -58,15 +59,29 @@
                     <rect key="frame" x="47" y="464" width="320" height="34"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <action selector="tapBirthDateField:" destination="-1" eventType="editingDidBegin" id="HMP-Yt-E9N"/>
+                    </connections>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uf3-ki-ANw" customClass="PrimaryButton" customModule="Workplaces" customModuleProvider="target">
-                    <rect key="frame" x="32" y="605" width="350" height="55"/>
-                    <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                    <rect key="frame" x="32" y="731" width="350" height="55"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="55" id="QeZ-bX-hXW"/>
                         <constraint firstAttribute="width" constant="350" id="gkX-3F-UyT"/>
                     </constraints>
                     <state key="normal" title="Button"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dFD-Bz-Pa1">
+                    <rect key="frame" x="32" y="666" width="350" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="LYn-84-lv9"/>
+                    </constraints>
+                    <state key="normal" title="Уже зарегистрирован">
+                        <color key="titleColor" name="orange"/>
+                    </state>
+                    <connections>
+                        <action selector="tapAlreadySignedUpButton:" destination="-1" eventType="touchUpInside" id="4l2-QZ-AGL"/>
+                    </connections>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
@@ -76,12 +91,15 @@
                 <constraint firstItem="uKR-fs-kyy" firstAttribute="leading" secondItem="oO9-9I-gqZ" secondAttribute="leading" id="1vo-63-Zli"/>
                 <constraint firstItem="2xb-qo-qP5" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="3rl-vX-dpA"/>
                 <constraint firstItem="qk0-AZ-35a" firstAttribute="top" secondItem="fTk-fk-FqS" secondAttribute="bottom" constant="20" id="4tC-Qp-O92"/>
+                <constraint firstItem="dFD-Bz-Pa1" firstAttribute="leading" secondItem="uf3-ki-ANw" secondAttribute="leading" id="6eo-bj-WuQ"/>
                 <constraint firstItem="fTk-fk-FqS" firstAttribute="top" secondItem="oO9-9I-gqZ" secondAttribute="bottom" constant="20" id="AhZ-8t-Ibg"/>
-                <constraint firstItem="uf3-ki-ANw" firstAttribute="top" secondItem="Rby-v8-FK1" secondAttribute="bottom" constant="107" id="Icz-Vx-J0a"/>
+                <constraint firstItem="dFD-Bz-Pa1" firstAttribute="top" secondItem="Rby-v8-FK1" secondAttribute="bottom" constant="168" id="KlM-Ub-4TK"/>
                 <constraint firstItem="Rby-v8-FK1" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Ldv-5s-inz"/>
                 <constraint firstItem="oO9-9I-gqZ" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="OCT-FQ-2rg"/>
                 <constraint firstItem="fTk-fk-FqS" firstAttribute="leading" secondItem="oO9-9I-gqZ" secondAttribute="leading" id="TqZ-tO-gQE"/>
                 <constraint firstItem="fTk-fk-FqS" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="UG8-Zc-vRX"/>
+                <constraint firstItem="uf3-ki-ANw" firstAttribute="top" secondItem="dFD-Bz-Pa1" secondAttribute="bottom" constant="25" id="UcI-pT-BWk"/>
+                <constraint firstItem="dFD-Bz-Pa1" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="XZq-8W-ahw"/>
                 <constraint firstItem="qk0-AZ-35a" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="ZPm-OW-o3I"/>
                 <constraint firstItem="2xb-qo-qP5" firstAttribute="leading" secondItem="oO9-9I-gqZ" secondAttribute="leading" id="a3g-so-Xa0"/>
                 <constraint firstItem="qk0-AZ-35a" firstAttribute="leading" secondItem="oO9-9I-gqZ" secondAttribute="leading" id="fOP-23-cYc"/>
@@ -96,11 +114,11 @@
         </view>
     </objects>
     <resources>
+        <namedColor name="orange">
+            <color red="0.99599999189376831" green="0.2669999897480011" blue="0.027000000700354576" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemIndigoColor">
-            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

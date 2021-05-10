@@ -39,7 +39,7 @@ final class FeedViewController: UIViewController {
             switch result {
             case .success(let result):
                 if result.isEmpty { self?.showEmptyFeed() } else {
-                    //self?.showFeed(posts: result)
+                    // self?.showFeed(posts: result)
                 }
             case.failure(let error):
                 self?.showError(error.localizedDescription)
