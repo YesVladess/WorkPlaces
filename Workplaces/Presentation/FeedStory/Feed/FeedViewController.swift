@@ -34,6 +34,8 @@ final class FeedViewController: UIViewController {
         getFeed()
     }
 
+    // MARK: - Private Methods
+
     private func getFeed() {
         feedService.getFeed(completion: { [weak self] result in
             switch result {
@@ -52,10 +54,17 @@ final class FeedViewController: UIViewController {
             withModel: .getEmptyModel(
                 secondaryLabelTitle: "Вам нужны друзья, чтобы лента стала живой",
                 actionButtonLabelTitle: "Найти друзей",
-                action: {}
+                action: { [weak self] in self?.navigateToSearchScreen() }
             )
         )
         add(zeroScreen)
+    }
+
+    // MARK: - Navigate
+
+    private func navigateToSearchScreen() {
+        let searchViewController = SearchViewController()
+        navigationController?.pushViewController(searchViewController, animated: true)
     }
 
     //    private func showFeed(posts: [Post]) {
