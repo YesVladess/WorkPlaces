@@ -28,8 +28,12 @@
 		5A2E5B04264A8F620071FB84 /* SearchViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A2E5B02264A8F620071FB84 /* SearchViewController.xib */; };
 		5A2E5B0D264A95670071FB84 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2E5B0B264A95670071FB84 /* FriendCell.swift */; };
 		5A2E5B0E264A95670071FB84 /* FriendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A2E5B0C264A95670071FB84 /* FriendCell.xib */; };
-		5A3541F82642810B004636A1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3541F62642810B004636A1 /* SignUpViewController.swift */; };
-		5A3541F92642810B004636A1 /* SignUpViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A3541F72642810B004636A1 /* SignUpViewController.xib */; };
+		5A2E5B1B264AEDA10071FB84 /* SignUpFirstStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2E5B19264AEDA10071FB84 /* SignUpFirstStepViewController.swift */; };
+		5A2E5B1C264AEDA10071FB84 /* SignUpFirstStepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A2E5B1A264AEDA10071FB84 /* SignUpFirstStepViewController.xib */; };
+		5A2E5B22264AF1F00071FB84 /* SignUpSecondStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2E5B20264AF1F00071FB84 /* SignUpSecondStepViewController.swift */; };
+		5A2E5B23264AF1F00071FB84 /* SignUpSecondStepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A2E5B21264AF1F00071FB84 /* SignUpSecondStepViewController.xib */; };
+		5A3541F82642810B004636A1 /* SignUpCoordinatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3541F62642810B004636A1 /* SignUpCoordinatingViewController.swift */; };
+		5A3541F92642810B004636A1 /* SignUpCoordinatingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A3541F72642810B004636A1 /* SignUpCoordinatingViewController.xib */; };
 		5A3542222642A1C8004636A1 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3542212642A1C8004636A1 /* PostViewModel.swift */; };
 		5A35423A2642A599004636A1 /* AuthorizationServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3542392642A599004636A1 /* AuthorizationServiceStub.swift */; };
 		5A35424E2642B491004636A1 /* AuthorizationIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A35424D2642B491004636A1 /* AuthorizationIntegrationTests.swift */; };
@@ -180,8 +184,12 @@
 		5A2E5B02264A8F620071FB84 /* SearchViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchViewController.xib; sourceTree = "<group>"; };
 		5A2E5B0B264A95670071FB84 /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		5A2E5B0C264A95670071FB84 /* FriendCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendCell.xib; sourceTree = "<group>"; };
-		5A3541F62642810B004636A1 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		5A3541F72642810B004636A1 /* SignUpViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpViewController.xib; sourceTree = "<group>"; };
+		5A2E5B19264AEDA10071FB84 /* SignUpFirstStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpFirstStepViewController.swift; sourceTree = "<group>"; };
+		5A2E5B1A264AEDA10071FB84 /* SignUpFirstStepViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpFirstStepViewController.xib; sourceTree = "<group>"; };
+		5A2E5B20264AF1F00071FB84 /* SignUpSecondStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpSecondStepViewController.swift; sourceTree = "<group>"; };
+		5A2E5B21264AF1F00071FB84 /* SignUpSecondStepViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpSecondStepViewController.xib; sourceTree = "<group>"; };
+		5A3541F62642810B004636A1 /* SignUpCoordinatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCoordinatingViewController.swift; sourceTree = "<group>"; };
+		5A3541F72642810B004636A1 /* SignUpCoordinatingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpCoordinatingViewController.xib; sourceTree = "<group>"; };
 		5A3542212642A1C8004636A1 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
 		5A3542392642A599004636A1 /* AuthorizationServiceStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceStub.swift; sourceTree = "<group>"; };
 		5A35424D2642B491004636A1 /* AuthorizationIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationIntegrationTests.swift; sourceTree = "<group>"; };
@@ -403,6 +411,24 @@
 				5A2E5B0C264A95670071FB84 /* FriendCell.xib */,
 			);
 			path = cells;
+			sourceTree = "<group>";
+		};
+		5A2E5B17264AED1A0071FB84 /* FirstStep */ = {
+			isa = PBXGroup;
+			children = (
+				5A2E5B19264AEDA10071FB84 /* SignUpFirstStepViewController.swift */,
+				5A2E5B1A264AEDA10071FB84 /* SignUpFirstStepViewController.xib */,
+			);
+			path = FirstStep;
+			sourceTree = "<group>";
+		};
+		5A2E5B18264AED300071FB84 /* SecondStep */ = {
+			isa = PBXGroup;
+			children = (
+				5A2E5B20264AF1F00071FB84 /* SignUpSecondStepViewController.swift */,
+				5A2E5B21264AF1F00071FB84 /* SignUpSecondStepViewController.xib */,
+			);
+			path = SecondStep;
 			sourceTree = "<group>";
 		};
 		5A3542382642A58B004636A1 /* Stubs */ = {
@@ -806,8 +832,10 @@
 		5ADB27C7262DCC2000CFC392 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				5A3541F62642810B004636A1 /* SignUpViewController.swift */,
-				5A3541F72642810B004636A1 /* SignUpViewController.xib */,
+				5A2E5B18264AED300071FB84 /* SecondStep */,
+				5A2E5B17264AED1A0071FB84 /* FirstStep */,
+				5A3541F62642810B004636A1 /* SignUpCoordinatingViewController.swift */,
+				5A3541F72642810B004636A1 /* SignUpCoordinatingViewController.xib */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -1013,9 +1041,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				5A96F330262EB76B006BD8C9 /* SignInViewController.xib in Resources */,
+				5A2E5B1C264AEDA10071FB84 /* SignUpFirstStepViewController.xib in Resources */,
 				5A28EBCB262ECA9500DF4CEB /* NewPostViewController.xib in Resources */,
 				5A7905CA26348A09008863BB /* PrimaryButton.xib in Resources */,
 				5A8128102642D566000F9678 /* ProfileViewController.xib in Resources */,
+				5A2E5B23264AF1F00071FB84 /* SignUpSecondStepViewController.xib in Resources */,
 				5ADB27A2262DBA1E00CFC392 /* Localizable.strings in Resources */,
 				5A28EBA4262EBF9700DF4CEB /* WelcomeViewController.xib in Resources */,
 				5A2E5B04264A8F620071FB84 /* SearchViewController.xib in Resources */,
@@ -1025,7 +1055,7 @@
 				5A2E5B0E264A95670071FB84 /* FriendCell.xib in Resources */,
 				5A28EBB1262EC91F00DF4CEB /* FeedViewController.xib in Resources */,
 				5ADB26B5262B8F7100CFC392 /* Assets.xcassets in Resources */,
-				5A3541F92642810B004636A1 /* SignUpViewController.xib in Resources */,
+				5A3541F92642810B004636A1 /* SignUpCoordinatingViewController.xib in Resources */,
 				5ADB27DF262E1B2800CFC392 /* ZeroScreenViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1247,6 +1277,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A2E5B22264AF1F00071FB84 /* SignUpSecondStepViewController.swift in Sources */,
 				5A96F32F262EB76B006BD8C9 /* SignInViewController.swift in Sources */,
 				5A451233263895BA00D435CD /* TokenStorage.swift in Sources */,
 				5A45113C26383F9000D435CD /* ApiService.swift in Sources */,
@@ -1262,6 +1293,7 @@
 				5A28EBA3262EBF9700DF4CEB /* WelcomeViewController.swift in Sources */,
 				5A7905F62634D9E2008863BB /* AutorizationServiceProtocol.swift in Sources */,
 				5A2E5ACB264836AF0071FB84 /* UserProfile.swift in Sources */,
+				5A2E5B1B264AEDA10071FB84 /* SignUpFirstStepViewController.swift in Sources */,
 				5A7906012634DA96008863BB /* ProfileServiceProtocol.swift in Sources */,
 				5A96F2EF262E3207006BD8C9 /* UIColor.swift in Sources */,
 				5A7905FB2634DA06008863BB /* FeedServiceProtocol.swift in Sources */,
@@ -1282,7 +1314,7 @@
 				5A8472422636F39000246C5E /* Config.swift in Sources */,
 				5A45123F2638AE6400D435CD /* ClientRequestInterceptor.swift in Sources */,
 				5A2E5B0D264A95670071FB84 /* FriendCell.swift in Sources */,
-				5A3541F82642810B004636A1 /* SignUpViewController.swift in Sources */,
+				5A3541F82642810B004636A1 /* SignUpCoordinatingViewController.swift in Sources */,
 				5A28EBD9262ECCF900DF4CEB /* FeedService.swift in Sources */,
 				5A2E5B03264A8F620071FB84 /* SearchViewController.swift in Sources */,
 				5A6CDAAD262EE68900B92A59 /* Images.swift in Sources */,

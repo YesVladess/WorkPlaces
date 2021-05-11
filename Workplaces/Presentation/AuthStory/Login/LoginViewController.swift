@@ -106,7 +106,7 @@ final class LoginViewController: UIViewController, CanShowSpinner {
     }
 
     private func navigateToSignUpScreen() {
-        let signUpViewController = SignUpViewController()
+        let signUpViewController = SignUpCoordinatingViewController()
         navigationController?.pushViewController(signUpViewController, animated: true)
     }
 

@@ -59,7 +59,7 @@ final class SignInViewController: UIViewController {
     }
 
     private func navigateToSignUpScreen() {
-        let signUpViewController = SignUpViewController()
+        let signUpViewController = SignUpCoordinatingViewController()
         navigationController?.pushViewController(signUpViewController, animated: true)
     }
 
