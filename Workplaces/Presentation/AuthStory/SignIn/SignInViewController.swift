@@ -7,7 +7,16 @@
 
 import UIKit
 
+protocol SignInViewControllerNavigationDelegate: class {
+    func signedIn()
+    func goToSignUp()
+}
+
 final class SignInViewController: UIViewController {
+
+    // MARK: - Public Properties
+
+    weak var navigationDelegate: SignInViewControllerNavigationDelegate?
 
     // MARK: - Private Properties
 
@@ -41,7 +50,7 @@ final class SignInViewController: UIViewController {
 
     // MARK: - IBAction
     @IBAction private func tapNavigateToSignUpButton(_ sender: Any) {
-        navigateToSignUpScreen()
+        navigationDelegate?.goToSignUp()
     }
 
     // MARK: - Private Methods
@@ -49,18 +58,6 @@ final class SignInViewController: UIViewController {
     private func congifure() {
         primaryButton.setTitle("Sign in By Mail Or Login".localized)
         title = "Вход по логину"
-    }
-
-    // MARK: - Navigation
-
-    private func navigateToWelcomeScreen() {
-        let welcomeViewController = WelcomeViewController()
-        navigationController?.pushViewController(welcomeViewController, animated: true)
-    }
-
-    private func navigateToSignUpScreen() {
-        let signUpViewController = SignUpCoordinatingViewController()
-        navigationController?.pushViewController(signUpViewController, animated: true)
     }
 
 }
@@ -77,7 +74,7 @@ extension SignInViewController: PrimaryButtonViewDelegate {
             completion: { [weak self] result in
                 switch result {
                 case .success:
-                    self?.navigateToWelcomeScreen()
+                    self?.navigationDelegate?.signedIn()
                 case.failure(let error):
                     self?.showError(error.localizedDescription)
                 }

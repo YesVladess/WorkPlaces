@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol WelcomeViewControllerNavigationDelegate: class {
+    func navigateToFeed()
+}
+
 final class WelcomeViewController: UIViewController {
+
+    weak var navigationDelegate: WelcomeViewControllerNavigationDelegate?
 
     @IBOutlet private weak var navigateToFeedButton: PrimaryButton!
     
@@ -22,20 +28,12 @@ final class WelcomeViewController: UIViewController {
         navigateToFeedButton.setTitle("Перейти к ленте")
     }
 
-    // MARK: - Navigation
-
-    private func navigateToFeedScreen() {
-        let tabBarController = WorkplaceTabBarController()
-        navigationController?.isNavigationBarHidden = true
-        navigationController?.pushViewController(tabBarController, animated: true)
-    }
-
 }
 
 extension WelcomeViewController: PrimaryButtonViewDelegate {
 
     func primaryButtonTapped(_ button: PrimaryButton) {
-        navigateToFeedScreen()
+        navigationDelegate?.navigateToFeed()
     }
 
 }

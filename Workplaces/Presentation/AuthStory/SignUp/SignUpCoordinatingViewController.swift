@@ -7,7 +7,16 @@
 
 import UIKit
 
+protocol SignUpCoordinatingViewControllerNavigationDelegate: class {
+    func alreadySignedUp()
+    func signedUp()
+}
+
 final class SignUpCoordinatingViewController: UIViewController {
+
+    // MARK: - Public Properties
+
+    weak var navigationDelegate: SignUpCoordinatingViewControllerNavigationDelegate?
 
     // MARK: - IBOutlet
 
@@ -44,18 +53,6 @@ final class SignUpCoordinatingViewController: UIViewController {
         super.viewDidLoad()
         signUpButton.delegate = self
         configureFirstStep()
-    }
-
-    // MARK: - Navigation
-
-    private func navigateToWelcomeScreen() {
-        let welcomeViewController = WelcomeViewController()
-        navigationController?.pushViewController(welcomeViewController, animated: true)
-    }
-
-    private func navigateToSignInScreen() {
-        let signInViewController = SignInViewController()
-        navigationController?.pushViewController(signInViewController, animated: true)
     }
 
     // MARK: - Coordination
@@ -112,7 +109,7 @@ final class SignUpCoordinatingViewController: UIViewController {
 extension SignUpCoordinatingViewController: SignUpFirstStepViewControllerDelegate {
 
     func alreadySignedIn() {
-        navigateToSignInScreen()
+        navigationDelegate?.alreadySignedUp()
     }
 
 }
@@ -120,7 +117,7 @@ extension SignUpCoordinatingViewController: SignUpFirstStepViewControllerDelegat
 extension SignUpCoordinatingViewController: SignUpSecondStepViewControllerDelegate {
 
     func nextstep() {
-        
+
     }
 
 }
@@ -131,16 +128,16 @@ extension SignUpCoordinatingViewController: PrimaryButtonViewDelegate {
         if isFirstStep {
             guard let firstStepViewController = get(child: SignUpFirstStepViewController()) else { return }
             guard let resultTuple = firstStepViewController.getData() else { return }
-            email = resultTuple.0
-            password = resultTuple.1
-            nickname = resultTuple.2
+            email = resultTuple.email
+            password = resultTuple.password
+            nickname = resultTuple.nickname
             configureSecondStep()
         } else {
             guard let secondStepViewController = get(child: SignUpSecondStepViewController()) else { return }
             guard let resultTuple = secondStepViewController.getData() else { return }
-            let name = resultTuple.0
-            let surname = resultTuple.1
-            let date = resultTuple.2
+            let name = resultTuple.name
+            let surname = resultTuple.surname
+            let date = resultTuple.date
             // TODO: Тут сделать валидацию:
             guard let email = email,
                   let password = password,
@@ -157,7 +154,7 @@ extension SignUpCoordinatingViewController: PrimaryButtonViewDelegate {
                             surname: surname,
                             birthDate: date
                         )
-                        self?.navigateToWelcomeScreen()
+                        self?.navigationDelegate?.signedUp()
                     case.failure(let error):
                         self?.showError(error.localizedDescription)
                     }

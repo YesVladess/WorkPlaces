@@ -58,7 +58,13 @@ class SignUpSecondStepViewController: UIViewController {
         self.view.endEditing(true)
     }
 
-    func getData() -> (String, String, String)? {
+    /**
+     Method for getting data from fields at 2nd step
+
+     - returns: return tuple with name, surname and date
+
+     */
+    func getData() -> (name: String, surname: String, date: String)? {
         guard let name = nameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
                   let surname = surnameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
                   let date = dataBirthTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)

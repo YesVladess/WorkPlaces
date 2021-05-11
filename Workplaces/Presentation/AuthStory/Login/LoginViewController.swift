@@ -7,11 +7,18 @@
 
 import VK_ios_sdk
 
+protocol LoginViewControllerNavigationDelegate: class {
+    func navigateToSignIn()
+    func navigateToSignUp()
+    func navigateToWelcome()
+}
+
 final class LoginViewController: UIViewController, CanShowSpinner {
 
     // MARK: - Public Properties
 
     var spinner: SpinnerView = SpinnerView(style: .large)
+    weak var navigationDelegate: LoginViewControllerNavigationDelegate?
 
     // MARK: - Private Properties
 
@@ -52,7 +59,7 @@ final class LoginViewController: UIViewController, CanShowSpinner {
         authService.signInWithFacebook(completion: { [weak self] result in
             switch result {
             case .success:
-                self?.navigateToWelcomeScreen()
+                self?.navigationDelegate?.navigateToWelcome()
             case.failure(let error):
                 self?.showError(error.localizedDescription)
             }
@@ -63,7 +70,7 @@ final class LoginViewController: UIViewController, CanShowSpinner {
         authService.signInWithVK(vkUIDelegate: self, completion: { [weak self] result in
             switch result {
             case .success:
-                self?.navigateToWelcomeScreen()
+                self?.navigationDelegate?.navigateToWelcome()
             case.failure(let error):
                 self?.showError(error.localizedDescription)
             }
@@ -74,7 +81,7 @@ final class LoginViewController: UIViewController, CanShowSpinner {
         authService.signInWithGoogle(presentingViewController: self, completion: { [weak self] result in
             switch result {
             case .success:
-                self?.navigateToWelcomeScreen()
+                self?.navigationDelegate?.navigateToWelcome()
             case.failure(let error):
                 self?.showError(error.localizedDescription)
             }
@@ -82,7 +89,7 @@ final class LoginViewController: UIViewController, CanShowSpinner {
     }
 
     @IBAction private func singUpButtonTapped(_ sender: Any) {
-        navigateToSignUpScreen()
+        navigationDelegate?.navigateToSignUp()
     }
 
     // MARK: - Private Methods
@@ -93,29 +100,12 @@ final class LoginViewController: UIViewController, CanShowSpinner {
         navigationController?.navigationBar.barStyle = .black
     }
 
-    // MARK: - Navigation
-    
-    private func navigateToWelcomeScreen() {
-        let welcomeViewController = WelcomeViewController()
-        navigationController?.pushViewController(welcomeViewController, animated: true)
-    }
-
-    private func navigateToSignInScreen() {
-        let signInViewController = SignInViewController()
-        navigationController?.pushViewController(signInViewController, animated: true)
-    }
-
-    private func navigateToSignUpScreen() {
-        let signUpViewController = SignUpCoordinatingViewController()
-        navigationController?.pushViewController(signUpViewController, animated: true)
-    }
-
 }
 
 extension LoginViewController: PrimaryButtonViewDelegate {
     
     func primaryButtonTapped(_ button: PrimaryButton) {
-        navigateToSignInScreen()
+        navigationDelegate?.navigateToSignIn()
     }
 
 }
