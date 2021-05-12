@@ -21,20 +21,20 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Illustration_02" translatesAutoresizingMaskIntoConstraints="NO" id="dkR-Ik-0qK">
-                    <rect key="frame" x="107" y="262" width="200" height="200"/>
+                    <rect key="frame" x="107" y="394" width="200" height="200"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="200" id="52N-Rf-0v5"/>
                         <constraint firstAttribute="height" constant="200" id="LVv-ES-b0U"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nice to meet you" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XGq-dV-TgU">
-                    <rect key="frame" x="77.5" y="472" width="259" height="43"/>
+                    <rect key="frame" x="77.5" y="604" width="259" height="43"/>
                     <fontDescription key="fontDescription" type="system" pointSize="36"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KRZ-EN-v90" customClass="PrimaryButton" customModule="Workplaces" customModuleProvider="target">
-                    <rect key="frame" x="32" y="722" width="350" height="55"/>
+                    <rect key="frame" x="32" y="777" width="350" height="55"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="350" id="Cyl-by-D4d"/>
                         <constraint firstAttribute="height" constant="55" id="bhr-VI-f35"/>
@@ -45,12 +45,12 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="dkR-Ik-0qK" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="218" id="EWY-4j-q0K"/>
                 <constraint firstItem="XGq-dV-TgU" firstAttribute="top" secondItem="dkR-Ik-0qK" secondAttribute="bottom" constant="10" id="JGh-n7-RIE"/>
                 <constraint firstItem="XGq-dV-TgU" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Lan-ls-Jva"/>
                 <constraint firstItem="KRZ-EN-v90" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="YgN-u8-5ZK"/>
                 <constraint firstItem="dkR-Ik-0qK" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Z3j-qP-MOx"/>
-                <constraint firstItem="KRZ-EN-v90" firstAttribute="top" secondItem="XGq-dV-TgU" secondAttribute="bottom" constant="207" id="sxc-bp-j2k"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="KRZ-EN-v90" secondAttribute="bottom" constant="30" id="gFF-FC-siM"/>
+                <constraint firstItem="KRZ-EN-v90" firstAttribute="top" secondItem="XGq-dV-TgU" secondAttribute="bottom" constant="130" id="sxc-bp-j2k"/>
             </constraints>
             <point key="canvasLocation" x="31.884057971014496" y="133.92857142857142"/>
         </view>

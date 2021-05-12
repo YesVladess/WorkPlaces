@@ -32,7 +32,7 @@ final class WorkplaceTabBarController: UITabBarController {
             selectedImage: #imageLiteral(resourceName: "newPostActive")
         )
 
-        let profileViewController = UINavigationController(rootViewController: ProfileViewController())
+        let profileViewController = UINavigationController(rootViewController: ProfileCoordinatingViewController())
         profileViewController.tabBarItem = UITabBarItem(
             title: "Профиль",
             image: #imageLiteral(resourceName: "profileDefault"),

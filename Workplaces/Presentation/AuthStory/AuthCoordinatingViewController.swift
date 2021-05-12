@@ -82,8 +82,8 @@ extension AuthCoordinatingViewController: LoginViewControllerNavigationDelegate 
 extension AuthCoordinatingViewController: WelcomeViewControllerNavigationDelegate {
 
     func navigateToFeed() {
-        // TУТ Нужно будет вызвать таббар и фид координейтинг открыть
         navigateToFeedScreen()
+        authNavigationController?.isNavigationBarHidden = true
     }
 
 }
