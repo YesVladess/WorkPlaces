@@ -19,19 +19,18 @@ class ProfileTabViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.backgroundColor = .green
     }
 
     @IBOutlet private weak var segmentedControl: UISegmentedControl!
 
     @IBAction private func indexChanged(_ sender: Any) {
-        switch segmentedControl.selectedSegmentIndex
-         {
-         case 0:
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
             delegate?.postsTapped()
-         case 1:
+        case 1:
             delegate?.likesTapped()
-         case 2:
+        case 2:
             delegate?.friendTapped()
         default:
             break

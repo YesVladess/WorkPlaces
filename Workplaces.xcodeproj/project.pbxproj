@@ -37,6 +37,7 @@
 		5A2E5B3F264BD5200071FB84 /* MyProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A2E5B3D264BD5200071FB84 /* MyProfileViewController.xib */; };
 		5A2E5B49264BEB1C0071FB84 /* ProfileTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2E5B47264BEB1C0071FB84 /* ProfileTabViewController.swift */; };
 		5A2E5B4A264BEB1C0071FB84 /* ProfileTabViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A2E5B48264BEB1C0071FB84 /* ProfileTabViewController.xib */; };
+		5A2E5B52264BFCBD0071FB84 /* ProfileCoordinatingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A2E5B51264BFCBD0071FB84 /* ProfileCoordinatingViewController.xib */; };
 		5A3541F82642810B004636A1 /* SignUpCoordinatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3541F62642810B004636A1 /* SignUpCoordinatingViewController.swift */; };
 		5A3541F92642810B004636A1 /* SignUpCoordinatingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A3541F72642810B004636A1 /* SignUpCoordinatingViewController.xib */; };
 		5A3542222642A1C8004636A1 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3542212642A1C8004636A1 /* PostViewModel.swift */; };
@@ -197,6 +198,7 @@
 		5A2E5B3D264BD5200071FB84 /* MyProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyProfileViewController.xib; sourceTree = "<group>"; };
 		5A2E5B47264BEB1C0071FB84 /* ProfileTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabViewController.swift; sourceTree = "<group>"; };
 		5A2E5B48264BEB1C0071FB84 /* ProfileTabViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileTabViewController.xib; sourceTree = "<group>"; };
+		5A2E5B51264BFCBD0071FB84 /* ProfileCoordinatingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileCoordinatingViewController.xib; sourceTree = "<group>"; };
 		5A3541F62642810B004636A1 /* SignUpCoordinatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCoordinatingViewController.swift; sourceTree = "<group>"; };
 		5A3541F72642810B004636A1 /* SignUpCoordinatingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignUpCoordinatingViewController.xib; sourceTree = "<group>"; };
 		5A3542212642A1C8004636A1 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
@@ -379,6 +381,7 @@
 				5A2E5B46264BEB090071FB84 /* ProfileTab */,
 				5A2E5B3B264BD5050071FB84 /* MyProfile */,
 				5A81280D2642D566000F9678 /* ProfileCoordinatingViewController.swift */,
+				5A2E5B51264BFCBD0071FB84 /* ProfileCoordinatingViewController.xib */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -1082,6 +1085,7 @@
 				5A96F2F6262E392D006BD8C9 /* LoginViewController.xib in Resources */,
 				5ADB26B8262B8F7100CFC392 /* LaunchScreen.storyboard in Resources */,
 				5A2E5B0E264A95670071FB84 /* FriendCell.xib in Resources */,
+				5A2E5B52264BFCBD0071FB84 /* ProfileCoordinatingViewController.xib in Resources */,
 				5A28EBB1262EC91F00DF4CEB /* FeedViewController.xib in Resources */,
 				5ADB26B5262B8F7100CFC392 /* Assets.xcassets in Resources */,
 				5A3541F92642810B004636A1 /* SignUpCoordinatingViewController.xib in Resources */,
