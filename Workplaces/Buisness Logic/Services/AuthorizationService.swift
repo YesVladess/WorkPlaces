@@ -23,7 +23,7 @@ final class AutorizationService: NSObject, AutorizationServiceProtocol {
 
     private let apiClient: Client
 
-    private var googleAuthHandler: ((Result<Void, WorkspaceError>) -> Void)?
+    private var googleAuthHandler: ((Result<Void, WorkplaceError>) -> Void)?
 
     private let tokenStorage: TokenStorageProtocol
 
@@ -39,18 +39,22 @@ final class AutorizationService: NSObject, AutorizationServiceProtocol {
     func signIn(
         email: String,
         password: String,
-        completion: @escaping (Result<Void, WorkspaceError>) -> Void
+        completion: @escaping (Result<Void, WorkplaceError>) -> Void
     ) {
         let credentials = UserCredentials(email: email, password: password)
-        let endpoint = LoginEndpoint(userCredentials: credentials)
-        _ = apiClient.request(endpoint) { result in
+
+        let endpoint = LoginEndpoint(
+            userCredentials: ModelMapper.convertUserCredentialsToApiModelFrom(model: credentials)
+        )
+        _ = apiClient.request(endpoint) { [weak self] result in
             switch result {
             case .success(let token):
-                self.tokenStorage.set(token: token)
+                self?.tokenStorage.set(token: ModelMapper.convertTokenToAppModelFrom(model: token))
                 completion(.success(()))
             case .failure(let error):
-                if let error = error as? APIError {
-                    completion(.failure(.apiError(error)))
+                let errorUnwrapped = error.unwrapAFError()
+                if let apiError = errorUnwrapped as? APIError {
+                    completion(.failure(.apiError(apiError)))
                 } else {
                     completion(.failure(.unknowned))
                 }
@@ -61,18 +65,21 @@ final class AutorizationService: NSObject, AutorizationServiceProtocol {
     func signUp(
         email: String,
         password: String,
-        completion: @escaping (Result<Void, WorkspaceError>) -> Void
+        completion: @escaping (Result<Void, WorkplaceError>) -> Void
     ) {
         let credentials = UserCredentials(email: email, password: password)
-        let endpoint = RegistrationEndpoint(userCredentials: credentials)
-        _ = apiClient.request(endpoint) { result in
+        let endpoint = RegistrationEndpoint(
+            userCredentials: ModelMapper.convertUserCredentialsToApiModelFrom(model: credentials)
+        )
+        _ = apiClient.request(endpoint) { [weak self] result in
             switch result {
             case .success(let token):
-                self.tokenStorage.set(token: token)
+                self?.tokenStorage.set(token: ModelMapper.convertTokenToAppModelFrom(model: token))
                 completion(.success(()))
             case .failure(let error):
-                if let error = error as? APIError {
-                    completion(.failure(.apiError(error)))
+                let errorUnwrapped = error.unwrapAFError()
+                if let apiError = errorUnwrapped as? APIError {
+                    completion(.failure(.apiError(apiError)))
                 } else {
                     completion(.failure(.unknowned))
                 }
@@ -82,7 +89,7 @@ final class AutorizationService: NSObject, AutorizationServiceProtocol {
 
     func logout() {
         guard let token = tokenStorage.get() else { return }
-        let endpoint = LogoutEndpoint(token: token)
+        let endpoint = LogoutEndpoint(token: ModelMapper.convertTokenToApiModelFrom(model: token))
         _ = apiClient.request(endpoint) { [weak self] result in
             switch result {
             case .success:
@@ -93,17 +100,18 @@ final class AutorizationService: NSObject, AutorizationServiceProtocol {
         }
     }
 
-    func refreshToken(completion: @escaping (Result<Void, WorkspaceError>) -> Void) {
+    func refreshToken(completion: @escaping (Result<Void, WorkplaceError>) -> Void) {
         guard let token = tokenStorage.get() else { return }
         let refreshToken = RefreshToken(token: token.refreshToken)
         let endpoint = RefreshEndpoint(token: refreshToken)
         _ = apiClient.request(endpoint) { [weak self] result in
             switch result {
             case .success(let token):
-                self?.tokenStorage.set(token: token)
+                self?.tokenStorage.set(token: ModelMapper.convertTokenToAppModelFrom(model: token))
             case .failure(let error):
-                if let error = error as? APIError {
-                    completion(.failure(.apiError(error)))
+                let errorUnwrapped = error.unwrapAFError()
+                if let apiError = errorUnwrapped as? APIError {
+                    completion(.failure(.apiError(apiError)))
                 } else {
                     completion(.failure(.unknowned))
                 }
@@ -112,7 +120,7 @@ final class AutorizationService: NSObject, AutorizationServiceProtocol {
         }
     }
 
-    func signInWithFacebook(completion: @escaping (Result<Void, WorkspaceError>) -> Void) {
+    func signInWithFacebook(completion: @escaping (Result<Void, WorkplaceError>) -> Void) {
         Settings.appID = Config.facebookAppID
         LoginManager().logIn(permissions: ["email"], from: nil) { result, error in
             if let error = error {
@@ -129,7 +137,7 @@ final class AutorizationService: NSObject, AutorizationServiceProtocol {
 
     func signInWithVK(
         vkUIDelegate: VKSdkUIDelegate,
-        completion: @escaping (Result<Void, WorkspaceError>) -> Void
+        completion: @escaping (Result<Void, WorkplaceError>) -> Void
     ) {
         setupVKSignIn(vkUIDelegate: vkUIDelegate)
         let scope = ["email"]
@@ -146,7 +154,7 @@ final class AutorizationService: NSObject, AutorizationServiceProtocol {
 
     func signInWithGoogle(
         presentingViewController viewController: UIViewController,
-        completion: @escaping (Result<Void, WorkspaceError>) -> Void
+        completion: @escaping (Result<Void, WorkplaceError>) -> Void
     ) {
         setupGoogleSignIn(presentingViewController: viewController)
         googleAuthHandler = { result in
@@ -172,6 +180,8 @@ final class AutorizationService: NSObject, AutorizationServiceProtocol {
 
 }
 
+// MARK: - GIDSignInDelegate
+
 extension AutorizationService: GIDSignInDelegate {
 
     func sign(
@@ -180,10 +190,10 @@ extension AutorizationService: GIDSignInDelegate {
         withError error: Error!
     ) {
         if let error = error {
-            let result: (Result<Void, WorkspaceError>) = .failure(.otherServerError(error))
+            let result: (Result<Void, WorkplaceError>) = .failure(.otherServerError(error))
             googleAuthHandler?(result)
         } else {
-            let result: (Result<Void, WorkspaceError>) = .success(())
+            let result: (Result<Void, WorkplaceError>) = .success(())
             googleAuthHandler?(result)
         }
         // Perform any operations on signed in user here.
@@ -203,6 +213,8 @@ extension AutorizationService: GIDSignInDelegate {
         // Perform any operations when the user disconnects from app here.
     }
 }
+
+// MARK: - VKSdkDelegate
 
 extension AutorizationService: VKSdkDelegate {
 

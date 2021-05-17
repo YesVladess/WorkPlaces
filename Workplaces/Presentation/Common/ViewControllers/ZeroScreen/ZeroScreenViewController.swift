@@ -52,7 +52,12 @@ final class ZeroScreenViewController: UIViewController {
             viewModel.secondaryLabelTitle?.addAttributes(font: .bodyLarge, color: .middleGrey)
         let actionButtonTitle = viewModel.actionButtonLabelTitle?.addAttributes(font: .bodyLarge, color: .orange)
         actionButton.setAttributedTitle(actionButtonTitle, for: .normal)
-        // TODO: - Колбек повесить на кнопку
+        actionButton.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+    }
+
+    @objc private func buttonAction() {
+        let action = viewModel.action
+        action()
     }
 
 }

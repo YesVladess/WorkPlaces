@@ -10,28 +10,52 @@ import WorkplacesAPI
 
 final class FeedService: ApiService, FeedServiceProtocol {
 
-    func getFeed(completion: @escaping (Result<[Post], WorkspaceError>) -> Void) {
+    // MARK: - Public methods
+    
+    func getFeed(completion: @escaping (Result<[Post], WorkplaceError>) -> Void) {
         let endpoint = GetFeedEndpoint()
-        _ = apiClient.request(endpoint) { [weak self] result in
-            self?.commonResultHandler(result: result, completion: completion)
+        _ = apiClient.request(endpoint) { result in
+            switch result {
+            case .success(let resultData):
+                let posts = resultData.compactMap { ModelMapper.convertPostToAppModelFrom(model: $0) }
+                completion(.success((posts)))
+            case .failure(let error):
+                let errorUnwrapped = error.unwrapAFError()
+                if let apiError = errorUnwrapped as? APIError {
+                    completion(.failure(.apiError(apiError)))
+                } else {
+                    completion(.failure(.unknowned))
+                }
+            }
         }
     }
 
-    func getFavoriteFeed(completion: @escaping (Result<[Post], WorkspaceError>) -> Void) {
+    func getFavoriteFeed(completion: @escaping (Result<[Post], WorkplaceError>) -> Void) {
         let endpoint = GetFavoriteEndpoint()
-        _ = apiClient.request(endpoint) { [weak self] result in
-            self?.commonResultHandler(result: result, completion: completion)
+        _ = apiClient.request(endpoint) { result in
+            switch result {
+            case .success(let resultData):
+                let posts = resultData.compactMap { ModelMapper.convertPostToAppModelFrom(model: $0) }
+                completion(.success((posts)))
+            case .failure(let error):
+                let errorUnwrapped = error.unwrapAFError()
+                if let apiError = errorUnwrapped as? APIError {
+                    completion(.failure(.apiError(apiError)))
+                } else {
+                    completion(.failure(.unknowned))
+                }
+            }
         }
     }
 
-    func setLike(likeID: String, completion: @escaping (Result<Void, WorkspaceError>) -> Void) {
+    func setLike(likeID: String, completion: @escaping (Result<Void, WorkplaceError>) -> Void) {
         let endpoint = SetLikeEndpoint(likeID: likeID)
         _ = apiClient.request(endpoint) { [weak self] result in
             self?.commonResultHandler(result: result, completion: completion)
         }
     }
 
-    func deleteLike(likeID: String, completion: @escaping (Result<Void, WorkspaceError>) -> Void) {
+    func deleteLike(likeID: String, completion: @escaping (Result<Void, WorkplaceError>) -> Void) {
         let endpoint = DeleteLikeEndpoint(likeID: likeID)
         _ = apiClient.request(endpoint) { [weak self] result in
             self?.commonResultHandler(result: result, completion: completion)

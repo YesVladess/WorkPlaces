@@ -1,6 +1,6 @@
 //
 //  GetFavoriteEndpoint.swift
-//  workplacesAPI
+//  WorkplacesAPI
 //
 //  Created by YesVladess on 27.04.2021.
 //

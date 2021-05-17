@@ -6,9 +6,8 @@
 //
 
 import UIKit
-import WorkplacesAPI
 
-class FeedViewController: UIViewController {
+final class FeedViewController: UIViewController {
 
     // MARK: - Private Properties
 
@@ -35,12 +34,14 @@ class FeedViewController: UIViewController {
         getFeed()
     }
 
+    // MARK: - Private Methods
+
     private func getFeed() {
         feedService.getFeed(completion: { [weak self] result in
             switch result {
             case .success(let result):
                 if result.isEmpty { self?.showEmptyFeed() } else {
-                    self?.showFeed(posts: result)
+                    // self?.showFeed(posts: result)
                 }
             case.failure(let error):
                 self?.showError(error.localizedDescription)
@@ -49,15 +50,25 @@ class FeedViewController: UIViewController {
     }
 
     private func showEmptyFeed() {
-        let zeroScreen = ZeroScreenViewController(withModel: .getEmptyModel(
-                                                    secondaryLabelTitle: "Вам нужны друзья, чтобы лента стала живой",
-                                                    actionButtonLabelTitle: "Найти друзей",
-                                                    action: {}))
+        let zeroScreen = ZeroScreenViewController(
+            withModel: .getEmptyModel(
+                secondaryLabelTitle: "Вам нужны друзья, чтобы лента стала живой",
+                actionButtonLabelTitle: "Найти друзей",
+                action: { [weak self] in self?.navigateToSearchScreen() }
+            )
+        )
         add(zeroScreen)
     }
 
-    private func showFeed(posts: [Post]) {
+    // MARK: - Navigate
 
+    private func navigateToSearchScreen() {
+        let searchViewController = SearchViewController()
+        navigationController?.pushViewController(searchViewController, animated: true)
     }
+
+    //    private func showFeed(posts: [Post]) {
+    //
+    //    }
 
 }

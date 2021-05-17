@@ -20,14 +20,15 @@ class ApiService {
 
     func commonResultHandler<T>(
         result: (Result<T, Error>),
-        completion: @escaping ((Result<T, WorkspaceError>) -> Void)
+        completion: @escaping ((Result<T, WorkplaceError>) -> Void)
     ) {
         switch result {
         case .success(let resultData):
             completion(.success((resultData)))
         case .failure(let error):
-            if let error = error as? APIError {
-                completion(.failure(.apiError(error)))
+            let errorUnwrapped = error.unwrapAFError()
+            if let apiError = errorUnwrapped as? APIError {
+                completion(.failure(.apiError(apiError)))
             } else {
                 completion(.failure(.unknowned))
             }

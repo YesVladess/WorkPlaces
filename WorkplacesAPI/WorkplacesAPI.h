@@ -7,12 +7,12 @@
 
 #import <Foundation/Foundation.h>
 
-//! Project version number for workplacesAPI.
+//! Project version number for WorkplacesAPI.
 FOUNDATION_EXPORT double workplacesAPIVersionNumber;
 
-//! Project version string for workplacesAPI.
+//! Project version string for WorkplacesAPI.
 FOUNDATION_EXPORT const unsigned char workplacesAPIVersionString[];
 
-// In this header, you should import all the public headers of your framework using statements like #import <workplacesAPI/PublicHeader.h>
+// In this header, you should import all the public headers of your framework using statements like #import <WorkplacesAPI/PublicHeader.h>
 
 

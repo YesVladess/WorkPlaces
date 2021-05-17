@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignInViewController: UIViewController {
+final class SignInViewController: UIViewController {
 
     // MARK: - Private Properties
 
@@ -39,6 +39,11 @@ class SignInViewController: UIViewController {
     @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var primaryButton: PrimaryButton!
 
+    // MARK: - IBAction
+    @IBAction private func tapNavigateToSignUpButton(_ sender: Any) {
+        navigateToSignUpScreen()
+    }
+
     // MARK: - Private Methods
 
     private func congifure() {
@@ -53,6 +58,11 @@ class SignInViewController: UIViewController {
         navigationController?.pushViewController(welcomeViewController, animated: true)
     }
 
+    private func navigateToSignUpScreen() {
+        let signUpViewController = SignUpViewController()
+        navigationController?.pushViewController(signUpViewController, animated: true)
+    }
+
 }
 
 extension SignInViewController: PrimaryButtonViewDelegate {
@@ -61,15 +71,17 @@ extension SignInViewController: PrimaryButtonViewDelegate {
         guard let email = emailLoginTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
               let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         else { return }
-        authService.signIn(email: email, password: password,
-                           completion: { [weak self] result in
-                            switch result {
-                            case .success:
-                                self?.navigateToWelcomeScreen()
-                            case.failure(let error):
-                                self?.showError(error.localizedDescription)
-                            }
-                           })
+        authService.signIn(
+            email: email,
+            password: password,
+            completion: { [weak self] result in
+                switch result {
+                case .success:
+                    self?.navigateToWelcomeScreen()
+                case.failure(let error):
+                    self?.showError(error.localizedDescription)
+                }
+            })
     }
 
 }

@@ -10,18 +10,18 @@ import WorkplacesAPI
 
 protocol FeedServiceProtocol: AnyObject {
 
-    func getFeed(completion: @escaping (Result<[Post], WorkspaceError>) -> Void)
+    func getFeed(completion: @escaping (Result<[Post], WorkplaceError>) -> Void)
 
-    func getFavoriteFeed(completion: @escaping (Result<[Post], WorkspaceError>) -> Void)
+    func getFavoriteFeed(completion: @escaping (Result<[Post], WorkplaceError>) -> Void)
 
     func setLike(
         likeID: String,
-        completion: @escaping (Result<Void, WorkspaceError>) -> Void
+        completion: @escaping (Result<Void, WorkplaceError>) -> Void
     )
     
     func deleteLike(
         likeID: String,
-        completion: @escaping (Result<Void, WorkspaceError>) -> Void
+        completion: @escaping (Result<Void, WorkplaceError>) -> Void
     )
 
 }
