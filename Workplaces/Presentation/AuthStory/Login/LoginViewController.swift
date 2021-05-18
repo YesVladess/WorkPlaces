@@ -97,6 +97,9 @@ final class LoginViewController: UIViewController, CanShowSpinner {
     private func congifure() {
         primaryButton.setTitle("Sign in By Mail Or Login".localized)
         imageView.image = Images.loginScreenImage
+        fbButton.cropView()
+        vkButton.cropView()
+        googleButton.cropView()
         navigationController?.navigationBar.barStyle = .black
     }
 

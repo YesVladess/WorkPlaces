@@ -19,10 +19,6 @@ final class PrimaryButton: UIButton, XibLoadable {
 
     weak var delegate: PrimaryButtonViewDelegate?
 
-    // MARK: - Private Properties
-
-    private let cornerRadiusConstant: CGFloat = 14.0
-
     // MARK: - Init
 
     override init(frame: CGRect) {
@@ -47,7 +43,7 @@ final class PrimaryButton: UIButton, XibLoadable {
         let view = PrimaryButton.loadFromXib()
         setupView(view: view)
         view.isUserInteractionEnabled = false
-        view.layer.cornerRadius = cornerRadiusConstant
+        view.cropView()
         view.layer.masksToBounds = true
         addTarget(self, action: #selector(buttonAction(_:)), for: .touchUpInside)
         setTitle("Default Button Title", for: .normal)
