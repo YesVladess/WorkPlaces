@@ -18,6 +18,7 @@ class AuthCoordinatingViewController: UIViewController, CanShowSpinner {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        instantiateNavigationController()
         configureNavigationController()
     }
 
@@ -49,13 +50,25 @@ class AuthCoordinatingViewController: UIViewController, CanShowSpinner {
 
     // MARK: - Private Methods
 
-    private func configureNavigationController() {
+    private func instantiateNavigationController() {
         let loginViewController = LoginViewController()
         loginViewController.navigationDelegate = self
         let authNavigationController = UINavigationController(rootViewController: loginViewController)
         authNavigationController.isNavigationBarHidden = true
         add(authNavigationController)
         self.authNavigationController = authNavigationController
+    }
+
+    private func configureNavigationController() {
+        authNavigationController?.navigationBar.barStyle = .default
+        authNavigationController?.navigationBar.barTintColor = .white
+        authNavigationController?.navigationBar.tintColor = .middleGrey
+        authNavigationController?.navigationBar.isTranslucent = false
+        authNavigationController?.navigationBar.titleTextAttributes =
+            [
+                NSAttributedString.Key.foregroundColor: UIColor.black,
+                NSAttributedString.Key.font: UIFont(name: "IBMPlexSans", size: 16)!
+            ]
     }
 
 }

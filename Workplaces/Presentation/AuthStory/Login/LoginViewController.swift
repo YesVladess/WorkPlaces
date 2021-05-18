@@ -45,6 +45,11 @@ final class LoginViewController: UIViewController, CanShowSpinner {
         primaryButton.delegate = self
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        navigationController?.isNavigationBarHidden = true
+    }
+
     // MARK: - IBOutlet
 
     @IBOutlet private weak var imageView: UIImageView!
@@ -100,7 +105,6 @@ final class LoginViewController: UIViewController, CanShowSpinner {
         fbButton.cropView()
         vkButton.cropView()
         googleButton.cropView()
-        navigationController?.navigationBar.barStyle = .black
     }
 
 }
