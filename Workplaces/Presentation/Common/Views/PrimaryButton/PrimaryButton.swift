@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol PrimaryButtonViewDelegate: class {
+protocol PrimaryButtonViewDelegate: AnyObject {
 
     func primaryButtonTapped(_ button: PrimaryButton)
 

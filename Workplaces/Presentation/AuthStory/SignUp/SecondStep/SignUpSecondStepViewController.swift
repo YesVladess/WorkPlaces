@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol SignUpSecondStepViewControllerDelegate: class {
+protocol SignUpSecondStepViewControllerDelegate: AnyObject {
     func nextstep()
 }
 

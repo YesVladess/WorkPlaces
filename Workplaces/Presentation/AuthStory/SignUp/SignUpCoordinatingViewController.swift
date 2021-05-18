@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol SignUpCoordinatingViewControllerNavigationDelegate: class {
+protocol SignUpCoordinatingViewControllerNavigationDelegate: AnyObject {
     func alreadySignedUp()
     func signedUp()
 }

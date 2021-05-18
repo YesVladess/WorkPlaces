@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol ProfileTabViewControllerDelegate: class {
+protocol ProfileTabViewControllerDelegate: AnyObject {
     func postsTapped()
     func likesTapped()
     func friendTapped()

@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol SignInViewControllerNavigationDelegate: class {
+protocol SignInViewControllerNavigationDelegate: AnyObject {
     func signedIn()
     func goToSignUp()
 }

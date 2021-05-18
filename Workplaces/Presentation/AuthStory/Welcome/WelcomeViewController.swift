@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol WelcomeViewControllerNavigationDelegate: class {
+protocol WelcomeViewControllerNavigationDelegate: AnyObject {
     func navigateToFeed()
 }
 

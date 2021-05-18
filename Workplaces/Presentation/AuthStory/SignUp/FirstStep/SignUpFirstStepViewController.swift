@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol SignUpFirstStepViewControllerDelegate: class {
+protocol SignUpFirstStepViewControllerDelegate: AnyObject {
     func alreadySignedIn()
 }
 

@@ -7,7 +7,7 @@
 
 import VK_ios_sdk
 
-protocol LoginViewControllerNavigationDelegate: class {
+protocol LoginViewControllerNavigationDelegate: AnyObject {
     func navigateToSignIn()
     func navigateToSignUp()
     func navigateToWelcome()
