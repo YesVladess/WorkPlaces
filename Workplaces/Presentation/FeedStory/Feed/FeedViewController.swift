@@ -43,8 +43,8 @@ final class FeedViewController: UIViewController {
                 if result.isEmpty { self?.showEmptyFeed() } else {
                     // self?.showFeed(posts: result)
                 }
-            case.failure(let error):
-                self?.showError(error.localizedDescription)
+            case.failure:
+                self?.showFeedError()
             }
         })
     }
@@ -55,6 +55,17 @@ final class FeedViewController: UIViewController {
                 secondaryLabelTitle: "Вам нужны друзья, чтобы лента стала живой",
                 actionButtonLabelTitle: "Найти друзей",
                 action: { [weak self] in self?.navigateToSearchScreen() }
+            )
+        )
+        add(zeroScreen)
+    }
+
+    private func showFeedError() {
+        let zeroScreen = ZeroScreenViewController(
+            withModel: .getErrorModel(
+                secondaryLabelTitle: "Что то пошло не так",
+                actionButtonLabelTitle: "Обновить",
+                action: { [weak self] in self?.getFeed() }
             )
         )
         add(zeroScreen)
