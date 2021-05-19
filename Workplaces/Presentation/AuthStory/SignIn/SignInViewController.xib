@@ -34,6 +34,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="350" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                    <connections>
+                                        <action selector="emailTextfieldDidChange:" destination="-1" eventType="editingChanged" id="Qzf-Vb-AeP"/>
+                                    </connections>
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VVg-qY-bBV" customClass="SeparatorView" customModule="Workplaces" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="31" width="350" height="1"/>
@@ -51,6 +54,9 @@
                                     <rect key="frame" x="0.0" y="0.0" width="350" height="20"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
+                                    <connections>
+                                        <action selector="passwordTextFieldDidChange:" destination="-1" eventType="editingChanged" id="nzd-iN-fG9"/>
+                                    </connections>
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vYi-TS-5Vc" customClass="SeparatorView" customModule="Workplaces" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="30" width="350" height="1"/>
@@ -84,7 +90,9 @@
                                 <constraint firstAttribute="width" constant="350" id="Tqk-xz-8Oi"/>
                                 <constraint firstAttribute="height" constant="55" id="l87-BO-Tz4"/>
                             </constraints>
-                            <state key="normal" title="Login Button"/>
+                            <state key="normal" title="Login Button">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
                         </button>
                     </subviews>
                 </stackView>

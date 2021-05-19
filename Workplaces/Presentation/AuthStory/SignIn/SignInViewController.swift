@@ -44,6 +44,7 @@ final class SignInViewController: UIViewController {
         congifure()
         configureTapOutside()
         configureObservers()
+        configurePrimaryButton()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -68,6 +69,14 @@ final class SignInViewController: UIViewController {
         passwordTextField.resignFirstResponder()
     }
 
+    @IBAction private func emailTextfieldDidChange(_ sender: Any) {
+        validatePrimaryButton()
+    }
+
+    @IBAction private func passwordTextFieldDidChange(_ sender: Any) {
+        validatePrimaryButton()
+    }
+
     @objc func keyboardNotification(_ notification: Notification) {
         guard let userInfo = (notification as NSNotification).userInfo,
               let endFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
@@ -87,13 +96,40 @@ final class SignInViewController: UIViewController {
     // MARK: - Private Methods
 
     private func congifure() {
-        primaryButton.setTitle("Sign in By Mail Or Login".localized)
+        primaryButton.setTitle("Sign in".localized)
         title = "Вход по логину"
     }
 
     private func configureTapOutside() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapOutside(gesture:)))
         view.addGestureRecognizer(tapGesture)
+    }
+
+    private func configurePrimaryButton() {
+        primaryButton.delegate = self
+        setPrimaryButtonEnabled(false)
+    }
+
+    private func setPrimaryButtonEnabled(_ isEnabled: Bool) {
+        primaryButton.isEnabled = isEnabled
+        if isEnabled {
+            primaryButton.setBackgroundColor(.orange)
+            primaryButton.setButtonTitleColor(.white)
+        } else {
+            primaryButton.setBackgroundColor(.lightGreyBlue)
+            primaryButton.setButtonTitleColor(.middleGrey)
+        }
+    }
+
+    private func validatePrimaryButton() {
+        if let emailText = emailLoginTextField.text,
+           !emailText.isEmpty,
+           let passText = passwordTextField.text,
+           !passText.isEmpty {
+            setPrimaryButtonEnabled(true)
+        } else {
+            setPrimaryButtonEnabled(false)
+        }
     }
 
     private func configureObservers() {

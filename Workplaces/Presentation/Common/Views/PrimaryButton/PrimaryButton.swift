@@ -19,6 +19,10 @@ final class PrimaryButton: UIButton, XibLoadable {
 
     weak var delegate: PrimaryButtonViewDelegate?
 
+    // MARK: - Private Properties
+
+    private var view: UIView?
+
     // MARK: - Init
 
     override init(frame: CGRect) {
@@ -37,10 +41,19 @@ final class PrimaryButton: UIButton, XibLoadable {
         setTitle(title, for: .normal)
     }
 
+    public func setBackgroundColor(_ color: UIColor) {
+        view?.backgroundColor = color
+    }
+
+    public func setButtonTitleColor(_ color: UIColor) {
+        setTitleColor(color, for: .normal)
+    }
+
     // MARK: - Private methods
 
     private func congifure() {
         let view = PrimaryButton.loadFromXib()
+        self.view = view
         setupView(view: view)
         view.isUserInteractionEnabled = false
         view.cropView()
