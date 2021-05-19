@@ -21,6 +21,9 @@ final class SignInViewController: UIViewController {
     // MARK: - Private Properties
 
     private let authService: AutorizationServiceProtocol
+    private let signInBottomConstrainFoldedValue: CGFloat = 0.0
+    private let signInBottomConstraintExpandedValue: CGFloat = 0.0
+
     // MARK: - Initializers
 
     init(
@@ -39,7 +42,13 @@ final class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         congifure()
-        primaryButton.delegate = self
+        configureTapOutside()
+        configureObservers()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        removeObservers()
     }
 
     // MARK: - IBOutlet
@@ -47,10 +56,32 @@ final class SignInViewController: UIViewController {
     @IBOutlet private weak var emailLoginTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var primaryButton: PrimaryButton!
+    @IBOutlet private weak var signInButtonBottomConstraint: NSLayoutConstraint!
 
     // MARK: - IBAction
     @IBAction private func tapNavigateToSignUpButton(_ sender: Any) {
         navigationDelegate?.goToSignUp()
+    }
+
+    @objc func tapOutside(gesture: UITapGestureRecognizer) {
+        emailLoginTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+    }
+
+    @objc func keyboardNotification(_ notification: Notification) {
+        guard let userInfo = (notification as NSNotification).userInfo,
+              let endFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+        else { return }
+        if endFrame.origin.y >= UIScreen.main.bounds.size.height {
+            signInButtonBottomConstraint.constant = signInBottomConstraintExpandedValue
+        } else {
+            let height = endFrame.height + signInBottomConstrainFoldedValue
+            signInButtonBottomConstraint.constant = height
+        }
+        UIView.animate(withDuration: 0.33,
+                       delay: 0,
+                       options: .curveEaseIn,
+                       animations: { self.view.layoutIfNeeded() })
     }
 
     // MARK: - Private Methods
@@ -58,6 +89,27 @@ final class SignInViewController: UIViewController {
     private func congifure() {
         primaryButton.setTitle("Sign in By Mail Or Login".localized)
         title = "Вход по логину"
+    }
+
+    private func configureTapOutside() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapOutside(gesture:)))
+        view.addGestureRecognizer(tapGesture)
+    }
+
+    private func configureObservers() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardNotification(_:)),
+            name: UIResponder.keyboardWillChangeFrameNotification,
+            object: nil
+        )
+    }
+
+    private func removeObservers() {
+        NotificationCenter.default.removeObserver(
+            self,
+            name: UIResponder.keyboardWillChangeFrameNotification,
+            object: nil)
     }
 
 }
