@@ -32,7 +32,7 @@
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Имя" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MRt-3B-Veq">
                                     <rect key="frame" x="0.0" y="0.0" width="374" height="18.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits"/>
+                                    <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0x7-ui-cbA" customClass="SeparatorView" customModule="Workplaces" customModuleProvider="target">
                                     <rect key="frame" x="0.0" y="28.5" width="374" height="1"/>
@@ -66,7 +66,7 @@
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Дата рождения" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3S0-wO-gE5">
                                     <rect key="frame" x="0.0" y="0.0" width="374" height="18.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits"/>
+                                    <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                     <connections>
                                         <action selector="tapBirthDateField:" destination="-1" eventType="editingDidBegin" id="2so-J2-W8n"/>
                                     </connections>

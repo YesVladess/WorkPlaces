@@ -68,6 +68,15 @@ class SignUpSecondStepViewController: UIViewController {
         view.addGestureRecognizer(tapGesture)
     }
 
+    private func errorShakeAnimationFor(view: UIView) {
+        let rotation = CAKeyframeAnimation(keyPath: "position.x")
+        rotation.duration = 0.4
+        rotation.isAdditive = true
+        rotation.values = [0, 10, -10, 10, -5, 5, -5, 0 ]
+        rotation.keyTimes = [0, 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875, 1]
+        view.layer.add(rotation, forKey: "moveIt")
+    }
+
     // MARK: - Public Methods
 
     /**
@@ -82,6 +91,16 @@ class SignUpSecondStepViewController: UIViewController {
                   let date = dataBirthTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         else { return nil }
         return (name, surname, date)
+    }
+
+    /**
+     Method shows error shake animation on child text fields.
+     Fields are moving from left to right and back several times
+     */
+    func showErrorAnimation() {
+        errorShakeAnimationFor(view: nameTextField)
+        errorShakeAnimationFor(view: surnameTextField)
+        errorShakeAnimationFor(view: dataBirthTextField)
     }
 
 }

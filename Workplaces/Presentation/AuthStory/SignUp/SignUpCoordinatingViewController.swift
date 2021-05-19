@@ -189,6 +189,13 @@ final class SignUpCoordinatingViewController: UIViewController {
             })
     }
 
+    private func showErrorAnimation() {
+        guard let secondStepViewController = get(child: SignUpSecondStepViewController()) else {
+            return
+        }
+        secondStepViewController.showErrorAnimation()
+    }
+
 }
 
 extension SignUpCoordinatingViewController: PrimaryButtonViewDelegate {
@@ -224,8 +231,9 @@ extension SignUpCoordinatingViewController: PrimaryButtonViewDelegate {
                             birthDate: date
                         )
                         self?.navigationDelegate?.signedUp()
-                    case.failure(let error):
-                        self?.showError(error.localizedDescription)
+                    case.failure:
+                        // self?.showError(error.localizedDescription)
+                        self?.showErrorAnimation()
                     }
                 })
         }
