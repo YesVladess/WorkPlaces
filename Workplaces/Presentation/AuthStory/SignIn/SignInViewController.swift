@@ -96,7 +96,6 @@ final class SignInViewController: UIViewController {
     // MARK: - Private Methods
 
     private func congifure() {
-        primaryButton.setTitle("Sign in".localized)
         title = "Вход по логину"
     }
 
@@ -106,6 +105,7 @@ final class SignInViewController: UIViewController {
     }
 
     private func configurePrimaryButton() {
+        primaryButton.setTitle("Sign in".localized)
         primaryButton.delegate = self
         setPrimaryButtonEnabled(false)
     }

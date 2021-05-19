@@ -7,21 +7,11 @@
 
 import UIKit
 
-protocol SignUpSecondStepViewControllerDelegate: AnyObject {
-    func nextstep()
-}
-
 class SignUpSecondStepViewController: UIViewController {
-
-    weak var delegate: SignUpSecondStepViewControllerDelegate?
     
     // MARK: - Private Properties
 
     private let datePicker = UIDatePicker()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
 
     // MARK: - IBOutlet
 
@@ -33,6 +23,21 @@ class SignUpSecondStepViewController: UIViewController {
 
     @IBAction private func tapBirthDateField(_ sender: Any) {
         showDatePicker()
+    }
+
+    // MARK: - UIViewController
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureTapOutside()
+    }
+
+    // MARK: - Objc
+
+    @objc func tapOutside(gesture: UITapGestureRecognizer) {
+        nameTextField.resignFirstResponder()
+        surnameTextField.resignFirstResponder()
+        dataBirthTextField.resignFirstResponder()
     }
 
     // MARK: - Private Methods
@@ -57,6 +62,13 @@ class SignUpSecondStepViewController: UIViewController {
         dataBirthTextField.text = formatter.string(from: datePicker.date)
         self.view.endEditing(true)
     }
+
+    private func configureTapOutside() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapOutside(gesture:)))
+        view.addGestureRecognizer(tapGesture)
+    }
+
+    // MARK: - Public Methods
 
     /**
      Method for getting data from fields at 2nd step

@@ -18,11 +18,10 @@ final class SignUpCoordinatingViewController: UIViewController {
 
     weak var navigationDelegate: SignUpCoordinatingViewControllerNavigationDelegate?
 
-    // MARK: - IBOutlet
-
-    @IBOutlet private weak var signUpButton: PrimaryButton!
-
     // MARK: - Private Properties
+
+    private let signInBottomConstrainFoldedValue: CGFloat = 0.0
+    private let signInBottomConstraintExpandedValue: CGFloat = 0.0
 
     private let authService: AutorizationServiceProtocol
     private let profileService: ProfileServiceProtocol
@@ -31,6 +30,18 @@ final class SignUpCoordinatingViewController: UIViewController {
     private var email: String?
     private var password: String?
     private var nickname: String?
+
+    // MARK: - IBOutlet
+
+    @IBOutlet private weak var stepContainerView: UIView!
+    @IBOutlet private weak var primaryButton: PrimaryButton!
+    @IBOutlet private weak var signInButtonBottomConstraint: NSLayoutConstraint!
+
+    // MARK: - IBAction
+
+    @IBAction private func tapAlreadySignedUpButton(_ sender: Any) {
+        navigationDelegate?.alreadySignedUp()
+    }
     
     // MARK: - Initializers
 
@@ -51,7 +62,8 @@ final class SignUpCoordinatingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        signUpButton.delegate = self
+        configureObservers()
+        configurePrimaryButton()
         configureFirstStep()
     }
 
@@ -60,24 +72,97 @@ final class SignUpCoordinatingViewController: UIViewController {
     private func configureFirstStep() {
         isFirstStep = true
         title = "Регистрация 1 шаг"
-        signUpButton.setTitle("Далее")
+        primaryButton.setTitle("Далее")
         let firstStepViewController = SignUpFirstStepViewController()
-        firstStepViewController.delegate = self
-        transition(to: firstStepViewController)
+        addChild(firstStepViewController)
+        firstStepViewController.view.frame = stepContainerView.bounds
+        stepContainerView.addSubview(firstStepViewController.view)
+        view.sendSubviewToBack(stepContainerView)
+        firstStepViewController.didMove(toParent: self)
     }
 
     private func configureSecondStep() {
-//        guard let firstStepViewController = get(child: SignUpFirstStepViewController()) else { return }
-//        firstStepViewController.remove()
         isFirstStep = false
         title = "Регистрация 2 шаг"
-        signUpButton.setTitle("Зарегистрироваться")
+        primaryButton.setTitle("Зарегистрироваться")
         let secondStepViewController = SignUpSecondStepViewController()
-        secondStepViewController.delegate = self
-        transition(to: secondStepViewController)
+        addChild(secondStepViewController)
+        secondStepViewController.view.frame = stepContainerView.bounds
+        stepContainerView.addSubview(secondStepViewController.view)
+        view.sendSubviewToBack(stepContainerView)
+        secondStepViewController.didMove(toParent: self)
+    }
+
+//    @IBAction private func emailTextfieldDidChange(_ sender: Any) {
+//        validatePrimaryButton()
+//    }
+//
+//    @IBAction private func passwordTextFieldDidChange(_ sender: Any) {
+//        validatePrimaryButton()
+//    }
+
+    @objc func keyboardNotification(_ notification: Notification) {
+        guard let userInfo = (notification as NSNotification).userInfo,
+              let endFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+        else { return }
+        if endFrame.origin.y >= UIScreen.main.bounds.size.height {
+            signInButtonBottomConstraint.constant = signInBottomConstraintExpandedValue
+        } else {
+            let height = endFrame.height + signInBottomConstrainFoldedValue
+            signInButtonBottomConstraint.constant = height
+        }
+        UIView.animate(withDuration: 0.33,
+                       delay: 0,
+                       options: .curveEaseIn,
+                       animations: { self.view.layoutIfNeeded() })
     }
 
     // MARK: - Private Methods
+
+    private func configurePrimaryButton() {
+        primaryButton.delegate = self
+        primaryButton.setTitle("Sign in".localized)
+        primaryButton.delegate = self
+        //setPrimaryButtonEnabled(false)
+    }
+
+    private func setPrimaryButtonEnabled(_ isEnabled: Bool) {
+        primaryButton.isEnabled = isEnabled
+        if isEnabled {
+            primaryButton.setBackgroundColor(.orange)
+            primaryButton.setButtonTitleColor(.white)
+        } else {
+            primaryButton.setBackgroundColor(.lightGreyBlue)
+            primaryButton.setButtonTitleColor(.middleGrey)
+        }
+    }
+
+    private func validatePrimaryButton() {
+//        if let emailText = emailLoginTextField.text,
+//           !emailText.isEmpty,
+//           let passText = passwordTextField.text,
+//           !passText.isEmpty {
+//            setPrimaryButtonEnabled(true)
+//        } else {
+//            setPrimaryButtonEnabled(false)
+//        }
+    }
+
+    private func configureObservers() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardNotification(_:)),
+            name: UIResponder.keyboardWillChangeFrameNotification,
+            object: nil
+        )
+    }
+
+    private func removeObservers() {
+        NotificationCenter.default.removeObserver(
+            self,
+            name: UIResponder.keyboardWillChangeFrameNotification,
+            object: nil)
+    }
 
     private func updateProfileInfo(
         nickname: String?,
@@ -102,22 +187,6 @@ final class SignUpCoordinatingViewController: UIViewController {
                     self?.showError(error.localizedDescription)
                 }
             })
-    }
-
-}
-
-extension SignUpCoordinatingViewController: SignUpFirstStepViewControllerDelegate {
-
-    func alreadySignedIn() {
-        navigationDelegate?.alreadySignedUp()
-    }
-
-}
-
-extension SignUpCoordinatingViewController: SignUpSecondStepViewControllerDelegate {
-
-    func nextstep() {
-
     }
 
 }

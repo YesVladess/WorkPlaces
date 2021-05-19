@@ -7,13 +7,7 @@
 
 import UIKit
 
-protocol SignUpFirstStepViewControllerDelegate: AnyObject {
-    func alreadySignedIn()
-}
-
 class SignUpFirstStepViewController: UIViewController {
-
-    weak var delegate: SignUpFirstStepViewControllerDelegate?
 
     // MARK: - IBOutlet
 
@@ -21,13 +15,23 @@ class SignUpFirstStepViewController: UIViewController {
     @IBOutlet private weak var emailTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
 
-    // MARK: - IBAction
+    // MARK: - UIViewController
 
-    @IBAction private func tapAlreadySignedUpButton(_ sender: Any) {
-        remove()
-        delegate?.alreadySignedIn()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        configureTapOutside()
     }
 
+    // MARK: - Objc
+    
+    @objc func tapOutside(gesture: UITapGestureRecognizer) {
+        emailTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+        nicknameTextField.resignFirstResponder()
+    }
+
+    // MARK: - Public Methods
+    
     /**
      Method for getting data from fields at 1st step
 
@@ -39,6 +43,13 @@ class SignUpFirstStepViewController: UIViewController {
               let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
               let nickname = nicknameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) else { return nil }
         return (email, password, nickname)
+    }
+
+    // MARK: - Private Methods
+
+    private func configureTapOutside() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapOutside(gesture:)))
+        view.addGestureRecognizer(tapGesture)
     }
 
 }
