@@ -36,7 +36,7 @@
                     </state>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Wu5-ed-GQZ">
-                    <rect key="frame" x="60" y="311.33333333333326" width="308" height="313.66666666666674"/>
+                    <rect key="frame" x="60" y="317" width="308" height="302"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Illustration_02" translatesAutoresizingMaskIntoConstraints="NO" id="dkR-Ik-0qK">
                             <rect key="frame" x="54" y="0.0" width="200" height="200"/>
@@ -45,13 +45,13 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nice to meet you" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XGq-dV-TgU">
-                            <rect key="frame" x="18" y="202.00000000000006" width="272.33333333333331" height="47"/>
+                            <rect key="frame" x="17" y="202" width="274.33333333333331" height="42"/>
                             <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="36"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dgo-Nu-ISa">
-                            <rect key="frame" x="0.0" y="251.00000000000003" width="308" height="62.666666666666657"/>
+                            <rect key="frame" x="0.0" y="246" width="308" height="56"/>
                             <string key="text">Теперь ты можешь смотреть и делать публикации
 </string>
                             <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
