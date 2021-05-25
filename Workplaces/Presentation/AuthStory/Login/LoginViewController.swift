@@ -41,13 +41,8 @@ final class LoginViewController: UIViewController, CanShowSpinner {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        congifure()
-        primaryButton.delegate = self
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        navigationController?.isNavigationBarHidden = true
+        configure()
+        configurePrimaryButton()
     }
 
     // MARK: - IBOutlet
@@ -99,12 +94,17 @@ final class LoginViewController: UIViewController, CanShowSpinner {
 
     // MARK: - Private Methods
 
-    private func congifure() {
-        primaryButton.setTitle("Sign in By Mail Or Login".localized)
-        imageView.image = Images.loginScreenImage
+    private func configure() {
+        imageView.image = #imageLiteral(resourceName: "Illustration_01")
         fbButton.cropView()
         vkButton.cropView()
         googleButton.cropView()
+    }
+
+    private func configurePrimaryButton() {
+        primaryButton.setTitle("Sign in By Mail Or Login".localized)
+        primaryButton.delegate = self
+        primaryButton.setPrimaryButtonEnabled(true)
     }
 
 }

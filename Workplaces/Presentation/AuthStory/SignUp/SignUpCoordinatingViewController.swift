@@ -123,18 +123,7 @@ final class SignUpCoordinatingViewController: UIViewController {
         primaryButton.delegate = self
         primaryButton.setTitle("Sign in".localized)
         primaryButton.delegate = self
-        //setPrimaryButtonEnabled(false)
-    }
-
-    private func setPrimaryButtonEnabled(_ isEnabled: Bool) {
-        primaryButton.isEnabled = isEnabled
-        if isEnabled {
-            primaryButton.setBackgroundColor(.orange)
-            primaryButton.setButtonTitleColor(.white)
-        } else {
-            primaryButton.setBackgroundColor(.lightGreyBlue)
-            primaryButton.setButtonTitleColor(.middleGrey)
-        }
+        primaryButton.setPrimaryButtonEnabled(true)
     }
 
     private func validatePrimaryButton() {

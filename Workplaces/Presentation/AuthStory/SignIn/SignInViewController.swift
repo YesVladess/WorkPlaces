@@ -115,18 +115,7 @@ final class SignInViewController: UIViewController {
     private func configurePrimaryButton() {
         primaryButton.setTitle("Sign in".localized)
         primaryButton.delegate = self
-        setPrimaryButtonEnabled(false)
-    }
-
-    private func setPrimaryButtonEnabled(_ isEnabled: Bool) {
-        primaryButton.isEnabled = isEnabled
-        if isEnabled {
-            primaryButton.setBackgroundColor(.orange)
-            primaryButton.setButtonTitleColor(.white)
-        } else {
-            primaryButton.setBackgroundColor(.lightGreyBlue)
-            primaryButton.setButtonTitleColor(.middleGrey)
-        }
+        primaryButton.setPrimaryButtonEnabled(false)
     }
 
     private func validatePrimaryButton() {
@@ -134,9 +123,9 @@ final class SignInViewController: UIViewController {
            !emailText.isEmpty,
            let passText = passwordTextField.text,
            !passText.isEmpty {
-            setPrimaryButtonEnabled(true)
+            primaryButton.setPrimaryButtonEnabled(true)
         } else {
-            setPrimaryButtonEnabled(false)
+            primaryButton.setPrimaryButtonEnabled(false)
         }
     }
 

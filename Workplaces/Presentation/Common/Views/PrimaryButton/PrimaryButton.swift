@@ -13,15 +13,11 @@ protocol PrimaryButtonViewDelegate: AnyObject {
 
 }
 
-final class PrimaryButton: UIButton, XibLoadable {
+final class PrimaryButton: UIButton {
 
     // MARK: - Public Properties
 
     weak var delegate: PrimaryButtonViewDelegate?
-
-    // MARK: - Private Properties
-
-    private var view: UIView?
 
     // MARK: - Init
 
@@ -41,27 +37,36 @@ final class PrimaryButton: UIButton, XibLoadable {
         setTitle(title, for: .normal)
     }
 
-    public func setBackgroundColor(_ color: UIColor) {
-        view?.backgroundColor = color
-    }
-
-    public func setButtonTitleColor(_ color: UIColor) {
-        setTitleColor(color, for: .normal)
+    func setPrimaryButtonEnabled(_ isEnabled: Bool) {
+        self.isEnabled = isEnabled
+        if isEnabled {
+            setBackgroundColor(.orange)
+            setButtonTitleColor(.white)
+        } else {
+            setBackgroundColor(.lightGreyBlue)
+            setButtonTitleColor(.middleGrey)
+        }
     }
 
     // MARK: - Private methods
 
     private func congifure() {
-        let view = PrimaryButton.loadFromXib()
-        self.view = view
-        setupView(view: view)
-        view.isUserInteractionEnabled = false
-        view.cropView()
-        view.layer.masksToBounds = true
+        cropView()
+        layer.masksToBounds = true
         addTarget(self, action: #selector(buttonAction(_:)), for: .touchDown)
         addTarget(self, action: #selector(releaseButton(_:)), for: .touchUpInside)
         setTitle("Default Button Title", for: .normal)
     }
+
+    private func setBackgroundColor(_ color: UIColor) {
+        backgroundColor = color
+    }
+
+    private func setButtonTitleColor(_ color: UIColor) {
+        setTitleColor(color, for: .normal)
+    }
+
+    // MARK: - Objc
 
     @objc func buttonAction(_: UIButton!) {
         UIView.animate(
@@ -76,9 +81,9 @@ final class PrimaryButton: UIButton, XibLoadable {
     @objc func releaseButton(_: UIButton!) {
         UIView.animate(
             withDuration: 0.3,
-            animations: { [weak self] in
-                self?.transform = CGAffineTransform.identity
-                self?.delegate?.primaryButtonTapped(self!)
+            animations: { self.transform = CGAffineTransform.identity },
+            completion: { [weak self] _ in
+            self?.delegate?.primaryButtonTapped(self!)
             }
         )
     }

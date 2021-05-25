@@ -83,7 +83,6 @@
 		5A6A246A2647FE15002FB8BE /* SetLikeEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6A24692647FE15002FB8BE /* SetLikeEndpointTests.swift */; };
 		5A6A248A26480B16002FB8BE /* TokenStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6A248926480B16002FB8BE /* TokenStorageTests.swift */; };
 		5A6CDAAD262EE68900B92A59 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6CDAAC262EE68900B92A59 /* Images.swift */; };
-		5A7905CA26348A09008863BB /* PrimaryButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A7905C826348A09008863BB /* PrimaryButton.xib */; };
 		5A7905CB26348A09008863BB /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7905C926348A09008863BB /* PrimaryButton.swift */; };
 		5A7905DB2634BC0F008863BB /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7905DA2634BC0F008863BB /* CustomView.swift */; };
 		5A7905DF2634BC42008863BB /* XibLoadable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7905DE2634BC42008863BB /* XibLoadable.swift */; };
@@ -248,7 +247,6 @@
 		5A6A24692647FE15002FB8BE /* SetLikeEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetLikeEndpointTests.swift; sourceTree = "<group>"; };
 		5A6A248926480B16002FB8BE /* TokenStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStorageTests.swift; sourceTree = "<group>"; };
 		5A6CDAAC262EE68900B92A59 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
-		5A7905C826348A09008863BB /* PrimaryButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrimaryButton.xib; sourceTree = "<group>"; };
 		5A7905C926348A09008863BB /* PrimaryButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		5A7905DA2634BC0F008863BB /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		5A7905DE2634BC42008863BB /* XibLoadable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XibLoadable.swift; sourceTree = "<group>"; };
@@ -682,7 +680,6 @@
 		5A7905C726348A09008863BB /* PrimaryButton */ = {
 			isa = PBXGroup;
 			children = (
-				5A7905C826348A09008863BB /* PrimaryButton.xib */,
 				5A7905C926348A09008863BB /* PrimaryButton.swift */,
 			);
 			path = PrimaryButton;
@@ -1110,7 +1107,6 @@
 				5A96F330262EB76B006BD8C9 /* SignInViewController.xib in Resources */,
 				5A2E5B1C264AEDA10071FB84 /* SignUpFirstStepViewController.xib in Resources */,
 				5A28EBCB262ECA9500DF4CEB /* NewPostViewController.xib in Resources */,
-				5A7905CA26348A09008863BB /* PrimaryButton.xib in Resources */,
 				5A2E5B23264AF1F00071FB84 /* SignUpSecondStepViewController.xib in Resources */,
 				5A2E5B3F264BD5200071FB84 /* MyProfileViewController.xib in Resources */,
 				5ADB27A2262DBA1E00CFC392 /* Localizable.strings in Resources */,
