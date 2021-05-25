@@ -49,11 +49,11 @@ class SignUpSecondStepViewController: UIViewController {
     }
 
     private func configureTextFields() {
-        nameTextField.tintColor = .orange
+        nameTextField.tintColor = .black
         nameTextField.tintColorDidChange()
-        surnameTextField.tintColor = .orange
+        surnameTextField.tintColor = .black
         surnameTextField.tintColorDidChange()
-        dataBirthTextField.tintColor = .orange
+        dataBirthTextField.tintColor = .black
         dataBirthTextField.tintColorDidChange()
     }
 

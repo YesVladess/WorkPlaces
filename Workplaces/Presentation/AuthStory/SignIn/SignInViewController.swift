@@ -101,9 +101,9 @@ final class SignInViewController: UIViewController {
     }
 
     private func configureTextFields() {
-        emailLoginTextField.tintColor = .orange
+        emailLoginTextField.tintColor = .black
         emailLoginTextField.tintColorDidChange()
-        passwordTextField.tintColor = .orange
+        passwordTextField.tintColor = .black
         passwordTextField.tintColorDidChange()
     }
 

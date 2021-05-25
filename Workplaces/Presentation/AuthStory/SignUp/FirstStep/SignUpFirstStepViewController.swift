@@ -54,11 +54,11 @@ class SignUpFirstStepViewController: UIViewController {
     }
 
     private func configureTextFields() {
-        emailTextField.tintColor = .orange
+        emailTextField.tintColor = .black
         emailTextField.tintColorDidChange()
-        passwordTextField.tintColor = .orange
+        passwordTextField.tintColor = .black
         passwordTextField.tintColorDidChange()
-        nicknameTextField.tintColor = .orange
+        nicknameTextField.tintColor = .black
         nicknameTextField.tintColorDidChange()
     }
 
