@@ -35,7 +35,7 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                     <connections>
-                                        <action selector="emailTextfieldDidChange:" destination="-1" eventType="editingChanged" id="Qzf-Vb-AeP"/>
+                                        <action selector="textfieldDidChange:" destination="-1" eventType="editingChanged" id="dqI-6l-A1F"/>
                                     </connections>
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VVg-qY-bBV" customClass="SeparatorView" customModule="Workplaces" customModuleProvider="target">
@@ -55,7 +55,7 @@
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
                                     <connections>
-                                        <action selector="passwordTextFieldDidChange:" destination="-1" eventType="editingChanged" id="nzd-iN-fG9"/>
+                                        <action selector="textfieldDidChange:" destination="-1" eventType="editingChanged" id="vjj-GW-hQz"/>
                                     </connections>
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vYi-TS-5Vc" customClass="SeparatorView" customModule="Workplaces" customModuleProvider="target">

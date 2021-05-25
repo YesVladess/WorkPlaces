@@ -70,11 +70,7 @@ final class SignInViewController: UIViewController {
         passwordTextField.resignFirstResponder()
     }
 
-    @IBAction private func emailTextfieldDidChange(_ sender: Any) {
-        validatePrimaryButton()
-    }
-
-    @IBAction private func passwordTextFieldDidChange(_ sender: Any) {
+    @IBAction private func textfieldDidChange(_ sender: UITextField) {
         validatePrimaryButton()
     }
 
@@ -88,10 +84,16 @@ final class SignInViewController: UIViewController {
             let height = endFrame.height + signInBottomConstrainFoldedValue
             signInButtonBottomConstraint.constant = height
         }
-        UIView.animate(withDuration: 0.33,
-                       delay: 0,
-                       options: .curveEaseIn,
-                       animations: { self.view.layoutIfNeeded() })
+        if let duration = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double,
+           let animationCurve = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? UInt {
+            let customOption = UIView.AnimationOptions(rawValue: animationCurve)
+            UIView.animate(
+                withDuration: duration,
+                delay: 0,
+                options: customOption,
+                animations: { self.view.layoutIfNeeded() }
+            )
+        }
     }
 
     // MARK: - Private Methods

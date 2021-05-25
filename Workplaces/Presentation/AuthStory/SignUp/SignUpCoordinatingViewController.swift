@@ -35,7 +35,7 @@ final class SignUpCoordinatingViewController: UIViewController {
 
     @IBOutlet private weak var stepContainerView: UIView!
     @IBOutlet private weak var primaryButton: PrimaryButton!
-    @IBOutlet private weak var signInButtonBottomConstraint: NSLayoutConstraint!
+    @IBOutlet private var signInButtonBottomConstraint: NSLayoutConstraint!
 
     // MARK: - IBAction
 
@@ -93,14 +93,6 @@ final class SignUpCoordinatingViewController: UIViewController {
         secondStepViewController.didMove(toParent: self)
     }
 
-//    @IBAction private func emailTextfieldDidChange(_ sender: Any) {
-//        validatePrimaryButton()
-//    }
-//
-//    @IBAction private func passwordTextFieldDidChange(_ sender: Any) {
-//        validatePrimaryButton()
-//    }
-
     @objc func keyboardNotification(_ notification: Notification) {
         guard let userInfo = (notification as NSNotification).userInfo,
               let endFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
@@ -127,14 +119,6 @@ final class SignUpCoordinatingViewController: UIViewController {
     }
 
     private func validatePrimaryButton() {
-//        if let emailText = emailLoginTextField.text,
-//           !emailText.isEmpty,
-//           let passText = passwordTextField.text,
-//           !passText.isEmpty {
-//            setPrimaryButtonEnabled(true)
-//        } else {
-//            setPrimaryButtonEnabled(false)
-//        }
     }
 
     private func configureObservers() {

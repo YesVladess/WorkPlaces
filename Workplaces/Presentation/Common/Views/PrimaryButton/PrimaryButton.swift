@@ -31,6 +31,29 @@ final class PrimaryButton: UIButton {
         }
     }
 
+    override var isHighlighted: Bool {
+        didSet {
+            if isHighlighted {
+                UIView.animate(
+                    withDuration: 0.3,
+                    delay: 0.0,
+                    options: UIView.AnimationOptions.curveEaseIn,
+                    animations: { self.transform = CGAffineTransform.identity.scaledBy(x: 0.8, y: 0.8) },
+                    completion: nil
+                )
+            } else {
+                UIView.animate(
+                    withDuration: 0.3,
+                    delay: 0.3,
+                    animations: { self.transform = CGAffineTransform.identity },
+                    completion: { [weak self] _ in
+                        self?.delegate?.primaryButtonTapped(self!)
+                    }
+                )
+            }
+        }
+    }
+
     // MARK: - Init
 
     override init(frame: CGRect) {
@@ -54,8 +77,6 @@ final class PrimaryButton: UIButton {
     private func congifure() {
         cropView()
         layer.masksToBounds = true
-        addTarget(self, action: #selector(buttonAction(_:)), for: .touchDown)
-        addTarget(self, action: #selector(releaseButton(_:)), for: .touchUpInside)
         setTitle("Default Button Title", for: .normal)
     }
 
@@ -65,28 +86,6 @@ final class PrimaryButton: UIButton {
 
     private func setButtonTitleColor(_ color: UIColor) {
         setTitleColor(color, for: .normal)
-    }
-
-    // MARK: - Objc
-
-    @objc func buttonAction(_: UIButton!) {
-        UIView.animate(
-            withDuration: 0.3,
-            delay: 0.0,
-            options: UIView.AnimationOptions.curveEaseIn,
-            animations: { self.transform = CGAffineTransform.identity.scaledBy(x: 0.8, y: 0.8) },
-            completion: nil
-        )
-    }
-
-    @objc func releaseButton(_: UIButton!) {
-        UIView.animate(
-            withDuration: 0.3,
-            animations: { self.transform = CGAffineTransform.identity },
-            completion: { [weak self] _ in
-            self?.delegate?.primaryButtonTapped(self!)
-            }
-        )
     }
 
 }
