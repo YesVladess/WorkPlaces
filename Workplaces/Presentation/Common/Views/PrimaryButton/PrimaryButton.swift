@@ -58,12 +58,29 @@ final class PrimaryButton: UIButton, XibLoadable {
         view.isUserInteractionEnabled = false
         view.cropView()
         view.layer.masksToBounds = true
-        addTarget(self, action: #selector(buttonAction(_:)), for: .touchUpInside)
+        addTarget(self, action: #selector(buttonAction(_:)), for: .touchDown)
+        addTarget(self, action: #selector(releaseButton(_:)), for: .touchUpInside)
         setTitle("Default Button Title", for: .normal)
     }
 
     @objc func buttonAction(_: UIButton!) {
-        delegate?.primaryButtonTapped(self)
+        UIView.animate(
+            withDuration: 0.3,
+            delay: 0.0,
+            options: UIView.AnimationOptions.curveEaseIn,
+            animations: { self.transform = CGAffineTransform.identity.scaledBy(x: 0.8, y: 0.8) },
+            completion: nil
+        )
+    }
+
+    @objc func releaseButton(_: UIButton!) {
+        UIView.animate(
+            withDuration: 0.3,
+            animations: { [weak self] in
+                self?.transform = CGAffineTransform.identity
+                self?.delegate?.primaryButtonTapped(self!)
+            }
+        )
     }
 
 }

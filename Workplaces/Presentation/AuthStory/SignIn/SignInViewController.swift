@@ -161,19 +161,7 @@ final class SignInViewController: UIViewController {
 extension SignInViewController: PrimaryButtonViewDelegate {
     
     func primaryButtonTapped(_ button: PrimaryButton) {
-        UIView.animate(
-            withDuration: 0.3,
-            delay: 0.0,
-            options: UIView.AnimationOptions.curveEaseIn,
-            animations: { self.primaryButton.transform = CGAffineTransform.identity.scaledBy(x: 1.1, y: 1.1) },
-            completion: { [weak self] _ in
-                UIView.animate(withDuration: 0.3, animations: {
-                    self?.primaryButton.transform = CGAffineTransform.identity
-                })
-                self?.signIn()
-            }
-        )
-
+        signIn()
     }
 
     private func signIn() {
