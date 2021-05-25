@@ -45,6 +45,7 @@ final class SignInViewController: UIViewController {
         configureTapOutside()
         configureObservers()
         configurePrimaryButton()
+        configureTextFields()
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -97,6 +98,13 @@ final class SignInViewController: UIViewController {
 
     private func congifure() {
         title = "Вход по логину"
+    }
+
+    private func configureTextFields() {
+        emailLoginTextField.tintColor = .orange
+        emailLoginTextField.tintColorDidChange()
+        passwordTextField.tintColor = .orange
+        passwordTextField.tintColorDidChange()
     }
 
     private func configureTapOutside() {

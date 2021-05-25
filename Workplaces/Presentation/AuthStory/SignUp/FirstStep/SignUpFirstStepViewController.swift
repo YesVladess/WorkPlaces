@@ -20,6 +20,7 @@ class SignUpFirstStepViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTapOutside()
+        configureTextFields()
     }
 
     // MARK: - Objc
@@ -45,11 +46,20 @@ class SignUpFirstStepViewController: UIViewController {
         return (email, password, nickname)
     }
 
-    // MARK: - Private Methods
+    // MARK: - Configure
 
     private func configureTapOutside() {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapOutside(gesture:)))
         view.addGestureRecognizer(tapGesture)
+    }
+
+    private func configureTextFields() {
+        emailTextField.tintColor = .orange
+        emailTextField.tintColorDidChange()
+        passwordTextField.tintColor = .orange
+        passwordTextField.tintColorDidChange()
+        nicknameTextField.tintColor = .orange
+        nicknameTextField.tintColorDidChange()
     }
 
 }

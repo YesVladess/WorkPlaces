@@ -30,6 +30,7 @@ class SignUpSecondStepViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTapOutside()
+        configureTextFields()
     }
 
     // MARK: - Objc
@@ -38,6 +39,22 @@ class SignUpSecondStepViewController: UIViewController {
         nameTextField.resignFirstResponder()
         surnameTextField.resignFirstResponder()
         dataBirthTextField.resignFirstResponder()
+    }
+
+    // MARK: - Configure
+
+    private func configureTapOutside() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapOutside(gesture:)))
+        view.addGestureRecognizer(tapGesture)
+    }
+
+    private func configureTextFields() {
+        nameTextField.tintColor = .orange
+        nameTextField.tintColorDidChange()
+        surnameTextField.tintColor = .orange
+        surnameTextField.tintColorDidChange()
+        dataBirthTextField.tintColor = .orange
+        dataBirthTextField.tintColorDidChange()
     }
 
     // MARK: - Private Methods
@@ -61,11 +78,6 @@ class SignUpSecondStepViewController: UIViewController {
         formatter.dateFormat = "yyyy-MM-dd"
         dataBirthTextField.text = formatter.string(from: datePicker.date)
         self.view.endEditing(true)
-    }
-
-    private func configureTapOutside() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapOutside(gesture:)))
-        view.addGestureRecognizer(tapGesture)
     }
 
     private func errorShakeAnimationFor(view: UIView) {
