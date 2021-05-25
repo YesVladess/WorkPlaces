@@ -19,6 +19,18 @@ final class PrimaryButton: UIButton {
 
     weak var delegate: PrimaryButtonViewDelegate?
 
+    override var isEnabled: Bool {
+        didSet {
+            if isEnabled {
+                setBackgroundColor(.orange)
+                setButtonTitleColor(.white)
+            } else {
+                setBackgroundColor(.lightGreyBlue)
+                setButtonTitleColor(.middleGrey)
+            }
+        }
+    }
+
     // MARK: - Init
 
     override init(frame: CGRect) {
@@ -35,17 +47,6 @@ final class PrimaryButton: UIButton {
 
     public func setTitle(_ title: String) {
         setTitle(title, for: .normal)
-    }
-
-    func setPrimaryButtonEnabled(_ isEnabled: Bool) {
-        self.isEnabled = isEnabled
-        if isEnabled {
-            setBackgroundColor(.orange)
-            setButtonTitleColor(.white)
-        } else {
-            setBackgroundColor(.lightGreyBlue)
-            setButtonTitleColor(.middleGrey)
-        }
     }
 
     // MARK: - Private methods

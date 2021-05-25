@@ -104,7 +104,7 @@ final class LoginViewController: UIViewController, CanShowSpinner {
     private func configurePrimaryButton() {
         primaryButton.setTitle("Sign in By Mail Or Login".localized)
         primaryButton.delegate = self
-        primaryButton.setPrimaryButtonEnabled(true)
+        primaryButton.isEnabled = true
     }
 
 }

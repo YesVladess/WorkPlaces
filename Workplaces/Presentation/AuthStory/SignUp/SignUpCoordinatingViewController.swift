@@ -123,7 +123,7 @@ final class SignUpCoordinatingViewController: UIViewController {
         primaryButton.delegate = self
         primaryButton.setTitle("Sign in".localized)
         primaryButton.delegate = self
-        primaryButton.setPrimaryButtonEnabled(true)
+        primaryButton.isEnabled = true
     }
 
     private func validatePrimaryButton() {

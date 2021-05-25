@@ -115,7 +115,7 @@ final class SignInViewController: UIViewController {
     private func configurePrimaryButton() {
         primaryButton.setTitle("Sign in".localized)
         primaryButton.delegate = self
-        primaryButton.setPrimaryButtonEnabled(false)
+        primaryButton.isEnabled = false
     }
 
     private func validatePrimaryButton() {
@@ -123,9 +123,9 @@ final class SignInViewController: UIViewController {
            !emailText.isEmpty,
            let passText = passwordTextField.text,
            !passText.isEmpty {
-            primaryButton.setPrimaryButtonEnabled(true)
+            primaryButton.isEnabled = true
         } else {
-            primaryButton.setPrimaryButtonEnabled(false)
+            primaryButton.isEnabled = false
         }
     }
 
