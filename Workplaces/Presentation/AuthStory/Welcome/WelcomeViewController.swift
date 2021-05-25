@@ -24,7 +24,6 @@ final class WelcomeViewController: UIViewController {
     }
 
     private func configure() {
-        title = "Добро пожаловать"
         navigateToFeedButton.setTitle("Перейти к ленте")
     }
 

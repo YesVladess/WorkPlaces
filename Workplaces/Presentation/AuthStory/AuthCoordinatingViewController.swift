@@ -44,7 +44,6 @@ class AuthCoordinatingViewController: UIViewController, CanShowSpinner {
 
     private func navigateToFeedScreen() {
         let tabBarController = WorkplaceTabBarController()
-        authNavigationController?.isNavigationBarHidden = true
         authNavigationController?.pushViewController(tabBarController, animated: true)
     }
 
@@ -54,17 +53,18 @@ class AuthCoordinatingViewController: UIViewController, CanShowSpinner {
         let loginViewController = LoginViewController()
         loginViewController.navigationDelegate = self
         let authNavigationController = UINavigationController(rootViewController: loginViewController)
-        authNavigationController.isNavigationBarHidden = true
+        authNavigationController.delegate = self
         add(authNavigationController)
         self.authNavigationController = authNavigationController
     }
 
     private func configureNavigationController() {
-        authNavigationController?.navigationBar.barStyle = .default
-        authNavigationController?.navigationBar.barTintColor = .white
-        authNavigationController?.navigationBar.tintColor = .middleGrey
-        authNavigationController?.navigationBar.isTranslucent = false
-        authNavigationController?.navigationBar.titleTextAttributes =
+        guard let authNavigationController = authNavigationController else { return }
+        authNavigationController.navigationBar.barStyle = .default
+        authNavigationController.navigationBar.barTintColor = .white
+        authNavigationController.navigationBar.tintColor = .middleGrey
+        authNavigationController.navigationBar.isTranslucent = false
+        authNavigationController.navigationBar.titleTextAttributes =
             [
                 NSAttributedString.Key.foregroundColor: UIColor.black,
                 NSAttributedString.Key.font: UIFont(name: "IBMPlexSans", size: 16)!
@@ -77,17 +77,14 @@ extension AuthCoordinatingViewController: LoginViewControllerNavigationDelegate 
 
     func navigateToSignIn() {
         navigateToSignInScreen()
-        authNavigationController?.isNavigationBarHidden = false
     }
 
     func navigateToSignUp() {
         navigateToSignUpScreen()
-        authNavigationController?.isNavigationBarHidden = false
     }
 
     func navigateToWelcome() {
         navigateToWelcomeScreen()
-        authNavigationController?.isNavigationBarHidden = true
     }
 
 }
@@ -96,7 +93,6 @@ extension AuthCoordinatingViewController: WelcomeViewControllerNavigationDelegat
 
     func navigateToFeed() {
         navigateToFeedScreen()
-        authNavigationController?.isNavigationBarHidden = true
     }
 
 }
@@ -125,6 +121,24 @@ extension AuthCoordinatingViewController: SignUpCoordinatingViewControllerNaviga
 
     func signedUp() {
         navigateToWelcome()
+    }
+
+}
+
+extension AuthCoordinatingViewController: UINavigationControllerDelegate {
+
+    func navigationController(
+        _ navigationController: UINavigationController,
+        willShow viewController: UIViewController,
+        animated: Bool
+    ) {
+        if viewController is WelcomeViewController ||
+            viewController is LoginViewController ||
+            viewController is WorkplaceTabBarController {
+            authNavigationController?.setNavigationBarHidden(true, animated: true)
+        } else {
+            authNavigationController?.setNavigationBarHidden(false, animated: true)
+        }
     }
 
 }
