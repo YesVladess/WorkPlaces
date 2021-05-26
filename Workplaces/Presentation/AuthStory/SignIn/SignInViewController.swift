@@ -116,7 +116,9 @@ final class SignInViewController: UIViewController {
 
     private func configurePrimaryButton() {
         primaryButton.setTitle("Sign in".localized)
-        primaryButton.delegate = self
+        primaryButton.onTap = { [weak self] in
+            self?.signIn()
+        }
         primaryButton.isEnabled = false
     }
 
@@ -145,14 +147,6 @@ final class SignInViewController: UIViewController {
             self,
             name: UIResponder.keyboardWillChangeFrameNotification,
             object: nil)
-    }
-
-}
-
-extension SignInViewController: PrimaryButtonViewDelegate {
-    
-    func primaryButtonTapped(_ button: PrimaryButton) {
-        signIn()
     }
 
     private func signIn() {

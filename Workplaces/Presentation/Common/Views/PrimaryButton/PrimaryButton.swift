@@ -7,26 +7,20 @@
 
 import UIKit
 
-protocol PrimaryButtonViewDelegate: AnyObject {
-
-    func primaryButtonTapped(_ button: PrimaryButton)
-
-}
-
 final class PrimaryButton: UIButton {
 
     // MARK: - Public Properties
 
-    weak var delegate: PrimaryButtonViewDelegate?
+    var onTap: (() -> Void)?
 
     override var isEnabled: Bool {
         didSet {
             if isEnabled {
-                setBackgroundColor(.orange)
-                setButtonTitleColor(.white)
+                backgroundColor = .orange
+                setTitleColor(.white, for: .normal)
             } else {
-                setBackgroundColor(.lightGreyBlue)
-                setButtonTitleColor(.middleGrey)
+                backgroundColor = .lightGreyBlue
+                setTitleColor(.middleGrey, for: .normal)
             }
         }
     }
@@ -38,17 +32,13 @@ final class PrimaryButton: UIButton {
                     withDuration: 0.3,
                     delay: 0.0,
                     options: UIView.AnimationOptions.curveEaseIn,
-                    animations: { self.transform = CGAffineTransform.identity.scaledBy(x: 0.8, y: 0.8) },
-                    completion: nil
+                    animations: { self.transform = CGAffineTransform.identity.scaledBy(x: 0.8, y: 0.8) }
                 )
             } else {
                 UIView.animate(
                     withDuration: 0.3,
                     delay: 0.3,
-                    animations: { self.transform = CGAffineTransform.identity },
-                    completion: { [weak self] _ in
-                        self?.delegate?.primaryButtonTapped(self!)
-                    }
+                    animations: { self.transform = CGAffineTransform.identity }
                 )
             }
         }
@@ -77,15 +67,17 @@ final class PrimaryButton: UIButton {
     private func congifure() {
         cropView()
         layer.masksToBounds = true
+        addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         setTitle("Default Button Title", for: .normal)
     }
 
-    private func setBackgroundColor(_ color: UIColor) {
-        backgroundColor = color
-    }
+    // MARK: - Objc
 
-    private func setButtonTitleColor(_ color: UIColor) {
-        setTitleColor(color, for: .normal)
+    @objc func buttonAction() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
+            guard self?.onTap != nil else { return }
+            self?.onTap!()
+        }
     }
 
 }

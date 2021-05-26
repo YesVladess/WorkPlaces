@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -17,7 +15,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="WelcomeViewController" customModule="Workplaces" customModuleProvider="target">
             <connections>
-                <outlet property="navigateToFeedButton" destination="KRZ-EN-v90" id="mbb-M0-sD7"/>
+                <outlet property="primaryButton" destination="KRZ-EN-v90" id="mbb-M0-sD7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -27,7 +25,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KRZ-EN-v90" customClass="PrimaryButton" customModule="Workplaces" customModuleProvider="target">
-                    <rect key="frame" x="20" y="829" width="388" height="55"/>
+                    <rect key="frame" x="20" y="863" width="388" height="55"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="55" id="bhr-VI-f35"/>
                     </constraints>
@@ -36,7 +34,7 @@
                     </state>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="Wu5-ed-GQZ">
-                    <rect key="frame" x="60" y="317" width="308" height="302"/>
+                    <rect key="frame" x="60" y="312" width="308" height="302"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Illustration_02" translatesAutoresizingMaskIntoConstraints="NO" id="dkR-Ik-0qK">
                             <rect key="frame" x="54" y="0.0" width="200" height="200"/>
@@ -45,7 +43,7 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nice to meet you" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XGq-dV-TgU">
-                            <rect key="frame" x="17" y="202" width="274.33333333333331" height="42"/>
+                            <rect key="frame" x="17" y="202" width="274.5" height="42"/>
                             <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="36"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>

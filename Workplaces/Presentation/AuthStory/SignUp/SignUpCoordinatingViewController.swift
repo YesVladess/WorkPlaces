@@ -112,9 +112,10 @@ final class SignUpCoordinatingViewController: UIViewController {
     // MARK: - Private Methods
 
     private func configurePrimaryButton() {
-        primaryButton.delegate = self
         primaryButton.setTitle("Sign in".localized)
-        primaryButton.delegate = self
+        primaryButton.onTap = { [weak self] in
+            self?.primaryButtonTapped()
+        }
         primaryButton.isEnabled = true
     }
 
@@ -169,11 +170,7 @@ final class SignUpCoordinatingViewController: UIViewController {
         secondStepViewController.showErrorAnimation()
     }
 
-}
-
-extension SignUpCoordinatingViewController: PrimaryButtonViewDelegate {
-
-    func primaryButtonTapped(_ button: PrimaryButton) {
+    private func primaryButtonTapped() {
         if isFirstStep {
             guard let firstStepViewController = get(child: SignUpFirstStepViewController()) else { return }
             guard let resultTuple = firstStepViewController.getData() else { return }
