@@ -13,7 +13,7 @@ protocol LoginViewControllerNavigationDelegate: AnyObject {
     func navigateToWelcome()
 }
 
-final class LoginViewController: UIViewController, CanShowSpinner {
+final class LoginViewController: BaseViewController, CanShowSpinner {
 
     // MARK: - Public Properties
 

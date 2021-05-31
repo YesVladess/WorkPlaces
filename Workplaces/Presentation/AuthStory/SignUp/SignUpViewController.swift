@@ -133,7 +133,7 @@ final class SignUpViewController: UIViewController {
                         self?.navigationDelegate?.signedUp()
                     case.failure(let error):
                         self?.showError(error.localizedDescription)
-                        //self?.showErrorAnimation()
+                        // self?.showErrorAnimation()
                     }
                 })
         }

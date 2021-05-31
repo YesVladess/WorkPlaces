@@ -12,7 +12,7 @@ protocol SignUpFirstStepNavigationDelegate: AnyObject {
     func firstStepPrimaryButtonTapped()
 }
 
-class SignUpFirstStepViewController: UIViewController, CanShowKeyboard {
+class SignUpFirstStepViewController: BaseViewController {
 
     // MARK: - Public Properties
 
@@ -23,7 +23,11 @@ class SignUpFirstStepViewController: UIViewController, CanShowKeyboard {
     @IBOutlet private weak var emailTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var primaryButton: PrimaryButton!
-    @IBOutlet internal var buttonsBottomConstraint: NSLayoutConstraint!
+    @IBOutlet private var buttonsBottomConstraint: NSLayoutConstraint!
+
+    override func updateKeyboardConstraints() {
+        buttonsBottomConstraint.constant = buttonsBottomConstraintConstant
+    }
 
     // MARK: - IBAction
 
@@ -42,12 +46,6 @@ class SignUpFirstStepViewController: UIViewController, CanShowKeyboard {
         configureTapOutside()
         configureTextFields()
         configurePrimaryButton()
-        configureObservers()
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
-        removeObservers()
     }
 
     // MARK: - Public Methods

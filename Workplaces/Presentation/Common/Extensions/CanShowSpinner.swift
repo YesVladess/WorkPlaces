@@ -8,11 +8,9 @@
 import UIKit
 
 public protocol CanShowSpinner {
-
     func showSpinner()
     func hideSpinner()
     var spinner: SpinnerView { get }
-
 }
 
 extension CanShowSpinner where Self: UIViewController {

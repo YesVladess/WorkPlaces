@@ -12,7 +12,7 @@ protocol SignInViewControllerNavigationDelegate: AnyObject {
     func goToSignUp()
 }
 
-final class SignInViewController: UIViewController, CanShowKeyboard {
+final class SignInViewController: BaseViewController {
 
     // MARK: - Public Properties
 
@@ -41,14 +41,8 @@ final class SignInViewController: UIViewController, CanShowKeyboard {
         super.viewDidLoad()
         congifure()
         configureTapOutside()
-        configureObservers()
         configurePrimaryButton()
         configureTextFields()
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
-        removeObservers()
     }
 
     // MARK: - IBOutlet
@@ -56,7 +50,11 @@ final class SignInViewController: UIViewController, CanShowKeyboard {
     @IBOutlet private weak var emailTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var primaryButton: PrimaryButton!
-    @IBOutlet internal weak var buttonsBottomConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var buttonsBottomConstraint: NSLayoutConstraint!
+
+    override func updateKeyboardConstraints() {
+        buttonsBottomConstraint.constant = buttonsBottomConstraintConstant
+    }
 
     // MARK: - IBAction
     @IBAction private func tapNavigateToSignUpButton(_ sender: Any) {
