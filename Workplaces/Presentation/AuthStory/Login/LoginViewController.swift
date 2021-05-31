@@ -7,11 +7,17 @@
 
 import VK_ios_sdk
 
-final class LoginViewController: UIViewController, CanShowSpinner {
+protocol LoginViewControllerNavigationDelegate: AnyObject {
+    func navigateToSignInButtonTapped()
+    func navigateToSignUpButtonTapped()
+    func authPassed()
+}
+
+final class LoginViewController: BaseViewController {
 
     // MARK: - Public Properties
 
-    var spinner: SpinnerView = SpinnerView(style: .large)
+    weak var navigationDelegate: LoginViewControllerNavigationDelegate?
 
     // MARK: - Private Properties
 
@@ -34,8 +40,8 @@ final class LoginViewController: UIViewController, CanShowSpinner {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        congifure()
-        primaryButton.delegate = self
+        configure()
+        configurePrimaryButton()
     }
 
     // MARK: - IBOutlet
@@ -49,73 +55,66 @@ final class LoginViewController: UIViewController, CanShowSpinner {
     // MARK: - IBActions
 
     @IBAction private func fbButtonTapped(_ sender: Any) {
+        showSpinner()
         authService.signInWithFacebook(completion: { [weak self] result in
             switch result {
             case .success:
-                self?.navigateToWelcomeScreen()
+                self?.hideSpinner()
+                self?.navigationDelegate?.authPassed()
             case.failure(let error):
+                self?.hideSpinner()
                 self?.showError(error.localizedDescription)
             }
         })
     }
 
     @IBAction private func vkButtonTapped(_ sender: Any) {
+        showSpinner()
         authService.signInWithVK(vkUIDelegate: self, completion: { [weak self] result in
             switch result {
             case .success:
-                self?.navigateToWelcomeScreen()
+                self?.hideSpinner()
+                self?.navigationDelegate?.authPassed()
             case.failure(let error):
+                self?.hideSpinner()
                 self?.showError(error.localizedDescription)
             }
         })
     }
 
     @IBAction private func googleButtonTapped(_ sender: Any) {
+        showSpinner()
         authService.signInWithGoogle(presentingViewController: self, completion: { [weak self] result in
             switch result {
             case .success:
-                self?.navigateToWelcomeScreen()
+                self?.hideSpinner()
+                self?.navigationDelegate?.authPassed()
             case.failure(let error):
+                self?.hideSpinner()
                 self?.showError(error.localizedDescription)
             }
         })
     }
 
     @IBAction private func singUpButtonTapped(_ sender: Any) {
-        navigateToSignUpScreen()
+        navigationDelegate?.navigateToSignUpButtonTapped()
     }
 
     // MARK: - Private Methods
 
-    private func congifure() {
+    private func configure() {
+        imageView.image = #imageLiteral(resourceName: "Illustration_01")
+        fbButton.cropView()
+        vkButton.cropView()
+        googleButton.cropView()
+    }
+
+    private func configurePrimaryButton() {
         primaryButton.setTitle("Sign in By Mail Or Login".localized)
-        imageView.image = Images.loginScreenImage
-        navigationController?.navigationBar.barStyle = .black
-    }
-
-    // MARK: - Navigation
-    
-    private func navigateToWelcomeScreen() {
-        let welcomeViewController = WelcomeViewController()
-        navigationController?.pushViewController(welcomeViewController, animated: true)
-    }
-
-    private func navigateToSignInScreen() {
-        let signInViewController = SignInViewController()
-        navigationController?.pushViewController(signInViewController, animated: true)
-    }
-
-    private func navigateToSignUpScreen() {
-        let signUpViewController = SignUpViewController()
-        navigationController?.pushViewController(signUpViewController, animated: true)
-    }
-
-}
-
-extension LoginViewController: PrimaryButtonViewDelegate {
-    
-    func primaryButtonTapped(_ button: PrimaryButton) {
-        navigateToSignInScreen()
+        primaryButton.isEnabled = true
+        primaryButton.onTap = { [weak self] in
+            self?.navigationDelegate?.navigateToSignInButtonTapped()
+        }
     }
 
 }

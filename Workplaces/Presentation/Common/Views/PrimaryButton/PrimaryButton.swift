@@ -7,21 +7,42 @@
 
 import UIKit
 
-protocol PrimaryButtonViewDelegate: class {
-
-    func primaryButtonTapped(_ button: PrimaryButton)
-
-}
-
-final class PrimaryButton: UIButton, XibLoadable {
+final class PrimaryButton: UIButton {
 
     // MARK: - Public Properties
 
-    weak var delegate: PrimaryButtonViewDelegate?
+    var onTap: (() -> Void)?
 
-    // MARK: - Private Properties
+    override var isEnabled: Bool {
+        didSet {
+            if isEnabled {
+                backgroundColor = .orange
+                setTitleColor(.white, for: .normal)
+            } else {
+                backgroundColor = .lightGreyBlue
+                setTitleColor(.middleGrey, for: .normal)
+            }
+        }
+    }
 
-    private let cornerRadiusConstant: CGFloat = 14.0
+    override var isHighlighted: Bool {
+        didSet {
+            if isHighlighted {
+                UIView.animate(
+                    withDuration: 0.2,
+                    delay: 0.0,
+                    options: UIView.AnimationOptions.curveEaseIn,
+                    animations: { self.transform = CGAffineTransform.identity.scaledBy(x: 0.8, y: 0.8) }
+                )
+            } else {
+                UIView.animate(
+                    withDuration: 0.2,
+                    delay: 0.2,
+                    animations: { self.transform = CGAffineTransform.identity }
+                )
+            }
+        }
+    }
 
     // MARK: - Init
 
@@ -44,17 +65,19 @@ final class PrimaryButton: UIButton, XibLoadable {
     // MARK: - Private methods
 
     private func congifure() {
-        let view = PrimaryButton.loadFromXib()
-        setupView(view: view)
-        view.isUserInteractionEnabled = false
-        view.layer.cornerRadius = cornerRadiusConstant
-        view.layer.masksToBounds = true
-        addTarget(self, action: #selector(buttonAction(_:)), for: .touchUpInside)
+        cropView()
+        layer.masksToBounds = true
+        addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         setTitle("Default Button Title", for: .normal)
     }
 
-    @objc func buttonAction(_: UIButton!) {
-        delegate?.primaryButtonTapped(self)
+    // MARK: - Objc
+
+    @objc func buttonAction() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) { [weak self] in
+            guard self?.onTap != nil else { return }
+            self?.onTap!()
+        }
     }
 
 }

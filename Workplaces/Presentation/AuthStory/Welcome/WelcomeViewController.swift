@@ -7,35 +7,27 @@
 
 import UIKit
 
+protocol WelcomeViewControllerNavigationDelegate: AnyObject {
+    func navigateToFeedButtonTapped()
+}
+
 final class WelcomeViewController: UIViewController {
 
-    @IBOutlet private weak var navigateToFeedButton: PrimaryButton!
+    weak var navigationDelegate: WelcomeViewControllerNavigationDelegate?
+
+    @IBOutlet private weak var primaryButton: PrimaryButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configure()
-        navigateToFeedButton.delegate = self
+        configurePrimaryButton()
     }
 
-    private func configure() {
-        title = "Добро пожаловать"
-        navigateToFeedButton.setTitle("Перейти к ленте")
-    }
-
-    // MARK: - Navigation
-
-    private func navigateToFeedScreen() {
-        let tabBarController = WorkplaceTabBarController()
-        navigationController?.isNavigationBarHidden = true
-        navigationController?.pushViewController(tabBarController, animated: true)
-    }
-
-}
-
-extension WelcomeViewController: PrimaryButtonViewDelegate {
-
-    func primaryButtonTapped(_ button: PrimaryButton) {
-        navigateToFeedScreen()
+    private func configurePrimaryButton() {
+        primaryButton.setTitle("Перейти к ленте")
+        primaryButton.isEnabled = true
+        primaryButton.onTap = { [weak self] in
+            self?.navigationDelegate?.navigateToFeedButtonTapped()
+        }
     }
 
 }

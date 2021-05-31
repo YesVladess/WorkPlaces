@@ -7,14 +7,13 @@
 
 import UIKit
 
-// Задел на кастомный лоадер
 final public class SpinnerView: UIActivityIndicatorView {
 
     override init(style: UIActivityIndicatorView.Style) {
         super.init(style: style)
         backgroundColor = .white
         alpha = 0.7
-        layer.cornerRadius = 6
+        cropView()
     }
 
     required init(coder: NSCoder) {

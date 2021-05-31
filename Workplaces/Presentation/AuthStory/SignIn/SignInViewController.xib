@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -12,7 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignInViewController" customModule="Workplaces" customModuleProvider="target">
             <connections>
-                <outlet property="emailLoginTextField" destination="E69-fM-Ce3" id="fU3-gL-ROR"/>
+                <outlet property="buttonsBottomConstraint" destination="8Sj-wt-6TZ" id="8jn-aZ-seg"/>
+                <outlet property="emailTextField" destination="E69-fM-Ce3" id="fU3-gL-ROR"/>
                 <outlet property="passwordTextField" destination="Ucb-nw-eLj" id="oqi-d2-IJm"/>
                 <outlet property="primaryButton" destination="bqJ-hO-g7i" id="V6h-CX-rYu"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -23,63 +24,105 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email or Login" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E69-fM-Ce3">
-                    <rect key="frame" x="47" y="114" width="320" height="34"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="320" id="mjs-0V-DEn"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ucb-nw-eLj">
-                    <rect key="frame" x="47" y="198" width="320" height="34"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqJ-hO-g7i" customClass="PrimaryButton" customModule="Workplaces" customModuleProvider="target">
-                    <rect key="frame" x="32" y="382" width="350" height="55"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="350" id="Tqk-xz-8Oi"/>
-                        <constraint firstAttribute="height" constant="55" id="l87-BO-Tz4"/>
-                    </constraints>
-                    <state key="normal" title="Login Button"/>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="igc-tK-gVQ">
-                    <rect key="frame" x="32" y="312" width="350" height="40"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="40" id="kBL-nS-W1I"/>
-                    </constraints>
-                    <state key="normal" title="Перейти к регистрации">
-                        <color key="titleColor" name="orange"/>
-                    </state>
-                    <connections>
-                        <action selector="tapNavigateToSignUpButton:" destination="-1" eventType="touchUpInside" id="Ppg-VO-X1o"/>
-                    </connections>
-                </button>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="O76-Uc-x5O">
+                    <rect key="frame" x="20" y="122" width="374" height="103"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Hjr-cK-mPx">
+                            <rect key="frame" x="0.0" y="0.0" width="350" height="32"/>
+                            <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E69-fM-Ce3">
+                                    <rect key="frame" x="0.0" y="0.0" width="350" height="21"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                    <connections>
+                                        <action selector="textfieldDidChange:" destination="-1" eventType="editingChanged" id="dqI-6l-A1F"/>
+                                    </connections>
+                                </textField>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VVg-qY-bBV" customClass="SeparatorView" customModule="Workplaces" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="31" width="350" height="1"/>
+                                    <color key="backgroundColor" name="light_grey_blue"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="1" id="ER3-Hx-0zM"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                        </stackView>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bEa-eq-m1L">
+                            <rect key="frame" x="0.0" y="72" width="350" height="31"/>
+                            <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ucb-nw-eLj">
+                                    <rect key="frame" x="0.0" y="0.0" width="350" height="20"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" secureTextEntry="YES"/>
+                                    <connections>
+                                        <action selector="textfieldDidChange:" destination="-1" eventType="editingChanged" id="vjj-GW-hQz"/>
+                                    </connections>
+                                </textField>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vYi-TS-5Vc" customClass="SeparatorView" customModule="Workplaces" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="30" width="350" height="1"/>
+                                    <color key="backgroundColor" name="light_grey_blue"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="1" id="fAT-vE-HJ6"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                </stackView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bXB-Jy-IDb">
+                    <rect key="frame" x="20" y="749" width="374" height="105"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="igc-tK-gVQ">
+                            <rect key="frame" x="0.0" y="0.0" width="350" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="kBL-nS-W1I"/>
+                            </constraints>
+                            <state key="normal" title="Перейти к регистрации">
+                                <color key="titleColor" name="orange"/>
+                            </state>
+                            <connections>
+                                <action selector="tapNavigateToSignUpButton:" destination="-1" eventType="touchUpInside" id="Ppg-VO-X1o"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqJ-hO-g7i" customClass="PrimaryButton" customModule="Workplaces" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="50" width="350" height="55"/>
+                            <color key="backgroundColor" systemColor="systemIndigoColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="55" id="l87-BO-Tz4"/>
+                            </constraints>
+                            <state key="normal" title="Login Button">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                        </button>
+                    </subviews>
+                </stackView>
             </subviews>
-            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <viewLayoutGuide key="safeArea" id="LoT-jW-i3v"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="bqJ-hO-g7i" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="5zO-51-EHo"/>
-                <constraint firstItem="bqJ-hO-g7i" firstAttribute="top" secondItem="igc-tK-gVQ" secondAttribute="bottom" constant="30" id="6ab-51-Hzp"/>
-                <constraint firstItem="igc-tK-gVQ" firstAttribute="leading" secondItem="bqJ-hO-g7i" secondAttribute="leading" id="Fqg-5f-Upf"/>
-                <constraint firstItem="igc-tK-gVQ" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="UUh-GZ-q64"/>
-                <constraint firstItem="bqJ-hO-g7i" firstAttribute="top" secondItem="Ucb-nw-eLj" secondAttribute="bottom" constant="150" id="jNH-Hf-vqq"/>
-                <constraint firstItem="Ucb-nw-eLj" firstAttribute="leading" secondItem="E69-fM-Ce3" secondAttribute="leading" id="nBx-2F-es1"/>
-                <constraint firstItem="E69-fM-Ce3" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="oI8-ro-A1j"/>
-                <constraint firstItem="Ucb-nw-eLj" firstAttribute="top" secondItem="E69-fM-Ce3" secondAttribute="bottom" constant="50" id="peA-xB-Z8P"/>
-                <constraint firstItem="E69-fM-Ce3" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="70" id="ucs-Ed-qbb"/>
-                <constraint firstItem="Ucb-nw-eLj" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="yyk-lE-OM2"/>
+                <constraint firstAttribute="bottomMargin" secondItem="bXB-Jy-IDb" secondAttribute="bottom" priority="999" id="8Sj-wt-6TZ"/>
+                <constraint firstAttribute="leadingMargin" secondItem="O76-Uc-x5O" secondAttribute="leading" id="GJz-SA-xCA"/>
+                <constraint firstAttribute="leadingMargin" secondItem="bXB-Jy-IDb" secondAttribute="leading" id="SNe-f5-QCU"/>
+                <constraint firstAttribute="trailingMargin" secondItem="bXB-Jy-IDb" secondAttribute="trailing" id="jL6-XO-KAa"/>
+                <constraint firstAttribute="trailingMargin" secondItem="O76-Uc-x5O" secondAttribute="trailing" id="r0A-YR-0Xj"/>
+                <constraint firstItem="O76-Uc-x5O" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" constant="70" id="yKy-Vm-U3h"/>
             </constraints>
+            <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="16" bottom="8" trailing="16"/>
             <point key="canvasLocation" x="137.68115942028987" y="128.57142857142856"/>
         </view>
     </objects>
     <resources>
+        <namedColor name="light_grey_blue">
+            <color red="0.96899998188018799" green="0.97299998998641968" blue="0.98400002717971802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="orange">
             <color red="0.99599999189376831" green="0.2669999897480011" blue="0.027000000700354576" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

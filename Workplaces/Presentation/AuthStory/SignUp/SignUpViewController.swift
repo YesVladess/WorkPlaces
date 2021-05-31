@@ -7,33 +7,25 @@
 
 import UIKit
 
-final class SignUpViewController: UIViewController {
+protocol SignUpNavigationDelegate: AnyObject {
+    func needSignInButtonTapped()
+    func signUpPassed()
+}
 
-    // MARK: - IBOutlet
+final class SignUpViewController: BaseViewController {
 
-    @IBOutlet private weak var nicknameTextField: UITextField!
-    @IBOutlet private weak var emailTextField: UITextField!
-    @IBOutlet private weak var passwordTextField: UITextField!
-    @IBOutlet private weak var nameTextField: UITextField!
-    @IBOutlet private weak var surnameTextField: UITextField!
-    @IBOutlet private weak var dataBirthTextField: UITextField!
-    @IBOutlet private weak var signUpButton: PrimaryButton!
+    // MARK: - Public Properties
 
-    // MARK: - IBAction
-
-    @IBAction private func tapAlreadySignedUpButton(_ sender: Any) {
-        navigateToSignInScreen()
-    }
-
-    @IBAction private func tapBirthDateField(_ sender: Any) {
-        showDatePicker()
-    }
+    weak var navigationDelegate: SignUpNavigationDelegate?
 
     // MARK: - Private Properties
 
     private let authService: AutorizationServiceProtocol
     private let profileService: ProfileServiceProtocol
-    private let datePicker = UIDatePicker()
+
+    private var isFirstStep: Bool = true
+    private var email: String?
+    private var password: String?
     
     // MARK: - Initializers
 
@@ -54,21 +46,25 @@ final class SignUpViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Регистрация"
-        signUpButton.delegate = self
-        signUpButton.setTitle("Зарегистрироваться")
+        configureFirstStep()
     }
 
-    // MARK: - Navigation
+    // MARK: - Coordination
 
-    private func navigateToWelcomeScreen() {
-        let welcomeViewController = WelcomeViewController()
-        navigationController?.pushViewController(welcomeViewController, animated: true)
+    private func configureFirstStep() {
+        isFirstStep = true
+        title = "Регистрация 1 шаг"
+        let firstStepViewController = SignUpFirstStepViewController()
+        firstStepViewController.navigationDelegate = self
+        addFullScreen(child: firstStepViewController)
     }
 
-    private func navigateToSignInScreen() {
-        let signInViewController = SignInViewController()
-        navigationController?.pushViewController(signInViewController, animated: true)
+    private func configureSecondStep() {
+        isFirstStep = false
+        title = "Регистрация 2 шаг"
+        let secondStepViewController = SignUpSecondStepViewController()
+        secondStepViewController.navigationDelegate = self
+        transition(to: secondStepViewController, fullScreen: true)
     }
 
     // MARK: - Private Methods
@@ -91,64 +87,79 @@ final class SignUpViewController: UIViewController {
             completion: { [weak self] result in
                 switch result {
                 case .success:
-                    break
+                    self?.hideSpinner()
+                    self?.navigationDelegate?.signUpPassed()
                 case.failure(let error):
+                    self?.hideSpinner()
                     self?.showError(error.localizedDescription)
                 }
             })
     }
 
-    private func showDatePicker() {
-        let toolbar = UIToolbar()
-        toolbar.sizeToFit()
-        toolbar.barTintColor = .black
-        datePicker.datePickerMode = .date
-        if #available(iOS 13.4, *) {
-            datePicker.preferredDatePickerStyle = .wheels
+    private func showErrorAnimation() {
+        guard let secondStepViewController = get(child: SignUpSecondStepViewController()) else {
+            return
         }
-        let done = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(dateChosen))
-        toolbar.setItems([done], animated: false)
-        dataBirthTextField.inputAccessoryView = toolbar
-        dataBirthTextField.inputView = datePicker
+        secondStepViewController.showErrorAnimation()
     }
 
-    @objc private func dateChosen() {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-        dataBirthTextField.text = formatter.string(from: datePicker.date)
-        self.view.endEditing(true)
+    private func validateStep() {
+        if isFirstStep {
+            guard let firstStepViewController = get(child: SignUpFirstStepViewController()) else { return }
+            guard let resultTuple = firstStepViewController.getData() else { return }
+            email = resultTuple.email
+            password = resultTuple.password
+            configureSecondStep()
+        } else {
+            guard let secondStepViewController = get(child: SignUpSecondStepViewController()) else { return }
+            guard let resultTuple = secondStepViewController.getData() else { return }
+            let nickname = resultTuple.nickname
+            let name = resultTuple.name
+            let surname = resultTuple.surname
+            let date = resultTuple.date
+            // TODO: Тут сделать валидацию:
+            guard let email = email,
+                  let password = password else { return }
+            showSpinner()
+            authService.signUp(
+                email: email,
+                password: password,
+                completion: { [weak self] result in
+                    switch result {
+                    case .success:
+                        self?.updateProfileInfo(
+                            nickname: nickname,
+                            name: name,
+                            surname: surname,
+                            birthDate: date
+                        )
+                    case.failure(let error):
+                        self?.showError(error.localizedDescription)
+                        self?.hideSpinner()
+                        // self?.showErrorAnimation()
+                    }
+                })
+        }
+    }
+    
+}
+
+extension SignUpViewController: SignUpFirstStepNavigationDelegate {
+    
+    func firstStepPrimaryButtonTapped() {
+        validateStep()
+    }
+
+    func alreadySignedUpTapped() {
+        navigationDelegate?.needSignInButtonTapped()
     }
 
 }
 
-extension SignUpViewController: PrimaryButtonViewDelegate {
+extension SignUpViewController: SignUpSecondStepNavigationDelegate {
 
-    func primaryButtonTapped(_ button: PrimaryButton) {
-        guard let email = emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
-              let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
-              let nickname = nicknameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
-              let name = nameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
-              let surname = surnameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
-              let date = dataBirthTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-        else { return }
-        // TODO: Тут сделать валидацию:
-        authService.signUp(
-            email: email,
-            password: password,
-            completion: { [weak self] result in
-                switch result {
-                case .success:
-                    self?.updateProfileInfo(
-                        nickname: nickname,
-                        name: name,
-                        surname: surname,
-                        birthDate: date
-                    )
-                    self?.navigateToWelcomeScreen()
-                case.failure(let error):
-                    self?.showError(error.localizedDescription)
-                }
-            })
+    func secondStepPrimaryButtonTapped() {
+        validateStep()
     }
 
 }

@@ -7,11 +7,21 @@
 
 import UIKit
 
-final class SignInViewController: UIViewController {
+protocol SignInViewControllerNavigationDelegate: AnyObject {
+    func signInPassed()
+    func needSignUpButtonTapped()
+}
+
+final class SignInViewController: BaseViewController {
+
+    // MARK: - Public Properties
+
+    weak var navigationDelegate: SignInViewControllerNavigationDelegate?
 
     // MARK: - Private Properties
 
     private let authService: AutorizationServiceProtocol
+
     // MARK: - Initializers
 
     init(
@@ -30,45 +40,76 @@ final class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         congifure()
-        primaryButton.delegate = self
+        configureTapOutside()
+        configurePrimaryButton()
+        configureTextFields()
     }
 
     // MARK: - IBOutlet
 
-    @IBOutlet private weak var emailLoginTextField: UITextField!
+    @IBOutlet private weak var emailTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var primaryButton: PrimaryButton!
+    @IBOutlet private weak var buttonsBottomConstraint: NSLayoutConstraint!
+
+    override func updateKeyboardConstraints() {
+        buttonsBottomConstraint.constant = buttonsBottomConstraintConstant
+    }
 
     // MARK: - IBAction
-    @IBAction private func tapNavigateToSignUpButton(_ sender: Any) {
-        navigateToSignUpScreen()
+    @IBAction private func secondaryButtonTapped(_ sender: Any) {
+        navigationDelegate?.needSignUpButtonTapped()
+    }
+
+    @objc func tapOutside(gesture: UITapGestureRecognizer) {
+        emailTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+    }
+
+    @IBAction private func textfieldDidChange(_ sender: UITextField) {
+        validatePrimaryButton()
     }
 
     // MARK: - Private Methods
 
     private func congifure() {
-        primaryButton.setTitle("Sign in By Mail Or Login".localized)
         title = "Вход по логину"
     }
 
-    // MARK: - Navigation
-
-    private func navigateToWelcomeScreen() {
-        let welcomeViewController = WelcomeViewController()
-        navigationController?.pushViewController(welcomeViewController, animated: true)
+    private func configureTextFields() {
+        emailTextField.tintColor = .black
+        emailTextField.tintColorDidChange()
+        passwordTextField.tintColor = .black
+        passwordTextField.tintColorDidChange()
     }
 
-    private func navigateToSignUpScreen() {
-        let signUpViewController = SignUpViewController()
-        navigationController?.pushViewController(signUpViewController, animated: true)
+    private func configureTapOutside() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapOutside(gesture:)))
+        view.addGestureRecognizer(tapGesture)
     }
 
-}
+    private func configurePrimaryButton() {
+        primaryButton.setTitle("Sign in".localized)
+        primaryButton.onTap = { [weak self] in
+            self?.signIn()
+        }
+        primaryButton.isEnabled = false
+    }
 
-extension SignInViewController: PrimaryButtonViewDelegate {
-    
-    func primaryButtonTapped(_ button: PrimaryButton) {
-        guard let email = emailLoginTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
+    private func validatePrimaryButton() {
+        if let emailText = emailTextField.text,
+           !emailText.isEmpty,
+           let passText = passwordTextField.text,
+           !passText.isEmpty {
+            primaryButton.isEnabled = true
+        } else {
+            primaryButton.isEnabled = false
+        }
+    }
+
+    private func signIn() {
+        showSpinner()
+        guard let email = emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
               let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         else { return }
         authService.signIn(
@@ -77,8 +118,10 @@ extension SignInViewController: PrimaryButtonViewDelegate {
             completion: { [weak self] result in
                 switch result {
                 case .success:
-                    self?.navigateToWelcomeScreen()
+                    self?.hideSpinner()
+                    self?.navigationDelegate?.signInPassed()
                 case.failure(let error):
+                    self?.hideSpinner()
                     self?.showError(error.localizedDescription)
                 }
             })
