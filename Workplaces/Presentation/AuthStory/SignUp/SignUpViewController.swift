@@ -12,7 +12,7 @@ protocol SignUpNavigationDelegate: AnyObject {
     func signedUp()
 }
 
-final class SignUpViewController: UIViewController {
+final class SignUpViewController: BaseViewController {
 
     // MARK: - Public Properties
 
@@ -87,8 +87,10 @@ final class SignUpViewController: UIViewController {
             completion: { [weak self] result in
                 switch result {
                 case .success:
-                    break
+                    self?.hideSpinner()
+                    self?.navigationDelegate?.signUpPassed()
                 case.failure(let error):
+                    self?.hideSpinner()
                     self?.showError(error.localizedDescription)
                 }
             })
@@ -118,6 +120,7 @@ final class SignUpViewController: UIViewController {
             // TODO: Тут сделать валидацию:
             guard let email = email,
                   let password = password else { return }
+            showSpinner()
             authService.signUp(
                 email: email,
                 password: password,
@@ -130,10 +133,10 @@ final class SignUpViewController: UIViewController {
                             surname: surname,
                             birthDate: date
                         )
-                        self?.navigationDelegate?.signedUp()
                     case.failure(let error):
                         self?.showError(error.localizedDescription)
-                        //self?.showErrorAnimation()
+                        self?.hideSpinner()
+                        // self?.showErrorAnimation()
                     }
                 })
         }

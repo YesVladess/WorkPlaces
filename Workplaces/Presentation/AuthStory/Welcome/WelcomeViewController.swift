@@ -19,14 +19,15 @@ final class WelcomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configure()
+        configurePrimaryButton()
+    }
+
+    private func configurePrimaryButton() {
+        primaryButton.setTitle("Перейти к ленте")
+        primaryButton.isEnabled = true
         primaryButton.onTap = { [weak self] in
             self?.navigationDelegate?.navigateToFeed()
         }
-    }
-
-    private func configure() {
-        primaryButton.setTitle("Перейти к ленте")
     }
 
 }

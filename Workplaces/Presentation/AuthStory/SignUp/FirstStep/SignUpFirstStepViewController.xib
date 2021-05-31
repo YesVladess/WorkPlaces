@@ -33,7 +33,7 @@
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cx8-hB-Cvr">
                                     <rect key="frame" x="0.0" y="0.0" width="354" height="18.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress"/>
                                     <connections>
                                         <action selector="textFieldDidChange:" destination="-1" eventType="editingChanged" id="j7v-ts-BVS"/>
                                     </connections>

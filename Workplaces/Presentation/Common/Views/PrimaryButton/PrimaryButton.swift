@@ -29,15 +29,15 @@ final class PrimaryButton: UIButton {
         didSet {
             if isHighlighted {
                 UIView.animate(
-                    withDuration: 0.3,
+                    withDuration: 0.2,
                     delay: 0.0,
                     options: UIView.AnimationOptions.curveEaseIn,
                     animations: { self.transform = CGAffineTransform.identity.scaledBy(x: 0.8, y: 0.8) }
                 )
             } else {
                 UIView.animate(
-                    withDuration: 0.3,
-                    delay: 0.3,
+                    withDuration: 0.2,
+                    delay: 0.2,
                     animations: { self.transform = CGAffineTransform.identity }
                 )
             }
@@ -74,7 +74,7 @@ final class PrimaryButton: UIButton {
     // MARK: - Objc
 
     @objc func buttonAction() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) { [weak self] in
             guard self?.onTap != nil else { return }
             self?.onTap!()
         }

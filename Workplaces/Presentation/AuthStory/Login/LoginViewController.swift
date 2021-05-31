@@ -13,11 +13,10 @@ protocol LoginViewControllerNavigationDelegate: AnyObject {
     func navigateToWelcome()
 }
 
-final class LoginViewController: UIViewController, CanShowSpinner {
+final class LoginViewController: BaseViewController {
 
     // MARK: - Public Properties
 
-    var spinner: SpinnerView = SpinnerView(style: .large)
     weak var navigationDelegate: LoginViewControllerNavigationDelegate?
 
     // MARK: - Private Properties
@@ -56,33 +55,42 @@ final class LoginViewController: UIViewController, CanShowSpinner {
     // MARK: - IBActions
 
     @IBAction private func fbButtonTapped(_ sender: Any) {
+        showSpinner()
         authService.signInWithFacebook(completion: { [weak self] result in
             switch result {
             case .success:
-                self?.navigationDelegate?.navigateToWelcome()
+                self?.hideSpinner()
+                self?.navigationDelegate?.authPassed()
             case.failure(let error):
+                self?.hideSpinner()
                 self?.showError(error.localizedDescription)
             }
         })
     }
 
     @IBAction private func vkButtonTapped(_ sender: Any) {
+        showSpinner()
         authService.signInWithVK(vkUIDelegate: self, completion: { [weak self] result in
             switch result {
             case .success:
-                self?.navigationDelegate?.navigateToWelcome()
+                self?.hideSpinner()
+                self?.navigationDelegate?.authPassed()
             case.failure(let error):
+                self?.hideSpinner()
                 self?.showError(error.localizedDescription)
             }
         })
     }
 
     @IBAction private func googleButtonTapped(_ sender: Any) {
+        showSpinner()
         authService.signInWithGoogle(presentingViewController: self, completion: { [weak self] result in
             switch result {
             case .success:
-                self?.navigationDelegate?.navigateToWelcome()
+                self?.hideSpinner()
+                self?.navigationDelegate?.authPassed()
             case.failure(let error):
+                self?.hideSpinner()
                 self?.showError(error.localizedDescription)
             }
         })

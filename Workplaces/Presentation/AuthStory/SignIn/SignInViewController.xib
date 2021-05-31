@@ -25,7 +25,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="O76-Uc-x5O">
-                    <rect key="frame" x="20" y="122" width="350" height="103"/>
+                    <rect key="frame" x="20" y="122" width="374" height="103"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Hjr-cK-mPx">
                             <rect key="frame" x="0.0" y="0.0" width="350" height="32"/>
@@ -53,7 +53,7 @@
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Пароль" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ucb-nw-eLj">
                                     <rect key="frame" x="0.0" y="0.0" width="350" height="20"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                    <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
+                                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" secureTextEntry="YES"/>
                                     <connections>
                                         <action selector="textfieldDidChange:" destination="-1" eventType="editingChanged" id="vjj-GW-hQz"/>
                                     </connections>
@@ -70,7 +70,7 @@
                     </subviews>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bXB-Jy-IDb">
-                    <rect key="frame" x="20" y="749" width="350" height="105"/>
+                    <rect key="frame" x="20" y="749" width="374" height="105"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="igc-tK-gVQ">
                             <rect key="frame" x="0.0" y="0.0" width="350" height="40"/>
@@ -88,7 +88,6 @@
                             <rect key="frame" x="0.0" y="50" width="350" height="55"/>
                             <color key="backgroundColor" systemColor="systemIndigoColor"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="350" id="Tqk-xz-8Oi"/>
                                 <constraint firstAttribute="height" constant="55" id="l87-BO-Tz4"/>
                             </constraints>
                             <state key="normal" title="Login Button">

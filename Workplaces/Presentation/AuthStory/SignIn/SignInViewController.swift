@@ -110,6 +110,7 @@ final class SignInViewController: UIViewController, CanShowKeyboard {
     }
 
     private func signIn() {
+        showSpinner()
         guard let email = emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
               let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         else { return }
@@ -119,8 +120,10 @@ final class SignInViewController: UIViewController, CanShowKeyboard {
             completion: { [weak self] result in
                 switch result {
                 case .success:
-                    self?.navigationDelegate?.signedIn()
+                    self?.hideSpinner()
+                    self?.navigationDelegate?.signInPassed()
                 case.failure(let error):
+                    self?.hideSpinner()
                     self?.showError(error.localizedDescription)
                 }
             })

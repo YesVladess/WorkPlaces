@@ -7,12 +7,11 @@
 
 import UIKit
 
-class AuthCoordinatingViewController: UIViewController, CanShowSpinner {
+class AuthCoordinatingViewController: UIViewController {
 
     // MARK: - Private Properties
 
     private var authNavigationController: UINavigationController?
-    var spinner: SpinnerView = SpinnerView(style: .large)
 
     // MARK: - UIViewController
     

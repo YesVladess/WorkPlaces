@@ -7,7 +7,6 @@
 
 import UIKit
 
-// Задел на кастомный лоадер
 final public class SpinnerView: UIActivityIndicatorView {
 
     override init(style: UIActivityIndicatorView.Style) {
