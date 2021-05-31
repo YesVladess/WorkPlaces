@@ -14,7 +14,7 @@ final public class SpinnerView: UIActivityIndicatorView {
         super.init(style: style)
         backgroundColor = .white
         alpha = 0.7
-        layer.cornerRadius = 6
+        cropView()
     }
 
     required init(coder: NSCoder) {

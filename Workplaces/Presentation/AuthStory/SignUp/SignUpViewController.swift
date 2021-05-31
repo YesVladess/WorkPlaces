@@ -7,20 +7,16 @@
 
 import UIKit
 
-protocol SignUpCoordinatingViewControllerNavigationDelegate: class {
+protocol SignUpNavigationDelegate: AnyObject {
     func alreadySignedUp()
     func signedUp()
 }
 
-final class SignUpCoordinatingViewController: UIViewController {
+final class SignUpViewController: UIViewController {
 
     // MARK: - Public Properties
 
-    weak var navigationDelegate: SignUpCoordinatingViewControllerNavigationDelegate?
-
-    // MARK: - IBOutlet
-
-    @IBOutlet private weak var signUpButton: PrimaryButton!
+    weak var navigationDelegate: SignUpNavigationDelegate?
 
     // MARK: - Private Properties
 
@@ -30,7 +26,6 @@ final class SignUpCoordinatingViewController: UIViewController {
     private var isFirstStep: Bool = true
     private var email: String?
     private var password: String?
-    private var nickname: String?
     
     // MARK: - Initializers
 
@@ -51,7 +46,6 @@ final class SignUpCoordinatingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        signUpButton.delegate = self
         configureFirstStep()
     }
 
@@ -60,21 +54,17 @@ final class SignUpCoordinatingViewController: UIViewController {
     private func configureFirstStep() {
         isFirstStep = true
         title = "Регистрация 1 шаг"
-        signUpButton.setTitle("Далее")
         let firstStepViewController = SignUpFirstStepViewController()
-        firstStepViewController.delegate = self
-        transition(to: firstStepViewController)
+        firstStepViewController.navigationDelegate = self
+        addFullScreen(child: firstStepViewController)
     }
 
     private func configureSecondStep() {
-//        guard let firstStepViewController = get(child: SignUpFirstStepViewController()) else { return }
-//        firstStepViewController.remove()
         isFirstStep = false
         title = "Регистрация 2 шаг"
-        signUpButton.setTitle("Зарегистрироваться")
         let secondStepViewController = SignUpSecondStepViewController()
-        secondStepViewController.delegate = self
-        transition(to: secondStepViewController)
+        secondStepViewController.navigationDelegate = self
+        transition(to: secondStepViewController, fullScreen: true)
     }
 
     // MARK: - Private Methods
@@ -104,44 +94,30 @@ final class SignUpCoordinatingViewController: UIViewController {
             })
     }
 
-}
-
-extension SignUpCoordinatingViewController: SignUpFirstStepViewControllerDelegate {
-
-    func alreadySignedIn() {
-        navigationDelegate?.alreadySignedUp()
+    private func showErrorAnimation() {
+        guard let secondStepViewController = get(child: SignUpSecondStepViewController()) else {
+            return
+        }
+        secondStepViewController.showErrorAnimation()
     }
 
-}
-
-extension SignUpCoordinatingViewController: SignUpSecondStepViewControllerDelegate {
-
-    func nextstep() {
-
-    }
-
-}
-
-extension SignUpCoordinatingViewController: PrimaryButtonViewDelegate {
-
-    func primaryButtonTapped(_ button: PrimaryButton) {
+    private func validateStep() {
         if isFirstStep {
             guard let firstStepViewController = get(child: SignUpFirstStepViewController()) else { return }
             guard let resultTuple = firstStepViewController.getData() else { return }
             email = resultTuple.email
             password = resultTuple.password
-            nickname = resultTuple.nickname
             configureSecondStep()
         } else {
             guard let secondStepViewController = get(child: SignUpSecondStepViewController()) else { return }
             guard let resultTuple = secondStepViewController.getData() else { return }
+            let nickname = resultTuple.nickname
             let name = resultTuple.name
             let surname = resultTuple.surname
             let date = resultTuple.date
             // TODO: Тут сделать валидацию:
             guard let email = email,
-                  let password = password,
-                  let nickname = nickname else { return }
+                  let password = password else { return }
             authService.signUp(
                 email: email,
                 password: password,
@@ -157,9 +133,30 @@ extension SignUpCoordinatingViewController: PrimaryButtonViewDelegate {
                         self?.navigationDelegate?.signedUp()
                     case.failure(let error):
                         self?.showError(error.localizedDescription)
+                        //self?.showErrorAnimation()
                     }
                 })
         }
+    }
+    
+}
+
+extension SignUpViewController: SignUpFirstStepNavigationDelegate {
+    
+    func firstStepPrimaryButtonTapped() {
+        validateStep()
+    }
+
+    func alreadySignedUpTapped() {
+        navigationDelegate?.alreadySignedUp()
+    }
+
+}
+
+extension SignUpViewController: SignUpSecondStepNavigationDelegate {
+
+    func secondStepPrimaryButtonTapped() {
+        validateStep()
     }
 
 }

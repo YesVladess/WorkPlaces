@@ -7,7 +7,7 @@
 
 import VK_ios_sdk
 
-protocol LoginViewControllerNavigationDelegate: class {
+protocol LoginViewControllerNavigationDelegate: AnyObject {
     func navigateToSignIn()
     func navigateToSignUp()
     func navigateToWelcome()
@@ -41,8 +41,8 @@ final class LoginViewController: UIViewController, CanShowSpinner {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        congifure()
-        primaryButton.delegate = self
+        configure()
+        configurePrimaryButton()
     }
 
     // MARK: - IBOutlet
@@ -94,18 +94,19 @@ final class LoginViewController: UIViewController, CanShowSpinner {
 
     // MARK: - Private Methods
 
-    private func congifure() {
-        primaryButton.setTitle("Sign in By Mail Or Login".localized)
-        imageView.image = Images.loginScreenImage
-        navigationController?.navigationBar.barStyle = .black
+    private func configure() {
+        imageView.image = #imageLiteral(resourceName: "Illustration_01")
+        fbButton.cropView()
+        vkButton.cropView()
+        googleButton.cropView()
     }
 
-}
-
-extension LoginViewController: PrimaryButtonViewDelegate {
-    
-    func primaryButtonTapped(_ button: PrimaryButton) {
-        navigationDelegate?.navigateToSignIn()
+    private func configurePrimaryButton() {
+        primaryButton.setTitle("Sign in By Mail Or Login".localized)
+        primaryButton.isEnabled = true
+        primaryButton.onTap = { [weak self] in
+            self?.navigationDelegate?.navigateToSignIn()
+        }
     }
 
 }
