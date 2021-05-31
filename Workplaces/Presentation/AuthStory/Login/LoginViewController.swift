@@ -8,9 +8,9 @@
 import VK_ios_sdk
 
 protocol LoginViewControllerNavigationDelegate: AnyObject {
-    func navigateToSignIn()
-    func navigateToSignUp()
-    func navigateToWelcome()
+    func navigateToSignInButtonTapped()
+    func navigateToSignUpButtonTapped()
+    func authPassed()
 }
 
 final class LoginViewController: BaseViewController {
@@ -97,7 +97,7 @@ final class LoginViewController: BaseViewController {
     }
 
     @IBAction private func singUpButtonTapped(_ sender: Any) {
-        navigationDelegate?.navigateToSignUp()
+        navigationDelegate?.navigateToSignUpButtonTapped()
     }
 
     // MARK: - Private Methods
@@ -113,7 +113,7 @@ final class LoginViewController: BaseViewController {
         primaryButton.setTitle("Sign in By Mail Or Login".localized)
         primaryButton.isEnabled = true
         primaryButton.onTap = { [weak self] in
-            self?.navigationDelegate?.navigateToSignIn()
+            self?.navigationDelegate?.navigateToSignInButtonTapped()
         }
     }
 

@@ -102,7 +102,7 @@
 		5A96F330262EB76B006BD8C9 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A96F32E262EB76B006BD8C9 /* SignInViewController.xib */; };
 		5AD464C12654598200DD7D3C /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD464C02654598200DD7D3C /* UIView.swift */; };
 		5AD464C4265478D000DD7D3C /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD464C3265478D000DD7D3C /* SeparatorView.swift */; };
-		5AD464C6265E834200DD7D3C /* UIViewController + Keyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD464C5265E834200DD7D3C /* UIViewController + Keyboard.swift */; };
+		5AD464C6265E834200DD7D3C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD464C5265E834200DD7D3C /* BaseViewController.swift */; };
 		5AD464C8265E8B9000DD7D3C /* UIViewController + Childs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD464C7265E8B9000DD7D3C /* UIViewController + Childs.swift */; };
 		5ADB26AC262B8F7000CFC392 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADB26AB262B8F7000CFC392 /* AppDelegate.swift */; };
 		5ADB26AE262B8F7000CFC392 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADB26AD262B8F7000CFC392 /* SceneDelegate.swift */; };
@@ -268,7 +268,7 @@
 		5A96F32E262EB76B006BD8C9 /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
 		5AD464C02654598200DD7D3C /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		5AD464C3265478D000DD7D3C /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
-		5AD464C5265E834200DD7D3C /* UIViewController + Keyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Keyboard.swift"; sourceTree = "<group>"; };
+		5AD464C5265E834200DD7D3C /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		5AD464C7265E8B9000DD7D3C /* UIViewController + Childs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Childs.swift"; sourceTree = "<group>"; };
 		5ADB26A8262B8F7000CFC392 /* Workplaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Workplaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ADB26AB262B8F7000CFC392 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -882,7 +882,7 @@
 				5A7905DA2634BC0F008863BB /* CustomView.swift */,
 				5A7905DE2634BC42008863BB /* XibLoadable.swift */,
 				5AD464C02654598200DD7D3C /* UIView.swift */,
-				5AD464C5265E834200DD7D3C /* UIViewController + Keyboard.swift */,
+				5AD464C5265E834200DD7D3C /* BaseViewController.swift */,
 				5AD464C7265E8B9000DD7D3C /* UIViewController + Childs.swift */,
 			);
 			path = Extensions;
@@ -1348,7 +1348,7 @@
 				5A2E5B22264AF1F00071FB84 /* SignUpSecondStepViewController.swift in Sources */,
 				5A96F32F262EB76B006BD8C9 /* SignInViewController.swift in Sources */,
 				5A451233263895BA00D435CD /* TokenStorage.swift in Sources */,
-				5AD464C6265E834200DD7D3C /* UIViewController + Keyboard.swift in Sources */,
+				5AD464C6265E834200DD7D3C /* BaseViewController.swift in Sources */,
 				5A45113C26383F9000D435CD /* ApiService.swift in Sources */,
 				5ADB27DE262E1B2800CFC392 /* ZeroScreenViewController.swift in Sources */,
 				5AD464C8265E8B9000DD7D3C /* UIViewController + Childs.swift in Sources */,

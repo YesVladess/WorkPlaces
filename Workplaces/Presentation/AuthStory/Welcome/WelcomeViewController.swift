@@ -8,7 +8,7 @@
 import UIKit
 
 protocol WelcomeViewControllerNavigationDelegate: AnyObject {
-    func navigateToFeed()
+    func navigateToFeedButtonTapped()
 }
 
 final class WelcomeViewController: UIViewController {
@@ -26,7 +26,7 @@ final class WelcomeViewController: UIViewController {
         primaryButton.setTitle("Перейти к ленте")
         primaryButton.isEnabled = true
         primaryButton.onTap = { [weak self] in
-            self?.navigationDelegate?.navigateToFeed()
+            self?.navigationDelegate?.navigateToFeedButtonTapped()
         }
     }
 

@@ -11,7 +11,7 @@ protocol SignUpSecondStepNavigationDelegate: AnyObject {
     func secondStepPrimaryButtonTapped()
 }
 
-class SignUpSecondStepViewController: UIViewController, CanShowKeyboard {
+class SignUpSecondStepViewController: BaseViewController {
     
     // MARK: - Private Properties
 
@@ -23,12 +23,16 @@ class SignUpSecondStepViewController: UIViewController, CanShowKeyboard {
 
     // MARK: - IBOutlet
 
-    @IBOutlet internal var buttonsBottomConstraint: NSLayoutConstraint!
+    @IBOutlet private var buttonsBottomConstraint: NSLayoutConstraint!
     @IBOutlet private weak var primaryButton: PrimaryButton!
     @IBOutlet private weak var nicknameTextField: UITextField!
     @IBOutlet private weak var nameTextField: UITextField!
     @IBOutlet private weak var surnameTextField: UITextField!
     @IBOutlet private weak var dateBirthTextField: UITextField!
+
+    override func updateKeyboardConstraints() {
+        buttonsBottomConstraint.constant = buttonsBottomConstraintConstant
+    }
 
     // MARK: - IBAction
 
@@ -47,12 +51,6 @@ class SignUpSecondStepViewController: UIViewController, CanShowKeyboard {
         configureTapOutside()
         configureTextFields()
         configurePrimaryButton()
-        configureObservers()
-    }
-
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
-        removeObservers()
     }
 
     // MARK: - Public Methods
