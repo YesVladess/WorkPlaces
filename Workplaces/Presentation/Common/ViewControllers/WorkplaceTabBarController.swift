@@ -19,6 +19,7 @@ final class WorkplaceTabBarController: UITabBarController {
     private func configureTabs() {
 
         let feedViewController = UINavigationController(rootViewController: FeedViewController())
+        feedViewController.setNavigationBarHidden(true, animated: true)
         feedViewController.tabBarItem = UITabBarItem(
             title: "Мой Фид",
             image: #imageLiteral(resourceName: "homeDefault"),
@@ -33,6 +34,7 @@ final class WorkplaceTabBarController: UITabBarController {
         )
 
         let profileViewController = UINavigationController(rootViewController: ProfileCoordinatingViewController())
+        profileViewController.setNavigationBarHidden(true, animated: true)
         profileViewController.tabBarItem = UITabBarItem(
             title: "Профиль",
             image: #imageLiteral(resourceName: "profileDefault"),

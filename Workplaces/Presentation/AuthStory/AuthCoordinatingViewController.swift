@@ -18,6 +18,7 @@ class AuthCoordinatingViewController: UIViewController, CanShowSpinner {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        instantiateNavigationController()
         configureNavigationController()
     }
 
@@ -36,26 +37,38 @@ class AuthCoordinatingViewController: UIViewController, CanShowSpinner {
     }
 
     private func navigateToSignUpScreen() {
-        let signUpViewController = SignUpCoordinatingViewController()
+        let signUpViewController = SignUpViewController()
         signUpViewController.navigationDelegate = self
         authNavigationController?.pushViewController(signUpViewController, animated: true)
     }
 
     private func navigateToFeedScreen() {
         let tabBarController = WorkplaceTabBarController()
-        authNavigationController?.isNavigationBarHidden = true
         authNavigationController?.pushViewController(tabBarController, animated: true)
     }
 
     // MARK: - Private Methods
 
-    private func configureNavigationController() {
+    private func instantiateNavigationController() {
         let loginViewController = LoginViewController()
         loginViewController.navigationDelegate = self
         let authNavigationController = UINavigationController(rootViewController: loginViewController)
-        authNavigationController.isNavigationBarHidden = true
-        add(authNavigationController)
+        authNavigationController.delegate = self
+        add(child: authNavigationController)
         self.authNavigationController = authNavigationController
+    }
+
+    private func configureNavigationController() {
+        guard let authNavigationController = authNavigationController else { return }
+        authNavigationController.navigationBar.barStyle = .default
+        authNavigationController.navigationBar.barTintColor = .white
+        authNavigationController.navigationBar.tintColor = .middleGrey
+        authNavigationController.navigationBar.isTranslucent = false
+        authNavigationController.navigationBar.titleTextAttributes =
+            [
+                NSAttributedString.Key.foregroundColor: UIColor.black,
+                NSAttributedString.Key.font: UIFont(name: "IBMPlexSans", size: 16)!
+            ]
     }
 
 }
@@ -64,17 +77,14 @@ extension AuthCoordinatingViewController: LoginViewControllerNavigationDelegate 
 
     func navigateToSignIn() {
         navigateToSignInScreen()
-        authNavigationController?.isNavigationBarHidden = false
     }
 
     func navigateToSignUp() {
         navigateToSignUpScreen()
-        authNavigationController?.isNavigationBarHidden = false
     }
 
     func navigateToWelcome() {
         navigateToWelcomeScreen()
-        authNavigationController?.isNavigationBarHidden = true
     }
 
 }
@@ -83,7 +93,6 @@ extension AuthCoordinatingViewController: WelcomeViewControllerNavigationDelegat
 
     func navigateToFeed() {
         navigateToFeedScreen()
-        authNavigationController?.isNavigationBarHidden = true
     }
 
 }
@@ -102,7 +111,7 @@ extension AuthCoordinatingViewController: SignInViewControllerNavigationDelegate
 
 }
 
-extension AuthCoordinatingViewController: SignUpCoordinatingViewControllerNavigationDelegate {
+extension AuthCoordinatingViewController: SignUpNavigationDelegate {
 
     func alreadySignedUp() {
         navigateToSignInScreen()
@@ -112,6 +121,24 @@ extension AuthCoordinatingViewController: SignUpCoordinatingViewControllerNaviga
 
     func signedUp() {
         navigateToWelcome()
+    }
+
+}
+
+extension AuthCoordinatingViewController: UINavigationControllerDelegate {
+
+    func navigationController(
+        _ navigationController: UINavigationController,
+        willShow viewController: UIViewController,
+        animated: Bool
+    ) {
+        if viewController is WelcomeViewController ||
+            viewController is LoginViewController ||
+            viewController is WorkplaceTabBarController {
+            authNavigationController?.setNavigationBarHidden(true, animated: true)
+        } else {
+            authNavigationController?.setNavigationBarHidden(false, animated: true)
+        }
     }
 
 }

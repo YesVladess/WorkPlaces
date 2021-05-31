@@ -7,12 +7,12 @@
 
 import UIKit
 
-protocol SignInViewControllerNavigationDelegate: class {
+protocol SignInViewControllerNavigationDelegate: AnyObject {
     func signedIn()
     func goToSignUp()
 }
 
-final class SignInViewController: UIViewController {
+final class SignInViewController: UIViewController, CanShowKeyboard {
 
     // MARK: - Public Properties
 
@@ -21,6 +21,7 @@ final class SignInViewController: UIViewController {
     // MARK: - Private Properties
 
     private let authService: AutorizationServiceProtocol
+
     // MARK: - Initializers
 
     init(
@@ -39,33 +40,77 @@ final class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         congifure()
-        primaryButton.delegate = self
+        configureTapOutside()
+        configureObservers()
+        configurePrimaryButton()
+        configureTextFields()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        removeObservers()
     }
 
     // MARK: - IBOutlet
 
-    @IBOutlet private weak var emailLoginTextField: UITextField!
+    @IBOutlet private weak var emailTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var primaryButton: PrimaryButton!
+    @IBOutlet internal weak var buttonsBottomConstraint: NSLayoutConstraint!
 
     // MARK: - IBAction
     @IBAction private func tapNavigateToSignUpButton(_ sender: Any) {
         navigationDelegate?.goToSignUp()
     }
 
+    @objc func tapOutside(gesture: UITapGestureRecognizer) {
+        emailTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+    }
+
+    @IBAction private func textfieldDidChange(_ sender: UITextField) {
+        validatePrimaryButton()
+    }
+
     // MARK: - Private Methods
 
     private func congifure() {
-        primaryButton.setTitle("Sign in By Mail Or Login".localized)
         title = "Вход по логину"
     }
 
-}
+    private func configureTextFields() {
+        emailTextField.tintColor = .black
+        emailTextField.tintColorDidChange()
+        passwordTextField.tintColor = .black
+        passwordTextField.tintColorDidChange()
+    }
 
-extension SignInViewController: PrimaryButtonViewDelegate {
-    
-    func primaryButtonTapped(_ button: PrimaryButton) {
-        guard let email = emailLoginTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
+    private func configureTapOutside() {
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapOutside(gesture:)))
+        view.addGestureRecognizer(tapGesture)
+    }
+
+    private func configurePrimaryButton() {
+        primaryButton.setTitle("Sign in".localized)
+        primaryButton.onTap = { [weak self] in
+            self?.signIn()
+        }
+        primaryButton.isEnabled = false
+    }
+
+    private func validatePrimaryButton() {
+        if let emailText = emailTextField.text,
+           !emailText.isEmpty,
+           let passText = passwordTextField.text,
+           !passText.isEmpty {
+            primaryButton.isEnabled = true
+        } else {
+            primaryButton.isEnabled = false
+        }
+    }
+
+    private func signIn() {
+        guard let email = emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
               let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         else { return }
         authService.signIn(

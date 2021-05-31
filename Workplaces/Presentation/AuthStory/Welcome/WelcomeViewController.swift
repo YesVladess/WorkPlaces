@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol WelcomeViewControllerNavigationDelegate: class {
+protocol WelcomeViewControllerNavigationDelegate: AnyObject {
     func navigateToFeed()
 }
 
@@ -15,25 +15,18 @@ final class WelcomeViewController: UIViewController {
 
     weak var navigationDelegate: WelcomeViewControllerNavigationDelegate?
 
-    @IBOutlet private weak var navigateToFeedButton: PrimaryButton!
+    @IBOutlet private weak var primaryButton: PrimaryButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
-        navigateToFeedButton.delegate = self
+        primaryButton.onTap = { [weak self] in
+            self?.navigationDelegate?.navigateToFeed()
+        }
     }
 
     private func configure() {
-        title = "Добро пожаловать"
-        navigateToFeedButton.setTitle("Перейти к ленте")
-    }
-
-}
-
-extension WelcomeViewController: PrimaryButtonViewDelegate {
-
-    func primaryButtonTapped(_ button: PrimaryButton) {
-        navigationDelegate?.navigateToFeed()
+        primaryButton.setTitle("Перейти к ленте")
     }
 
 }
