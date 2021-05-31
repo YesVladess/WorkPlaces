@@ -8,8 +8,8 @@
 import UIKit
 
 protocol SignUpNavigationDelegate: AnyObject {
-    func alreadySignedUp()
-    func signedUp()
+    func needSignInButtonTapped()
+    func signUpPassed()
 }
 
 final class SignUpViewController: UIViewController {
@@ -130,7 +130,7 @@ final class SignUpViewController: UIViewController {
                             surname: surname,
                             birthDate: date
                         )
-                        self?.navigationDelegate?.signedUp()
+                        self?.navigationDelegate?.signUpPassed()
                     case.failure(let error):
                         self?.showError(error.localizedDescription)
                         // self?.showErrorAnimation()
@@ -147,8 +147,8 @@ extension SignUpViewController: SignUpFirstStepNavigationDelegate {
         validateStep()
     }
 
-    func alreadySignedUpTapped() {
-        navigationDelegate?.alreadySignedUp()
+    func secondaryButtonTapped() {
+        navigationDelegate?.needSignInButtonTapped()
     }
 
 }

@@ -8,9 +8,9 @@
 import VK_ios_sdk
 
 protocol LoginViewControllerNavigationDelegate: AnyObject {
-    func navigateToSignIn()
-    func navigateToSignUp()
-    func navigateToWelcome()
+    func navigateToSignInButtonTapped()
+    func navigateToSignUpButtonTapped()
+    func authPassed()
 }
 
 final class LoginViewController: BaseViewController, CanShowSpinner {
@@ -59,7 +59,7 @@ final class LoginViewController: BaseViewController, CanShowSpinner {
         authService.signInWithFacebook(completion: { [weak self] result in
             switch result {
             case .success:
-                self?.navigationDelegate?.navigateToWelcome()
+                self?.navigationDelegate?.authPassed()
             case.failure(let error):
                 self?.showError(error.localizedDescription)
             }
@@ -70,7 +70,7 @@ final class LoginViewController: BaseViewController, CanShowSpinner {
         authService.signInWithVK(vkUIDelegate: self, completion: { [weak self] result in
             switch result {
             case .success:
-                self?.navigationDelegate?.navigateToWelcome()
+                self?.navigationDelegate?.authPassed()
             case.failure(let error):
                 self?.showError(error.localizedDescription)
             }
@@ -81,7 +81,7 @@ final class LoginViewController: BaseViewController, CanShowSpinner {
         authService.signInWithGoogle(presentingViewController: self, completion: { [weak self] result in
             switch result {
             case .success:
-                self?.navigationDelegate?.navigateToWelcome()
+                self?.navigationDelegate?.authPassed()
             case.failure(let error):
                 self?.showError(error.localizedDescription)
             }
@@ -89,7 +89,7 @@ final class LoginViewController: BaseViewController, CanShowSpinner {
     }
 
     @IBAction private func singUpButtonTapped(_ sender: Any) {
-        navigationDelegate?.navigateToSignUp()
+        navigationDelegate?.navigateToSignUpButtonTapped()
     }
 
     // MARK: - Private Methods
@@ -105,7 +105,7 @@ final class LoginViewController: BaseViewController, CanShowSpinner {
         primaryButton.setTitle("Sign in By Mail Or Login".localized)
         primaryButton.isEnabled = true
         primaryButton.onTap = { [weak self] in
-            self?.navigationDelegate?.navigateToSignIn()
+            self?.navigationDelegate?.navigateToSignInButtonTapped()
         }
     }
 

@@ -12,6 +12,9 @@ class AuthCoordinatingViewController: UIViewController, CanShowSpinner {
     // MARK: - Private Properties
 
     private var authNavigationController: UINavigationController?
+
+    // MARK: - Public  Properties
+
     var spinner: SpinnerView = SpinnerView(style: .large)
 
     // MARK: - UIViewController
@@ -75,35 +78,27 @@ class AuthCoordinatingViewController: UIViewController, CanShowSpinner {
 
 extension AuthCoordinatingViewController: LoginViewControllerNavigationDelegate {
 
-    func navigateToSignIn() {
+    func navigateToSignInButtonTapped() {
         navigateToSignInScreen()
     }
 
-    func navigateToSignUp() {
+    func navigateToSignUpButtonTapped() {
         navigateToSignUpScreen()
     }
 
-    func navigateToWelcome() {
+    func authPassed() {
         navigateToWelcomeScreen()
-    }
-
-}
-
-extension AuthCoordinatingViewController: WelcomeViewControllerNavigationDelegate {
-
-    func navigateToFeed() {
-        navigateToFeedScreen()
     }
 
 }
 
 extension AuthCoordinatingViewController: SignInViewControllerNavigationDelegate {
 
-    func signedIn() {
-        navigateToWelcome()
+    func signInPassed() {
+        authPassed()
     }
 
-    func goToSignUp() {
+    func needSignUpButtonTapped() {
         navigateToSignUpScreen()
         guard let controllersCount = authNavigationController?.viewControllers.count else { return }
         authNavigationController?.viewControllers.remove(at: controllersCount - 2)
@@ -113,14 +108,22 @@ extension AuthCoordinatingViewController: SignInViewControllerNavigationDelegate
 
 extension AuthCoordinatingViewController: SignUpNavigationDelegate {
 
-    func alreadySignedUp() {
+    func needSignInButtonTapped() {
         navigateToSignInScreen()
         guard let controllersCount = authNavigationController?.viewControllers.count else { return }
         authNavigationController?.viewControllers.remove(at: controllersCount - 2)
     }
 
-    func signedUp() {
-        navigateToWelcome()
+    func signUpPassed() {
+        authPassed()
+    }
+
+}
+
+extension AuthCoordinatingViewController: WelcomeViewControllerNavigationDelegate {
+
+    func navigateToFeedButtonTapped() {
+        navigateToFeedScreen()
     }
 
 }

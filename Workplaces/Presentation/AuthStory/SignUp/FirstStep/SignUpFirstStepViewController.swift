@@ -8,7 +8,7 @@
 import UIKit
 
 protocol SignUpFirstStepNavigationDelegate: AnyObject {
-    func alreadySignedUpTapped()
+    func secondaryButtonTapped()
     func firstStepPrimaryButtonTapped()
 }
 
@@ -32,7 +32,7 @@ class SignUpFirstStepViewController: BaseViewController {
     // MARK: - IBAction
 
     @IBAction private func tapAlreadySignedUpButton(_ sender: Any) {
-         navigationDelegate?.alreadySignedUpTapped()
+         navigationDelegate?.secondaryButtonTapped()
     }
 
     @IBAction private func textFieldDidChange(_ sender: UITextField) {

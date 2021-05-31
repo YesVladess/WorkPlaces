@@ -8,8 +8,8 @@
 import UIKit
 
 protocol SignInViewControllerNavigationDelegate: AnyObject {
-    func signedIn()
-    func goToSignUp()
+    func signInPassed()
+    func needSignUpButtonTapped()
 }
 
 final class SignInViewController: BaseViewController {
@@ -57,8 +57,8 @@ final class SignInViewController: BaseViewController {
     }
 
     // MARK: - IBAction
-    @IBAction private func tapNavigateToSignUpButton(_ sender: Any) {
-        navigationDelegate?.goToSignUp()
+    @IBAction private func secondaryButtonTapped(_ sender: Any) {
+        navigationDelegate?.needSignUpButtonTapped()
     }
 
     @objc func tapOutside(gesture: UITapGestureRecognizer) {
@@ -117,7 +117,7 @@ final class SignInViewController: BaseViewController {
             completion: { [weak self] result in
                 switch result {
                 case .success:
-                    self?.navigationDelegate?.signedIn()
+                    self?.navigationDelegate?.signInPassed()
                 case.failure(let error):
                     self?.showError(error.localizedDescription)
                 }
