@@ -37,7 +37,7 @@ class AuthCoordinatingViewController: UIViewController, CanShowSpinner {
     }
 
     private func navigateToSignUpScreen() {
-        let signUpViewController = SignUpCoordinatingViewController()
+        let signUpViewController = SignUpViewController()
         signUpViewController.navigationDelegate = self
         authNavigationController?.pushViewController(signUpViewController, animated: true)
     }
@@ -54,7 +54,7 @@ class AuthCoordinatingViewController: UIViewController, CanShowSpinner {
         loginViewController.navigationDelegate = self
         let authNavigationController = UINavigationController(rootViewController: loginViewController)
         authNavigationController.delegate = self
-        add(authNavigationController)
+        add(child: authNavigationController)
         self.authNavigationController = authNavigationController
     }
 
@@ -111,7 +111,7 @@ extension AuthCoordinatingViewController: SignInViewControllerNavigationDelegate
 
 }
 
-extension AuthCoordinatingViewController: SignUpCoordinatingViewControllerNavigationDelegate {
+extension AuthCoordinatingViewController: SignUpNavigationDelegate {
 
     func alreadySignedUp() {
         navigateToSignInScreen()

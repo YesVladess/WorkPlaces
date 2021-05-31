@@ -12,10 +12,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SignInViewController" customModule="Workplaces" customModuleProvider="target">
             <connections>
-                <outlet property="emailLoginTextField" destination="E69-fM-Ce3" id="fU3-gL-ROR"/>
+                <outlet property="buttonsBottomConstraint" destination="8Sj-wt-6TZ" id="8jn-aZ-seg"/>
+                <outlet property="emailTextField" destination="E69-fM-Ce3" id="fU3-gL-ROR"/>
                 <outlet property="passwordTextField" destination="Ucb-nw-eLj" id="oqi-d2-IJm"/>
                 <outlet property="primaryButton" destination="bqJ-hO-g7i" id="V6h-CX-rYu"/>
-                <outlet property="signInButtonBottomConstraint" destination="8Sj-wt-6TZ" id="8jn-aZ-seg"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -69,8 +69,8 @@
                         </stackView>
                     </subviews>
                 </stackView>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="bXB-Jy-IDb">
-                    <rect key="frame" x="20" y="759" width="350" height="95"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bXB-Jy-IDb">
+                    <rect key="frame" x="20" y="749" width="350" height="105"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="igc-tK-gVQ">
                             <rect key="frame" x="0.0" y="0.0" width="350" height="40"/>
@@ -85,13 +85,14 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqJ-hO-g7i" customClass="PrimaryButton" customModule="Workplaces" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="40" width="350" height="55"/>
+                            <rect key="frame" x="0.0" y="50" width="350" height="55"/>
+                            <color key="backgroundColor" systemColor="systemIndigoColor"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="350" id="Tqk-xz-8Oi"/>
                                 <constraint firstAttribute="height" constant="55" id="l87-BO-Tz4"/>
                             </constraints>
                             <state key="normal" title="Login Button">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                         </button>
                     </subviews>
@@ -120,6 +121,9 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

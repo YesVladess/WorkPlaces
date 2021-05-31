@@ -57,7 +57,7 @@ final class FeedViewController: UIViewController {
                 action: { [weak self] in self?.navigateToSearchScreen() }
             )
         )
-        add(zeroScreen)
+        add(child: zeroScreen)
     }
 
     private func showFeedError() {
@@ -68,7 +68,7 @@ final class FeedViewController: UIViewController {
                 action: { [weak self] in self?.getFeed() }
             )
         )
-        add(zeroScreen)
+        add(child: zeroScreen)
     }
 
     // MARK: - Navigate

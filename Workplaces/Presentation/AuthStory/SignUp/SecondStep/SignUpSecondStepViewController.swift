@@ -7,22 +7,37 @@
 
 import UIKit
 
-class SignUpSecondStepViewController: UIViewController {
+protocol SignUpSecondStepNavigationDelegate: AnyObject {
+    func secondStepPrimaryButtonTapped()
+}
+
+class SignUpSecondStepViewController: UIViewController, CanShowKeyboard {
     
     // MARK: - Private Properties
 
     private let datePicker = UIDatePicker()
 
+    // MARK: - Public Properties
+
+    weak var navigationDelegate: SignUpSecondStepNavigationDelegate?
+
     // MARK: - IBOutlet
 
+    @IBOutlet internal var buttonsBottomConstraint: NSLayoutConstraint!
+    @IBOutlet private weak var primaryButton: PrimaryButton!
+    @IBOutlet private weak var nicknameTextField: UITextField!
     @IBOutlet private weak var nameTextField: UITextField!
     @IBOutlet private weak var surnameTextField: UITextField!
-    @IBOutlet private weak var dataBirthTextField: UITextField!
+    @IBOutlet private weak var dateBirthTextField: UITextField!
 
     // MARK: - IBAction
 
     @IBAction private func tapBirthDateField(_ sender: Any) {
         showDatePicker()
+    }
+
+    @IBAction private func textFieldDidChange(_ sender: UITextField) {
+        validatePrimaryButton()
     }
 
     // MARK: - UIViewController
@@ -31,16 +46,41 @@ class SignUpSecondStepViewController: UIViewController {
         super.viewDidLoad()
         configureTapOutside()
         configureTextFields()
+        configurePrimaryButton()
+        configureObservers()
     }
 
-    // MARK: - Objc
-
-    @objc func tapOutside(gesture: UITapGestureRecognizer) {
-        nameTextField.resignFirstResponder()
-        surnameTextField.resignFirstResponder()
-        dataBirthTextField.resignFirstResponder()
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        removeObservers()
     }
 
+    // MARK: - Public Methods
+
+    /**
+     Method for getting data from fields at 2nd step
+
+     - returns: return tuple with nickname, name, surname and date
+
+     */
+    func getData() -> (nickname: String, name: String, surname: String, date: String)? {
+        guard let nickname = nicknameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
+              let name = nameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
+              let surname = surnameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
+              let date = dateBirthTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        else { return nil }
+        return (nickname, name, surname, date)
+    }
+
+    /**
+     Method shows error shake animation on child text fields.
+     Fields are moving from left to right and back several times
+     */
+    func showErrorAnimation() {
+        errorShakeAnimationFor(view: nameTextField)
+        errorShakeAnimationFor(view: surnameTextField)
+        errorShakeAnimationFor(view: dateBirthTextField)
+    }
     // MARK: - Configure
 
     private func configureTapOutside() {
@@ -49,15 +89,40 @@ class SignUpSecondStepViewController: UIViewController {
     }
 
     private func configureTextFields() {
+        nicknameTextField.tintColor = .black
+        nicknameTextField.tintColorDidChange()
         nameTextField.tintColor = .black
         nameTextField.tintColorDidChange()
         surnameTextField.tintColor = .black
         surnameTextField.tintColorDidChange()
-        dataBirthTextField.tintColor = .black
-        dataBirthTextField.tintColorDidChange()
+        dateBirthTextField.tintColor = .black
+        dateBirthTextField.tintColorDidChange()
     }
 
-    // MARK: - Private Methods
+    private func configurePrimaryButton() {
+        primaryButton.setTitle("Sign Up".localized)
+        primaryButton.isEnabled = false
+        primaryButton.onTap = { [weak self] in
+            self?.navigationDelegate?.secondStepPrimaryButtonTapped()
+        }
+    }
+
+    private func validatePrimaryButton() {
+        if let nicknameText = nicknameTextField.text,
+           let nameText = nameTextField.text,
+           let surnameText = surnameTextField.text,
+           let dateBirthText = dateBirthTextField.text,
+           !nicknameText.isEmpty,
+           !nameText.isEmpty,
+           !surnameText.isEmpty,
+           !dateBirthText.isEmpty {
+            primaryButton.isEnabled = true
+        } else {
+            primaryButton.isEnabled = false
+        }
+    }
+
+    // MARK: - DatePicker
 
     private func showDatePicker() {
         let toolbar = UIToolbar()
@@ -69,16 +134,18 @@ class SignUpSecondStepViewController: UIViewController {
         }
         let done = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(dateChosen))
         toolbar.setItems([done], animated: false)
-        dataBirthTextField.inputAccessoryView = toolbar
-        dataBirthTextField.inputView = datePicker
+        dateBirthTextField.inputAccessoryView = toolbar
+        dateBirthTextField.inputView = datePicker
     }
 
     @objc private func dateChosen() {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
-        dataBirthTextField.text = formatter.string(from: datePicker.date)
+        dateBirthTextField.text = formatter.string(from: datePicker.date)
         self.view.endEditing(true)
     }
+
+    // MARK: - ErrorAnimation
 
     private func errorShakeAnimationFor(view: UIView) {
         let rotation = CAKeyframeAnimation(keyPath: "position.x")
@@ -89,30 +156,13 @@ class SignUpSecondStepViewController: UIViewController {
         view.layer.add(rotation, forKey: "moveIt")
     }
 
-    // MARK: - Public Methods
+    // MARK: - Objc
 
-    /**
-     Method for getting data from fields at 2nd step
-
-     - returns: return tuple with name, surname and date
-
-     */
-    func getData() -> (name: String, surname: String, date: String)? {
-        guard let name = nameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
-                  let surname = surnameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
-                  let date = dataBirthTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
-        else { return nil }
-        return (name, surname, date)
-    }
-
-    /**
-     Method shows error shake animation on child text fields.
-     Fields are moving from left to right and back several times
-     */
-    func showErrorAnimation() {
-        errorShakeAnimationFor(view: nameTextField)
-        errorShakeAnimationFor(view: surnameTextField)
-        errorShakeAnimationFor(view: dataBirthTextField)
+    @objc func tapOutside(gesture: UITapGestureRecognizer) {
+        nicknameTextField.resignFirstResponder()
+        nameTextField.resignFirstResponder()
+        surnameTextField.resignFirstResponder()
+        dateBirthTextField.resignFirstResponder()
     }
 
 }

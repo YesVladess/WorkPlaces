@@ -7,21 +7,18 @@
 
 import UIKit
 
-protocol SignUpCoordinatingViewControllerNavigationDelegate: AnyObject {
+protocol SignUpNavigationDelegate: AnyObject {
     func alreadySignedUp()
     func signedUp()
 }
 
-final class SignUpCoordinatingViewController: UIViewController {
+final class SignUpViewController: UIViewController {
 
     // MARK: - Public Properties
 
-    weak var navigationDelegate: SignUpCoordinatingViewControllerNavigationDelegate?
+    weak var navigationDelegate: SignUpNavigationDelegate?
 
     // MARK: - Private Properties
-
-    private let signInBottomConstrainFoldedValue: CGFloat = 0.0
-    private let signInBottomConstraintExpandedValue: CGFloat = 0.0
 
     private let authService: AutorizationServiceProtocol
     private let profileService: ProfileServiceProtocol
@@ -29,19 +26,6 @@ final class SignUpCoordinatingViewController: UIViewController {
     private var isFirstStep: Bool = true
     private var email: String?
     private var password: String?
-    private var nickname: String?
-
-    // MARK: - IBOutlet
-
-    @IBOutlet private weak var stepContainerView: UIView!
-    @IBOutlet private weak var primaryButton: PrimaryButton!
-    @IBOutlet private var signInButtonBottomConstraint: NSLayoutConstraint!
-
-    // MARK: - IBAction
-
-    @IBAction private func tapAlreadySignedUpButton(_ sender: Any) {
-        navigationDelegate?.alreadySignedUp()
-    }
     
     // MARK: - Initializers
 
@@ -62,8 +46,6 @@ final class SignUpCoordinatingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureObservers()
-        configurePrimaryButton()
         configureFirstStep()
     }
 
@@ -72,71 +54,20 @@ final class SignUpCoordinatingViewController: UIViewController {
     private func configureFirstStep() {
         isFirstStep = true
         title = "Регистрация 1 шаг"
-        primaryButton.setTitle("Далее")
         let firstStepViewController = SignUpFirstStepViewController()
-        addChild(firstStepViewController)
-        firstStepViewController.view.frame = stepContainerView.bounds
-        stepContainerView.addSubview(firstStepViewController.view)
-        view.sendSubviewToBack(stepContainerView)
-        firstStepViewController.didMove(toParent: self)
+        firstStepViewController.navigationDelegate = self
+        addFullScreen(child: firstStepViewController)
     }
 
     private func configureSecondStep() {
         isFirstStep = false
         title = "Регистрация 2 шаг"
-        primaryButton.setTitle("Зарегистрироваться")
         let secondStepViewController = SignUpSecondStepViewController()
-        addChild(secondStepViewController)
-        secondStepViewController.view.frame = stepContainerView.bounds
-        stepContainerView.addSubview(secondStepViewController.view)
-        view.sendSubviewToBack(stepContainerView)
-        secondStepViewController.didMove(toParent: self)
-    }
-
-    @objc func keyboardNotification(_ notification: Notification) {
-        guard let userInfo = (notification as NSNotification).userInfo,
-              let endFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
-        else { return }
-        if endFrame.origin.y >= UIScreen.main.bounds.size.height {
-            signInButtonBottomConstraint.constant = signInBottomConstraintExpandedValue
-        } else {
-            let height = endFrame.height + signInBottomConstrainFoldedValue
-            signInButtonBottomConstraint.constant = height
-        }
-        UIView.animate(withDuration: 0.33,
-                       delay: 0,
-                       options: .curveEaseIn,
-                       animations: { self.view.layoutIfNeeded() })
+        secondStepViewController.navigationDelegate = self
+        transition(to: secondStepViewController, fullScreen: true)
     }
 
     // MARK: - Private Methods
-
-    private func configurePrimaryButton() {
-        primaryButton.setTitle("Sign in".localized)
-        primaryButton.onTap = { [weak self] in
-            self?.primaryButtonTapped()
-        }
-        primaryButton.isEnabled = true
-    }
-
-    private func validatePrimaryButton() {
-    }
-
-    private func configureObservers() {
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(keyboardNotification(_:)),
-            name: UIResponder.keyboardWillChangeFrameNotification,
-            object: nil
-        )
-    }
-
-    private func removeObservers() {
-        NotificationCenter.default.removeObserver(
-            self,
-            name: UIResponder.keyboardWillChangeFrameNotification,
-            object: nil)
-    }
 
     private func updateProfileInfo(
         nickname: String?,
@@ -170,24 +101,23 @@ final class SignUpCoordinatingViewController: UIViewController {
         secondStepViewController.showErrorAnimation()
     }
 
-    private func primaryButtonTapped() {
+    private func validateStep() {
         if isFirstStep {
             guard let firstStepViewController = get(child: SignUpFirstStepViewController()) else { return }
             guard let resultTuple = firstStepViewController.getData() else { return }
             email = resultTuple.email
             password = resultTuple.password
-            nickname = resultTuple.nickname
             configureSecondStep()
         } else {
             guard let secondStepViewController = get(child: SignUpSecondStepViewController()) else { return }
             guard let resultTuple = secondStepViewController.getData() else { return }
+            let nickname = resultTuple.nickname
             let name = resultTuple.name
             let surname = resultTuple.surname
             let date = resultTuple.date
             // TODO: Тут сделать валидацию:
             guard let email = email,
-                  let password = password,
-                  let nickname = nickname else { return }
+                  let password = password else { return }
             authService.signUp(
                 email: email,
                 password: password,
@@ -201,12 +131,32 @@ final class SignUpCoordinatingViewController: UIViewController {
                             birthDate: date
                         )
                         self?.navigationDelegate?.signedUp()
-                    case.failure:
-                        // self?.showError(error.localizedDescription)
-                        self?.showErrorAnimation()
+                    case.failure(let error):
+                        self?.showError(error.localizedDescription)
+                        //self?.showErrorAnimation()
                     }
                 })
         }
+    }
+    
+}
+
+extension SignUpViewController: SignUpFirstStepNavigationDelegate {
+    
+    func firstStepPrimaryButtonTapped() {
+        validateStep()
+    }
+
+    func alreadySignedUpTapped() {
+        navigationDelegate?.alreadySignedUp()
+    }
+
+}
+
+extension SignUpViewController: SignUpSecondStepNavigationDelegate {
+
+    func secondStepPrimaryButtonTapped() {
+        validateStep()
     }
 
 }

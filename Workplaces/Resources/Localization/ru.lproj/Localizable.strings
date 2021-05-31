@@ -16,6 +16,8 @@
 "Sign in" = "Войти";
 "Go to feed" = "Перейти к ленте";
 "Got that" = "Понял";
+"Next" = "Далее";
+"Sign Up" = "Зарегистрироваться";
 
 // Errors
 "Check username and password" = "Проверьте логин и пароль";

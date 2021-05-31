@@ -12,7 +12,7 @@ protocol SignInViewControllerNavigationDelegate: AnyObject {
     func goToSignUp()
 }
 
-final class SignInViewController: UIViewController {
+final class SignInViewController: UIViewController, CanShowKeyboard {
 
     // MARK: - Public Properties
 
@@ -21,8 +21,6 @@ final class SignInViewController: UIViewController {
     // MARK: - Private Properties
 
     private let authService: AutorizationServiceProtocol
-    private let signInBottomConstrainFoldedValue: CGFloat = 0.0
-    private let signInBottomConstraintExpandedValue: CGFloat = 0.0
 
     // MARK: - Initializers
 
@@ -55,10 +53,10 @@ final class SignInViewController: UIViewController {
 
     // MARK: - IBOutlet
 
-    @IBOutlet private weak var emailLoginTextField: UITextField!
+    @IBOutlet private weak var emailTextField: UITextField!
     @IBOutlet private weak var passwordTextField: UITextField!
     @IBOutlet private weak var primaryButton: PrimaryButton!
-    @IBOutlet private weak var signInButtonBottomConstraint: NSLayoutConstraint!
+    @IBOutlet internal weak var buttonsBottomConstraint: NSLayoutConstraint!
 
     // MARK: - IBAction
     @IBAction private func tapNavigateToSignUpButton(_ sender: Any) {
@@ -66,34 +64,12 @@ final class SignInViewController: UIViewController {
     }
 
     @objc func tapOutside(gesture: UITapGestureRecognizer) {
-        emailLoginTextField.resignFirstResponder()
+        emailTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
     }
 
     @IBAction private func textfieldDidChange(_ sender: UITextField) {
         validatePrimaryButton()
-    }
-
-    @objc func keyboardNotification(_ notification: Notification) {
-        guard let userInfo = (notification as NSNotification).userInfo,
-              let endFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
-        else { return }
-        if endFrame.origin.y >= UIScreen.main.bounds.size.height {
-            signInButtonBottomConstraint.constant = signInBottomConstraintExpandedValue
-        } else {
-            let height = endFrame.height + signInBottomConstrainFoldedValue
-            signInButtonBottomConstraint.constant = height
-        }
-        if let duration = userInfo[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double,
-           let animationCurve = userInfo[UIResponder.keyboardAnimationCurveUserInfoKey] as? UInt {
-            let customOption = UIView.AnimationOptions(rawValue: animationCurve)
-            UIView.animate(
-                withDuration: duration,
-                delay: 0,
-                options: customOption,
-                animations: { self.view.layoutIfNeeded() }
-            )
-        }
     }
 
     // MARK: - Private Methods
@@ -103,8 +79,8 @@ final class SignInViewController: UIViewController {
     }
 
     private func configureTextFields() {
-        emailLoginTextField.tintColor = .black
-        emailLoginTextField.tintColorDidChange()
+        emailTextField.tintColor = .black
+        emailTextField.tintColorDidChange()
         passwordTextField.tintColor = .black
         passwordTextField.tintColorDidChange()
     }
@@ -123,7 +99,7 @@ final class SignInViewController: UIViewController {
     }
 
     private func validatePrimaryButton() {
-        if let emailText = emailLoginTextField.text,
+        if let emailText = emailTextField.text,
            !emailText.isEmpty,
            let passText = passwordTextField.text,
            !passText.isEmpty {
@@ -133,24 +109,8 @@ final class SignInViewController: UIViewController {
         }
     }
 
-    private func configureObservers() {
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(keyboardNotification(_:)),
-            name: UIResponder.keyboardWillChangeFrameNotification,
-            object: nil
-        )
-    }
-
-    private func removeObservers() {
-        NotificationCenter.default.removeObserver(
-            self,
-            name: UIResponder.keyboardWillChangeFrameNotification,
-            object: nil)
-    }
-
     private func signIn() {
-        guard let email = emailLoginTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
+        guard let email = emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
               let password = passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         else { return }
         authService.signIn(
