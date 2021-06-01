@@ -38,7 +38,10 @@ final public class ClientRequestInterceptor: Apexy.BaseRequestInterceptor {
         dueTo error: Error,
         completion: @escaping (RetryResult) -> Void
     ) {
-        guard request.retryCount < 5 else {
+        let defaultRetryTime = 1.0
+        let maxRetryCount = 5
+
+        guard request.retryCount < maxRetryCount else {
             session.cancelAllRequests()
             return completion(.doNotRetry)
         }
@@ -47,10 +50,10 @@ final public class ClientRequestInterceptor: Apexy.BaseRequestInterceptor {
         if let underlyingError = (error as? AFError)?.underlyingError {
             if let error = underlyingError as? URLError {
                 print(error)
-                return completion(.retryWithDelay(1.0 * Double(request.retryCount)))
+                return completion(.retryWithDelay(defaultRetryTime * Double(request.retryCount)))
             } else if let error = underlyingError as? HTTPError {
                 print(error)
-                return completion(.retryWithDelay(1.0 * Double(request.retryCount)))
+                return completion(.retryWithDelay(defaultRetryTime * Double(request.retryCount)))
             } else if let error = underlyingError as? APIError {
                 print(error)
                 return completion(.doNotRetry)
