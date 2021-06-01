@@ -6,26 +6,12 @@
 //
 
 import Alamofire
+import Apexy
+import WorkplacesAPI
 
-final public class ClientRequestInterceptor: Alamofire.RequestInterceptor {
+final public class ClientRequestInterceptor: Apexy.BaseRequestInterceptor {
 
-    /// Contains Base `URL`.
-    ///
-    /// Must end with a slash character `https://example.com/api/v1/`
-    ///
-    /// - Warning: declared as open variable for debug purposes only.
-    public var baseURL: URL
-
-    /// Creates a `BaseRequestInterceptor` instance with specified Base `URL`.
-    ///
-    /// - Parameter baseURL: Base `URL` for adapter.
-    public init(baseURL: URL) {
-        self.baseURL = baseURL
-    }
-
-    // MARK: - Alamofire.RequestInterceptor
-
-    public func adapt(
+    override public func adapt(
         _ urlRequest: URLRequest,
         for session: Session,
         completion: @escaping (Result<URLRequest, Error>) -> Void
@@ -46,13 +32,27 @@ final public class ClientRequestInterceptor: Alamofire.RequestInterceptor {
         completion(.success(request))
     }
 
-    public func retry(
+    override public func retry(
         _ request: Request,
         for session: Session,
         dueTo error: Error,
         completion: @escaping (RetryResult) -> Void
     ) {
-        return completion(.doNotRetry)
+        let lock = NSLock()
+        lock.lock()
+        if let underlyingError = (error as? AFError)?.underlyingError {
+            if let error = underlyingError as? URLError {
+                print(error)
+                return completion(.retryWithDelay(1.0))
+            } else if let error = underlyingError as? HTTPError {
+                print(error)
+                return completion(.retryWithDelay(1.0))
+            } else if let error = underlyingError as? APIError {
+                print(error)
+                return completion(.doNotRetry)
+            }
+        }
+        lock.unlock()
     }
 
     // MARK: - Private

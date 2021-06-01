@@ -14,12 +14,12 @@ target 'Workplaces' do
 
   target 'WorkplacesTests' do
     inherit! :search_paths
-    pod 'Apexy'
+    pod 'Apexy', :git => 'https://github.com/RedMadRobot/apexy-ios.git', :branch => 'master'
   end
 
   target 'WorkplacesAPI' do
     inherit! :search_paths
-    pod 'Apexy'
+    pod 'Apexy', :git => 'https://github.com/RedMadRobot/apexy-ios.git', :branch => 'master'
 
     target 'WorkplacesAPITests' do
       inherit! :search_paths
