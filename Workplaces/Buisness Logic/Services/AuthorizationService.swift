@@ -88,7 +88,7 @@ final class AutorizationService: NSObject, AutorizationServiceProtocol {
     }
 
     func logout() {
-        guard let token = tokenStorage.get() else { return }
+        guard let token = tokenStorage.token?.value else { return }
         let endpoint = LogoutEndpoint(token: ModelMapper.convertTokenToApiModelFrom(model: token))
         _ = apiClient.request(endpoint) { [weak self] result in
             switch result {
@@ -101,7 +101,7 @@ final class AutorizationService: NSObject, AutorizationServiceProtocol {
     }
 
     func refreshToken(completion: @escaping (Result<Void, WorkplaceError>) -> Void) {
-        guard let token = tokenStorage.get() else { return }
+        guard let token = tokenStorage.token?.value else { return }
         let refreshToken = RefreshToken(token: token.refreshToken)
         let endpoint = RefreshEndpoint(token: refreshToken)
         _ = apiClient.request(endpoint) { [weak self] result in

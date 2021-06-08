@@ -23,7 +23,7 @@ final public class ClientRequestInterceptor: Apexy.BaseRequestInterceptor {
 
         var request = urlRequest
         let tokenStorage = TokenStorage()
-        if let token = tokenStorage.get() {
+        if let token = tokenStorage.token?.value {
             request.addValue("Bearer \(token.accessToken)", forHTTPHeaderField: "Authorization")
         }
 
@@ -41,12 +41,7 @@ final public class ClientRequestInterceptor: Apexy.BaseRequestInterceptor {
         let defaultRetryTime = 1.0
         let maxRetryCount = 5
 
-        guard request.retryCount < maxRetryCount else {
-            session.cancelAllRequests()
-            return completion(.doNotRetry)
-        }
-        let lock = NSLock()
-        lock.lock()
+        guard request.retryCount < maxRetryCount else { return completion(.doNotRetry) }
         if let underlyingError = (error as? AFError)?.underlyingError {
             if let error = underlyingError as? URLError {
                 print(error)
@@ -59,7 +54,6 @@ final public class ClientRequestInterceptor: Apexy.BaseRequestInterceptor {
                 return completion(.doNotRetry)
             }
         }
-        lock.unlock()
     }
 
     // MARK: - Private
