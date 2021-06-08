@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct HTTPError: Error {
+public struct HTTPError: Error {
     let statusCode: Int
     let url: URL?
 
@@ -18,7 +18,7 @@ struct HTTPError: Error {
 
 // MARK: - CustomNSError
 extension HTTPError: CustomNSError {
-    static var errorDomain = "Example.HTTPErrorDomain"
+    public static var errorDomain = "Example.HTTPErrorDomain"
 
     public var errorCode: Int { return statusCode }
 
