@@ -37,7 +37,7 @@ PODS:
   - VK-ios-sdk (1.6.2)
 
 DEPENDENCIES:
-  - Apexy
+  - Apexy (from `https://github.com/RedMadRobot/apexy-ios.git`, branch `master`)
   - FBSDKLoginKit
   - GoogleSignIn
   - SwiftLint
@@ -46,7 +46,6 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
-    - Apexy
     - AppAuth
     - FBSDKCoreKit
     - FBSDKLoginKit
@@ -55,6 +54,16 @@ SPEC REPOS:
     - GTMSessionFetcher
     - SwiftLint
     - VK-ios-sdk
+
+EXTERNAL SOURCES:
+  Apexy:
+    :branch: master
+    :git: https://github.com/RedMadRobot/apexy-ios.git
+
+CHECKOUT OPTIONS:
+  Apexy:
+    :commit: 392e61efb4d35a9d4ee93552530185c3c9213ad9
+    :git: https://github.com/RedMadRobot/apexy-ios.git
 
 SPEC CHECKSUMS:
   Alamofire: 9d5c5f602928e512395b30950c5984eca840093c
@@ -68,6 +77,6 @@ SPEC CHECKSUMS:
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
   VK-ios-sdk: 5bcf00a2014a7323f98db9328b603d4f96635caa
 
-PODFILE CHECKSUM: fc9fa30c9d6dab27fec3f835214b3181b8ca1e0e
+PODFILE CHECKSUM: 027f89222af29b464ad4da6b9d29e04e5d65088e
 
 COCOAPODS: 1.9.3
