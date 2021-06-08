@@ -79,6 +79,7 @@
 		5A45120D26387E8000D435CD /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A45120C26387E8000D435CD /* Token.swift */; };
 		5A451233263895BA00D435CD /* TokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A451232263895BA00D435CD /* TokenStorage.swift */; };
 		5A45123F2638AE6400D435CD /* ClientRequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4512372638A9F100D435CD /* ClientRequestInterceptor.swift */; };
+		5A482570266E480A00875EB6 /* Atomic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A48256F266E480A00875EB6 /* Atomic.swift */; };
 		5A6A246A2647FE15002FB8BE /* SetLikeEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6A24692647FE15002FB8BE /* SetLikeEndpointTests.swift */; };
 		5A6A248A26480B16002FB8BE /* TokenStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6A248926480B16002FB8BE /* TokenStorageTests.swift */; };
 		5A6CDAAD262EE68900B92A59 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6CDAAC262EE68900B92A59 /* Images.swift */; };
@@ -244,6 +245,7 @@
 		5A45120C26387E8000D435CD /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		5A451232263895BA00D435CD /* TokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStorage.swift; sourceTree = "<group>"; };
 		5A4512372638A9F100D435CD /* ClientRequestInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientRequestInterceptor.swift; sourceTree = "<group>"; };
+		5A48256F266E480A00875EB6 /* Atomic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Atomic.swift; sourceTree = "<group>"; };
 		5A6A24692647FE15002FB8BE /* SetLikeEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetLikeEndpointTests.swift; sourceTree = "<group>"; };
 		5A6A248926480B16002FB8BE /* TokenStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStorageTests.swift; sourceTree = "<group>"; };
 		5A6CDAAC262EE68900B92A59 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
@@ -710,6 +712,7 @@
 			children = (
 				5A28EBD0262ECC4B00DF4CEB /* ServiceLayer.swift */,
 				5A7906052634E011008863BB /* WorkplaceError.swift */,
+				5A48256F266E480A00875EB6 /* Atomic.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1391,6 +1394,7 @@
 				5A2E5B0D264A95670071FB84 /* FriendCell.swift in Sources */,
 				5A3541F82642810B004636A1 /* SignUpViewController.swift in Sources */,
 				5A28EBD9262ECCF900DF4CEB /* FeedService.swift in Sources */,
+				5A482570266E480A00875EB6 /* Atomic.swift in Sources */,
 				5A2E5B03264A8F620071FB84 /* SearchViewController.swift in Sources */,
 				5A6CDAAD262EE68900B92A59 /* Images.swift in Sources */,
 				5A2E5B2E264B357B0071FB84 /* AuthCoordinatingViewController.swift in Sources */,
