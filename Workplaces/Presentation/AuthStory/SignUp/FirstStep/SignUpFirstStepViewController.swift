@@ -66,7 +66,7 @@ class SignUpFirstStepViewController: BaseViewController {
     // MARK: - Configure
 
     private func configureTapOutside() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapOutside(gesture:)))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapOutside))
         view.addGestureRecognizer(tapGesture)
     }
 
@@ -98,7 +98,7 @@ class SignUpFirstStepViewController: BaseViewController {
 
     // MARK: - Objc
 
-    @objc private func tapOutside(gesture: UITapGestureRecognizer) {
+    @objc private func tapOutside() {
         emailTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
     }

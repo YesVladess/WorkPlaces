@@ -9,7 +9,7 @@ import UIKit
 
 protocol SignUpNavigationDelegate: AnyObject {
     func needSignInButtonTapped()
-    func signUpPassed()
+    func signUpPassed(refreshToken: String)
 }
 
 final class SignUpViewController: BaseViewController {
@@ -73,7 +73,8 @@ final class SignUpViewController: BaseViewController {
         nickname: String?,
         name: String,
         surname: String,
-        birthDate: String
+        birthDate: String,
+        refreshToken: String
     ) {
         let profile = UserProfileWithoutID(
             firstName: name,
@@ -88,7 +89,7 @@ final class SignUpViewController: BaseViewController {
                 switch result {
                 case .success:
                     self?.hideSpinner()
-                    self?.navigationDelegate?.signUpPassed()
+                    self?.navigationDelegate?.signUpPassed(refreshToken: refreshToken)
                 case.failure(let error):
                     self?.hideSpinner()
                     self?.showError(error.localizedDescription)
@@ -126,12 +127,13 @@ final class SignUpViewController: BaseViewController {
                 password: password,
                 completion: { [weak self] result in
                     switch result {
-                    case .success:
+                    case .success(let refreshToken):
                         self?.updateProfileInfo(
                             nickname: nickname,
                             name: name,
                             surname: surname,
-                            birthDate: date
+                            birthDate: date,
+                            refreshToken: refreshToken
                         )
                     case.failure(let error):
                         self?.showError(error.localizedDescription)

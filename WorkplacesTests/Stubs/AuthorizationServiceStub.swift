@@ -11,21 +11,23 @@ import Foundation
 @testable import WorkplacesAPI
 
 class AuthorizationServiceStub: AutorizationServiceProtocol {
+    func signIn(email: String, password: String, completion: @escaping (Result<String, WorkplaceError>) -> Void) {
+            if error != nil {
+                completion(.failure(.unknowned))
+            } else {
+                completion(.success(("")))
+            }
+    }
 
-    var token: Token = Token(refreshToken: "TestRefreshToken", accessToken: "TestAccessToken")
+    func signUp(email: String, password: String, completion: @escaping (Result<String, WorkplaceError>) -> Void) {
+
+    }
+
+    func refreshToken(withToken refreshToken: String, completion: @escaping (Result<Void, WorkplaceError>) -> Void) {
+    }
+
+    var token: WorkplacesAPI.Token = Token(accessToken: "TestAccessToken", refreshToken: "TestRefreshToken")
     var error: WorkplaceError?
-
-    func signIn(email: String, password: String, completion: @escaping (Result<Void, WorkplaceError>) -> Void) {
-        if error != nil {
-            completion(.failure(.unknowned))
-        } else {
-            completion(.success(()))
-        }
-    }
-
-    func signUp(email: String, password: String, completion: @escaping (Result<Void, WorkplaceError>) -> Void) {
-
-    }
 
     func signInWithFacebook(completion: @escaping (Result<Void, WorkplaceError>) -> Void) {
 
@@ -45,12 +47,6 @@ class AuthorizationServiceStub: AutorizationServiceProtocol {
     func logout() {
 
     }
-
-    func refreshToken(completion: @escaping (Result<Void, WorkplaceError>) -> Void) {
-        
-    }
-
-    var isUserAuthorized: Bool = true
 
     weak var vkUIDelegate: VKSdkUIDelegate?
 

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol SignInViewControllerNavigationDelegate: AnyObject {
-    func signInPassed()
+    func signInPassed(refreshToken: String)
     func needSignUpButtonTapped()
 }
 
@@ -61,7 +61,7 @@ final class SignInViewController: BaseViewController {
         navigationDelegate?.needSignUpButtonTapped()
     }
 
-    @objc func tapOutside(gesture: UITapGestureRecognizer) {
+    @objc func tapOutside() {
         emailTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
     }
@@ -79,12 +79,13 @@ final class SignInViewController: BaseViewController {
     private func configureTextFields() {
         emailTextField.tintColor = .black
         emailTextField.tintColorDidChange()
+        passwordTextField.isSecureTextEntry = true
         passwordTextField.tintColor = .black
         passwordTextField.tintColorDidChange()
     }
 
     private func configureTapOutside() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapOutside(gesture:)))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapOutside))
         view.addGestureRecognizer(tapGesture)
     }
 
@@ -117,9 +118,10 @@ final class SignInViewController: BaseViewController {
             password: password,
             completion: { [weak self] result in
                 switch result {
-                case .success:
+                case .success(let refreshToken):
                     self?.hideSpinner()
-                    self?.navigationDelegate?.signInPassed()
+                    self?.tapOutside() 
+                    self?.navigationDelegate?.signInPassed(refreshToken: refreshToken)
                 case.failure(let error):
                     self?.hideSpinner()
                     self?.showError(error.localizedDescription)

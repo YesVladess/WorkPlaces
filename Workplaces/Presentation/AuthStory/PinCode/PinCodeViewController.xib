@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PinCodeViewController" customModule="Workplaces" customModuleProvider="target">
+            <connections>
+                <outlet property="pinCodeTextField" destination="ij9-39-xeh" id="epI-BP-xaI"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="l0K-ty-6qP">
+                    <rect key="frame" x="20" y="150" width="374" height="32"/>
+                    <subviews>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Введите ПИН" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ij9-39-xeh">
+                            <rect key="frame" x="0.0" y="0.0" width="374" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numberPad"/>
+                            <connections>
+                                <action selector="textfieldDidChange:" destination="-1" eventType="editingChanged" id="Y0e-ir-4Hh"/>
+                            </connections>
+                        </textField>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rMW-RV-ynZ" customClass="SeparatorView" customModule="Workplaces" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="31" width="374" height="1"/>
+                            <color key="backgroundColor" name="light_grey_blue"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="dzz-I1-Qfm"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                </stackView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhb-ZV-yTv">
+                    <rect key="frame" x="20" y="774" width="374" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="NGt-62-Z5u"/>
+                    </constraints>
+                    <state key="normal" title="Сброить короткий код">
+                        <color key="titleColor" name="orange"/>
+                    </state>
+                    <connections>
+                        <action selector="secondaryButtonTapped:" destination="-1" eventType="touchUpInside" id="PvG-7V-pBr"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="trailingMargin" secondItem="dhb-ZV-yTv" secondAttribute="trailing" id="Eq6-mE-Q2q"/>
+                <constraint firstAttribute="bottomMargin" secondItem="dhb-ZV-yTv" secondAttribute="bottom" constant="40" id="PpI-R9-2OF"/>
+                <constraint firstItem="l0K-ty-6qP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="Yf0-s7-R4L"/>
+                <constraint firstAttribute="trailingMargin" secondItem="l0K-ty-6qP" secondAttribute="trailing" id="bIJ-LJ-qog"/>
+                <constraint firstItem="dhb-ZV-yTv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="gMU-S9-hIh"/>
+                <constraint firstItem="l0K-ty-6qP" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="150" id="j7d-1l-apn"/>
+            </constraints>
+            <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="16" bottom="8" trailing="16"/>
+            <point key="canvasLocation" x="26" y="98"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="light_grey_blue">
+            <color red="0.96899998188018799" green="0.97299998998641968" blue="0.98400002717971802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="orange">
+            <color red="0.99599999189376831" green="0.2669999897480011" blue="0.027000000700354576" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

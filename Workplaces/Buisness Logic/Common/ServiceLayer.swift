@@ -16,7 +16,10 @@ final class ServiceLayer {
     static let shared = ServiceLayer()
 
     private(set) lazy var apiClient: Client = {
-        let clientRequestInterceptor = ClientRequestInterceptor(baseURL: URL(string: Config.baseUrl)!)
+        let clientRequestInterceptor = ClientRequestInterceptor(
+            baseURL: URL(string: Config.baseUrl)!,
+            accessTokenStorage: accessTokenStorage
+        )
         return AlamofireClient(
             requestInterceptor: clientRequestInterceptor,
             configuration: .ephemeral,
@@ -25,22 +28,29 @@ final class ServiceLayer {
             })
     }()
 
+    private func validateSession(responseError: Error?) {
+        if let error = responseError as? APIError, error.code == .tokenInvalid {
+            authorizationService.logout()
+            // TODO: Выкинуть на экран логина
+        }
+    }
+
+    // MARK: - Storages
+
+    private(set) lazy var accessTokenStorage: AccessTokenStorageProtocol = AccessTokenStorage()
+
+    private(set) lazy var keychainStorage: KeychainStorageProtocol = KeychainStorage()
+
+    // MARK: - Services
+
     private(set) lazy var authorizationService: AutorizationServiceProtocol = AutorizationService(
         apiClient: apiClient,
-        tokenStorage: TokenStorage()
+        accessTokenStorage: accessTokenStorage,
+        keychainStorage: keychainStorage
     )
 
     private(set) lazy var feedService: FeedServiceProtocol = FeedService(apiClient: apiClient)
 
     private(set) lazy var profileService: ProfileServiceProtocol = ProfileService(apiClient: apiClient)
-
-    // MARK: - Private methods
-
-    private func validateSession(responseError: Error?) {
-        if let error = responseError as? APIError, error.code == .tokenInvalid {
-            authorizationService.logout()
-            // Выкинуть на экран логина
-        }
-    }
 
 }

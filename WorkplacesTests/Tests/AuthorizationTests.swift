@@ -11,13 +11,13 @@ import XCTest
 
 class AuthorizationTests: XCTestCase {
 
-    var tokenStorage: TokenStorage!
+    var tokenStorage: AccessTokenStorage!
     var authService: AuthorizationServiceStub!
     let commonTimeout = 5.0
 
     override func setUpWithError() throws {
         try super.setUpWithError()
-        tokenStorage = TokenStorage()
+        tokenStorage = AccessTokenStorage()
         authService = AuthorizationServiceStub()
     }
 
