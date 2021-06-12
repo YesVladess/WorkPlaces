@@ -11,6 +11,13 @@ import WorkplacesAPI
 
 final public class ClientRequestInterceptor: Apexy.BaseRequestInterceptor {
 
+    convenience init(baseURL: URL, accessTokenStorage: AccessTokenStorageProtocol) {
+        self.init(baseURL: baseURL)
+        self.accessTokenStorage = accessTokenStorage
+    }
+
+    private var accessTokenStorage: AccessTokenStorageProtocol?
+
     override public func adapt(
         _ urlRequest: URLRequest,
         for session: Session,
@@ -22,9 +29,8 @@ final public class ClientRequestInterceptor: Apexy.BaseRequestInterceptor {
         }
 
         var request = urlRequest
-        let tokenStorage = TokenStorage()
-        if let token = tokenStorage.token?.value {
-            request.addValue("Bearer \(token.accessToken)", forHTTPHeaderField: "Authorization")
+        if let accessToken = accessTokenStorage?.accessToken?.value {
+            request.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
         }
 
         request.url = appendingBaseURL(to: url)
@@ -38,19 +44,16 @@ final public class ClientRequestInterceptor: Apexy.BaseRequestInterceptor {
         dueTo error: Error,
         completion: @escaping (RetryResult) -> Void
     ) {
-        let defaultRetryTime = 1.0
-        let maxRetryCount = 5
+        let defaultRetryTime = 0.5
+        let maxRetryCount = 4
 
         guard request.retryCount < maxRetryCount else { return completion(.doNotRetry) }
         if let underlyingError = (error as? AFError)?.underlyingError {
-            if let error = underlyingError as? URLError {
-                print(error)
+            if underlyingError as? URLError != nil {
                 return completion(.retryWithDelay(defaultRetryTime * Double(request.retryCount)))
-            } else if let error = underlyingError as? HTTPError {
-                print(error)
+            } else if underlyingError as? HTTPError != nil {
                 return completion(.retryWithDelay(defaultRetryTime * Double(request.retryCount)))
-            } else if let error = underlyingError as? APIError {
-                print(error)
+            } else if underlyingError as? APIError != nil {
                 return completion(.doNotRetry)
             }
         }

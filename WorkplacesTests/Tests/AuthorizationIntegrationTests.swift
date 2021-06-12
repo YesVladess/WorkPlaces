@@ -16,13 +16,13 @@ class AuthorizationIntegrationTests: XCTestCase {
     let commonTimeout = 5.0
 
     var authService: AutorizationService!
-    var tokenStorage: TokenStorage!
+    var tokenStorage: AccessTokenStorage!
     var apiClient: Client!
 
     override func setUpWithError() throws {
         try super.setUpWithError()
-        tokenStorage = TokenStorage()
-        tokenStorage.set(token: nil)
+        tokenStorage = AccessTokenStorage()
+        tokenStorage.set(accessToken: nil)
         apiClient = {
             let clientRequestInterceptor = ClientRequestInterceptor(baseURL: URL(string: Config.baseUrl)!)
             return AlamofireClient(
@@ -51,7 +51,7 @@ class AuthorizationIntegrationTests: XCTestCase {
                             switch result {
                             case .success:
                                 exp.fulfill()
-                                let token = self?.tokenStorage.get()
+                                let token = self?.tokenStorage.accessToken
                                 XCTAssertNotNil(token)
                             case.failure(let error):
                                 XCTFail("Couldn't sign in! Error - \(error.localizedDescription)")
@@ -73,7 +73,7 @@ class AuthorizationIntegrationTests: XCTestCase {
                                 XCTFail("Did sign in with bad creds!")
                             case.failure(let error):
                                 exp.fulfill()
-                                let token = self?.tokenStorage.get()
+                                let token = self?.tokenStorage.accessToken
                                 XCTAssertNil(token)
                                 XCTAssertEqual(error.localizedDescription, "Unknowned error", "Wrong Error!")
                             }

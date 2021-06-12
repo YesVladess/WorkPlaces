@@ -40,6 +40,7 @@
 		5A2E5B52264BFCBD0071FB84 /* ProfileCoordinatingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A2E5B51264BFCBD0071FB84 /* ProfileCoordinatingViewController.xib */; };
 		5A2E5B5A264C01B40071FB84 /* ProfileFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2E5B58264C01B40071FB84 /* ProfileFeedViewController.swift */; };
 		5A2E5B5B264C01B40071FB84 /* ProfileFeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A2E5B59264C01B40071FB84 /* ProfileFeedViewController.xib */; };
+		5A3278262670F99D0046A893 /* KeychainStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3278252670F99D0046A893 /* KeychainStorage.swift */; };
 		5A3541F82642810B004636A1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3541F62642810B004636A1 /* SignUpViewController.swift */; };
 		5A3542222642A1C8004636A1 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3542212642A1C8004636A1 /* PostViewModel.swift */; };
 		5A35423A2642A599004636A1 /* AuthorizationServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3542392642A599004636A1 /* AuthorizationServiceStub.swift */; };
@@ -77,9 +78,11 @@
 		5A4511FB26387BD900D435CD /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4511FA26387BD900D435CD /* Post.swift */; };
 		5A45120526387D2100D435CD /* UserCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7906092634E755008863BB /* UserCredentials.swift */; };
 		5A45120D26387E8000D435CD /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A45120C26387E8000D435CD /* Token.swift */; };
-		5A451233263895BA00D435CD /* TokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A451232263895BA00D435CD /* TokenStorage.swift */; };
+		5A451233263895BA00D435CD /* AccessTokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A451232263895BA00D435CD /* AccessTokenStorage.swift */; };
 		5A45123F2638AE6400D435CD /* ClientRequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4512372638A9F100D435CD /* ClientRequestInterceptor.swift */; };
 		5A482570266E480A00875EB6 /* Atomic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A48256F266E480A00875EB6 /* Atomic.swift */; };
+		5A482574266F8E4F00875EB6 /* PinCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A482572266F8E4F00875EB6 /* PinCodeViewController.swift */; };
+		5A482575266F8E4F00875EB6 /* PinCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A482573266F8E4F00875EB6 /* PinCodeViewController.xib */; };
 		5A6A246A2647FE15002FB8BE /* SetLikeEndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6A24692647FE15002FB8BE /* SetLikeEndpointTests.swift */; };
 		5A6A248A26480B16002FB8BE /* TokenStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6A248926480B16002FB8BE /* TokenStorageTests.swift */; };
 		5A6CDAAD262EE68900B92A59 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6CDAAC262EE68900B92A59 /* Images.swift */; };
@@ -118,6 +121,7 @@
 		5ADB27DE262E1B2800CFC392 /* ZeroScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADB27DC262E1B2800CFC392 /* ZeroScreenViewController.swift */; };
 		5ADB27DF262E1B2800CFC392 /* ZeroScreenViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5ADB27DD262E1B2800CFC392 /* ZeroScreenViewController.xib */; };
 		5ADB27E6262E1CC400CFC392 /* ZeroScreenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADB27E5262E1CC400CFC392 /* ZeroScreenViewModel.swift */; };
+		5ADDDF822670B8C600EEAFC7 /* KeychainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADDDF812670B8C600EEAFC7 /* KeychainHelper.swift */; };
 		6E7538B70E8EBE76A0D3CF94 /* Pods_WorkplacesAPITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81EDB7CC20F05646D53AE910 /* Pods_WorkplacesAPITests.framework */; };
 		8092D28A66232A8605117A18 /* Pods_WorkplacesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 640D4E5DF5AD73345BBDD8F4 /* Pods_WorkplacesTests.framework */; };
 		9686BBA9D93141D147831548 /* Pods_Workplaces.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E894405824020DC4DCC938F /* Pods_Workplaces.framework */; };
@@ -206,6 +210,7 @@
 		5A2E5B51264BFCBD0071FB84 /* ProfileCoordinatingViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileCoordinatingViewController.xib; sourceTree = "<group>"; };
 		5A2E5B58264C01B40071FB84 /* ProfileFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFeedViewController.swift; sourceTree = "<group>"; };
 		5A2E5B59264C01B40071FB84 /* ProfileFeedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileFeedViewController.xib; sourceTree = "<group>"; };
+		5A3278252670F99D0046A893 /* KeychainStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStorage.swift; sourceTree = "<group>"; };
 		5A3541F62642810B004636A1 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		5A3542212642A1C8004636A1 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
 		5A3542392642A599004636A1 /* AuthorizationServiceStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceStub.swift; sourceTree = "<group>"; };
@@ -243,9 +248,11 @@
 		5A4511F52638733700D435CD /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		5A4511FA26387BD900D435CD /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		5A45120C26387E8000D435CD /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
-		5A451232263895BA00D435CD /* TokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStorage.swift; sourceTree = "<group>"; };
+		5A451232263895BA00D435CD /* AccessTokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenStorage.swift; sourceTree = "<group>"; };
 		5A4512372638A9F100D435CD /* ClientRequestInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientRequestInterceptor.swift; sourceTree = "<group>"; };
 		5A48256F266E480A00875EB6 /* Atomic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Atomic.swift; sourceTree = "<group>"; };
+		5A482572266F8E4F00875EB6 /* PinCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeViewController.swift; sourceTree = "<group>"; };
+		5A482573266F8E4F00875EB6 /* PinCodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PinCodeViewController.xib; sourceTree = "<group>"; };
 		5A6A24692647FE15002FB8BE /* SetLikeEndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetLikeEndpointTests.swift; sourceTree = "<group>"; };
 		5A6A248926480B16002FB8BE /* TokenStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStorageTests.swift; sourceTree = "<group>"; };
 		5A6CDAAC262EE68900B92A59 /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
@@ -290,6 +297,7 @@
 		5ADB27DC262E1B2800CFC392 /* ZeroScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroScreenViewController.swift; sourceTree = "<group>"; };
 		5ADB27DD262E1B2800CFC392 /* ZeroScreenViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ZeroScreenViewController.xib; sourceTree = "<group>"; };
 		5ADB27E5262E1CC400CFC392 /* ZeroScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZeroScreenViewModel.swift; sourceTree = "<group>"; };
+		5ADDDF812670B8C600EEAFC7 /* KeychainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainHelper.swift; sourceTree = "<group>"; };
 		640D4E5DF5AD73345BBDD8F4 /* Pods_WorkplacesTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WorkplacesTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		65AEEDA09AD47BA7B81A005A /* Pods-workplacesAPI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-workplacesAPI.debug.xcconfig"; path = "Target Support Files/Pods-workplacesAPI/Pods-workplacesAPI.debug.xcconfig"; sourceTree = "<group>"; };
 		7DF47EAB439A1F78F5E96450 /* Pods-workplaces.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-workplaces.release.xcconfig"; path = "Target Support Files/Pods-workplaces/Pods-workplaces.release.xcconfig"; sourceTree = "<group>"; };
@@ -573,8 +581,10 @@
 			isa = PBXGroup;
 			children = (
 				5A45113B26383F9000D435CD /* ApiService.swift */,
-				5A451232263895BA00D435CD /* TokenStorage.swift */,
+				5A451232263895BA00D435CD /* AccessTokenStorage.swift */,
 				5A2E5AEB264848440071FB84 /* ModelMapper.swift */,
+				5ADDDF812670B8C600EEAFC7 /* KeychainHelper.swift */,
+				5A3278252670F99D0046A893 /* KeychainStorage.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -623,6 +633,15 @@
 			path = Search;
 			sourceTree = "<group>";
 		};
+		5A482571266F8E2900875EB6 /* PinCode */ = {
+			isa = PBXGroup;
+			children = (
+				5A482572266F8E4F00875EB6 /* PinCodeViewController.swift */,
+				5A482573266F8E4F00875EB6 /* PinCodeViewController.xib */,
+			);
+			path = PinCode;
+			sourceTree = "<group>";
+		};
 		5A6A24682647FDF3002FB8BE /* EndpointTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -654,6 +673,7 @@
 		5A7905BD263485DF008863BB /* AuthStory */ = {
 			isa = PBXGroup;
 			children = (
+				5A482571266F8E2900875EB6 /* PinCode */,
 				5ADB27C4262DCB3F00CFC392 /* Login */,
 				5ADB27C7262DCC2000CFC392 /* SignUp */,
 				5ADB27D0262DD55500CFC392 /* SignIn */,
@@ -1114,6 +1134,7 @@
 				5A2E5B1C264AEDA10071FB84 /* SignUpFirstStepViewController.xib in Resources */,
 				5A28EBCB262ECA9500DF4CEB /* NewPostViewController.xib in Resources */,
 				5A2E5B23264AF1F00071FB84 /* SignUpSecondStepViewController.xib in Resources */,
+				5A482575266F8E4F00875EB6 /* PinCodeViewController.xib in Resources */,
 				5A2E5B3F264BD5200071FB84 /* MyProfileViewController.xib in Resources */,
 				5ADB27A2262DBA1E00CFC392 /* Localizable.strings in Resources */,
 				5A28EBA4262EBF9700DF4CEB /* WelcomeViewController.xib in Resources */,
@@ -1350,8 +1371,9 @@
 			files = (
 				5A2E5B22264AF1F00071FB84 /* SignUpSecondStepViewController.swift in Sources */,
 				5A96F32F262EB76B006BD8C9 /* SignInViewController.swift in Sources */,
-				5A451233263895BA00D435CD /* TokenStorage.swift in Sources */,
+				5A451233263895BA00D435CD /* AccessTokenStorage.swift in Sources */,
 				5AD464C6265E834200DD7D3C /* BaseViewController.swift in Sources */,
+				5A3278262670F99D0046A893 /* KeychainStorage.swift in Sources */,
 				5A45113C26383F9000D435CD /* ApiService.swift in Sources */,
 				5ADB27DE262E1B2800CFC392 /* ZeroScreenViewController.swift in Sources */,
 				5AD464C8265E8B9000DD7D3C /* UIViewController + Childs.swift in Sources */,
@@ -1359,6 +1381,7 @@
 				5A96F314262E4603006BD8C9 /* SpinnerView.swift in Sources */,
 				5A81280F2642D566000F9678 /* ProfileCoordinatingViewController.swift in Sources */,
 				5ADB26AC262B8F7000CFC392 /* AppDelegate.swift in Sources */,
+				5ADDDF822670B8C600EEAFC7 /* KeychainHelper.swift in Sources */,
 				5ADB26AE262B8F7000CFC392 /* SceneDelegate.swift in Sources */,
 				5A7905E82634BE07008863BB /* CanShowSpinner.swift in Sources */,
 				5A28EBB0262EC91F00DF4CEB /* FeedViewController.swift in Sources */,
@@ -1371,6 +1394,7 @@
 				5A7906012634DA96008863BB /* ProfileServiceProtocol.swift in Sources */,
 				5A96F2EF262E3207006BD8C9 /* UIColor.swift in Sources */,
 				5AD464C12654598200DD7D3C /* UIView.swift in Sources */,
+				5A482574266F8E4F00875EB6 /* PinCodeViewController.swift in Sources */,
 				5AD464C4265478D000DD7D3C /* SeparatorView.swift in Sources */,
 				5A2E5B5A264C01B40071FB84 /* ProfileFeedViewController.swift in Sources */,
 				5A7905FB2634DA06008863BB /* FeedServiceProtocol.swift in Sources */,

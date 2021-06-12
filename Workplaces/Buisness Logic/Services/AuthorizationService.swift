@@ -13,25 +13,27 @@ import WorkplacesAPI
 
 final class AutorizationService: NSObject, AutorizationServiceProtocol {
 
-    // MARK: - Public vars
-
-    var isUserAuthorized: Bool { false }
+    // MARK: - Public properties
 
     weak var vkUIDelegate: VKSdkUIDelegate?
 
-    // MARK: - Private vars
+    // MARK: - Private properties
 
     private let apiClient: Client
-
     private var googleAuthHandler: ((Result<Void, WorkplaceError>) -> Void)?
-
-    private let tokenStorage: TokenStorageProtocol
+    private let accessTokenStorage: AccessTokenStorageProtocol
+    private let keychainStorage: KeychainStorageProtocol
 
     // MARK: - Initializers
 
-    init(apiClient: Client, tokenStorage: TokenStorageProtocol) {
-        self.tokenStorage = tokenStorage
+    init(
+        apiClient: Client,
+        accessTokenStorage: AccessTokenStorageProtocol,
+        keychainStorage: KeychainStorageProtocol
+    ) {
         self.apiClient = apiClient
+        self.accessTokenStorage = accessTokenStorage
+        self.keychainStorage = keychainStorage
     }
 
     // MARK: - Public methods
@@ -39,7 +41,7 @@ final class AutorizationService: NSObject, AutorizationServiceProtocol {
     func signIn(
         email: String,
         password: String,
-        completion: @escaping (Result<Void, WorkplaceError>) -> Void
+        completion: @escaping (Result<String, WorkplaceError>) -> Void
     ) {
         let credentials = UserCredentials(email: email, password: password)
 
@@ -49,8 +51,9 @@ final class AutorizationService: NSObject, AutorizationServiceProtocol {
         _ = apiClient.request(endpoint) { [weak self] result in
             switch result {
             case .success(let token):
-                self?.tokenStorage.set(token: ModelMapper.convertTokenToAppModelFrom(model: token))
-                completion(.success(()))
+                let token = ModelMapper.convertTokenToAppModelFrom(model: token)
+                self?.accessTokenStorage.set(accessToken: token.accessToken)
+                completion(.success((token.refreshToken)))
             case .failure(let error):
                 let errorUnwrapped = error.unwrapAFError()
                 if let apiError = errorUnwrapped as? APIError {
@@ -65,7 +68,7 @@ final class AutorizationService: NSObject, AutorizationServiceProtocol {
     func signUp(
         email: String,
         password: String,
-        completion: @escaping (Result<Void, WorkplaceError>) -> Void
+        completion: @escaping (Result<String, WorkplaceError>) -> Void
     ) {
         let credentials = UserCredentials(email: email, password: password)
         let endpoint = RegistrationEndpoint(
@@ -74,8 +77,9 @@ final class AutorizationService: NSObject, AutorizationServiceProtocol {
         _ = apiClient.request(endpoint) { [weak self] result in
             switch result {
             case .success(let token):
-                self?.tokenStorage.set(token: ModelMapper.convertTokenToAppModelFrom(model: token))
-                completion(.success(()))
+                let token = ModelMapper.convertTokenToAppModelFrom(model: token)
+                self?.accessTokenStorage.set(accessToken: token.accessToken)
+                completion(.success((token.refreshToken)))
             case .failure(let error):
                 let errorUnwrapped = error.unwrapAFError()
                 if let apiError = errorUnwrapped as? APIError {
@@ -88,26 +92,43 @@ final class AutorizationService: NSObject, AutorizationServiceProtocol {
     }
 
     func logout() {
-        guard let token = tokenStorage.token?.value else { return }
+        guard let accessToken = accessTokenStorage.accessToken?.value,
+              let pinCode = keychainStorage.pinCode?.value,
+              let refreshToken = keychainStorage.getRefreshTokenFromKeychain(withPin: pinCode) else { return }
+        let token = Token(accessToken: accessToken, refreshToken: refreshToken)
         let endpoint = LogoutEndpoint(token: ModelMapper.convertTokenToApiModelFrom(model: token))
-        _ = apiClient.request(endpoint) { [weak self] result in
+        _ = apiClient.request(endpoint) { result in
             switch result {
             case .success:
-                self?.tokenStorage.set(token: nil)
+                return
             case .failure:
                 return
             }
         }
     }
 
-    func refreshToken(completion: @escaping (Result<Void, WorkplaceError>) -> Void) {
-        guard let token = tokenStorage.token?.value else { return }
-        let refreshToken = RefreshToken(token: token.refreshToken)
-        let endpoint = RefreshEndpoint(token: refreshToken)
+    func refreshToken(
+        withToken refreshToken: String,
+        completion: @escaping (Result<Void, WorkplaceError>) -> Void
+    ) {
+        let refreshTokenStruct = RefreshToken(token: refreshToken)
+        let endpoint = RefreshEndpoint(token: refreshTokenStruct)
         _ = apiClient.request(endpoint) { [weak self] result in
+            guard let keychainStorage = self?.keychainStorage else { return }
             switch result {
             case .success(let token):
-                self?.tokenStorage.set(token: ModelMapper.convertTokenToAppModelFrom(model: token))
+                let token = ModelMapper.convertTokenToAppModelFrom(model: token)
+                self?.accessTokenStorage.set(accessToken: token.accessToken)
+                if let pinCode = keychainStorage.pinCode?.value {
+                    keychainStorage.saveRefreshTokenToKeychain(
+                        withRefreshToken: token.refreshToken,
+                        andPin: pinCode
+                    )
+                    if keychainStorage.checkIfPinCodeIsSetInKeychain() {
+                        keychainStorage.savePinToKeychainWithBiometry(pin: pinCode)
+                    }
+                }
+                completion(.success(()))
             case .failure(let error):
                 let errorUnwrapped = error.unwrapAFError()
                 if let apiError = errorUnwrapped as? APIError {
@@ -115,7 +136,6 @@ final class AutorizationService: NSObject, AutorizationServiceProtocol {
                 } else {
                     completion(.failure(.unknowned))
                 }
-                self?.logout()
             }
         }
     }

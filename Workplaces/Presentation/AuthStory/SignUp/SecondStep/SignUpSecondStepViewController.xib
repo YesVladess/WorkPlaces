@@ -90,7 +90,7 @@
                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Фамилия" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KlW-wk-aQH">
                                     <rect key="frame" x="0.0" y="0.0" width="374" height="18.5"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                    <textInputTraits key="textInputTraits"/>
+                                    <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                     <connections>
                                         <action selector="textFieldDidChange:" destination="-1" eventType="editingChanged" id="LnH-80-v0D"/>
                                     </connections>

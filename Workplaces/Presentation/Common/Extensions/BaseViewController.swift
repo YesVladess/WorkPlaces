@@ -51,7 +51,7 @@ class BaseViewController: UIViewController, CanShowKeyboard, CanShowSpinner {
         _ notification: NSNotification
     ) {
         animateWithKeyboard(notification: notification) { keyboardFrame in
-            let constant = -30 + keyboardFrame.height
+            let constant = keyboardFrame.height
             self.buttonsBottomConstraintConstant = constant
             self.updateKeyboardConstraints()
         }

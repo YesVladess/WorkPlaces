@@ -16,6 +16,7 @@ class SignUpSecondStepViewController: BaseViewController {
     // MARK: - Private Properties
 
     private let datePicker = UIDatePicker()
+    private let screenHeightSE: CGFloat = 568.0
 
     // MARK: - Public Properties
 
@@ -31,7 +32,13 @@ class SignUpSecondStepViewController: BaseViewController {
     @IBOutlet private weak var dateBirthTextField: UITextField!
 
     override func updateKeyboardConstraints() {
-        buttonsBottomConstraint.constant = buttonsBottomConstraintConstant
+        let screenBounds = UIScreen.main.bounds
+        let screenHeight = screenBounds.height
+        if screenHeight == screenHeightSE {
+            buttonsBottomConstraint.constant = 0
+        } else {
+            buttonsBottomConstraint.constant = buttonsBottomConstraintConstant
+        }
     }
 
     // MARK: - IBAction
@@ -82,7 +89,7 @@ class SignUpSecondStepViewController: BaseViewController {
     // MARK: - Configure
 
     private func configureTapOutside() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapOutside(gesture:)))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapOutside))
         view.addGestureRecognizer(tapGesture)
     }
 
@@ -101,6 +108,7 @@ class SignUpSecondStepViewController: BaseViewController {
         primaryButton.setTitle("Sign Up".localized)
         primaryButton.isEnabled = false
         primaryButton.onTap = { [weak self] in
+            self?.tapOutside()
             self?.navigationDelegate?.secondStepPrimaryButtonTapped()
         }
     }
@@ -156,7 +164,7 @@ class SignUpSecondStepViewController: BaseViewController {
 
     // MARK: - Objc
 
-    @objc func tapOutside(gesture: UITapGestureRecognizer) {
+    @objc func tapOutside() {
         nicknameTextField.resignFirstResponder()
         nameTextField.resignFirstResponder()
         surnameTextField.resignFirstResponder()

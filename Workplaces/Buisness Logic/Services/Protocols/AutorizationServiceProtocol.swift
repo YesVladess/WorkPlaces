@@ -23,13 +23,13 @@ protocol AutorizationServiceProtocol: AnyObject {
     func signIn(
         email: String,
         password: String,
-        completion: @escaping (Result<Void, WorkplaceError>) -> Void
+        completion: @escaping (Result<String, WorkplaceError>) -> Void
     )
 
     func signUp(
         email: String,
         password: String,
-        completion: @escaping (Result<Void, WorkplaceError>) -> Void
+        completion: @escaping (Result<String, WorkplaceError>) -> Void
     )
 
     func signInWithFacebook(completion: @escaping (Result<Void, WorkplaceError>) -> Void)
@@ -43,9 +43,10 @@ protocol AutorizationServiceProtocol: AnyObject {
 
     func logout()
 
-    func refreshToken(completion: @escaping (Result<Void, WorkplaceError>) -> Void)
-
-    var isUserAuthorized: Bool { get }
+    func refreshToken(
+        withToken refreshToken: String,
+        completion: @escaping (Result<Void, WorkplaceError>) -> Void
+    )
 
     var vkUIDelegate: VKSdkUIDelegate? { get }
 
