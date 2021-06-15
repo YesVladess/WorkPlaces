@@ -11,7 +11,7 @@ protocol SignUpSecondStepNavigationDelegate: AnyObject {
     func secondStepPrimaryButtonTapped()
 }
 
-class SignUpSecondStepViewController: BaseViewController {
+class SignUpSecondStepViewController: KeyboardViewController {
     
     // MARK: - Private Properties
 
@@ -25,11 +25,11 @@ class SignUpSecondStepViewController: BaseViewController {
     // MARK: - IBOutlet
 
     @IBOutlet private var buttonsBottomConstraint: NSLayoutConstraint!
-    @IBOutlet private weak var primaryButton: PrimaryButton!
-    @IBOutlet private weak var nicknameTextField: UITextField!
-    @IBOutlet private weak var nameTextField: UITextField!
-    @IBOutlet private weak var surnameTextField: UITextField!
-    @IBOutlet private weak var dateBirthTextField: UITextField!
+    @IBOutlet private var primaryButton: PrimaryButton!
+    @IBOutlet private var nicknameTextField: UITextField!
+    @IBOutlet private var nameTextField: UITextField!
+    @IBOutlet private var surnameTextField: UITextField!
+    @IBOutlet private var dateBirthTextField: UITextField!
 
     override func updateKeyboardConstraints() {
         let screenBounds = UIScreen.main.bounds

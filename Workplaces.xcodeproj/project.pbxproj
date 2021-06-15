@@ -42,7 +42,6 @@
 		5A2E5B5B264C01B40071FB84 /* ProfileFeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A2E5B59264C01B40071FB84 /* ProfileFeedViewController.xib */; };
 		5A3278262670F99D0046A893 /* KeychainStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3278252670F99D0046A893 /* KeychainStorage.swift */; };
 		5A3541F82642810B004636A1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3541F62642810B004636A1 /* SignUpViewController.swift */; };
-		5A3542222642A1C8004636A1 /* PostViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3542212642A1C8004636A1 /* PostViewModel.swift */; };
 		5A35423A2642A599004636A1 /* AuthorizationServiceStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A3542392642A599004636A1 /* AuthorizationServiceStub.swift */; };
 		5A35424E2642B491004636A1 /* AuthorizationIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A35424D2642B491004636A1 /* AuthorizationIntegrationTests.swift */; };
 		5A35427B2642BE7C004636A1 /* EndpointTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A35427A2642BE7C004636A1 /* EndpointTests.swift */; };
@@ -73,7 +72,7 @@
 		5A4511D62638727100D435CD /* DeleteFriendEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4511D52638727100D435CD /* DeleteFriendEndpoint.swift */; };
 		5A4511DB263872A200D435CD /* GetMyPostsEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4511DA263872A200D435CD /* GetMyPostsEndpoint.swift */; };
 		5A4511E0263872B900D435CD /* AddPostEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4511DF263872B900D435CD /* AddPostEndpoint.swift */; };
-		5A4511E6263872EE00D435CD /* SearchEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4511E5263872EE00D435CD /* SearchEndpoint.swift */; };
+		5A4511E6263872EE00D435CD /* SearchUserEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4511E5263872EE00D435CD /* SearchUserEndpoint.swift */; };
 		5A4511F62638733700D435CD /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4511F52638733700D435CD /* UserProfile.swift */; };
 		5A4511FB26387BD900D435CD /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4511FA26387BD900D435CD /* Post.swift */; };
 		5A45120526387D2100D435CD /* UserCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7906092634E755008863BB /* UserCredentials.swift */; };
@@ -104,9 +103,13 @@
 		5A96F314262E4603006BD8C9 /* SpinnerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A96F313262E4603006BD8C9 /* SpinnerView.swift */; };
 		5A96F32F262EB76B006BD8C9 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A96F32D262EB76B006BD8C9 /* SignInViewController.swift */; };
 		5A96F330262EB76B006BD8C9 /* SignInViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A96F32E262EB76B006BD8C9 /* SignInViewController.xib */; };
+		5A9E1DF82677F631006CDE13 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9E1DF72677F631006CDE13 /* SearchService.swift */; };
+		5A9E1DFA2677F648006CDE13 /* SearchServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9E1DF92677F648006CDE13 /* SearchServiceProtocol.swift */; };
+		5A9E1DFC26780058006CDE13 /* SearchPostEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9E1DFB26780058006CDE13 /* SearchPostEndpoint.swift */; };
+		5A9E1E02267827A7006CDE13 /* WorkplacesNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9E1E01267827A7006CDE13 /* WorkplacesNavigationController.swift */; };
 		5AD464C12654598200DD7D3C /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD464C02654598200DD7D3C /* UIView.swift */; };
 		5AD464C4265478D000DD7D3C /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD464C3265478D000DD7D3C /* SeparatorView.swift */; };
-		5AD464C6265E834200DD7D3C /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD464C5265E834200DD7D3C /* BaseViewController.swift */; };
+		5AD464C6265E834200DD7D3C /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD464C5265E834200DD7D3C /* KeyboardViewController.swift */; };
 		5AD464C8265E8B9000DD7D3C /* UIViewController + Childs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD464C7265E8B9000DD7D3C /* UIViewController + Childs.swift */; };
 		5ADB26AC262B8F7000CFC392 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADB26AB262B8F7000CFC392 /* AppDelegate.swift */; };
 		5ADB26AE262B8F7000CFC392 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5ADB26AD262B8F7000CFC392 /* SceneDelegate.swift */; };
@@ -212,7 +215,6 @@
 		5A2E5B59264C01B40071FB84 /* ProfileFeedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileFeedViewController.xib; sourceTree = "<group>"; };
 		5A3278252670F99D0046A893 /* KeychainStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainStorage.swift; sourceTree = "<group>"; };
 		5A3541F62642810B004636A1 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		5A3542212642A1C8004636A1 /* PostViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewModel.swift; sourceTree = "<group>"; };
 		5A3542392642A599004636A1 /* AuthorizationServiceStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationServiceStub.swift; sourceTree = "<group>"; };
 		5A35424D2642B491004636A1 /* AuthorizationIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationIntegrationTests.swift; sourceTree = "<group>"; };
 		5A35427A2642BE7C004636A1 /* EndpointTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndpointTests.swift; sourceTree = "<group>"; };
@@ -244,7 +246,7 @@
 		5A4511D52638727100D435CD /* DeleteFriendEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteFriendEndpoint.swift; sourceTree = "<group>"; };
 		5A4511DA263872A200D435CD /* GetMyPostsEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMyPostsEndpoint.swift; sourceTree = "<group>"; };
 		5A4511DF263872B900D435CD /* AddPostEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostEndpoint.swift; sourceTree = "<group>"; };
-		5A4511E5263872EE00D435CD /* SearchEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchEndpoint.swift; sourceTree = "<group>"; };
+		5A4511E5263872EE00D435CD /* SearchUserEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserEndpoint.swift; sourceTree = "<group>"; };
 		5A4511F52638733700D435CD /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		5A4511FA26387BD900D435CD /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		5A45120C26387E8000D435CD /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
@@ -275,9 +277,13 @@
 		5A96F313262E4603006BD8C9 /* SpinnerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerView.swift; sourceTree = "<group>"; };
 		5A96F32D262EB76B006BD8C9 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		5A96F32E262EB76B006BD8C9 /* SignInViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignInViewController.xib; sourceTree = "<group>"; };
+		5A9E1DF72677F631006CDE13 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
+		5A9E1DF92677F648006CDE13 /* SearchServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchServiceProtocol.swift; sourceTree = "<group>"; };
+		5A9E1DFB26780058006CDE13 /* SearchPostEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPostEndpoint.swift; sourceTree = "<group>"; };
+		5A9E1E01267827A7006CDE13 /* WorkplacesNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkplacesNavigationController.swift; sourceTree = "<group>"; };
 		5AD464C02654598200DD7D3C /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		5AD464C3265478D000DD7D3C /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
-		5AD464C5265E834200DD7D3C /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		5AD464C5265E834200DD7D3C /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		5AD464C7265E8B9000DD7D3C /* UIViewController + Childs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Childs.swift"; sourceTree = "<group>"; };
 		5ADB26A8262B8F7000CFC392 /* Workplaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Workplaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5ADB26AB262B8F7000CFC392 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -388,7 +394,6 @@
 			children = (
 				5A28EBAE262EC91F00DF4CEB /* FeedViewController.swift */,
 				5A28EBAF262EC91F00DF4CEB /* FeedViewController.xib */,
-				5A3542212642A1C8004636A1 /* PostViewModel.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -429,20 +434,19 @@
 		5A2E5B00264A8F4B0071FB84 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				5A2E5B01264A8F620071FB84 /* SearchViewController.swift */,
-				5A2E5B02264A8F620071FB84 /* SearchViewController.xib */,
-				5A2E5B12264A956C0071FB84 /* cells */,
+				5A9E1DFD267805AF006CDE13 /* Views */,
+				5A2E5B12264A956C0071FB84 /* Cells */,
 			);
 			path = Search;
 			sourceTree = "<group>";
 		};
-		5A2E5B12264A956C0071FB84 /* cells */ = {
+		5A2E5B12264A956C0071FB84 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				5A2E5B0B264A95670071FB84 /* FriendCell.swift */,
 				5A2E5B0C264A95670071FB84 /* FriendCell.xib */,
 			);
-			path = cells;
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		5A2E5B17264AED1A0071FB84 /* FirstStep */ = {
@@ -628,7 +632,8 @@
 		5A4511E4263872DB00D435CD /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				5A4511E5263872EE00D435CD /* SearchEndpoint.swift */,
+				5A4511E5263872EE00D435CD /* SearchUserEndpoint.swift */,
+				5A9E1DFB26780058006CDE13 /* SearchPostEndpoint.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -723,6 +728,7 @@
 				5A7905F52634D9E2008863BB /* AutorizationServiceProtocol.swift */,
 				5A7905FA2634DA06008863BB /* FeedServiceProtocol.swift */,
 				5A7906002634DA96008863BB /* ProfileServiceProtocol.swift */,
+				5A9E1DF92677F648006CDE13 /* SearchServiceProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -752,6 +758,15 @@
 				5AD464C2265478A900DD7D3C /* Separator */,
 				5A7905E22634BDBF008863BB /* Spinner */,
 				5A7905C726348A09008863BB /* PrimaryButton */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		5A9E1DFD267805AF006CDE13 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				5A2E5B01264A8F620071FB84 /* SearchViewController.swift */,
+				5A2E5B02264A8F620071FB84 /* SearchViewController.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -856,6 +871,7 @@
 				5A28EBD4262ECCE500DF4CEB /* AuthorizationService.swift */,
 				5A28EBD8262ECCF900DF4CEB /* FeedService.swift */,
 				5A28EBDC262ECD3A00DF4CEB /* ProfileService.swift */,
+				5A9E1DF72677F631006CDE13 /* SearchService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -905,7 +921,7 @@
 				5A7905DA2634BC0F008863BB /* CustomView.swift */,
 				5A7905DE2634BC42008863BB /* XibLoadable.swift */,
 				5AD464C02654598200DD7D3C /* UIView.swift */,
-				5AD464C5265E834200DD7D3C /* BaseViewController.swift */,
+				5AD464C5265E834200DD7D3C /* KeyboardViewController.swift */,
 				5AD464C7265E8B9000DD7D3C /* UIViewController + Childs.swift */,
 			);
 			path = Extensions;
@@ -953,6 +969,7 @@
 			children = (
 				5ADB27D5262E19EF00CFC392 /* ZeroScreen */,
 				5A8127F92642D1A4000F9678 /* WorkplaceTabBarController.swift */,
+				5A9E1E01267827A7006CDE13 /* WorkplacesNavigationController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1327,7 +1344,7 @@
 			files = (
 				5A4511BF2638720900D435CD /* GetProfileEndpoint.swift in Sources */,
 				5A4511B4263871C400D435CD /* DeleteLikeEndpoint.swift in Sources */,
-				5A4511E6263872EE00D435CD /* SearchEndpoint.swift in Sources */,
+				5A4511E6263872EE00D435CD /* SearchUserEndpoint.swift in Sources */,
 				5A4511FB26387BD900D435CD /* Post.swift in Sources */,
 				5A4511D12638725200D435CD /* AddFriendEndpoint.swift in Sources */,
 				5A4511DB263872A200D435CD /* GetMyPostsEndpoint.swift in Sources */,
@@ -1341,6 +1358,7 @@
 				5A4510BE26383C6A00D435CD /* Codable.swift in Sources */,
 				5A4510C326383C8300D435CD /* HTTPError.swift in Sources */,
 				5A2E5AFC2648AC7D0071FB84 /* HTTPBody + multipart.swift in Sources */,
+				5A9E1DFC26780058006CDE13 /* SearchPostEndpoint.swift in Sources */,
 				5A4511A42638714200D435CD /* RefreshEndpoint.swift in Sources */,
 				5A4510B9263838CE00D435CD /* APIError.swift in Sources */,
 				5A4511B9263871DF00D435CD /* GetFavoriteEndpoint.swift in Sources */,
@@ -1372,7 +1390,7 @@
 				5A2E5B22264AF1F00071FB84 /* SignUpSecondStepViewController.swift in Sources */,
 				5A96F32F262EB76B006BD8C9 /* SignInViewController.swift in Sources */,
 				5A451233263895BA00D435CD /* AccessTokenStorage.swift in Sources */,
-				5AD464C6265E834200DD7D3C /* BaseViewController.swift in Sources */,
+				5AD464C6265E834200DD7D3C /* KeyboardViewController.swift in Sources */,
 				5A3278262670F99D0046A893 /* KeychainStorage.swift in Sources */,
 				5A45113C26383F9000D435CD /* ApiService.swift in Sources */,
 				5ADB27DE262E1B2800CFC392 /* ZeroScreenViewController.swift in Sources */,
@@ -1384,6 +1402,7 @@
 				5ADDDF822670B8C600EEAFC7 /* KeychainHelper.swift in Sources */,
 				5ADB26AE262B8F7000CFC392 /* SceneDelegate.swift in Sources */,
 				5A7905E82634BE07008863BB /* CanShowSpinner.swift in Sources */,
+				5A9E1E02267827A7006CDE13 /* WorkplacesNavigationController.swift in Sources */,
 				5A28EBB0262EC91F00DF4CEB /* FeedViewController.swift in Sources */,
 				5A2E5B3E264BD5200071FB84 /* MyProfileViewController.swift in Sources */,
 				5A28EBDD262ECD3A00DF4CEB /* ProfileService.swift in Sources */,
@@ -1394,6 +1413,7 @@
 				5A7906012634DA96008863BB /* ProfileServiceProtocol.swift in Sources */,
 				5A96F2EF262E3207006BD8C9 /* UIColor.swift in Sources */,
 				5AD464C12654598200DD7D3C /* UIView.swift in Sources */,
+				5A9E1DFA2677F648006CDE13 /* SearchServiceProtocol.swift in Sources */,
 				5A482574266F8E4F00875EB6 /* PinCodeViewController.swift in Sources */,
 				5AD464C4265478D000DD7D3C /* SeparatorView.swift in Sources */,
 				5A2E5B5A264C01B40071FB84 /* ProfileFeedViewController.swift in Sources */,
@@ -1406,7 +1426,6 @@
 				5ADB27B1262DBC9200CFC392 /* String+Localizable.swift in Sources */,
 				5A96F305262E3EE4006BD8C9 /* ErrorDisplayable.swift in Sources */,
 				5A96F2EB262E30B7006BD8C9 /* String.swift in Sources */,
-				5A3542222642A1C8004636A1 /* PostViewModel.swift in Sources */,
 				5A28EBD5262ECCE500DF4CEB /* AuthorizationService.swift in Sources */,
 				5A28EBD1262ECC4B00DF4CEB /* ServiceLayer.swift in Sources */,
 				5A2E5B49264BEB1C0071FB84 /* ProfileTabViewController.swift in Sources */,
@@ -1421,6 +1440,7 @@
 				5A482570266E480A00875EB6 /* Atomic.swift in Sources */,
 				5A2E5B03264A8F620071FB84 /* SearchViewController.swift in Sources */,
 				5A6CDAAD262EE68900B92A59 /* Images.swift in Sources */,
+				5A9E1DF82677F631006CDE13 /* SearchService.swift in Sources */,
 				5A2E5B2E264B357B0071FB84 /* AuthCoordinatingViewController.swift in Sources */,
 				5A2E5AEC264848440071FB84 /* ModelMapper.swift in Sources */,
 				5A2E5AC32648367F0071FB84 /* UserCredentials.swift in Sources */,

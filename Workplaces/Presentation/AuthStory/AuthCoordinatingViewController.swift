@@ -11,7 +11,7 @@ class AuthCoordinatingViewController: UIViewController {
 
     // MARK: - Private Properties
 
-    private var authNavigationController: UINavigationController?
+    private var authNavigationController: WorkplacesNavigationController?
     private let keychainStorage: KeychainStorageProtocol
 
     // MARK: - UIViewController
@@ -30,7 +30,6 @@ class AuthCoordinatingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         instantiateNavigationController()
-        configureNavigationController()
         checkIfAutorized()
     }
 
@@ -82,23 +81,10 @@ class AuthCoordinatingViewController: UIViewController {
     private func instantiateNavigationController() {
         let loginViewController = LoginViewController()
         loginViewController.navigationDelegate = self
-        let authNavigationController = UINavigationController(rootViewController: loginViewController)
+        let authNavigationController = WorkplacesNavigationController(rootViewController: loginViewController)
         authNavigationController.delegate = self
         add(child: authNavigationController)
         self.authNavigationController = authNavigationController
-    }
-
-    private func configureNavigationController() {
-        guard let authNavigationController = authNavigationController else { return }
-        authNavigationController.navigationBar.barStyle = .default
-        authNavigationController.navigationBar.barTintColor = .white
-        authNavigationController.navigationBar.tintColor = .middleGrey
-        authNavigationController.navigationBar.isTranslucent = false
-        authNavigationController.navigationBar.titleTextAttributes =
-            [
-                NSAttributedString.Key.foregroundColor: UIColor.black,
-                NSAttributedString.Key.font: UIFont(name: "IBMPlexSans", size: 16)!
-            ]
     }
 
     private func checkIfAutorized() {

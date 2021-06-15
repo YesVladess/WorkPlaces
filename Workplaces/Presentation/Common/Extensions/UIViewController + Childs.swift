@@ -29,8 +29,10 @@ extension UIViewController {
         removeFromParent()
     }
 
-    func get<T>(child: T) -> T? {
-        return self.children.compactMap({ ($0 as? T) }).first
+    func remove(child: UIViewController) {
+        child.willMove(toParent: nil)
+        child.view.removeFromSuperview()
+        child.removeFromParent()
     }
 
     func transition(
@@ -78,6 +80,17 @@ extension UIViewController {
                 }
             )
         }
+    }
+
+    func get<T>(child: T.Type) -> T? where T: UIViewController {
+        let childs = self.children
+        return childs.first(where: { $0.isKind(of: child) }) as? T
+    }
+
+    func isViewControllerPresentAsChild(viewControllerType: UIViewController.Type) -> Bool {
+        let childs = self.children
+        let zero = childs.filter { $0.isKind(of: viewControllerType) }
+        return !zero.isEmpty ? true : false
     }
 
 }

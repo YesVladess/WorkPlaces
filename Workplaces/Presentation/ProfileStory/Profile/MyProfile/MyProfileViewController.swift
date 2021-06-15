@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MyProfileViewController: UIViewController {
+final class MyProfileViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,9 +16,9 @@ class MyProfileViewController: UIViewController {
 
     // MARK: - IBOutlets
 
-    @IBOutlet private weak var imageView: UIImageView!
-    @IBOutlet private weak var nameLabel: UILabel!
-    @IBOutlet private weak var ageLabel: UILabel!
+    @IBOutlet private var imageView: UIImageView!
+    @IBOutlet private var nameLabel: UILabel!
+    @IBOutlet private var ageLabel: UILabel!
 
     // MARK: - IBAction
 

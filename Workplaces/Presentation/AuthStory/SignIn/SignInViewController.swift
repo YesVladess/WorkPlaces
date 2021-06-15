@@ -12,7 +12,7 @@ protocol SignInViewControllerNavigationDelegate: AnyObject {
     func needSignUpButtonTapped()
 }
 
-final class SignInViewController: BaseViewController {
+final class SignInViewController: KeyboardViewController {
 
     // MARK: - Public Properties
 
@@ -47,10 +47,10 @@ final class SignInViewController: BaseViewController {
 
     // MARK: - IBOutlet
 
-    @IBOutlet private weak var emailTextField: UITextField!
-    @IBOutlet private weak var passwordTextField: UITextField!
-    @IBOutlet private weak var primaryButton: PrimaryButton!
-    @IBOutlet private weak var buttonsBottomConstraint: NSLayoutConstraint!
+    @IBOutlet private var emailTextField: UITextField!
+    @IBOutlet private var passwordTextField: UITextField!
+    @IBOutlet private var primaryButton: PrimaryButton!
+    @IBOutlet private var buttonsBottomConstraint: NSLayoutConstraint!
 
     override func updateKeyboardConstraints() {
         buttonsBottomConstraint.constant = buttonsBottomConstraintConstant
