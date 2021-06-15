@@ -26,10 +26,10 @@ final class ZeroScreenViewController: UIViewController {
 
     // MARK: - IBOutlet
 
-    @IBOutlet private weak var errorImageView: UIImageView!
-    @IBOutlet private weak var mainLabel: UILabel!
-    @IBOutlet private weak var secondaryLabel: UILabel!
-    @IBOutlet private weak var actionButton: UIButton!
+    @IBOutlet private var errorImageView: UIImageView!
+    @IBOutlet private var mainLabel: UILabel!
+    @IBOutlet private var secondaryLabel: UILabel!
+    @IBOutlet private var actionButton: UIButton!
 
     // MARK: - UIViewController
 

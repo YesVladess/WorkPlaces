@@ -53,4 +53,6 @@ final class ServiceLayer {
 
     private(set) lazy var profileService: ProfileServiceProtocol = ProfileService(apiClient: apiClient)
 
+    private(set) lazy var searchService: SearchServiceProtocol = SearchService(apiClient: apiClient)
+
 }

@@ -9,8 +9,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FeedViewController" customModule="Workplaces" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchViewController" customModule="Workplaces" customModuleProvider="target">
             <connections>
+                <outlet property="searchTableView" destination="yjX-eL-Yju" id="DpT-Qg-W1z"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,7 +20,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AKc-5j-dh8">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yjX-eL-Yju">
                     <rect key="frame" x="20" y="52" width="374" height="802"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
@@ -27,13 +28,13 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="AKc-5j-dh8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="0cJ-XA-cDq"/>
-                <constraint firstAttribute="trailingMargin" secondItem="AKc-5j-dh8" secondAttribute="trailing" id="5UI-1A-1NJ"/>
-                <constraint firstItem="AKc-5j-dh8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" id="M4O-FY-LcV"/>
-                <constraint firstAttribute="bottomMargin" secondItem="AKc-5j-dh8" secondAttribute="bottom" id="RNX-XM-lOG"/>
+                <constraint firstItem="yjX-eL-Yju" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" id="0Dk-wj-KLz"/>
+                <constraint firstAttribute="trailingMargin" secondItem="yjX-eL-Yju" secondAttribute="trailing" id="3IW-xU-Tvw"/>
+                <constraint firstAttribute="bottomMargin" secondItem="yjX-eL-Yju" secondAttribute="bottom" id="G7d-Kp-hS7"/>
+                <constraint firstAttribute="leadingMargin" secondItem="yjX-eL-Yju" secondAttribute="leading" id="rgW-R3-oTa"/>
             </constraints>
-            <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
-            <point key="canvasLocation" x="109" y="94"/>
+            <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="16" bottom="8" trailing="16"/>
+            <point key="canvasLocation" x="61" y="94"/>
         </view>
     </objects>
     <resources>

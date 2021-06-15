@@ -12,7 +12,7 @@ protocol SignUpNavigationDelegate: AnyObject {
     func signUpPassed(refreshToken: String)
 }
 
-final class SignUpViewController: BaseViewController {
+final class SignUpViewController: KeyboardViewController {
 
     // MARK: - Public Properties
 
@@ -98,7 +98,7 @@ final class SignUpViewController: BaseViewController {
     }
 
     private func showErrorAnimation() {
-        guard let secondStepViewController = get(child: SignUpSecondStepViewController()) else {
+        guard let secondStepViewController = get(child: SignUpSecondStepViewController.self) else {
             return
         }
         secondStepViewController.showErrorAnimation()
@@ -106,13 +106,13 @@ final class SignUpViewController: BaseViewController {
 
     private func validateStep() {
         if isFirstStep {
-            guard let firstStepViewController = get(child: SignUpFirstStepViewController()) else { return }
+            guard let firstStepViewController = get(child: SignUpFirstStepViewController.self) else { return }
             guard let resultTuple = firstStepViewController.getData() else { return }
             email = resultTuple.email
             password = resultTuple.password
             configureSecondStep()
         } else {
-            guard let secondStepViewController = get(child: SignUpSecondStepViewController()) else { return }
+            guard let secondStepViewController = get(child: SignUpSecondStepViewController.self) else { return }
             guard let resultTuple = secondStepViewController.getData() else { return }
             let nickname = resultTuple.nickname
             let name = resultTuple.name

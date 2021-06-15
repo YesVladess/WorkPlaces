@@ -7,7 +7,11 @@
 
 import UIKit
 
-final class FeedViewController: UIViewController {
+final class FeedViewController: UIViewController, CanShowSpinner {
+
+    // MARK: - Public Properties
+
+    var spinner: SpinnerView = SpinnerView(style: .large)
 
     // MARK: - Private Properties
 
@@ -31,17 +35,25 @@ final class FeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Популярное"
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
         getFeed()
     }
 
     // MARK: - Private Methods
 
     private func getFeed() {
+        checkForZeroScreen()
+        showSpinner()
         feedService.getFeed(completion: { [weak self] result in
             switch result {
             case .success(let result):
                 if result.isEmpty { self?.showEmptyFeed() } else {
                     // self?.showFeed(posts: result)
+                    self?.hideSpinner()
                 }
             case.failure:
                 self?.showFeedError()
@@ -54,10 +66,13 @@ final class FeedViewController: UIViewController {
             withModel: .getEmptyModel(
                 secondaryLabelTitle: "Вам нужны друзья, чтобы лента стала живой",
                 actionButtonLabelTitle: "Найти друзей",
-                action: { [weak self] in self?.navigateToSearchScreen() }
+                action: { [weak self] in
+                    self?.navigateToSearchScreen()
+                }
             )
         )
-        add(child: zeroScreen)
+        addFullScreen(child: zeroScreen)
+        hideSpinner()
     }
 
     private func showFeedError() {
@@ -65,21 +80,32 @@ final class FeedViewController: UIViewController {
             withModel: .getErrorModel(
                 secondaryLabelTitle: "Что то пошло не так",
                 actionButtonLabelTitle: "Обновить",
-                action: { [weak self] in self?.getFeed() }
+                action: { [weak self] in
+                    self?.getFeed()
+                }
             )
         )
-        add(child: zeroScreen)
+        addFullScreen(child: zeroScreen)
     }
+
+    private func checkForZeroScreen() {
+        if isViewControllerPresentAsChild(viewControllerType: ZeroScreenViewController.self) {
+            if let zeroViewController = get(child: ZeroScreenViewController.self) {
+                remove(child: zeroViewController)
+            }
+        }
+    }
+
+    //    private func showFeed(posts: [Post]) {
+    //
+    //    }
 
     // MARK: - Navigate
 
     private func navigateToSearchScreen() {
         let searchViewController = SearchViewController()
         navigationController?.pushViewController(searchViewController, animated: true)
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
-
-    //    private func showFeed(posts: [Post]) {
-    //
-    //    }
 
 }

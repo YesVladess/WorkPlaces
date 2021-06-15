@@ -13,7 +13,7 @@ protocol ProfileTabViewControllerDelegate: AnyObject {
     func friendTapped()
 }
 
-class ProfileTabViewController: UIViewController {
+final class ProfileTabViewController: UIViewController {
 
     weak var delegate: ProfileTabViewControllerDelegate?
 
@@ -22,7 +22,7 @@ class ProfileTabViewController: UIViewController {
         view.backgroundColor = .green
     }
 
-    @IBOutlet private weak var segmentedControl: UISegmentedControl!
+    @IBOutlet private var segmentedControl: UISegmentedControl!
 
     @IBAction private func indexChanged(_ sender: Any) {
         switch segmentedControl.selectedSegmentIndex {

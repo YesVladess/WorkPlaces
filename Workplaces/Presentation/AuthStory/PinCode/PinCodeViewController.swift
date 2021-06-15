@@ -13,7 +13,7 @@ protocol PinCodeViewControllerNavigationDelegate: AnyObject {
     func resetPinCode()
 }
 
-final class PinCodeViewController: BaseViewController {
+final class PinCodeViewController: KeyboardViewController {
 
     // MARK: - Public Properties
 
@@ -59,7 +59,7 @@ final class PinCodeViewController: BaseViewController {
 
     // MARK: - IBOutlet
 
-    @IBOutlet private weak var pinCodeTextField: UITextField!
+    @IBOutlet private var pinCodeTextField: UITextField!
 
     // MARK: - IBAction
     @IBAction private func secondaryButtonTapped(_ sender: Any) {

@@ -12,7 +12,7 @@ public protocol CanShowKeyboard {
     func updateKeyboardConstraints()
 }
 
-class BaseViewController: UIViewController, CanShowKeyboard, CanShowSpinner {
+class KeyboardViewController: UIViewController, CanShowKeyboard, CanShowSpinner {
 
     // MARK: - Public Properites
 
@@ -69,7 +69,7 @@ class BaseViewController: UIViewController, CanShowKeyboard, CanShowSpinner {
 
 }
 
-extension BaseViewController {
+extension KeyboardViewController {
 
     func animateWithKeyboard(
         notification: NSNotification,

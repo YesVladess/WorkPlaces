@@ -30,7 +30,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="k1f-vg-nmm">
-                    <rect key="frame" x="60" y="111" width="200" height="346"/>
+                    <rect key="frame" x="60" y="115.5" width="200" height="337"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="k7T-3u-ecp">
                             <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
@@ -40,19 +40,19 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MainLabel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6AN-sC-rzd">
-                            <rect key="frame" x="0.0" y="215" width="200" height="47"/>
+                            <rect key="frame" x="0.0" y="215" width="200" height="42"/>
                             <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="36"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SecondaryLabel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x9M-bZ-Cos">
-                            <rect key="frame" x="0.0" y="277" width="200" height="21"/>
+                            <rect key="frame" x="0.0" y="272" width="200" height="19"/>
                             <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
                             <color key="textColor" name="middle_grey"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z6s-yF-KOa">
-                            <rect key="frame" x="0.0" y="313" width="200" height="33"/>
+                            <rect key="frame" x="0.0" y="306" width="200" height="31"/>
                             <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
                             <color key="tintColor" name="orange"/>
                             <state key="normal" title="ActionButton"/>
@@ -73,8 +73,8 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="k1f-vg-nmm" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerYWithinMargins" id="gsO-TR-l1m"/>
-                <constraint firstItem="k1f-vg-nmm" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerXWithinMargins" id="wEf-5a-7Fw"/>
+                <constraint firstItem="k1f-vg-nmm" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="gsO-TR-l1m"/>
+                <constraint firstItem="k1f-vg-nmm" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="wEf-5a-7Fw"/>
             </constraints>
             <point key="canvasLocation" x="-43.478260869565219" y="133.92857142857142"/>
         </view>

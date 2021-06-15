@@ -9,7 +9,7 @@ import UIKit
 
 final class ProfileCoordinatingViewController: UIViewController {
 
-    @IBOutlet private weak var stackView: UIStackView!
+    @IBOutlet private var stackView: UIStackView!
     // MARK: - Private Properties
 
     private let profileService: ProfileServiceProtocol

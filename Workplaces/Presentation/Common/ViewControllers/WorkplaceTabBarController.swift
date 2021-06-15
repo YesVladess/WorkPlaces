@@ -46,7 +46,7 @@ final class WorkplaceTabBarController: UITabBarController {
 
     private func configureTabs() {
 
-        let feedViewController = UINavigationController(rootViewController: FeedViewController())
+        let feedViewController = WorkplacesNavigationController(rootViewController: FeedViewController())
         feedViewController.setNavigationBarHidden(true, animated: true)
         feedViewController.tabBarItem = UITabBarItem(
             title: "Мой Фид",
@@ -54,7 +54,7 @@ final class WorkplaceTabBarController: UITabBarController {
             selectedImage: #imageLiteral(resourceName: "homeActive")
         )
 
-        let newPostViewController = UINavigationController(rootViewController: NewPostViewController())
+        let newPostViewController = WorkplacesNavigationController(rootViewController: NewPostViewController())
         newPostViewController.tabBarItem = UITabBarItem(
             title: "Пост",
             image: #imageLiteral(resourceName: "newPostDefault"),
@@ -63,7 +63,9 @@ final class WorkplaceTabBarController: UITabBarController {
 
         let profileCoordinatingViewController = ProfileCoordinatingViewController()
         profileCoordinatingViewController.navigationItem.rightBarButtonItem = setupExitButton()
-        let profileViewController = UINavigationController(rootViewController: profileCoordinatingViewController)
+        let profileViewController = WorkplacesNavigationController(
+            rootViewController: profileCoordinatingViewController
+        )
         profileViewController.setNavigationBarHidden(false, animated: true)
         profileViewController.tabBarItem = UITabBarItem(
             title: "Профиль",

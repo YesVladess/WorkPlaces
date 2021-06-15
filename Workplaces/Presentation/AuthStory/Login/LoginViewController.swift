@@ -13,11 +13,12 @@ protocol LoginViewControllerNavigationDelegate: AnyObject {
     func authPassed()
 }
 
-final class LoginViewController: BaseViewController {
+final class LoginViewController: UIViewController, CanShowSpinner {
 
     // MARK: - Public Properties
 
     weak var navigationDelegate: LoginViewControllerNavigationDelegate?
+    var spinner: SpinnerView = SpinnerView(style: .large)
 
     // MARK: - Private Properties
 
@@ -46,11 +47,11 @@ final class LoginViewController: BaseViewController {
 
     // MARK: - IBOutlet
 
-    @IBOutlet private weak var imageView: UIImageView!
-    @IBOutlet private weak var primaryButton: PrimaryButton!
-    @IBOutlet private weak var fbButton: UIButton!
-    @IBOutlet private weak var vkButton: UIButton!
-    @IBOutlet private weak var googleButton: UIButton!
+    @IBOutlet private var imageView: UIImageView!
+    @IBOutlet private var primaryButton: PrimaryButton!
+    @IBOutlet private var fbButton: UIButton!
+    @IBOutlet private var vkButton: UIButton!
+    @IBOutlet private var googleButton: UIButton!
 
     // MARK: - IBActions
 

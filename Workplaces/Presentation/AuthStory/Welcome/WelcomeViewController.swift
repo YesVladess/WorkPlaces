@@ -15,7 +15,7 @@ final class WelcomeViewController: UIViewController {
 
     weak var navigationDelegate: WelcomeViewControllerNavigationDelegate?
 
-    @IBOutlet private weak var primaryButton: PrimaryButton!
+    @IBOutlet private var primaryButton: PrimaryButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
