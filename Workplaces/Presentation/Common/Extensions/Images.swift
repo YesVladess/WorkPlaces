@@ -13,5 +13,6 @@ struct Images {
     static let welcomeScreenImage = #imageLiteral(resourceName: "Illustration_02")
     static let emptyImage = #imageLiteral(resourceName: "Illustration_04")
     static let errorImage = #imageLiteral(resourceName: "Illustartion_03")
+    static let avatarPlaceHolder = #imageLiteral(resourceName: "avatar")
 
 }

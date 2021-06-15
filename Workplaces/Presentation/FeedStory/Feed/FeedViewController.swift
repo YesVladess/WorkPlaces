@@ -37,8 +37,8 @@ final class FeedViewController: UIViewController, CanShowSpinner {
         title = "Популярное"
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
 
         getFeed()
     }
@@ -46,7 +46,7 @@ final class FeedViewController: UIViewController, CanShowSpinner {
     // MARK: - Private Methods
 
     private func getFeed() {
-        checkForZeroScreen()
+        removeZeroScreenIfPresent()
         showSpinner()
         feedService.getFeed(completion: { [weak self] result in
             switch result {
@@ -66,9 +66,7 @@ final class FeedViewController: UIViewController, CanShowSpinner {
             withModel: .getEmptyModel(
                 secondaryLabelTitle: "Вам нужны друзья, чтобы лента стала живой",
                 actionButtonLabelTitle: "Найти друзей",
-                action: { [weak self] in
-                    self?.navigateToSearchScreen()
-                }
+                action: { [weak self] in self?.navigateToSearchScreen() }
             )
         )
         addFullScreen(child: zeroScreen)
@@ -86,14 +84,6 @@ final class FeedViewController: UIViewController, CanShowSpinner {
             )
         )
         addFullScreen(child: zeroScreen)
-    }
-
-    private func checkForZeroScreen() {
-        if isViewControllerPresentAsChild(viewControllerType: ZeroScreenViewController.self) {
-            if let zeroViewController = get(child: ZeroScreenViewController.self) {
-                remove(child: zeroViewController)
-            }
-        }
     }
 
     //    private func showFeed(posts: [Post]) {

@@ -11,6 +11,7 @@ target 'Workplaces' do
 	pod 'GoogleSignIn'
 	pod 'VK-ios-sdk'
 	pod 'FBSDKLoginKit'
+  pod 'Kingfisher'
 
   target 'WorkplacesTests' do
     inherit! :search_paths

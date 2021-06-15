@@ -21,17 +21,17 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="yjX-eL-Yju">
-                    <rect key="frame" x="20" y="52" width="374" height="802"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="yjX-eL-Yju" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" id="0Dk-wj-KLz"/>
-                <constraint firstAttribute="trailingMargin" secondItem="yjX-eL-Yju" secondAttribute="trailing" id="3IW-xU-Tvw"/>
-                <constraint firstAttribute="bottomMargin" secondItem="yjX-eL-Yju" secondAttribute="bottom" id="G7d-Kp-hS7"/>
-                <constraint firstAttribute="leadingMargin" secondItem="yjX-eL-Yju" secondAttribute="leading" id="rgW-R3-oTa"/>
+                <constraint firstAttribute="trailing" secondItem="yjX-eL-Yju" secondAttribute="trailing" id="5dw-Bn-oNJ"/>
+                <constraint firstItem="yjX-eL-Yju" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="TGj-PE-qUp"/>
+                <constraint firstItem="yjX-eL-Yju" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="m2C-Fa-J21"/>
+                <constraint firstAttribute="bottom" secondItem="yjX-eL-Yju" secondAttribute="bottom" id="wsd-BZ-FhB"/>
             </constraints>
             <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="16" bottom="8" trailing="16"/>
             <point key="canvasLocation" x="61" y="94"/>

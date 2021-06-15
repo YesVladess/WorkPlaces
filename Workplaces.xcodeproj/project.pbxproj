@@ -107,6 +107,10 @@
 		5A9E1DFA2677F648006CDE13 /* SearchServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9E1DF92677F648006CDE13 /* SearchServiceProtocol.swift */; };
 		5A9E1DFC26780058006CDE13 /* SearchPostEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9E1DFB26780058006CDE13 /* SearchPostEndpoint.swift */; };
 		5A9E1E02267827A7006CDE13 /* WorkplacesNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9E1E01267827A7006CDE13 /* WorkplacesNavigationController.swift */; };
+		5A9E1E042678E12F006CDE13 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9E1E032678E12F006CDE13 /* UIViewController.swift */; };
+		5A9E1E072678E577006CDE13 /* EmptyFriendListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9E1E052678E577006CDE13 /* EmptyFriendListTableViewCell.swift */; };
+		5A9E1E082678E577006CDE13 /* EmptyFriendListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5A9E1E062678E577006CDE13 /* EmptyFriendListTableViewCell.xib */; };
+		5A9E1E0A2678F9CC006CDE13 /* SearchTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A9E1E092678F9CC006CDE13 /* SearchTableViewDataSource.swift */; };
 		5AD464C12654598200DD7D3C /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD464C02654598200DD7D3C /* UIView.swift */; };
 		5AD464C4265478D000DD7D3C /* SeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD464C3265478D000DD7D3C /* SeparatorView.swift */; };
 		5AD464C6265E834200DD7D3C /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AD464C5265E834200DD7D3C /* KeyboardViewController.swift */; };
@@ -281,6 +285,10 @@
 		5A9E1DF92677F648006CDE13 /* SearchServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchServiceProtocol.swift; sourceTree = "<group>"; };
 		5A9E1DFB26780058006CDE13 /* SearchPostEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPostEndpoint.swift; sourceTree = "<group>"; };
 		5A9E1E01267827A7006CDE13 /* WorkplacesNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkplacesNavigationController.swift; sourceTree = "<group>"; };
+		5A9E1E032678E12F006CDE13 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		5A9E1E052678E577006CDE13 /* EmptyFriendListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyFriendListTableViewCell.swift; sourceTree = "<group>"; };
+		5A9E1E062678E577006CDE13 /* EmptyFriendListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyFriendListTableViewCell.xib; sourceTree = "<group>"; };
+		5A9E1E092678F9CC006CDE13 /* SearchTableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewDataSource.swift; sourceTree = "<group>"; };
 		5AD464C02654598200DD7D3C /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		5AD464C3265478D000DD7D3C /* SeparatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatorView.swift; sourceTree = "<group>"; };
 		5AD464C5265E834200DD7D3C /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
@@ -445,6 +453,8 @@
 			children = (
 				5A2E5B0B264A95670071FB84 /* FriendCell.swift */,
 				5A2E5B0C264A95670071FB84 /* FriendCell.xib */,
+				5A9E1E052678E577006CDE13 /* EmptyFriendListTableViewCell.swift */,
+				5A9E1E062678E577006CDE13 /* EmptyFriendListTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -767,6 +777,7 @@
 			children = (
 				5A2E5B01264A8F620071FB84 /* SearchViewController.swift */,
 				5A2E5B02264A8F620071FB84 /* SearchViewController.xib */,
+				5A9E1E092678F9CC006CDE13 /* SearchTableViewDataSource.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -923,6 +934,7 @@
 				5AD464C02654598200DD7D3C /* UIView.swift */,
 				5AD464C5265E834200DD7D3C /* KeyboardViewController.swift */,
 				5AD464C7265E8B9000DD7D3C /* UIViewController + Childs.swift */,
+				5A9E1E032678E12F006CDE13 /* UIViewController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1157,6 +1169,7 @@
 				5A28EBA4262EBF9700DF4CEB /* WelcomeViewController.xib in Resources */,
 				5A2E5B04264A8F620071FB84 /* SearchViewController.xib in Resources */,
 				5ADB2787262DB47400CFC392 /* IBMPlexSans-Regular.ttf in Resources */,
+				5A9E1E082678E577006CDE13 /* EmptyFriendListTableViewCell.xib in Resources */,
 				5A2E5B5B264C01B40071FB84 /* ProfileFeedViewController.xib in Resources */,
 				5A2E5B4A264BEB1C0071FB84 /* ProfileTabViewController.xib in Resources */,
 				5A96F2F6262E392D006BD8C9 /* LoginViewController.xib in Resources */,
@@ -1391,9 +1404,11 @@
 				5A96F32F262EB76B006BD8C9 /* SignInViewController.swift in Sources */,
 				5A451233263895BA00D435CD /* AccessTokenStorage.swift in Sources */,
 				5AD464C6265E834200DD7D3C /* KeyboardViewController.swift in Sources */,
+				5A9E1E0A2678F9CC006CDE13 /* SearchTableViewDataSource.swift in Sources */,
 				5A3278262670F99D0046A893 /* KeychainStorage.swift in Sources */,
 				5A45113C26383F9000D435CD /* ApiService.swift in Sources */,
 				5ADB27DE262E1B2800CFC392 /* ZeroScreenViewController.swift in Sources */,
+				5A9E1E072678E577006CDE13 /* EmptyFriendListTableViewCell.swift in Sources */,
 				5AD464C8265E8B9000DD7D3C /* UIViewController + Childs.swift in Sources */,
 				5ADB26B0262B8F7000CFC392 /* LoginViewController.swift in Sources */,
 				5A96F314262E4603006BD8C9 /* SpinnerView.swift in Sources */,
@@ -1401,6 +1416,7 @@
 				5ADB26AC262B8F7000CFC392 /* AppDelegate.swift in Sources */,
 				5ADDDF822670B8C600EEAFC7 /* KeychainHelper.swift in Sources */,
 				5ADB26AE262B8F7000CFC392 /* SceneDelegate.swift in Sources */,
+				5A9E1E042678E12F006CDE13 /* UIViewController.swift in Sources */,
 				5A7905E82634BE07008863BB /* CanShowSpinner.swift in Sources */,
 				5A9E1E02267827A7006CDE13 /* WorkplacesNavigationController.swift in Sources */,
 				5A28EBB0262EC91F00DF4CEB /* FeedViewController.swift in Sources */,
