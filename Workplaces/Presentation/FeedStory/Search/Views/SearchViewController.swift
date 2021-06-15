@@ -13,17 +13,17 @@ final class SearchViewController: UIViewController, CanShowSpinner {
 
     var spinner: SpinnerView = SpinnerView(style: .large)
 
-    // MARK: - Private Varibles
+    // MARK: - Private Constants
 
     private let searchService: SearchServiceProtocol
     private let searchController = UISearchController(searchResultsController: nil)
-    private var viewModels: [UserProfile] = [] {
-        didSet {
-            isEmptyList = viewModels.isEmpty
-        }
-    }
-    private var isEmptyList = false
+    private let searchTaskDelayDuration = 0.75
+    private let searchTableViewDataSource = SearchTableViewDataSource()
+
+    // MARK: - Private Variables
+
     private var isSearchBarEmpty: Bool { return searchController.searchBar.text?.isEmpty ?? true }
+    private var searchTask: DispatchWorkItem?
 
     // MARK: - UIViewController
     
@@ -67,26 +67,29 @@ final class SearchViewController: UIViewController, CanShowSpinner {
     }
 
     private func configureTableView() {
-        searchTableView.delegate = self
-        searchTableView.dataSource = self
+        searchTableView.dataSource = self.searchTableViewDataSource
         searchTableView.backgroundColor = .white
-        searchTableView.separatorStyle = .singleLine
+        searchTableView.separatorStyle = .none
         searchTableView.tableFooterView = UIView()
+        searchTableView.reloadData()
     }
 
     // MARK: - Private Methods
 
-    private func filterContentForSearchText(_ searchString: String) {
-        guard !searchString.isEmpty else { return }
-        searchFriends(searchString)
-        searchTableView.reloadData()
-    }
-
     private func searchFriends(_ searchString: String) {
+        removeZeroScreenIfPresent()
+        guard !isSearchBarEmpty else {
+            searchTableViewDataSource.viewModels = []
+            searchTableView.reloadData()
+            return
+        }
+        showSpinner()
         searchService.searchFriends(searchString: searchString, completion: { [weak self] result in
             switch result {
             case .success(let friends):
-                self?.viewModels = friends
+                self?.searchTableViewDataSource.viewModels = friends
+                self?.hideSpinner()
+                self?.searchTableView.reloadData()
             case .failure(_):
                 self?.showError(searchString)
             }
@@ -103,39 +106,22 @@ final class SearchViewController: UIViewController, CanShowSpinner {
             )
         )
         addFullScreen(child: zeroScreen)
+        hideSpinner()
     }
 
 }
 
 extension SearchViewController: UISearchResultsUpdating {
 
-  func updateSearchResults(for searchController: UISearchController) {
-    let searchBar = searchController.searchBar
-    filterContentForSearchText(searchBar.text!)
-  }
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchBar = searchController.searchBar
 
-}
-
-extension SearchViewController: UITableViewDelegate {
-
-}
-
-// TODO: - В отдельный обьект?
-extension SearchViewController: UITableViewDataSource {
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModels.count
-    }
-
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellNib = UINib(nibName: "FriendCell", bundle: Bundle.main)
-        tableView.register(cellNib, forCellReuseIdentifier: "FriendCell")
-
-        let viewModel = viewModels[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FriendCell", for: indexPath) as? FriendCell
-        // Тут настройка ячейки
-        cell?.update(withModel: viewModel)
-        return cell ?? UITableViewCell()
+        self.searchTask?.cancel()
+        let task = DispatchWorkItem { [weak self] in
+            self?.searchFriends(searchBar.text!)
+        }
+        self.searchTask = task
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + searchTaskDelayDuration, execute: task)
     }
 
 }

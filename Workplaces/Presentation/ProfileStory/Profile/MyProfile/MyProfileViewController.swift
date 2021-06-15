@@ -5,6 +5,7 @@
 //  Created by YesVladess on 12.05.2021.
 //
 
+import Kingfisher
 import UIKit
 
 final class MyProfileViewController: UIViewController {
@@ -38,8 +39,11 @@ final class MyProfileViewController: UIViewController {
         let birthDayString = formatter1.string(from: profile.birthDay)
         ageLabel.text = birthDayString
         nameLabel.text = "\(profile.firstName) \(profile.lastName)"
-        // TODO: Добавить загрузку картинки
-        imageView.image = #imageLiteral(resourceName: "Illustration_01")
+        if let url = profile.avatarUrl {
+            imageView.kf.setImage(with: url)
+        } else {
+            imageView.image = Images.avatarPlaceHolder
+        }
     }
 
 }

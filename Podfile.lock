@@ -33,6 +33,9 @@ PODS:
   - GTMSessionFetcher/Core (1.4.0)
   - GTMSessionFetcher/Full (1.4.0):
     - GTMSessionFetcher/Core (= 1.4.0)
+  - Kingfisher (5.13.4):
+    - Kingfisher/Core (= 5.13.4)
+  - Kingfisher/Core (5.13.4)
   - SwiftLint (0.43.1)
   - VK-ios-sdk (1.6.2)
 
@@ -40,6 +43,7 @@ DEPENDENCIES:
   - Apexy (from `https://github.com/RedMadRobot/apexy-ios.git`, branch `master`)
   - FBSDKLoginKit
   - GoogleSignIn
+  - Kingfisher
   - SwiftLint
   - VK-ios-sdk
 
@@ -52,6 +56,7 @@ SPEC REPOS:
     - GoogleSignIn
     - GTMAppAuth
     - GTMSessionFetcher
+    - Kingfisher
     - SwiftLint
     - VK-ios-sdk
 
@@ -74,9 +79,10 @@ SPEC CHECKSUMS:
   GoogleSignIn: 7137d297ddc022a7e0aa4619c86d72c909fa7213
   GTMAppAuth: 197a8dabfea5d665224aa00d17f164fc2248dab9
   GTMSessionFetcher: 6f5c8abbab8a9bce4bb3f057e317728ec6182b10
+  Kingfisher: d2279a7abece3c7f25a80cd2b7f363ca5cf3f44c
   SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
   VK-ios-sdk: 5bcf00a2014a7323f98db9328b603d4f96635caa
 
-PODFILE CHECKSUM: 027f89222af29b464ad4da6b9d29e04e5d65088e
+PODFILE CHECKSUM: 1e91fadcf5bee62cdfa22f235b56961231efa0c3
 
 COCOAPODS: 1.9.3

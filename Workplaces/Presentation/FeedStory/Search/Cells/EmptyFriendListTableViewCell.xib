@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="IBMPlexSans-Regular.ttf">
+            <string>IBMPlexSans</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EmptyFriendListTableViewCell" rowHeight="-83" id="KGk-i7-Jjw" customClass="EmptyFriendListTableViewCell" customModule="Workplaces" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="128"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="128"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Начните вводить имя или никнейм вашего друга" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NG5-8T-EXD">
+                        <rect key="frame" x="50" y="32" width="220" height="64"/>
+                        <fontDescription key="fontDescription" name="IBMPlexSans" family="IBM Plex Sans" pointSize="16"/>
+                        <color key="textColor" name="middle_grey"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="NG5-8T-EXD" secondAttribute="trailing" constant="50" id="UPM-HD-MYU"/>
+                    <constraint firstAttribute="bottom" secondItem="NG5-8T-EXD" secondAttribute="bottom" constant="32" id="gQ4-w7-2vZ"/>
+                    <constraint firstItem="NG5-8T-EXD" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="50" id="k6V-f0-tce"/>
+                    <constraint firstItem="NG5-8T-EXD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="32" id="muc-ba-VTP"/>
+                    <constraint firstItem="NG5-8T-EXD" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="w2d-Te-FCX"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <point key="canvasLocation" x="60.869565217391312" y="158.70535714285714"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="middle_grey">
+            <color red="0.63499999046325684" green="0.67500001192092896" blue="0.75700002908706665" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
